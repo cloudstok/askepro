@@ -14,6 +14,10 @@ import Company from './Pages/Company';
 import Notification from './Components/Notification';
 import { Breadcrumb } from 'semantic-ui-react';
 import Crumb from './Components/Crumb';
+import Login1 from './Components/Login1'; 
+import Login2 from './Components/Login2'; 
+import Login3 from './Components/Login3'; 
+
 
 const App = () => {
   return(
@@ -54,6 +58,15 @@ const App = () => {
         <Company />
         <Crumb />
         <Footer />
+     </Route>
+     <Route exact path='/login1'>  
+       <Login1 />
+     </Route>
+     <Route exact path='/login2'>  
+       <Login2 />
+     </Route>
+     <Route exact path='/login3'>  
+       <Login3 />
      </Route>
      </Switch>
 

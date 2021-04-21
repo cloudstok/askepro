@@ -1,8 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import "./variable";
+
 @mixin  para {
     font-size: 16px;     
     line-height: 1.25;
     font-family: Helvetica;
     color: #000000;
+}
+@mixin form_para{
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    font-stretch: normal;
+    line-height: 20px;
+    color: #000000;
+    
+}
+@mixin  login_property {
+    position: absolute;
+    text-align: center;
+    top:20%;
+    left: 38%;
+    background-color: #ffffff;
+    width: 450px;
+    height: 492px;
+    padding: 30px 50px;
 }
 .about{
     position: relative;
@@ -222,8 +244,101 @@
     }
 }
 
+/* login pages sass */
+.login{
+    position: relative;
+   
 
-@media (max-width: 668px) {
+.login img{
+    background-size: cover;
+    
+    position: relative;
+    
+    width: 100%;
+    z-index: -2;
+}
+.login_form{
+ @include login_property;
+}
+.fgt1{
+    display: inline-block;
+    padding-bottom: 30px;
+    @include form_para;
+
+   
+}
+.fgt2{
+    display: inline-block;
+    padding: 30px 0 30px 0;
+  
+}
+
+& a{    
+    @include form_para;
+} 
+.form-btn{
+  
+    font-family: Lato;
+    width: 100%;
+    height: 40px;
+    padding: 11px 25px;
+    border: 1px solid #000;
+    background: #ffffff;
+    object-fit: contain;
+    border-radius: 20px;
+    color: #000;
+    
+  }
+  .form-btn:hover{
+    background: rgb(199,160,6);
+    background: linear-gradient(90deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%); 
+    color: #000;
+    border: 1px solid #c7a006;
+  }
+  .field{
+     
+      text-align: left;
+     
+  }
+  .check{
+
+    background-color: #f7f7f7;
+    padding: 19px 0 22px 20px;
+  }
+  h3{
+  
+      line-height: 1.21;
+      font-family: Lato;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.21;
+    
+  }
+  
+}
+
+/* login 2 sass */
+    
+    .otp{
+        display: inline-flex;
+    }
+    .login_form2{
+        @include login_property;
+        height: 512px;
+    }
+
+/* login form3  sass */  
+.login_form3{
+    @include login_property;
+    height: 301px;
+.form-btn{
+        margin-top: 31px;
+    }
+}
+
+
+
+@media (max-width: 800px) {
     .contact{
         p{
             
@@ -233,5 +348,27 @@
     .overview{
         
     }
+
     
+    .login .login_form, .login_form2{
+        position: absolute;
+        left: 20%;    
+        
+    }
+    
+  }
+
+
+  @media (max-width: 415px) {
+    .login{
+        position: fixed;
+    }
+   
+    .login .login_form, .login_form2{
+        position: absolute;
+        left: 0%;   
+            
+        
+    }
+
   }
