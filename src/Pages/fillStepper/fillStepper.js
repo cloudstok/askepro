@@ -8,17 +8,13 @@ import Stepper from '../../Component/Stepper/stepper';
 import '../fillStepper/fillStepper.scss';
 
 function FillStepper(){
-    const [name, setName] = ('');
-
-    const OnSubmit = (e) =>{
-        e.preventDefault();
-    }
-
-
         return (
              <main className='fill-main'>
                  <div className='head'>
-                 <BreadCrumbs/>
+                 <BreadCrumbs section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'Apply Now', link:true }
+                 ]}/>
                  <Heading/>
                  </div>
                  <div className='data'>
@@ -43,7 +39,7 @@ function FillStepper(){
                             <Grid.Column>
                             <Form.Field>
                                 <label>Date of Birth</label>
-                                <Input placeholder='Choose date of birth'/>
+                                <Input type='date' placeholder='Choose date of birth'/>
                                 </Form.Field>
                             </Grid.Column>
                             

@@ -9,6 +9,8 @@ import BookAppointment from './Pages/BookAppointment/bookappointment';
 import Payment from './Pages/Payment/payment';
 import {Nav} from './Component/Nav/Nav';
 import BreadCrumbs from './Component/Breadcrumb/breadcrumb';
+import Success from './Pages/SuccessPage/SuccessPage';
+import History from './Pages/History/history';
 function App() {
   return (
       <Router>
@@ -22,6 +24,8 @@ function App() {
             <Route exact path='/upload'><UploadDocuments/></Route>
             <Route exact path='/book'><BookAppointment/></Route>
             <Route exact path='/payment'><Payment/></Route>
+            <Route exact path='/Success'><Success/></Route>
+            <Route exact path='/history'><History/></Route>
           </Switch>
         </div>
       </div>

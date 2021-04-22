@@ -4,10 +4,12 @@
     display: flex !important;
     justify-content: space-around;
     align-items: center;
+    margin-top: 2%;
     padding: 15px 0 0;
     background-color: #fff;
     box-shadow: 0 -4px 15px 0 rgba(172, 172, 172, 0.1) !important;
     grid-area: bar;    
+
     .button{
         width: 140px;
         height: 40px;

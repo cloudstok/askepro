@@ -1,0 +1,84 @@
+@import '/src/Sass/index.scss';
+
+.history-container{
+    padding: 20px 50px;
+
+    h2{
+        font-family: 'Lato' !important;
+        font-size: 18px;
+        &:after{
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            margin: 5px 0 10px;
+            background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+            clip-path: polygon(0 0, 89% 0, 100% 100%, 0% 100%);
+
+        }
+    }
+    th{
+        font-family: 'Lato' !important;
+        color:#9d9494 !important;
+        background-color: #fff !important;
+        padding: 20px !important;
+    }
+    td{
+        padding: 20px !important;
+        font-weight: bold;
+        border: none !important;
+    }
+    tr:nth-child(even)
+    {
+        background-color: rgba(157, 148, 148, 0.05);
+    }
+ .pagination-container{
+    margin: 30px 0 !important;
+    display: flex;
+     justify-content: space-between;
+     align-items: center;
+    label{
+        display: block;
+        font-weight: bold;
+    }
+     .pagination{
+         background-color: none;
+         box-shadow: none;
+         border:none;
+
+         .item{
+             background-color: transparent !important;
+             font-weight:  bold !important;
+             color: #9d9494;
+             &::before{
+                 display: none !important;
+             }
+         }
+        .active{
+            background-color: transparent!important;
+             &:after{
+                 content:'';
+                 position:absolute;
+                 top: 75%;
+                 right: 40%;
+                 width: 8px;
+                 height: 1px;
+                 background-color: black;
+             }
+        }
+        .next, .prev{
+            color: #000 !important;
+           &:after{
+               content:'';
+               position:absolute;
+               top: 75%;
+               right: 22%;
+               width: 36px;
+               height: 1px;
+               background-color: black;
+           }
+        }
+     }
+
+ }   
+}

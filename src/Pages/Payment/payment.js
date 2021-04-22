@@ -10,7 +10,10 @@ const Payment = () =>{
     return (    
         <main className='fill-main'>
         <div className='head'>
-        <BreadCrumbs/>
+        <BreadCrumbs section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'Apply Now', link:true }
+                 ]}/>
         <Heading/>
         </div>
         <div className='data'>
