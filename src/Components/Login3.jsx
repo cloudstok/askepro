@@ -4,14 +4,14 @@ import { Form } from 'semantic-ui-react';
      return (
          <>
          <div
-        className="login"
+        className="loginx"
         style={{
           background: "url(assets/images/login.png)",
           height: "100vh",
           backgroundSize: "cover",
         }}
       >
-                  <Form className="login_form3">
+                  <Form className="loginx_form3">
             <h3>Forgot Password</h3>
           <Form.Field>
             <label>Username</label>

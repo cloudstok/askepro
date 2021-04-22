@@ -4,14 +4,14 @@ const Login1 = () => {
   return (
     <>
       <div
-        className="login"
+        className="loginx"
         style={{
           background: "url(assets/images/login.png)",
           height: "100vh",
           backgroundSize: "cover",
         }}
       >
-        <Form className="login_form">
+        <Form className="loginx_form">
             <h3>Login into your account</h3>
           <Form.Field>
             <label>Username</label>

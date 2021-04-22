@@ -20,7 +20,7 @@
     position: absolute;
     text-align: center;
     top:20%;
-    left: 38%;
+    left: 34.5%;
     background-color: #ffffff;
     width: 450px;
     height: 492px;
@@ -245,11 +245,11 @@
 }
 
 /* login pages sass */
-.login{
+.loginx{
     position: relative;
    
 
-.login img{
+.loginx img{
     background-size: cover;
     
     position: relative;
@@ -257,7 +257,7 @@
     width: 100%;
     z-index: -2;
 }
-.login_form{
+.loginx_form{
  @include login_property;
 }
 .fgt1{
@@ -322,19 +322,77 @@
     .otp{
         display: inline-flex;
     }
-    .login_form2{
+    .loginx_form2{
         @include login_property;
         height: 512px;
     }
 
 /* login form3  sass */  
-.login_form3{
+.loginx_form3{
     @include login_property;
     height: 301px;
 .form-btn{
         margin-top: 31px;
     }
 }
+
+
+/* Account screen sass */
+
+.account {
+
+    h4{
+        font-family: Lato;
+        color: #000000;
+        font-size: 18px;
+        line-height: 1.22;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    img{
+        margin: 0;
+    }
+}
+
+.my_user{
+    display: inline-flex;
+    
+ .user_inner1{
+
+ }
+ & .round{ border: 1px solid #ffffff;
+ border-radius: 50%;
+ outline: 3px solid goldenrod;
+
+ margin: 0 auto;
+ 
+ width: 97px;
+ height: 97px;
+
+}
+
+ .user_inner2{
+
+}
+.user_inner3{
+
+}   
+}
+
+.user_heading{
+    h4{
+        font-family: Lato;
+        color: #000000;
+        font-size: 18px;
+        line-height: 1.22;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    img{
+        margin: 0;
+    }
+}
+
 
 
 
@@ -350,7 +408,7 @@
     }
 
     
-    .login .login_form, .login_form2{
+    .login .login_form, .login_form2, .login_form3{
         position: absolute;
         left: 20%;    
         
@@ -364,11 +422,9 @@
         position: fixed;
     }
    
-    .login .login_form, .login_form2{
+    .login .login_form, .login_form2, .login_form3  {
         position: absolute;
         left: 0%;   
-            
-        
     }
 
   }

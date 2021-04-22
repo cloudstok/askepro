@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, Segment, Container } from "semantic-ui-react";
+import { Grid, Container } from "semantic-ui-react";
 
 const Visa = () => (
   <>
     <Container>
-    <Grid doubling columns={4}> 
+    <Grid stackable columns={4}> 
           <Grid.Column>
             <div className="service-card">
               <img src="assets/images/building.png" />
@@ -107,7 +107,7 @@ const Visa = () => (
           quaerat. Dignissimos odio animi minus deleniti dolorem, in adipisci?
         </p>
 
-        <Grid doubling columns={3}>
+        <Grid stackable columns={3}>
             <Grid.Column>
               <div className="tourist-border">
                 <div className="hours">

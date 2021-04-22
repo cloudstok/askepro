@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 const Home = () => {
   return (
@@ -7,11 +7,11 @@ const Home = () => {
       <main className="wrapper">
         {/* <!-- //second division// --> */}
 
-        <div className="login">
+        <div className="home">
      
   
        
-       <div className="login-content">
+       <div className="home-content">
               
            <h1>Mainland Company Registration in UAE</h1>
            <p>
@@ -26,7 +26,7 @@ const Home = () => {
        
        
          
-         <div className="login-bg">
+         <div className="home-bg">
            <img
              src="/assets/images/login-bg.png" style={{ width:'100%', height:'90vh'}}
            />

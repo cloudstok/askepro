@@ -17,6 +17,7 @@ import Crumb from './Components/Crumb';
 import Login1 from './Components/Login1'; 
 import Login2 from './Components/Login2'; 
 import Login3 from './Components/Login3'; 
+import Account from './Pages/Account';
 
 
 const App = () => {
@@ -67,6 +68,9 @@ const App = () => {
      </Route>
      <Route exact path='/login3'>  
        <Login3 />
+     </Route>
+     <Route exact path='/account'>  
+       <Account />
      </Route>
      </Switch>
 

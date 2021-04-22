@@ -25,7 +25,7 @@ const About = () => {
         <div className="container">
           <h1 className="headingOne">Our Team</h1>
           <img src="assets/images/path.png" />
-          <Grid doubling columns={2}>
+          <Grid stackable columns={2}>
             
               <Grid.Column>
                 <div className="space1">

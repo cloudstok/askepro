@@ -384,13 +384,15 @@ p{
 }
 }
 
-.login{
+.home{
   display: flex;
   width: 100%;
   color: #000000;
-  .login-content{
-    width: 35%;
-    margin: 20px 70px;
+  .home-content{
+    width: 40%;
+    
+    padding: 134px 116px 0 80px
+    
   }
   h1{
     
@@ -408,16 +410,13 @@ p{
     cursor: pointer;
     margin-bottom: 30px;
   }
-  .login-bg{
-    width: 65%;
+  .home-bg{
+    width: 60%;
   }
   img{
     width: 100%;
   }
-  .btn{
-    border: 1px solid red;
-    margin-left: 230px;
-  }
+
 
 }
 

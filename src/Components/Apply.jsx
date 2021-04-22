@@ -19,7 +19,7 @@ const Apply = () => {
         </p>
         </div>
         <Container> 
-        <Grid doubling columns={3}>
+        <Grid stackable columns={3}>
             
             <Grid.Column>
   
@@ -43,7 +43,7 @@ const Apply = () => {
         
         <div className="process">
            
-        <Grid doubling columns={3}>
+        <Grid stackable columns={3}>
                 <Grid.Column>
                 <p className='step_heading'>Step 1 </p>
                 <p>
@@ -79,7 +79,7 @@ const Apply = () => {
       <Container>
           <h1 className="headingOne">Customer Reviews</h1>
           <img className="underline_img" src="assets/images/path.png" />
-          <Grid doubling columns={3}>
+          <Grid stackable columns={3}>
               <Grid.Column>
                 <div className="customer-card">
                   <div className="one">
