@@ -1,0 +1,27 @@
+.button-group{
+    width: 100%;
+    height: 70px  !important;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0 0;
+    background-color: #fff;
+    box-shadow: 0 -4px 15px 0 rgba(172, 172, 172, 0.1) !important;
+    grid-area: bar;    
+    .button{
+        width: 140px;
+        height: 40px;
+        background-color: #fff !important;
+        border-radius: 20px !important;
+        border: solid 1px #000000 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: #000 !important;
+
+        &:hover{
+            border: 1px solid transparent !important;
+            background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+        }
+    }
+}

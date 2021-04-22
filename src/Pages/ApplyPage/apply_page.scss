@@ -1,0 +1,50 @@
+@import '/src/Sass/variabeles.scss';
+@import '/src/Sass/index.scss';
+
+main{
+    width: 100%;
+    height: auto !important;
+
+    .header{
+        text-align: center;
+        
+        &:after{
+            margin-top: 10px !important;
+            margin: 0 auto;
+            content: '';
+            display: block;
+            width: 80px;
+            height: 10px;
+            background: linear-gradient(to top, #c7a006, #e7ed32 50%, #c7a006)  !important;
+        }
+    }
+
+
+    .form{
+        padding: 20px 45px;
+        height: auto !important;
+        
+    .radio{
+        width: 100%;
+        background-color:$white;
+        height: 60px;
+        border: 1px solid #f4f4f4;
+        display: flex !important;
+        align-items: center;
+        margin:0 0 15px;
+
+    input[type="radio"]
+    {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+    }
+        
+        label{
+            font-size: 14px !important;
+            margin-left: 20px;
+                }
+            }
+     }
+}

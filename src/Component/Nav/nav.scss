@@ -1,0 +1,80 @@
+
+header{
+    width: 100% !important;
+nav{
+    display: flex !important; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding:0 50px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+    .nav-brand{
+        padding:8px 0;
+    }
+
+    .btn-group{
+        display: flex;
+        align-self:center;
+        align-items: center;
+
+            .dropdown-btn{
+                width: 146px;
+                height: 40px;
+                font-size: 15px !important;
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                border: 1px solid black;
+                cursor: pointer;
+
+                &:hover{
+                    border:transparent;
+                    background-image: linear-gradient(to right top, #c7a006, #ceae0d, #d5bc14, #dcca1c, #e1d925, #e1d925, #e1d925, #e1d925, #dcca1c, #d5bc14, #ceae0d, #c7a006);    
+               
+                }
+
+                .text{
+                    padding:0 10px;
+                }
+             }
+            .user{
+                font-size: 18px;
+            } 
+            
+        .bell{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px !important;
+            margin:0 30px;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #fff;
+            border: 1px solid black;
+            cursor:pointer;
+            &:hover{
+                border:transparent;
+                background-image: linear-gradient(to right top, #c7a006, #ceae0d, #d5bc14, #dcca1c, #e1d925, #e1d925, #e1d925, #e1d925, #dcca1c, #d5bc14, #ceae0d, #c7a006);    
+           
+            }
+        }
+    }
+    .menu{
+        border:none !important;
+        margin-left: 15% !important;
+        font-family:  'Lato' !important;
+
+        .active{
+        font-size: 15px !important;
+        }
+        .item{
+            margin:0 30px !important;
+            font-size: 15px !important;
+        }
+     }
+    }
+}

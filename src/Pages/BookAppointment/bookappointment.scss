@@ -1,0 +1,31 @@
+.main{
+    width: 100%;
+
+        .header{
+            text-align: center;
+            margin:50px 0 39px !important;
+            
+            &:after{
+                margin-top: 10px !important;
+                margin: 0 auto;
+                content: '';
+                display: block;
+                width: 80px;
+                height: 10px;
+                background: linear-gradient(to top, #c7a006, #e7ed32 50%, #c7a006)  !important;
+            }
+        }
+        .book-form{
+            background-color: #fff;
+            font-family: 'Lato' !important;
+            height: 35vh;
+
+            label{
+                display: block;
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 7px;
+          }
+            
+        }
+}

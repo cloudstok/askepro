@@ -1,0 +1,36 @@
+.fill-main{
+    width: 100%;
+    height: 100vh;
+    display: grid !important;
+    grid-template-areas:'head head head'
+                        'form form form'
+                        'bar bar bar';
+
+        .head{
+            grid-area: head;
+        }
+        .data{
+            margin: 0 8% 5% 8%;
+            grid-area: form;
+            display: flex;
+        }
+    .form{
+        background-color: #fff;
+        padding:30px 100px;
+        font-family: 'Lato' !important;
+
+        label{
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+         .input, .selection{
+            width: 95%;
+            height: 40px !important;
+            margin-bottom: 20px !important;
+        }
+
+    }
+
+}
