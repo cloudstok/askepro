@@ -70,6 +70,7 @@ const App = () => {
        <Login3 />
      </Route>
      <Route exact path='/account'>  
+     <Header />
        <Account />
      </Route>
      </Switch>

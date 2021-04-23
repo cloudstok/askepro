@@ -356,29 +356,65 @@
 
 .my_user{
     display: inline-flex;
-    
+    padding: 20px;
+
+    h6{
+        color: #707070;
+        font-size: 16px;
+        line-height: 1.19;
+        font-weight: 500;
+    }
+    p{
+
+    }
  .user_inner1{
 
  }
  & .round{ border: 1px solid #ffffff;
  border-radius: 50%;
  outline: 3px solid goldenrod;
-
- margin: 0 auto;
- 
+ margin-right: 30px;
  width: 97px;
  height: 97px;
-
 }
 
  .user_inner2{
-
+     h6{
+        color: #707070;
+        line-height: 1.19;
+        font-size: 16px;
+        font-weight: 500;
+     }
+    p{  
+        line-height: 1.19;
+        font-size: 16px;
+        font-weight: 500;
+    }
 }
 .user_inner3{
+    h6{
+        margin-left: 50px;
+        color: #707070;
+        line-height: 1.19;
+        font-size: 16px;
+        font-weight: 500;
+    
+    }
 
+    p{
+        margin-left: 50px;
+        line-height: 1.19;
+        font-size: 16px;
+        font-weight: 500;
+    }
 }   
 }
 
+.account_carousel{
+   background-color: #000;
+   width: auto;
+   height: 194px;
+}
 .user_heading{
     h4{
         font-family: Lato;
@@ -394,12 +430,125 @@
 }
 
 
-
-
+.appoint{
+    display: flex;
+    
+    .date{
+        border-radius: 5px;
+        background-color: #f7f7f7;
+        display: block;
+        width: 77px;
+        margin-right: 10px;
+        height: 70px;
+     
+    }
+    .jan{
+        font-size: 12px;
+        line-height: 1.25;
+        font-weight: 500;
+       display: flex;
+        padding: 9px 18px;
+    }
+    .number{
+        font-size: 30px;
+        line-height: 1.2;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 9px 21px;
+    }
+    .nov{
+        font-size: 12px;
+        line-height: 1.25;
+        font-weight: 500;
+       display: flex;
+        padding: 9px 18px;
+        color: #9d9494;
+    }
+    .number2{
+        font-size: 30px;
+        line-height: 1.2;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 9px 21px;
+        color: #9d9494;
+    }
+    
+    .first_info{
+        background-color: red;
+        padding: 2px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: #9d9494;
+        background: #f7f7f7;
+        border-radius: 20px;
+    }
+    .done_info{
+        background: $primary-color;
+        background-image: $gradient;
+        padding: 2px 12px;;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: #000000;
+        border-radius: 20px;
+        
+    }
+    p{
+        font-size: 14px;
+        line-height: 1.21;
+        font-weight: 500;
+        color: #000000;
+        text-align: left;
+        padding-right: 1rem;
+        margin-top: 12px;
+    }
+    .minute{
+        color: #9d9494;
+        line-height: 1.21;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+.history{
+    text-align: center;
+}
+.circle_btn{
+    display: flex;
+    justify-content:center;
+}
+.hello{
+    color:red;
+}
+.status{
+    background-color: #daf5da;
+    padding: 1px 12px;
+   color: #0cbe0c;
+   border-radius: 20px;
+}
+.account-btn{
+  
+    font-family: Lato;
+    width: 176px;
+    height: 40px;
+    padding: 11px 20px;
+    border: 1px solid #000;
+    background: #ffffff;
+    object-fit: contain;
+    border-radius: 20px;
+    color: #000;
+    
+  }
+  .account-btn:hover{
+    background: rgb(199,160,6);
+    background: linear-gradient(90deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%); 
+    color: #000;
+    border: 1px solid #c7a006;
+  }
+  
 @media (max-width: 800px) {
     .contact{
         p{
-            
             padding: 20px 0;
         }
     }
