@@ -31,7 +31,7 @@ const Success = () =>{
                 </p>
                 </div>
                 <Divider/>
-                <Grid columns='2' stackable='tablet' >
+                <Grid columns='2' stackable='mobile' >
                 <Grid.Row>
                 <Grid.Column>
                 <h3>Company Formation Services</h3>
@@ -87,7 +87,7 @@ const Success = () =>{
                 </Grid>
                 </div>
                 <div className='bottom-btn'>
-                 <Button className='btn history'>History</Button>
+                 <Button className='btn download'>Download Reciept</Button>
                  <Button className='btn home'>Go To Home</Button>
                 </div>
                 </Container>     

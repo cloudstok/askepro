@@ -13,8 +13,8 @@ const History = () =>{
             ]}/>
             <div className='history-container'>
             <h2>History</h2>
-            <Container fluid unstackable>
-            <Table striped unstackable>
+            <Container fluid>
+            <Table striped stackable='tablet'>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Date</Table.HeaderCell>
@@ -24,6 +24,7 @@ const History = () =>{
         <Table.HeaderCell>Status</Table.HeaderCell>
         <Table.HeaderCell>Mode</Table.HeaderCell>
         <Table.HeaderCell textAlign='right'>Amount(AED)</Table.HeaderCell>
+        <Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
@@ -35,6 +36,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -44,6 +46,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row >
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -53,6 +56,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Pending"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -62,6 +66,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="In-process"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -71,6 +76,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -80,6 +86,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -89,6 +96,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="In-process"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -98,6 +106,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Pending"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -107,6 +116,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>22/01/2021</Table.Cell>
@@ -116,6 +126,7 @@ const History = () =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
       </Table.Row>
     </Table.Body>
  </Table>

@@ -1,20 +1,29 @@
-@import '/src/Sass/variabeles.scss';
+@import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
 
 .stepper-container{
     border:1px solid $border-color;
+    background-color: $white;
     
     .stepper{
         display: flex !important;
         justify-content: center;
+
+        @include tablet{
+            flex-direction: column; 
+            align-items: stretch;
+            padding:0px;
+          }
         padding: 25px 0 10px;
-        
         
         .active{ 
             background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
         }
             
         .step{
+            @include tablet{
+                border-bottom: 1px solid $border-color !important;
+            }
             font-family: 'Lato';
             text-align: center !important;
 

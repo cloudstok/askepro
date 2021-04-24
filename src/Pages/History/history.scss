@@ -1,38 +1,48 @@
 @import '/src/Sass/index.scss';
-
+@import '/src/Sass//variables.scss';
 .history-container{
     padding: 20px 50px;
 
     h2{
         font-family: 'Lato' !important;
         font-size: 18px;
+     
         &:after{
             content: '';
             display: block;
             width: 120px;
             height: 4px;
             margin: 5px 0 10px;
-            background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
-            clip-path: polygon(0 0, 89% 0, 100% 100%, 0% 100%);
+            background: $hover-color;            
+            clip-path: polygon(0 0, 87% 0, 100% 100%, 0% 100%);
 
         }
     }
     th{
         font-family: 'Lato' !important;
-        color:#9d9494 !important;
+        color:$disabled-color !important;
         background-color: #fff !important;
         padding: 20px !important;
+        font-weight: 500 !important;
     }
     td{
         padding: 20px !important;
-        font-weight: bold;
+        font-weight: 500;
         border: none !important;
+    }
+    .view{
+        a{    
+        font-weight: bold;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        color:black !important;
+        }
     }
     tr:nth-child(even)
     {
         background-color: rgba(157, 148, 148, 0.05);
     }
- .pagination-container{
+    .pagination-container{
     margin: 30px 0 !important;
     display: flex;
      justify-content: space-between;
@@ -49,7 +59,7 @@
          .item{
              background-color: transparent !important;
              font-weight:  bold !important;
-             color: #9d9494;
+             color: $disabled-color;
              &::before{
                  display: none !important;
              }

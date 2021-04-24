@@ -1,4 +1,4 @@
-
+@import '/src/Sass/variables.scss';
 header{
     width: 100% !important;
 nav{
@@ -8,6 +8,13 @@ nav{
     background-color: #fff;
     padding:0 50px;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+        @include mobile{
+            width: -200px;
+        }
+        @include tablet{
+            display: none !important;
+        }
 
     .nav-brand{
         padding:8px 0;

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../BookAppointment/bookappointment.scss';
-import {Header, Divider, Container, Grid, Form, Select, Input} from 'semantic-ui-react';
+import {Header, Divider, Container, Grid, Form, Select, Input, Label} from 'semantic-ui-react';
 import Stepper from '../../Component/Stepper/stepper';
 import '../BookAppointment/bookappointment.scss';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
@@ -22,24 +22,13 @@ const BookAppointment = () =>{
                 <Stepper/>
                 <Divider/>
                 <div className="form">
-                    <Grid centered stackable='mobile'>
+                    <Grid stackable='mobile' centered columns='1'>
                     <Grid.Row>
-                    <Grid.Column width='7'>
-                            <Form.Field>
-                                <label>Choose your preferred Date</label>
-                                <Input type='date' placeholder='Choose date'/>
-                                </Form.Field>
-                            </Grid.Column>
+                    <Grid.Column>
+                        <label>Choose your preferred date</label>
+                        </Grid.Column>                           
                     </Grid.Row>
-                        <Grid.Row>
-                            <Grid.Column width='7'>
-                            <Form.Field>
-                                <label>Choose time</label>
-                                <Select placeholder='Choose from available time slots' />
-                                </Form.Field>
-                            </Grid.Column>
-                      </Grid.Row>      
-                    </Grid>
+                </Grid>
                 </div>
                 </Container>
                 <DataCard/>

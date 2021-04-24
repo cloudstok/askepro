@@ -1,0 +1,75 @@
+@import '/src/Sass/index.scss';
+@import '/src/Sass/variables.scss';
+
+.fill-main{   
+    
+        .data{
+            padding:0 50px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            @include tablet{
+                flex-direction: column !important;
+                align-items: stretch;
+            }
+
+        }
+
+    .form{        
+        background-color: #fff;
+        padding:30px 80px;
+        font-family: 'Lato' !important;
+
+            @include laptop{
+                padding:30px !important; 
+            }
+
+        .message{
+            background-color: rgba($red, 0.15) !important;
+            color:$red;
+            padding:15px 15px 8px;
+            margin-bottom: 30px !important;
+            display: flex;            
+            display: none;
+            .close{
+                @include flex;
+                width: 22px;
+                height: 22px;
+                border-radius: 4px;
+                margin-right: 10px;
+                border: 1.3px solid #e5181a;
+            }
+            .alert{
+                font-weight: 500;
+            }
+        }
+        label{
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+         .input, .selection{
+            width: 95%;
+            height: 40px !important;
+            margin-bottom: 20px !important;
+
+        }
+        .outline{
+            color:$black !important;
+            font-size: 20px;
+        }
+        .radio-group{
+            
+            .radio-item{
+             border: none;
+             padding: 0px !important;
+             margin-bottom:20px;
+             width: auto;
+             height: auto;
+            }
+        }
+
+    }
+}

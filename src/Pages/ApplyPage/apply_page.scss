@@ -1,25 +1,8 @@
-@import '/src/Sass/variabeles.scss';
+@import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
 
 main{
     width: 100%;
-
-    .header{
-        text-align: center;
-        
-        &:after{
-            margin-top: 10px !important;
-            margin: 0 auto;
-            content: '';
-            display: block;
-            width: 80px;
-            height: 10px;
-            background: linear-gradient(to top, #c7a006, #e7ed32 50%, #c7a006)  !important;
-            clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
-
-        }
-    }
-
 
     .form{
         padding: 20px 45px;
@@ -32,17 +15,15 @@ main{
         border: 1px solid #f4f4f4;
         display: flex !important;
         align-items: center;
-        margin:0 0 15px;
+        padding-top: 8px;
 
     input[type="radio"]
     {
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-
+        @include flex;    
     }
         
         label{
+        font-weight: normal;
             font-size: 14px !important;
             margin-left: 20px;
                 }

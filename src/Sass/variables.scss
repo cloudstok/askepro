@@ -1,0 +1,39 @@
+//colors
+$border-color: #e6e6e6;
+$white:#fff;
+$disabled-color: #9d9494;
+$hover-color: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+$black: #000;
+$white: #fff;
+$red:#e5181a;
+//borders
+$simple-border: solid 1px #000000 !important;
+
+
+//Flex
+@mixin flex{
+    display: flex !important;
+    justify-content:  center;
+    align-items: center;
+}
+
+//Media Queries 
+
+@mixin mobile{
+    @media only screen and (min-width:320px) and (max-width:480px){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media only screen and (max-width:768px){
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media only screen and (max-width:1200)
+    {
+            @content;
+    }
+}

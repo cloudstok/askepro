@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
 import ApplyStepper from "./Pages/ApplyPage/Apply_page";
-import FillStepper from './Pages/fillStepper/fillStepper';
+import FillPage from './Pages/FillPage/FillPage';
 import ButtonBar from '././Component/ButtonBar/buttonbar';
 import DataCard from '././Component/Card/card'
 import './Sass/app.scss';
@@ -20,7 +20,7 @@ function App() {
           <Switch>
             <Route exact path='/'><h1>Welcome to AskePro</h1></Route>
             <Route exact path='/apply'><ApplyStepper/></Route>
-            <Route exact path='/fill'><FillStepper/></Route>
+            <Route exact path='/fill'><FillPage/></Route>
             <Route exact path='/upload'><UploadDocuments/></Route>
             <Route exact path='/book'><BookAppointment/></Route>
             <Route exact path='/payment'><Payment/></Route>

@@ -24,7 +24,7 @@ const Payment = () =>{
         <label>Summary</label>
         <div className='payment-container'>
         <h3>Company Formation Services</h3>
-        <Grid columns='5' fluid stackable='mobile'>
+        <Grid columns='5' fluid stackable='tablet'>
         <Grid.Row>
         <Grid.Column>
         <label className='heading'>
@@ -69,11 +69,11 @@ const Payment = () =>{
         </Grid.Row>
         </Grid>
         </div>
-        <label>Choose payment method</label>
         <Grid columns='3' stackable='mobile'>
+        <label>Choose payment method</label>
                 <Grid.Row>
                     <Grid.Column>
-                    <Radio label='Pay via Debit Card'/>
+                    <Radio label='Pay via Debit Card' />
                     </Grid.Column>
                     <Grid.Column>
                     <Radio label='Pay via Credit Card'/>

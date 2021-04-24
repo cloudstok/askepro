@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import { Grid, Divider, Form, Message   , Container, Select, Input, CardDescription} from 'semantic-ui-react';
+import { Grid, Divider, Form, Message   , Container, Select, Input, CardDescription, Radio} from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import DataCard from '../../Component/Card/card';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
-import '../fillStepper/fillStepper.scss';
+import '../FillPage/fillpage.scss';
 
-function FillStepper(){
+function FillPage(){
         return (
-             <main className='fill-main'>
+             <div className='fill-main'>
                  <div className='head'>
                  <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
@@ -22,14 +22,19 @@ function FillStepper(){
                 <Stepper/>
                 <Divider/>
                 <div className="form">  
-                <Message
-                    icon='close'
-                        error
-                        content='Please fill all the mandantory fields in order to proceed and complete the application request'
-                        />
-
-                    <Grid columns="2" stackable='mobile' fluid>
+                <Message>
+                <label><i className='close icon'></i>
+                </label>
+                <label className='alert'>Please fill all the mandatory fields in order to proceed and complete the application request</label>
+                </Message>
+                    <Grid columns="2" stackable='tablet'>
                         <Grid.Row>
+                            <Grid.Column width={2} className='radio-group'>
+                            <Radio label='Self' className='radio-item'/>
+                            </Grid.Column>
+                        <Grid.Column className='radio-group'>
+                        <Radio label='Other' className='radio-item'/>  
+                            </Grid.Column> 
                             <Grid.Column>
                             <Form.Field>
                                 <label>Name *</label>
@@ -39,11 +44,21 @@ function FillStepper(){
                             <Grid.Column>
                             <Form.Field>
                                 <label>Date of Birth</label>
-                                <Input type='date' placeholder='Choose date of birth'/>
-                                </Form.Field>
+                                <Input
+                                    icon={{ name: 'calendar outline', link: true }}
+                                        placeholder='Search...'
+                                        />
+                            </Form.Field>
                             </Grid.Column>
-                            
-                            <Grid.Column>
+                            <Grid.Column className='radio-group' width={3}>
+                            <Radio label='Address 1' className='radio-item'/>
+                            </Grid.Column>
+                            <Grid.Column className='radio-group'  width={3}>
+                            <Radio label='Address 2' className='radio-item'/>  
+                            </Grid.Column>
+                            <Grid.Column className='radio-group'>
+                            <Radio label='Address 3' className='radio-item'/>  
+                            </Grid.Column>                                                        <Grid.Column>
                             <Form.Field>
                                 <label>Address Line 1*</label>
                                 <Input placeholder='Enter address line 1' />
@@ -91,7 +106,7 @@ function FillStepper(){
                 <DataCard/>
                 </div>
                 <ButtonBar/>
-                </main>
+                </div>
         )
 }
-export default FillStepper;
+export default FillPage;

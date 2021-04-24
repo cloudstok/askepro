@@ -1,5 +1,9 @@
+@import '/src/Sass/variables.scss';
+
 .upload-form{
+    background-color: #fff;
     padding: 30px 50px !important;
+
 
     label{
         display: block;
@@ -7,18 +11,12 @@
         margin-bottom: 10px;
          }
         .upload-container{
-            margin-top: -10px;;
             border: 1px dashed #d5d5d5;
-            height: 127px;
+            padding: 30px !important;          
             display: flex;
-            justify-content: center;
-            padding: 30px 0;            
-          
-            .input{
-                width: 30vw;
-            }
+        
             .btn-upload{
-                margin:27px 30px 0px;
+                margin-top: 25px;
                 height: 40px;
                 background-color: #fff !important;
                 border-radius: 20px !important;
@@ -30,8 +28,12 @@
         
                 &:hover{
                     border: 1px solid transparent !important;
-                    background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+                    background: $hover-color;
                 }
+               
+            }
+            .input{
+                width: 100%;
             }
         }
         .document-list{
@@ -40,6 +42,11 @@
             .item{
                 margin-bottom: 10px;
                 color: #d9d9d9;
+               font-size: 16px;
+                }
+            .icon{
+                transform: rotate(45deg);
+                font-size: 10px !important;
             }
         }
 }

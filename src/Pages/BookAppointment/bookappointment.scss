@@ -3,7 +3,7 @@
 
         .header{
             text-align: center;
-            margin:50px 0 39px !important;
+            margin:0px 0 39px !important;
             
             &:after{
                 margin-top: 10px !important;
@@ -12,7 +12,8 @@
                 display: block;
                 width: 80px;
                 height: 10px;
-                background: linear-gradient(to top, #c7a006, #e7ed32 50%, #c7a006)  !important;
+                background: linear-gradient(to right, #c7a006, #e7ed32 50%, #c7a006)  !important;
+                clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
             }
         }
         .book-form{

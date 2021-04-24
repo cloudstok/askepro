@@ -1,29 +1,41 @@
-@import '/src/Sass/variabeles.scss';
+@import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
 
-.card{
+.company-card{
     background-color: #fff;
-    grid-area:card;
-    height: 380px;
-    margin-top:0px !important;
+    border: 1px solid #e6e6e6;
+    margin-right: auto;
+    margin-left:30px;
+    @include tablet{
+        margin: 50px 10px !important;
+    }
+   
+    &:after{
+        width: 100%;
+        display: block;
+        content: '';
+        height: 5px;
+        background: linear-gradient(to right, #c7a006, #e7ed32 50%, #c7a006)  !important;
+    }
     
 .card-heading{
     height: 70px;
-    display: flex !important;
     align-items: center;
-    padding: 0 20px;
-    h4{
+    padding: 15px 0 15px 20px;
+    border-bottom: 1px solid #e6e6e6;
+
+    h5{
+        margin-top: 10px;
         font-size: 16px !important;
         font-family: 'Lato' !important;
     }
-    
+        
 }
 
 .card-content{
-    padding:20px;
+    padding:10px 20px; 
 
  table{
-
     td{
         color: #9d9494 !important;    
         font-size: 14px;
@@ -34,14 +46,15 @@
             color:#000;
         }
     }
-    }
+}
     .total{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-bottom: 5px;
         .fees{
             font-size: 14px;
-            font-weight: 400i,lkaxghuji-;
+            font-weight: normal;
             font-family: 'Open Sans' !important;
         }
         label{

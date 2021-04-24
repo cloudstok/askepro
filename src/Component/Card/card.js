@@ -4,11 +4,10 @@ import '../Card/card.scss';
 
 const DataCard =  () =>{
         return( 
-            <Card>
+            <div className='company-card'>
                 <div className='card-heading'>
-                <h4>Company Formation Services</h4>
+                <h5>Company Formation Services</h5>
                 </div>
-                <Divider/>
                 <div className='card-content'>
                  <table>
                     <tr>
@@ -32,9 +31,8 @@ const DataCard =  () =>{
                 <div className='total'>
                 <label className='fees'>Fees</label> <label>350 AED</label>
                 </div>
-                <Divider/>
                 </div>
-            </Card>
+            </div>
          )
 }
 export default DataCard;

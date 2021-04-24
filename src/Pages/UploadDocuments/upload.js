@@ -22,38 +22,44 @@ const UploadDocuments = () =>{
                 <Stepper/>
                 <Divider/>
                 <div className='upload-form'>
-                    <div className='upload-container'>
+                    <Grid column='2' stackable='tablet' centered>   
+                    <Grid.Row className='upload-container'>
+                        <Grid.Column width={8}>
                             <Form.Field>
                                 <label>Scan and upload documents</label>
                                 <Input placeholder='Uplaod file(s) from your computer'/>
                                 </Form.Field>
+                                </Grid.Column>
+                            <Grid.Column>
                           <Button className='btn-upload'>UPLOAD</Button>
-                    </div>
+                          </Grid.Column>
+                          </Grid.Row>
+                          </Grid> 
                     <div className='document-list'>
                     <label>Documents Required</label> 
                     <List>
                         <List.Item>
-                        <List.Icon name='star'/>
+                        <List.Icon name='square'/>
                         <List.Content>Lorem Ipsum is simply dummy text of the printing </List.Content>
                         </List.Item>
                         <List.Item>
-                        <List.Icon name='star'/>
+                        <List.Icon name='square'/>
                         <List.Content>Lorem Ipsum is simply dummy text of the printing </List.Content>
                         </List.Item>
                         <List.Item>
-                        <List.Icon name='star'/>
+                        <List.Icon name='square'/>
                         <List.Content>Lorem Ipsum is simply dummy text of the printing </List.Content>
                         </List.Item>
                         <List.Item>
-                        <List.Icon name='star'/>
+                        <List.Icon name='square'/>
                         <List.Content>Lorem Ipsum is simply dummy text of the printing </List.Content>
                         </List.Item>
                         <List.Item>
-                        <List.Icon name='star'/>
+                        <List.Icon name='square'/>
                         <List.Content>Lorem Ipsum is simply dummy text of the printing </List.Content>
                         </List.Item>
-                    </List>
-                    </div> 
+                    </List>        
+                    </div>
                     </div>
                 </Container>
                 <DataCard/>
