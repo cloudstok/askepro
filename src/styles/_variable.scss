@@ -4,13 +4,41 @@
 
 
 $primary-color : rgb(199,160,6);
-$gradient : linear-gradient(90deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%);
+$gradient : linear-gradient(251deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%);
 $width : 48px;
-$golden : linear-gradient(90deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%); 
+$golden : linear-gradient(251deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%); 
 
 @mixin  main_heading{
     font-size: 14px;
     font-weight: bold;
     line-height: 1.21;
     color: #000000;
+}
+
+.date_time{
+    @include main_heading;
+    color: #9d9494;
+    font-weight: 500;
+}
+@mixin para7{
+    position: absolute;
+    right: 15px;
+    text-decoration: underline;
+    cursor: pointer;    
+   
+}
+@mixin para11 {
+    margin-left: 12rem;
+    text-decoration: underline;
+    text-decoration: underline;
+    cursor: pointer;    
+}
+@mixin after {
+    content: '';
+    display: block;
+    width: 79px;
+    height: 4px;
+    margin: 6px 0 10px 0;
+    background: $gradient;            
+    clip-path: polygon(0 0, 87% 0, 100% 100%, 0% 100%);
 }

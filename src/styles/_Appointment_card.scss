@@ -1,12 +1,15 @@
 @import './variable';
+
+
 .border_appointment{
-    background-color: chartreuse;
-    border-bottom: solid 1px #e6e6e6;
+    background-color:  #ffffff;
+    
   
 }
 .appoint_card{
     display: inline-flex;
-    padding:1px;
+   
+    border-bottom: solid 1px #e6e6e6;
 .appoint_card content{
 
 
@@ -16,16 +19,11 @@
        background-color: #ffffff;
         @include main_heading;
         font-weight: normal;
-     
-        width: 230px;
         margin-right: 32px;
        
        
     }
-.date_time{
-    @include main_heading;
-    color: #9d9494;
-}
+
 
 .appoint_card images{
     display: inline-flex;
@@ -39,5 +37,11 @@
    margin: 15px 0 15px 20px;
     height: 34px;
 }
+img:hover{
+    filter: invert(1);
+}
 
+}
+.content6{
+    padding: 10px 5px;
 }

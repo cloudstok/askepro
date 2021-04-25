@@ -1,10 +1,16 @@
 @import "./variable";
-.overview{
-
-    
+.admin_wrapper2{
+    background-color:#fcfcfc;
+    padding-top: 20px;
+}
+.overview5{
     p{
-    @include main_heading
-    } 
+    @include main_heading;
+    }
+    &:after{
+      @include after;
+
+    }
 }
 
 .clients{
@@ -12,8 +18,21 @@
     text-align: center;
     background-color:  #ffffff;
     height: 128px;                                           ;
+    h6{
+        color: #cccccc; 
+        line-height: 1.19;
+        font-size: 16px;
+        font-weight: 500; 
+        padding: 30px 0 6px 0;
+    }
     h1{
-        
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: bold;  
+        color: #000000;
+        margin: 0;
+        padding-bottom: 27px;
+
     }
     &::after{
     
@@ -22,21 +41,55 @@
             right: 0;
             bottom: 0;
             left: 0;
-            height: 5px;
+            height: 4px;
             border-radius: inherit;
             background: $gradient;
-            margin: 15px;   
+            margin: 14px;   
           
           
     }
    
 }
 
-.appointment_heading{
-    display: flex;
-    width: 400px;
-    background-color: red;
-    P{
+.appointment_heading2{
+    display:flex;
+    margin:0 auto;
+    
+    p{
+        
+        @include main_heading;  
+        position: relative;
+        margin-bottom: 33px;
+    }
+    &::after{
+        @include after;
+        position: absolute;
+        top: 29px;
+        left: 0;
+    }
+  
+    .para9{
+        @include para11;
         
     }
+}   
+
+
+
+.revenue_data{
+    background: black;
+    width: auto;
+
+    height: 424px;
+}
+.data7{
+    display: flex;
+    margin-bottom: 25px;
+    p{
+        @include main_heading;  
+    }
+    .para8{
+        @include para7;
+    }    
+    
 }

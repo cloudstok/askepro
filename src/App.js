@@ -84,6 +84,8 @@ const App = () => {
        <Verification />
      </Route>
      <Route exact path='/admin'>  
+     <Header />
+     <Crumb />
      <Admin_dashboard />
      </Route>
      </Switch>
