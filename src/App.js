@@ -18,8 +18,12 @@ import Login1 from './Components/Login1';
 import Login2 from './Components/Login2'; 
 import Login3 from './Components/Login3'; 
 import Account from './Pages/Account';
+import Accept from './Components/Accept';
+import Reject from './Components/Reject';
+import Verification from './Components/Verification';
+import Admin_dashboard from './Pages/Admin_dashboard';
 
-
+  
 const App = () => {
   return(
     <>
@@ -72,6 +76,15 @@ const App = () => {
      <Route exact path='/account'>  
      <Header />
        <Account />
+     </Route>
+     <Route exact path='/reject'>  
+     <Header />
+       <Accept />
+       <Reject />
+       <Verification />
+     </Route>
+     <Route exact path='/admin'>  
+     <Admin_dashboard />
      </Route>
      </Switch>
 

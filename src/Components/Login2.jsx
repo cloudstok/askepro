@@ -18,7 +18,7 @@ const Login2 = () => {
         }}
       >
         <Form className="loginx_form2">
-            <h3>Create an Account</h3>
+            <h3>Create an Account</h3>  
           <Form.Field>
             <label>Name</label>
             <input placeholder="Enter your name" />

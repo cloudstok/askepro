@@ -1,0 +1,42 @@
+@import "./variable";
+.overview{
+
+    
+    p{
+    @include main_heading
+    } 
+}
+
+.clients{
+
+    text-align: center;
+    background-color:  #ffffff;
+    height: 128px;                                           ;
+    h1{
+        
+    }
+    &::after{
+    
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            border-radius: inherit;
+            background: $gradient;
+            margin: 15px;   
+          
+          
+    }
+   
+}
+
+.appointment_heading{
+    display: flex;
+    width: 400px;
+    background-color: red;
+    P{
+        
+    }
+}
