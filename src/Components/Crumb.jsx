@@ -6,7 +6,7 @@ import { Breadcrumb, Container } from "semantic-ui-react";
 const sections = [
   { key: 'Home', content: 'Home', link: true },
   { key: 'Store', content: 'Store', link: true },
-  { key: 'Shirt', content: 'T-Shirt', active: true },
+  { key: 'Shirt', content: 'Sign in', active: true },
 ]
 
 

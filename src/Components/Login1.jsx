@@ -12,7 +12,7 @@ const Login1 = () => {
         }}
       >
         <Form className="loginx_form">
-            <h3>Login into your account</h3>
+            <h3>Login into your account</h3>  
           <Form.Field>
             <label>Username</label>
             <input placeholder="First Name" />

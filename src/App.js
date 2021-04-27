@@ -22,7 +22,8 @@ import Accept from './Components/Accept';
 import Reject from './Components/Reject';
 import Verification from './Components/Verification';
 import Admin_dashboard from './Pages/Admin_dashboard';
-
+import View_details from './Pages/View_details';
+import Navbar2 from './Components/Navbar2';
   
 const App = () => {
   return(
@@ -48,14 +49,14 @@ const App = () => {
      </Route>
      <Route exact path='/about'>  
         <Header />
-        <About />
         <Crumb />
+        <About />
         <Footer />
      </Route>
      <Route exact path='/contact'>  
         <Header />
-        <Contact />
         <Crumb />
+        <Contact />
         <Footer />
      </Route>
      <Route exact path='/company'>  
@@ -87,6 +88,11 @@ const App = () => {
      <Header />
      <Crumb />
      <Admin_dashboard />
+     </Route>
+     <Route exact path='/view'>  
+     <Navbar2 />
+     <Crumb />
+     <View_details />
      </Route>
      </Switch>
 
