@@ -1,6 +1,6 @@
 import React from 'react';
 import {Label} from 'semantic-ui-react';
-import '../../Component/StatusChip/StatusChip.scss';
+import '../../Sass/app.scss';
 
 const StatusChip  = ({value})=>{
     return (

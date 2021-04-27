@@ -4,7 +4,7 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
-import '../Payment/payment.scss';
+import '../StepPages/stepPage.scss';
 
 const Payment = () =>{
     return (    
@@ -12,7 +12,7 @@ const Payment = () =>{
         <div className='head'>
         <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'Apply Now', link:true }
+                        {key:'apply', content:'Apply Now', active:true }
                  ]}/>
         <Heading/>
         </div>
@@ -21,7 +21,7 @@ const Payment = () =>{
         <Stepper/>
         <Divider/>
         <div className='form'>
-        <label>Summary</label>
+        <label className='summary'>Summary</label>
         <div className='payment-container'>
         <h3>Company Formation Services</h3>
         <Grid columns='5' fluid stackable='tablet'>

@@ -5,7 +5,7 @@ import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import DataCard from '../../Component/Card/card';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
-import '../FillPage/fillpage.scss';
+import '../StepPages/stepPage.scss';
 
 function FillPage(){
         return (
@@ -13,7 +13,7 @@ function FillPage(){
                  <div className='head'>
                  <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'Apply Now', link:true }
+                        {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
                  </div>

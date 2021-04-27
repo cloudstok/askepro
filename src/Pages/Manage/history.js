@@ -2,19 +2,22 @@ import React from 'react';
 import { Container, Icon, Pagination, Table, Label } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
-import '../History/history.scss';
+import SideBar from '../../Component/Nav/Sidebar';
+import './manage.scss';
 
-const History = () =>{
+const History = ({title}) =>{
         return (
+          <main className='manage-main'>
+            <SideBar value='history' active='active'/>
             <div className='history-main'>
             <BreadCrumbs section={[
                    {key:'home', content:'Home', link:true },
-                   {key:'history', content:'History', link:true }
+                   {key:'history', content:'History', active:true }
             ]}/>
-            <div className='history-container'>
-            <h2>History</h2>
+            <div className='manage-container'>
+            <h2>{title}</h2>
             <Container fluid>
-            <Table striped stackable='tablet'>
+          <Table striped stackable='tablet'>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Date</Table.HeaderCell>
@@ -132,7 +135,7 @@ const History = () =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label>Showing 9 of 5</label>
+<label className='.page-name'>Showing 9 of 5</label>
 <Pagination
     size='small'
     defaultActivePage={1}
@@ -146,6 +149,7 @@ const History = () =>{
 
  </div>
  </div>
+ </main>
         )
 }
 

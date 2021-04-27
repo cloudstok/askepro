@@ -4,8 +4,8 @@ import Stepper from '../../Component/Stepper/stepper';
 import DataCard from '../../Component/Card/card';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import Heading from '../../Component/Heading/heading';
-import '../UploadDocuments/upload.scss';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
+import '../StepPages/stepPage.scss';
 
 const UploadDocuments = () =>{
             return(
@@ -13,7 +13,7 @@ const UploadDocuments = () =>{
                 <div className='head'>
                 <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'Apply Now', link:true }
+                        {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
                  </div>

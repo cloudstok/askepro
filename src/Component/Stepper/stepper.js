@@ -1,6 +1,6 @@
 import React from 'react';
 import {Step} from 'semantic-ui-react';
-import '../Stepper/stepper.scss';
+import '../../Sass/app.scss';
 
 const Stepper = () =>{
         return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'semantic-ui-react';
-import '../ButtonBar/buttonbar.scss';
+import '../../Sass/app.scss';
 
 const ButtonBar =  () =>{
         return (

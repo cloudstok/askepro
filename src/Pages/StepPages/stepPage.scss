@@ -1,0 +1,418 @@
+@import '/src/Sass/variables.scss';
+@import '/src/Sass/index.scss';
+
+main{
+    width: 100%;
+    
+
+.fill-main{
+    padding:0 50px !important;
+    .form{
+        padding: 20px 45px;
+        height: auto !important;
+        
+    .radio{
+        width: 100%;
+        background-color:$white;
+        height: 60px;
+        border: 1px solid #f4f4f4;
+        display: flex !important;
+        align-items: center;
+        padding:8px 10px 0 0px !important;
+        margin: 15px;
+        
+        label{
+        font-weight: normal;
+            font-size: 14px !important;
+            margin-left: 20px;
+                }
+            }
+     }
+    }   
+}
+
+
+// Book Appointment 
+
+.main{
+    width: 100%;
+
+        .header{
+            text-align: center;
+            margin:0px 0 39px !important;
+            
+            &:after{
+                margin-top: 10px !important;
+                margin: 0 auto;
+                content: '';
+                display: block;
+                width: 80px;
+                height: 10px;
+                background: linear-gradient(to right, #c7a006, #e7ed32 50%, #c7a006)  !important;
+                clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
+            }
+        }
+        .form{
+            padding: 20px 20px 40px !important;
+            background-color: #fff;
+            font-family: 'Lato' !important;
+
+            .date-title {
+                text-align: center;
+                display: block;
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 20px;
+          }
+            
+    }
+}
+
+//Fill Documents
+.fill-main{   
+    
+    .data{
+        padding:0 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        @include tablet{
+            flex-direction: column !important;
+            align-items: stretch;
+        }
+
+    }
+
+.form{        
+    background-color: #fff;
+    padding:30px 50px;
+    font-family: 'Lato' !important;
+
+        @include laptop{
+            padding:30px !important; 
+        }
+
+    .message{
+        background-color: rgba($red, 0.15) !important;
+        color:$red;
+        padding:15px 15px 8px;
+        margin-bottom: 30px !important;
+        display: flex;            
+        display: none;
+        .close{
+            @include flex;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            margin-right: 10px;
+            border: 1.3px solid #e5181a;
+        }
+        .alert{
+            font-weight: 500;
+        }
+    }
+    label{
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 7px;
+    }
+     .input, .selection{
+        width: 95%;
+        height: 40px !important;
+        margin-bottom: 20px !important;
+
+    }
+    .outline{
+        color:$black !important;
+        font-size: 20px;
+    }
+    .radio-group{
+        
+        .radio-item{
+         border: none;
+         padding: 0px !important;
+         margin-bottom:20px;
+         width: auto;
+         height: auto;
+        }
+    }
+
+}
+}
+
+
+//Upload Documents 
+
+.upload-form{
+    background-color: #fff;
+    padding: 30px 50px !important;
+
+
+    label{
+        display: block;
+        font-weight: bold !important;
+        margin-bottom: 10px;
+         }
+        .upload-container{
+            border: 1px dashed #d5d5d5;
+            padding: 30px !important;          
+            display: flex;
+        
+            .btn-upload{
+                margin-top: 25px;
+                height: 40px;
+                background-color: #fff !important;
+                border-radius: 20px !important;
+                border: solid 1px #000000 !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                color: #000 !important;                
+        
+                &:hover{
+                    border: 1px solid transparent !important;
+                    background: $hover-color;
+                }
+               
+            }
+            .input{
+                width: 100%;
+            }
+        }
+        .document-list{
+            margin-top: 30px !important;
+            
+            .item{
+                margin-bottom: 10px;
+                color: #d9d9d9;
+               font-size: 16px;
+                }
+            .icon{
+                transform: rotate(45deg);
+                font-size: 10px !important;
+            }
+      }
+}
+
+
+//Payment 
+.fill-main{
+
+    .radio{
+        width: 100%;
+        background-color:$white;
+        height: 60px;
+        border: 1px solid #f4f4f4;
+        display: flex !important;
+        align-items: center;
+        padding:8px 20px 0;
+        }
+
+.heading{
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #9d9494;
+} 
+.form{
+    .summary{
+        margin: 20px 0;
+    }
+h3{
+    font-family:  'Lato';
+
+    @include mobile
+    {
+        text-align:center;
+    }    
+}
+.payment-container{
+    border: 1px solid #e6e6e6;
+    padding:20px 30px;
+    margin-bottom: 35px;
+
+    .value{
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+    .fees{
+        color:#000;
+    }
+    .total{
+        font-size: 18px !important;
+        font-family: 'Lato' !important;
+        font-weight: bold !important;
+        }
+    }
+    
+.notice{
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #9d9494;
+    padding:10px 0 30px;
+}
+}
+}
+
+// Successs 
+.success-main{
+    width: 100%;
+    .step-data{
+        padding:0 50px;
+    }
+    .success-form{
+    background-color: #fff;
+    font-family: 'Lato' !important;
+    padding:30px 150px; 
+    
+    @include tablet{
+        padding: 30px !important;
+    }
+    label{
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 7px;
+    }
+     .input, .selection{
+        width: 95%;
+        height: 40px !important;
+        margin-bottom: 20px !important;
+    }
+
+
+
+.success-box{
+    width: 100%;
+    @include flex;
+    margin-bottom: 30px !important;
+
+    @include tablet{
+        flex-direction: column;
+        margin:10px !important;
+    }
+
+    .icon{
+        font-size: 50px;
+        color:#fff;
+        background-color: #8dc640;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 65px;
+        height: 65px;
+        border-radius: 25px;
+
+        @include tablet{
+            margin:0 10px 10px;
+        }
+        }
+        .text{
+            font-family: 'Lato';
+            font-size: 18px;
+            font-weight: bold !important;
+            color: #9d9494;
+            margin: 0 30px;
+        }
+    }   
+    .paid-label{
+        font-size: 14px !important;
+        font-weight: normal !important;
+    }
+     
+    .total-label{
+        font-family: 'Lato' !important;
+        font-size: 18px !important;   
+    }
+    .status{
+        color: #4ca0dd !important; 
+        background: rgba(#4ca0dd, 0.15) !important; 
+        padding: 2px 10px !important;
+        border-radius: 20px !important;
+    }
+    .value{
+        font-weight: normal !important;
+    }
+    .event-card{
+        border:1px solid #e6e6e6;
+        padding: 10px 10px 0;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0 0 10px;
+
+        .calender{
+            display: flex;
+            padding: 15px;
+            align-items: center;
+            flex-direction: column;
+            width: 100px;    
+            height: 40%;
+            background: #f7f7f7;
+
+            .date{
+                font-size: 30px;
+             }
+             .month{
+                 font-size: 12px;
+             }
+        }
+        .event-info{
+            margin:0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            @include tablet{
+                padding: 10px;
+            }
+            .upcoming{
+                background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+                padding: 2px 10px !important;
+                border-radius: 20px !important;
+            }
+            p{
+                margin:10px 0;
+                font-size: 14px !important;
+                font-weight: bold;
+            }
+            .time{
+                font-size: 14px;
+                font-family: 'Lato';
+                font-weight: bold;
+                color: #9d9494;
+            }
+        }
+    }
+}
+.bottom-btn{
+    width: 100%;
+    display: flex !important; 
+    justify-content: center;
+    border-top:1px solid #e6e6e6;
+    padding:20px 0;
+    
+    .btn{
+        width: 20%;
+        font-family: 'Lato' !important;
+        margin:15px !important;
+        height: auto;
+        color: black !important;
+        background: #fff !important;
+        font-weight: bold !important;
+        font-size: 15px !important;
+        border: 1px solid black !important;
+        border-radius: 20px !important;
+        text-transform: uppercase !important;
+
+        @include tablet{
+            width: 50%;
+        }
+
+        &:hover{
+            background: linear-gradient(252deg, #c7a006, #e7ed32 50%, #c7a006)  !important;
+            border:transparent !important;
+        }
+    }
+}
+}

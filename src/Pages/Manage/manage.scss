@@ -1,12 +1,33 @@
 @import '/src/Sass/index.scss';
 @import '/src/Sass//variables.scss';
-.history-container{
-    padding: 20px 50px;
+.manage-main{
+    width: 100%;
+    display: flex;   
 
+    .breadcrumb{
+        padding: 20px 30px;
+        @include tablet{
+            padding:20px 2vw;
+        }
+    }
+.history-main{
+    width: 100%;
+}
+.manage-container{
+    padding: 10px 50px 10px 30px; 
+
+    @include tablet{
+        padding:20px 50px 20px 2vw;
+    }
+    
     h2{
         font-family: 'Lato' !important;
         font-size: 18px;
-     
+        
+        @include tablet{
+            padding: 0px 15px;
+        }
+
         &:after{
             content: '';
             display: block;
@@ -30,6 +51,25 @@
         font-weight: 500;
         border: none !important;
     }
+    .action{
+        display: flex;
+        .check, .close{
+            border: 1px solid black;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+       
+            margin: 0 15px 0 0;
+            display: flex;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background: $hover-color;
+                border:transparent;
+            }
+        }
+    }
     .view{
         a{    
         font-weight: bold;
@@ -47,17 +87,25 @@
     display: flex;
      justify-content: space-between;
      align-items: center;
-    label{
+     @include tablet{
+         flex-direction: column;
+         align-items: flex-start !important;
+     }
+    .page-name{
         display: block;
         font-weight: bold;
+        @include tablet{
+            margin-left: 12px;
+            margin-bottom:10px ;
+        }
     }
      .pagination{
          background-color: none;
          box-shadow: none;
          border:none;
-
+        
          .item{
-             background-color: transparent !important;
+            background-color: #fcfcfc !important;
              font-weight:  bold !important;
              color: $disabled-color;
              &::before{
@@ -91,4 +139,5 @@
      }
 
  }   
+}
 }

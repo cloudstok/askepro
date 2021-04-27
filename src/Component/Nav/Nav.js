@@ -1,19 +1,25 @@
-import React, { Component } from "react";
+import React, {useState, useEffect, Component } from "react";
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
-import '../Nav/nav.scss';
+import '../../Sass/nav.scss';
 
 const options = [
   { text: "Wiiliam", value: "William" },
 ];  
-
 export function Nav() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <header>
-        <nav>
-          <div className='nav-brand'>
+      <div className='logo'>
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
-          </div>
+        </div>
+      <Icon name='bars' onClick={() => setOpen(!open)}/>
+        <nav>
+        <div className='nav-brand'>
+        <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
+        </div>
+        <Icon name='close' onClick={()=>setOpen(!open)}/>
           <div>
           <MenuBar/>
           </div>
@@ -21,12 +27,14 @@ export function Nav() {
             <Icon name='bell outline'/>
             <div class='dropdown-btn'>
               <Icon name='user outline'/>
-                <Dropdown
-                  inline
-                  options={options}
-                  defaultValue={options[0].value}
-                />
-            </div>  
+                <Dropdown text='William'>
+                  <Dropdown.Menu className='dropdown-menu'>
+                  <li className='item-name'><Icon name='user outline'/>My Account</li>
+                  <li className='item-name'><Icon name='history'/>History</li>
+                  <li className='item-name'><Icon name='history'></Icon>Logout</li>
+                </Dropdown.Menu>
+                </Dropdown>
+            </div>
           </div>
         </nav>
       </header>

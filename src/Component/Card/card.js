@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, Divider, Header} from 'semantic-ui-react';
-import '../Card/card.scss';
+import '../../Sass/app.scss';
 
 const DataCard =  () =>{
         return( 

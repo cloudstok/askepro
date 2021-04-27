@@ -3,7 +3,8 @@ import { Grid, Divider, Form, Message , Container, Select, Input, CardDescriptio
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
-import '../SuccessPage/success.scss';
+import '../StepPages/stepPage.scss';
+import '../../Sass/app.scss';
 
 const Success = () =>{
             return(
@@ -11,11 +12,11 @@ const Success = () =>{
                 <div className='head'>
                  <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'Apply Now', link:true }
+                        {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
                  </div>
-                 <div className='data'>
+             <div className='step-data'>
                 <Container className="stepper-container" stackable='mobile'>
                 <Stepper/>
                 <Divider/>

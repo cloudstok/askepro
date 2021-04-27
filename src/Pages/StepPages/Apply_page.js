@@ -4,15 +4,16 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
-import './apply_page.scss';
+import '../StepPages/stepPage.scss';
 
 function ApplyStepper(){
     return (
     <main>
-    <BreadCrumbs section={[
+           <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'Apply Now', link:true }
+                        {key:'apply', content:'Apply Now', active:true }
                  ]}/>
+    <div className='fill-main'>
      <Heading/>
      <Container className="stepper-container" stackable='mobile'>
       <Stepper/>
@@ -63,6 +64,7 @@ function ApplyStepper(){
             </Grid>
             </div>
             </Container>
+            </div>
             <ButtonBar/>
             </main> 
     )
