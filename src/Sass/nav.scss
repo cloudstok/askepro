@@ -315,22 +315,23 @@ header{
     }
 
 
-    .bars{
+    .bars, .close{
     @include tablet{
         display: block !important; 
         position: relative;
         cursor: pointer;
         top:25px; 
-        left: 87%;
+        left: 89%;
         font-size: 24px !important;
         }   
     }
 
- nav{
+nav{
     @include tablet{
         display:none !important;
         position: absolute;
         top: 0;
+        left:0;
         width: 60%;
         height: 100vh;
         flex-direction: column;
@@ -380,4 +381,4 @@ header{
     }
 
     }
-}
+} 

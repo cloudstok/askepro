@@ -1,25 +1,32 @@
 import React, {useState, useEffect, Component } from "react";
+import {useMediaQuery} from 'react-responsive';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
+import ToggleNav from "../toggle_nav";
 
 const options = [
   { text: "Wiiliam", value: "William" },
 ];  
 export function Nav() {
   const [open, setOpen] = useState(false);
-
   return (
     <>
       <header>
       <div className='logo'>
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
         </div>
-      <Icon name='bars' onClick={() => setOpen(!open)}/>
+     { 
+     open ? <Icon name='close' onClick={() => setOpen(!open)}/>:
+     <Icon name='bars' onClick={() => setOpen(!open)}/>
+     
+     }
+      {
+        open && <ToggleNav/>
+      }
         <nav>
         <div className='nav-brand'>
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
         </div>
-        <Icon name='close' onClick={()=>setOpen(!open)}/>
           <div>
           <MenuBar/>
           </div>

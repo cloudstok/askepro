@@ -18,6 +18,7 @@ import ManageApplication from './Pages/Manage/ManageApplication';
 import ManageAppointments from './Pages/Manage/ManageAppointment';
 import Sidebar from './Component/Nav/Sidebar';
 import SideBar from './Component/Nav/Sidebar';
+import ToggleNav from './Component/toggle_nav';
 //const PATHS_FOR_NAV_1 = {
   //"/": null,
  // "/apply": null,
@@ -46,6 +47,7 @@ function App() {
             <Route exact path='/payments'><ManagePayments title='Manage Payments'/></Route>
             <Route exact path='/application'><ManageApplication title='Manage Applications'/></Route>
             <Route exact path='/appointment'><ManageAppointments title='Manage Appointments'/></Route>
+            <Route exact path='/toggle'><ToggleNav/></Route>
           </Switch>
         </div>
       </div>
