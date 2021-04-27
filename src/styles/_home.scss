@@ -57,7 +57,7 @@ filter: brightness(.3);
     box-shadow: 5px 15px 10px #423c3c;  
     background-color: #fff; 
     bottom: 0rem;
-  }
+  
     
   .pop_content{
     padding: 5px 0;
@@ -88,6 +88,7 @@ filter: brightness(.3);
 .cancel-tab a{
   text-decoration: none;
 }
+}
 .banner4{
   position: absolute;
   height: auto;
@@ -112,6 +113,7 @@ filter: brightness(.3);
   h1{
     color: #ffffff;
   }
+  
 }
 
 
@@ -303,7 +305,7 @@ margin-left: 2rem;
   margin-bottom: 90px;
   }
   .tourist-border:hover{
-    outline: 8px solid #e7ed32;
+    outline: 8px solid gold;
   }
   .rectangle11{
     width: 100%;
@@ -359,11 +361,12 @@ p{
   font-size: 16px;
   margin:  40px 0 50px 0;
 }
+
 .step_heading{
   font-family: Lato;
   color: #ffffff;
   font-size: 24px;
-  line-height: 1.21;
+  line-height: 1.21;  
   color: #ffffff;
   opacity: 1;
   font-weight: bold;
@@ -415,6 +418,7 @@ p{
   }
   img{
     width: 100%;
+    object-fit: cover;
   }
 
 
@@ -471,7 +475,3 @@ p{
 }
 
 
-@media (max-width: 668px) {
-  .information{}
-  
-}

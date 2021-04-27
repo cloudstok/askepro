@@ -1,18 +1,21 @@
 import React from "react";
 
 import { Breadcrumb, Container } from "semantic-ui-react";
+
+
+const sections = [
+  { key: 'Home', content: 'Home', link: true },
+  { key: 'Store', content: 'Store', link: true },
+  { key: 'Shirt', content: 'Sign in', active: true },
+]
+
+
 const Crumb = () => {
   return (
     <>
       <Container>
         <div className="crumb">
-          <Breadcrumb>
-            <Breadcrumb.Section link>Home</Breadcrumb.Section>
-            <Breadcrumb.Divider />
-            <Breadcrumb.Section link>Store</Breadcrumb.Section>
-            <Breadcrumb.Divider />
-            <Breadcrumb.Section active>Service</Breadcrumb.Section>
-          </Breadcrumb>
+        <Breadcrumb icon='right angle' sections={sections} />
         </div>
       </Container>
     </>

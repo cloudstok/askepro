@@ -14,23 +14,26 @@ import Company from './Pages/Company';
 import Notification from './Components/Notification';
 import { Breadcrumb } from 'semantic-ui-react';
 import Crumb from './Components/Crumb';
-import Login1 from './Components/Login1'; 
-import Login2 from './Components/Login2'; 
-import Login3 from './Components/Login3'; 
+import Login from './Components/Login'; 
+import Register from './Components/Register'; 
+import Fgpasswd from './Components/Fgpasswd';
 import Account from './Pages/Account';
-
-
+import Accept from './Components/Accept';
+import Reject from './Components/Reject';
+import Verification from './Components/Verification';
+import Admin_dashboard from './Pages/Admin_dashboard';
+import View_details from './Pages/View_details';
+import Navbar2 from './Components/Navbar2';
+  
 const App = () => {
   return(
     <>
     <Switch>
-     <Route exact path='/'>  
-     
+     <Route exact path='/'>
         <Header />
         <Home />
         <Visa />
         <Apply />
-        
         <Footer />
         <Notification />
      </Route>
@@ -44,14 +47,14 @@ const App = () => {
      </Route>
      <Route exact path='/about'>  
         <Header />
-        <About />
         <Crumb />
+        <About />
         <Footer />
      </Route>
      <Route exact path='/contact'>  
         <Header />
-        <Contact />
         <Crumb />
+        <Contact />
         <Footer />
      </Route>
      <Route exact path='/company'>  
@@ -60,18 +63,34 @@ const App = () => {
         <Crumb />
         <Footer />
      </Route>
-     <Route exact path='/login1'>  
-       <Login1 />
+     <Route exact path='/login'>  
+       <Login />
      </Route>
-     <Route exact path='/login2'>  
-       <Login2 />
+     <Route exact path='/register'>  
+       <Register />
      </Route>
-     <Route exact path='/login3'>  
-       <Login3 />
+     <Route exact path='/fgpasswd'>  
+       <Fgpasswd />
      </Route>
      <Route exact path='/account'>  
      <Header />
        <Account />
+     </Route>
+     <Route exact path='/reject'>  
+     <Header />
+       <Accept />
+       <Reject />
+       <Verification />
+     </Route>
+     <Route exact path='/admin'>  
+     <Header />
+     <Crumb />
+     <Admin_dashboard />
+     </Route>
+     <Route exact path='/view'>  
+     <Navbar2 />
+     <Crumb />
+     <View_details />
      </Route>
      </Switch>
 

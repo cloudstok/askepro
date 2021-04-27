@@ -25,7 +25,7 @@ export default class MenuExampleBasic extends Component {
               active={activeItem === "Home"}
               onClick={this.handleItemClick}
             >
-              <strong>Home</strong>
+              Home
             </div>
 
             <div className="Item"
@@ -33,7 +33,7 @@ export default class MenuExampleBasic extends Component {
               active={activeItem === "Service"}
               onClick={this.handleItemClick}
             >
-             <strong>Service</strong> 
+             Service
             </div>
 
             <div className="Item"
@@ -41,7 +41,7 @@ export default class MenuExampleBasic extends Component {
               active={activeItem === "About"}
               onClick={this.handleItemClick}
             >
-             <strong> About</strong>
+            About
             </div>
 
             <div className="Item"
@@ -49,7 +49,7 @@ export default class MenuExampleBasic extends Component {
               active={activeItem === "Contact"}
               onClick={this.handleItemClick}
             >
-             <strong> Contact</strong>
+            Contact
             </div>
           </Menu.Menu>
 
