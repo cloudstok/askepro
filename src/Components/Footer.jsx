@@ -2,6 +2,12 @@ import React from "react";
 import { Grid, Segment, Container, Form } from "semantic-ui-react";
 
 const Footer = () => {
+  
+  // const response = fetch('http://localhost:8000/serviceCategory', {
+  //   method: 'GET'
+  // }).then(response => response.json())
+  // .then(result => console.log(result.data));
+  
   return (
     <>
       <div className="reach">
