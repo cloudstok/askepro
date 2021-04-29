@@ -67,10 +67,6 @@ const Reset = () => {
                         <label>Re-Enter Password</label>
                         <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
                     </Form.Field>
-                    <Form.Field>
-                        <label>Re-Enter Password</label>
-                        <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
-                    </Form.Field>
                     {/*
           <Form.Field>
             <label>Enter OTP</label>
