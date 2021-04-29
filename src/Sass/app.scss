@@ -1,14 +1,4 @@
 @import '/src/Sass/variables.scss';
-.main{
-    display: grid;
-    grid-template-areas: 'main main main main'
-                         'bottom bottom bottom';
-    align-content: space-between !important;
-    height: 100vh !important;
-    @include mobile{
-    }
-}
-
 
 //Status Chip
 .In-process, .Success, .Pending{
