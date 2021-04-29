@@ -6,7 +6,7 @@ import { Button, Grid, Checkbox, Form } from "semantic-ui-react";
 
 
 
-const Login2 = () => {
+const Login20 = () => {
     return(
     <>
         <div
@@ -56,4 +56,4 @@ const Login2 = () => {
     );
 }
 
-export default Login2;
+export default Login20;

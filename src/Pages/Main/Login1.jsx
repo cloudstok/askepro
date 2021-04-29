@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 
-const Login1 = () => {
+const Login10 = () => {
   return (
     <>
       <div
@@ -39,4 +39,4 @@ const Login1 = () => {
   );
 };
 
-export default Login1;
+export default Login10;

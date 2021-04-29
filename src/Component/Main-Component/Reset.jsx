@@ -73,7 +73,7 @@ const Reset = () => {
                     </Form.Field>
                     <Form.Field>
                         <label>OTP</label>
-                        <h4>(OTP will be sent on your registered email ID)</h4>
+                        
                         <input onChange={(event) => setOtp(event.target.value)}/>
                     </Form.Field>
                     {/*
@@ -95,6 +95,7 @@ const Reset = () => {
              <a href="#">Resend in 01:45</a>
           </span>
           */}
+                    <h4>(OTP will be sent on your registered email ID)</h4>    
 
                     <button className="form-btn" type="submit">Submit</button>
                 </Form>

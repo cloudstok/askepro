@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Icon, Step, Grid, Table, Segment } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
+import '../../Sass/Sass-Main/_View_details.scss';
 
 const View_details = () => {
   return (
@@ -53,7 +54,7 @@ const View_details = () => {
 
       <div className="details_wrapper_inner">
      
-      <Grid columns>
+      <Grid stackable columns>
       
         <Grid.Column width={3}>
           <Step.Group vertical>
@@ -108,13 +109,13 @@ const View_details = () => {
           </Step.Group>
           
         </Grid.Column>
-        <Grid.Column width={10}>
+        <Grid.Column width={9}>
           <Grid.Row>
             <Grid.Column>
               <div  className="view_segment">
               <Segment>
               <div className="vertical_step1">
-                <img src="Assets/images/check.png" />
+              <Icon color="green" size='huge' link name='check square' /> 
                 <p>
                   Your payment was successful and we have also reserved the slot
                   for your appointment. You can keep track of your application

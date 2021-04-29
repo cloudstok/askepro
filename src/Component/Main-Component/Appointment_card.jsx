@@ -7,6 +7,7 @@ import '../../Sass/Sass-Main/_Admin_dashboard.scss';
 const Appointment_card = () =>{
 return(
     <>
+      
       <Grid columns>
       <div className="border_appointment">
       <Grid.Column>

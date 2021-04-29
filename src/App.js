@@ -16,13 +16,11 @@ import ManageAppointments from './Pages/Manage/ManageAppointment';
 import SideBar from './Component/Nav/Sidebar';
 import Header from './Component/Main-Component/Header';
 import Home from './Pages/Main/Home';
-import Visa from './Component/Main-Component/Visa';
-import Notification from './Component/Main-Component/Notification';
-import Apply from './Component/Main-Component/Apply';
-import Footer from './Component/Main-Component/Footer';
+
+
 import ToggleNav from './Component/toggle_nav';
 import Service from './Pages/Main/Service';
-import Accordion from './Component/Main-Component/Accordion';
+
 import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
@@ -44,7 +42,7 @@ function App() {
     <>
     <Router>
         <div className='wrapper'>
-          <Nav/> 
+        <Nav/> 
             <Switch>
             <Route exact path="/">
                 <Home />
@@ -94,10 +92,10 @@ function App() {
                 <Admin_dashboard />
                 </Route>
                 <Route exact path='/view'>  
-                <Crumb />
+                
                 <View_details />
                 </Route>
-                
+               
             <Route exact path='/apply'><ApplyStepper/></Route>
             <Route exact path='/fill'><FillPage/></Route>
             <Route exact path='/upload'><UploadDocuments/></Route>

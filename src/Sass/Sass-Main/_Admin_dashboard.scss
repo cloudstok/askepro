@@ -1,6 +1,9 @@
 @import "./variable";
+
 .admin_wrapper2{
+    height: 120vh;
 }
+
 .overview5{
     p{
     @include main_heading;
@@ -69,7 +72,38 @@
         @include para11;
         
     }
+    
 }   
+.appointment_divider{
+    margin-top: 28px;
+}
+.appointment_heading3{
+    
+    margin-top: 5rem;
+    display: inline-flex;
+    margin:0 auto;
+    
+    p{
+        
+        @include main_heading;  
+        position: relative;
+        margin-bottom: 33px;
+    }
+    &::after{
+        @include after;
+        position: absolute;
+        top: 29px;
+        left: 0;
+    }
+  
+    .para10{
+        margin-left: 16rem;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+}   
+
 
 
 

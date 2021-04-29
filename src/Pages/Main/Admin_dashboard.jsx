@@ -18,13 +18,14 @@ const Admin_dashboard = () => {
       <div className='history-main'>
       <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true }]}/>
-      <div className="admin_wrapper2 manage-container">
+      <div className="admin_wrapper2">
         <Grid stackable columns={2}>
           <Grid.Column width={10}>
             <div className="overview5">
               <p>Overview</p>
             </div>
-            <Grid stackable columns={3}>
+            <Grid doubling columns={3}>
+              <Grid.Row>
               <Grid.Column>
                 <div className="clients">
                   <h6>Total Clients</h6>
@@ -43,6 +44,7 @@ const Admin_dashboard = () => {
                   <h1>1,00,443.45</h1>
                 </div>
               </Grid.Column>
+              </Grid.Row>
             </Grid>
             <Grid>
               <Grid.Column>
@@ -52,7 +54,7 @@ const Admin_dashboard = () => {
                 <div className="revenue_data">asd</div>
               </Grid.Column>
             </Grid>
-          </Grid.Column>
+          </Grid.Column>  
 
           <Grid.Column width={6}>
 
@@ -60,6 +62,7 @@ const Admin_dashboard = () => {
               <Grid columns>
                   <Grid.Row>               
                   <p> Appointments for approval(4)</p>
+                  
                   <a href={URL}><p className="para9"> VIEW ALL</p></a>
                   </Grid.Row>
                 </Grid>
@@ -72,19 +75,23 @@ const Admin_dashboard = () => {
               </Grid.Column>
             </Grid>
             
+          <div className="appointment_divider">
             <Grid columns>
               <Grid.Column>
-              <div className="appointment_heading2">
+              <div className="appointment_heading3">
               <Grid columns>
                   <Grid.Row>             
-                  <p> Appointments for approval(4)</p>
-                  <a href={URL}><p className="para9"> VIEW ALL</p></a>
+                  <p> Document Verification Request(4)</p>
+                  <a href={URL}><p className="para10"> VIEW ALL</p></a>
                   </Grid.Row>     
                 </Grid>
                 </div>
                 <Request_file />
+                <Request_file />
+                <Request_file />
               </Grid.Column>
             </Grid>
+            </div>
           </Grid.Column>
         </Grid>
       </div>
