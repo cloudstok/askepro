@@ -30,9 +30,9 @@ import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
 import Crumb from './Component/Main-Component/Crumb';
-import Login1 from './Component/Main-Component/Login1'; 
-import Login2 from './Component/Main-Component/Login2'; 
-import Login3 from './Component/Main-Component/Login3'; 
+import Login from './Component/Main-Component/Login'; 
+import Register from './Component/Main-Component/Register'; 
+import Fgpasswd from './Component/Main-Component/Fgpasswd'; 
 import Account from './Pages/Main/Account';
 import Accept from './Component/Main-Component/Accept';
 import Reject from './Component/Main-Component/Reject';
@@ -87,14 +87,14 @@ function App() {
                     <Crumb />
                     <Footer />
                 </Route>
-                <Route exact path='/login1'>  
-                  <Login1 />
+                <Route exact path='/login'>  
+                  <Login />
                 </Route>
-                <Route exact path='/login2'>  
-                  <Login2 />
+                <Route exact path='/register'>  
+                  <Register />
                 </Route>
-                <Route exact path='/login3'>  
-                  <Login3 />
+                <Route exact path='/fgpasswd'>  
+                  <Fgpasswd />
                 </Route>
                 <Route exact path='/account'>  
                   <Account />
