@@ -2,30 +2,29 @@ import React from "react";
 import { Grid, Segment, Container, Form } from "semantic-ui-react";
 import '../../Sass/Sass-Main/_Footer.scss';
 
+
 const Footer = () => {
   return (
     <>
-      <div className="reach">
+     <div className="reach">
         <Container>
-          <h2 className="underline-small">Reach Out To Us</h2>
-          <div className="underline_img">
-          <img src="assets/images/path.png" />
-          </div>
+          <h2>Reach Out To Us</h2>
+          
 
           <p>Marina Crown</p>
           <p>King Salman Bin Abdulaziz Al Saud St</p>
           <p>Dubai, United Arab Emirates</p>
           <br />
-          <p>care@askepro.ae</p>
+          <p>care@askepro.ae</p><br />
           <p>+97180073232</p> 
 
           <div className="information">
             <Form>
               <Form.Group widths="equal">
-                <Form.Input placeholder="First name" />
-                <Form.Input placeholder="Last name" />
+                <Form.Input placeholder="Enter your name" />
+                <Form.Input placeholder="Enter email address" />
               </Form.Group>
-              <Form.TextArea placeholder="Tell us more about you..." />
+              <Form.TextArea placeholder="Describe your query" />
               <div className="reach-Submit">
                 <p>By clicking on 'Submit' you will agree to T&C of AskePro</p>
                 <button className="same-btn btn-outline-dark" type="submit">
@@ -41,21 +40,20 @@ const Footer = () => {
         <Container>
         <Grid doubling columns={2}>
             <Grid.Column>
-              <div className="footer-part-1">
+            <div className="footer-part-1">
                 <img
-                  className="epro_logo"
+                  className="footer_image"
                   src="assets/images/Epro Logo_Web.png"
-                  width="60px"
                 />
                 <img
-                  className="image1"
+                  className="footer_image1"
                   src="assets/images/Image 1@2x.png"
-                  width="40px"
+                 
                 />
                 <img
-                  className="image2"
+                  className="footer_image2"
                   src="assets/images/Image 2@2x.png"
-                  width="40px"
+         
                 />
               </div>
             </Grid.Column>

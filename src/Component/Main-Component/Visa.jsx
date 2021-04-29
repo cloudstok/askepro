@@ -96,116 +96,148 @@ const Visa = () => (
         </Grid.Row>
       </Grid>
     
-    
+      
       <div className="tourist">
-        <h1 className="headingOne">Tourist Visa Services</h1>
-        <div className="underline_img">
-        <img src="assets/images/path.png" />
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad velit
-          quaerat. Dignissimos odio animi minus deleniti dolorem, in adipisci?
-        </p>
+          <h1 className="headingTwo">Tourist Visa Services</h1>
+        
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad velit
+            quaerat. Dignissimos odio animi minus deleniti dolorem, in adipisci?
+          </p>
 
-        <Grid stackable columns={3}>
-            <Grid.Column>
-              <div className="tourist-border">
-                <div className="hours">
-                  <h3>96 Hours</h3>
-                  <p className="transit">Transit Visa + Insurance (Covid)</p>
-                </div>
-                <div className="hours-content">
-                  <div className="rectangle11">
-                    <div className="days-dull">Processing Time:</div>
-                    <div className="days">Upto 5 Days</div>
+          <Grid stackable columns={4}  only='computer'>
+            <Grid.Row>
+              <Grid.Column>
+                <div className="tourist-border">
+                  <div className="hours">
+                    <h3>96 Hours</h3>
+                    <p className="transit">Transit Visa + Insurance (Covid)</p>
                   </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Stay Period:</div>
-                    <div className="days">14 Days</div>
+                  <div className="hours-content">
+                    <div className="rectangle11">
+                      <div className="days-dull">Processing Time:</div>
+                      <div className="days">Upto 5 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Stay Period:</div>
+                      <div className="days">14 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Validity</div>
+                      <div className="days">58 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Entry:</div>
+                      <div className="days">Single</div>
+                    </div>
                   </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Validity</div>
-                    <div className="days">58 Days</div>
-                  </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Entry:</div>
-                    <div className="days">Single</div>
-                  </div>
-                </div>
-                <div className="hours-total">
-                  <div className="fees">
-                    <div className="total-left">Fees</div>
-                    <div className="total-right">350 AED</div>
-                  </div>
-                </div>
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="tourist-border">
-                <div className="hours">
-                  <h3>96 Hours</h3>
-                  <p className="transit">Transit Visa + Insurance (Covid)</p>
-                </div>
-                <div className="hours-content">
-                  <div className="rectangle11">
-                    <div className="days-dull">Processing Time:</div>
-                    <div className="days">Upto 5 Days</div>
-                  </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Stay Period:</div>
-                    <div className="days">14 Days</div>
-                  </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Validity</div>
-                    <div className="days">58 Days</div>
-                  </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Entry:</div>
-                    <div className="days">Single</div>
+                  <div className="hours-total">
+                    <div className="fees">
+                      <div className="total-left">Fees</div>
+                      <div className="total-right">350 AED</div>
+                    </div>
                   </div>
                 </div>
-                <div className="hours-total">
-                  <div className="fees">
-                    <div className="total-left">Fees</div>
-                    <div className="total-right">350 AED</div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="tourist-border">
+                  <div className="hours">
+                    <h3>96 Hours</h3>
+                    <p className="transit">Transit Visa + Insurance (Covid)</p>
+                  </div>
+                  <div className="hours-content">
+                    <div className="rectangle11">
+                      <div className="days-dull">Processing Time:</div>
+                      <div className="days">Upto 5 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Stay Period:</div>
+                      <div className="days">14 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Validity</div>
+                      <div className="days">58 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Entry:</div>
+                      <div className="days">Single</div>
+                    </div>
+                  </div>
+                  <div className="hours-total">
+                    <div className="fees">
+                      <div className="total-left">Fees</div>
+                      <div className="total-right">350 AED</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="tourist-border">
-                <div className="hours">
-                  <h3>96 Hours</h3>
-                  <p className="transit">Transit Visa + Insurance (Covid)</p>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="tourist-border">
+                  <div className="hours">
+                    <h3>96 Hours</h3>
+                    <p className="transit">Transit Visa + Insurance (Covid)</p>
+                  </div>
+                  <div className="hours-content">
+                    <div className="rectangle11">
+                      <div className="days-dull">Processing Time:</div>
+                      <div className="days">Upto 5 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Stay Period:</div>
+                      <div className="days">14 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Validity</div>
+                      <div className="days">58 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Entry:</div>
+                      <div className="days">Single</div>
+                    </div>
+                  </div>
+                  <div className="hours-total">
+                    <div className="fees">
+                      <div className="total-left">Fees</div>
+                      <div className="total-right">350 AED</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="hours-content">
-                  <div className="rectangle11">
-                    <div className="days-dull">Processing Time:</div>
-                    <div className="days">Upto 5 Days</div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="tourist-border">
+                  <div className="hours">
+                    <h3>96 Hours</h3>
+                    <p className="transit">Transit Visa + Insurance (Covid)</p>
                   </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Stay Period:</div>
-                    <div className="days">14 Days</div>
+                  <div className="hours-content">
+                    <div className="rectangle11">
+                      <div className="days-dull">Processing Time:</div>
+                      <div className="days">Upto 5 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Stay Period:</div>
+                      <div className="days">14 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Validity</div>
+                      <div className="days">58 Days</div>
+                    </div>
+                    <div className="rectangle11">
+                      <div className="days-dull">Entry:</div>
+                      <div className="days">Single</div>
+                    </div>
                   </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Validity</div>
-                    <div className="days">58 Days</div>
-                  </div>
-                  <div className="rectangle11">
-                    <div className="days-dull">Entry:</div>
-                    <div className="days">Single</div>
+                  <div className="hours-total">
+                    <div className="fees">
+                      <div className="total-left">Fees</div>
+                      <div className="total-right">350 AED</div>
+                    </div>
                   </div>
                 </div>
-                <div className="hours-total">
-                  <div className="fees">
-                    <div className="total-left">Fees</div>
-                    <div className="total-right">350 AED</div>
-                  </div>
-                </div>
-              </div>
-            </Grid.Column>
-        </Grid>
-      </div>
+              </Grid.Column>
+              </Grid.Row>
+          </Grid>
+        </div>
     </Container>
   </>
 );
