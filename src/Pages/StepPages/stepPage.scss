@@ -1,18 +1,37 @@
 @import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
 
+
+
+//Heading 
+
+.header{
+    text-align: center;
+    margin:0px 0 39px !important;
+    
+    &:after{
+        margin-top: 10px !important;
+        margin: 0 auto;
+        content: '';
+        display: block;
+        width: 80px;
+        height: 10px;
+        background: linear-gradient(to right, #c7a006, #e7ed32 50%, #c7a006)  !important;
+        clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
+    }
+}  
+
+
+
+//apply Page
 main{
     width: 100%;
-    
-
-.fill-main{
-    padding:0 50px !important;
-    .form{
-        padding: 20px 45px;
-        height: auto !important;
-        
+     
+.apply-section{
+    padding: 0 40px;
+   .form{
+    padding: 30px;        
     .radio{
-        width: 100%;
         background-color:$white;
         height: 60px;
         border: 1px solid #f4f4f4;
@@ -22,76 +41,37 @@ main{
         margin: 15px;
         
         label{
-        font-weight: normal;
+            font-weight: normal;
             font-size: 14px !important;
-            margin-left: 20px;
-                }
+            margin-left: 15px;
+            }
             }
      }
-    }   
-}
+}   
 
 
 // Book Appointment 
-
-.main{
+.book-section{
     width: 100%;
-
-        .header{
-            text-align: center;
-            margin:0px 0 39px !important;
-            
-            &:after{
-                margin-top: 10px !important;
-                margin: 0 auto;
-                content: '';
-                display: block;
-                width: 80px;
-                height: 10px;
-                background: linear-gradient(to right, #c7a006, #e7ed32 50%, #c7a006)  !important;
-                clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
-            }
-        }
-        .form{
-            padding: 20px 20px 40px !important;
-            background-color: #fff;
-            font-family: 'Lato' !important;
-
-            .date-title {
-                text-align: center;
-                display: block;
-                font-size: 14px;
-                font-weight: bold;
-                margin-bottom: 20px;
-          }
-            
+    padding: 0 40px;
+    .form{
+        padding: 30px;        
+    }
+    .date-title{
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
     }
 }
 
 //Fill Documents
-.fill-main{   
-    
-    .data{
-        padding:0 50px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-
-        @include tablet{
-            flex-direction: column !important;
-            align-items: stretch;
-        }
-
-    }
-
+ .fill-section{   
+    padding: 0 40px;
 .form{        
     background-color: #fff;
-    padding:30px 50px;
+    padding: 30px;
     font-family: 'Lato' !important;
-
-        @include laptop{
-            padding:30px !important; 
-        }
 
     .message{
         background-color: rgba($red, 0.15) !important;
@@ -144,12 +124,9 @@ main{
 
 
 //Upload Documents 
-
 .upload-form{
     background-color: #fff;
-    padding: 30px 50px !important;
-
-
+    padding: 30px;
     label{
         display: block;
         font-weight: bold !important;
@@ -157,7 +134,7 @@ main{
          }
         .upload-container{
             border: 1px dashed #d5d5d5;
-            padding: 30px !important;          
+            padding: 30px !important; 
             display: flex;
         
             .btn-upload{
@@ -194,11 +171,13 @@ main{
                 font-size: 10px !important;
             }
       }
-}
+    }
 
 
-//Payment 
-.fill-main{
+//Payment Step
+
+.payment-section{
+    padding: 0 40px;
 
     .radio{
         width: 100%;
@@ -207,7 +186,7 @@ main{
         border: 1px solid #f4f4f4;
         display: flex !important;
         align-items: center;
-        padding:8px 20px 0;
+        padding:0px 20px 0;
         }
 
 .heading{
@@ -215,26 +194,36 @@ main{
     font-weight: 400 !important;
     color: #9d9494;
 } 
+ 
 .form{
-    .summary{
-        margin: 20px 0;
-    }
-h3{
-    font-family:  'Lato';
+    padding:30px 100px;
 
-    @include mobile
+    
+    @include tablet
     {
-        text-align:center;
+        padding: 30px 50px;
     }    
+    
+    .payment-header{
+        font-weight: 500 !important;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px !important
+    }
+    h3{
+    font-family:  'Lato';    
 }
 .payment-container{
     border: 1px solid #e6e6e6;
     padding:20px 30px;
     margin-bottom: 35px;
+    box-shadow: 0px 0px 10.2px #e0e0e0;
+    z-index: 1;
 
     .value{
         font-size: 14px !important;
         font-weight: 400 !important;
+        display: block !important;
     }
     .fees{
         color:#000;
@@ -250,21 +239,27 @@ h3{
     font-size: 12px !important;
     font-weight: 400 !important;
     color: #9d9494;
-    padding:10px 0 30px;
-}
-}
-}
+    display: block;
+    padding:10px 0;
+            }
+        }   
+    }
+
 
 // Successs 
 .success-main{
-    width: 100%;
-    .step-data{
-        padding:0 50px;
-    }
+    padding: 0 40px;
+
+    .heading{
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        color: #9d9494;
+    } 
+
     .success-form{
     background-color: #fff;
     font-family: 'Lato' !important;
-    padding:30px 150px; 
+    padding:30px 100px; 
     
     @include tablet{
         padding: 30px !important;
@@ -286,6 +281,7 @@ h3{
 .success-box{
     width: 100%;
     @include flex;
+    justify-content: flex-start;
     margin-bottom: 30px !important;
 
     @include tablet{
@@ -338,23 +334,26 @@ h3{
         border:1px solid #e6e6e6;
         padding: 10px 10px 0;
         display: flex;
-        justify-content: space-between;
-        margin: 10px 0 0 10px;
 
         .calender{
-            display: flex;
-            padding: 15px;
-            align-items: center;
-            flex-direction: column;
-            width: 100px;    
-            height: 40%;
+            padding: 10px 10px 0px;
+            margin-bottom: 30px;
             background: #f7f7f7;
-
+            @include tablet{
+                display:flex !important;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                width: 100px;
+                text-align: center;
+            }
             .date{
                 font-size: 30px;
+                display: block !important;
              }
              .month{
                  font-size: 12px;
+                 display: block !important;
              }
         }
         .event-info{
@@ -416,3 +415,10 @@ h3{
     }
 }
 }
+
+
+
+}
+ 
+
+

@@ -10,22 +10,22 @@ import '../StepPages/stepPage.scss';
 
 const BookAppointment = () =>{
             return (
-                <main className='fill-main'>
-                <div className='head'>
+                <main>
+                 <div className='book-section'>
                 <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
-                </div>
-                <div className='data'>
+                <Grid columns='2' stackable='tablet' className='data'>
+                 <Grid.Column width={11}>
                 <Container className="stepper-container">
                 <Stepper/>
                 <Divider/>
                 <div className="form">
-                    <Grid stackable='mobile' centered>
+                    <Grid stackable='tablet' centered>
                     <Grid.Row>
-                    <Grid.Column width='6'>
+                    <Grid.Column className='date' width={6}>
                         <label className='date-title'>Choose your preferred date</label>
                         <Calendar
                          showWeekNumbers
@@ -35,7 +35,11 @@ const BookAppointment = () =>{
                 </Grid>
                 </div>
                 </Container>
+                </Grid.Column>
+                <Grid.Column width={5}>
                 <DataCard/>
+                </Grid.Column>
+                </Grid>
                 </div>
                 <ButtonBar/>
                 </main>

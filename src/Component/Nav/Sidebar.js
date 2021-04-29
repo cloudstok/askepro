@@ -1,5 +1,6 @@
 import React from 'react';
 import {Sidebar, Header, Icon, Menu, Segment, Image} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 import '../../Sass/nav.scss';
 const SideBar = ({value, active}) => {
 return (
@@ -13,22 +14,22 @@ return (
       width='thin'
     >
       <Menu.Item as='a' className={value==='dashboard' ? active : ""}>
-        <Icon name='th large' />
+      <Link to='/admin'><Icon name='th large' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='history' ? active : ""}>
-        <Icon name='file alternate outline' />
+      <Link to='/history'><Icon name='file alternate outline' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='clients' ? active : ""}>
-        <Icon name='users ' />
+      <Link to='/clients'><Icon name='users '/></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='appointment' ? active : ""}>
-        <Icon name='calendar outline' />
+      <Link to='/appointment'> <Icon name='calendar outline' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='payment' ? active : ""}>
-        <Icon name='payment' />
+      <Link to='/payments'><Icon name='payment' /></Link>
       </Menu.Item>
       <Menu.Item as='a'  className={value==='help' ? active : ""}>
-        <Icon name='help' />
+      <Link to='/'><Icon name='help' /></Link>
       </Menu.Item>
     </div>
     );

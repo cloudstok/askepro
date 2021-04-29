@@ -104,6 +104,7 @@ function App() {
                   <Reject />
                   <Verification />
                 </Route>
+                
                 <Route exact path='/admin'>  
                 <Admin_dashboard />
                 </Route>
