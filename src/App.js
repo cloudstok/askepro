@@ -62,32 +62,26 @@ function App() {
          
             <Route exact path="/">
                 <Home />
-                <Visa />
-                <Apply />
-                <Footer />
-                 <Notification />
             </Route>
             <Route exact path='/service'>  
-                <Crumb />
+                
                 <Service />        
-                <Visa />
-                <Accordion />
-                <Footer />
+   
+         
              </Route>
                 <Route exact path='/about'>  
-                    <Crumb />
+                   
                     <About />
-                    <Footer />
+                   
                 </Route>
                 <Route exact path='/contact'>  
-                    <Crumb />
+                   
                     <Contact />
-                    <Footer />
+                  
                 </Route>
                 <Route exact path='/company'>  
                     <Company />
-                    <Crumb />
-                    <Footer />
+                    
                 </Route>
                 <Route exact path='/login1'>  
                   <Login1 />

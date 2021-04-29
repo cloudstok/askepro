@@ -1,9 +1,12 @@
 import React from 'react';
 import { Grid, Container } from "semantic-ui-react";
+
+import Footer from '../../Component/Main-Component/Footer';
+import Header from '../../Component/Main-Component/Header';
 const Contact = () => {
     return(
         <>
-        
+        <Header />
         <div class="contact" style={{ background: "url(assets/images/contact-bg.png)",backgroundSize: 'cover' }}>
             
     <h1 class="headingOne">Contact</h1>
@@ -43,6 +46,7 @@ const Contact = () => {
       </Grid>
     </div>
     </Container>
+    <Footer />
         </>
     );
 } 

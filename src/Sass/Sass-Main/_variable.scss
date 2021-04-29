@@ -8,6 +8,33 @@ $gradient : linear-gradient(251deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51
 $width : 48px;
 $golden : linear-gradient(251deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%, rgba(199,160,6,1) 92%); 
 
+
+@mixin para {
+    font-size: 16px;
+    line-height: 1.25;
+    font-family: Helvetica;
+    color: #000000;
+  }
+  @mixin form_para {
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    font-stretch: normal;
+    line-height: 20px;
+    color: #000000;
+  }
+  @mixin login_property {
+    position: absolute;   
+    text-align: center;
+    top: 20%;
+    left: 34.5%;
+    background-color: #ffffff;
+    width: 450px;
+    height: 492px;
+    padding: 30px 50px;
+  }
+
+  
 @mixin  main_heading{
     font-size: 14px;
     font-weight: bold;
@@ -41,4 +68,211 @@ $golden : linear-gradient(251deg, rgba(199,160,6,1) 11%, rgba(231,237,50,1) 51%,
     margin: 6px 0 10px 0;
     background: $gradient;            
     clip-path: polygon(0 0, 87% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 850px) {
+    
+
+    .home{
+        
+        .home-content{
+            padding: 4rem 10px;
+           
+        }
+        & h1{
+            font-size: 30px;
+        }
+        & p{
+            font-size: 16px;
+        }
+        .home-bg{
+
+        }
+    }
+
+
+    .service-banner{
+        
+
+
+        h1{
+            font-size: 20px;
+           
+        }
+        p{
+            font-size: 16px;
+        }
+
+        .banner-content{
+            padding: 10px;
+            transform: none;
+        }
+      }
+      .information {
+        position: inherit;
+        margin-top: 2rem;
+        width: 100%;
+        height: auto;
+      }
+      .team .team-name{
+        text-align: right;
+    }
+
+  
+
+
+
+
+/* //about section// */
+.about{
+    height: auto;
+.about-content {
+  
+    text-align: center;
+    left: 0%;
+  
+  }
+    
+ 
+}
+.contact p{
+    padding: 20px 0 62px 0;
+   
+}
+
+
+/* //login section// */
+.loginx .loginx_form, .loginx_form2, .loginx_form3{
+    left: 22%;
+    
+}
+
+/* //account page media// */
+    .my_user{
+        display: block;
+    .user_inner3{
+        margin: 0px;
+    }
+    }
+    /* ///view details /// */
+    .view_detail_wrapper{
+        tr{
+            text-align: center;
+        }
+    .vertical_step1 {
+    display: block;
+    padding: 5px;
+   
+    }
+    .vertical_step1 p{
+        margin:0;
+    }
+    .vertical_step4{
+        margin: 0;
+        width: 100%;
+    }
+    .vertical_step4_inner1 {
+        display: block;
+    }
+    .vertical_step4_inner1 p{
+        margin: auto;
+    }
+  .appoint2{
+      width: 100%;
+    
+     
+  }
+  .date{
+    padding: 0;
+ 
+  }
+}
+
+}
+
+
+
+@media (max-width: 480px) {
+
+
+
+  .contact {
+    p {
+      padding: 20px 0;
+    }
+  }
+
+ 
+
+  .home {
+    width: auto;
+    display: block;
+
+    .home-content {
+      padding: 2rem 0 1rem 1rem;
+      background: #fff; /* fallback color for old browsers */background: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    & h1 {
+      font-size: 26px;
+    }
+    & p {
+      font-size: 14px;
+    }
+
+    .home-bg {
+    width: 100%;
+    position: relative;
+
+    }
+    & img {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+
+  .step .circle{
+      margin: 1.5rem auto;
+  }
+  
+
+  .banner3 {
+    max-width: 100%;
+    height: 65px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    .pop_content p {
+      display: none;
+    }
+    .pop_content h6 {
+      padding-bottom: 1rem;
+      padding: 10px 0 0 0;
+    }
+    .pop_btn {
+      margin: 0 15px 5px 0;
+    }
+  }
+
+  .same-btn {
+    padding: 5px 10px;
+    height: 30px;
+    width: 110px;
+  }
+  .about{
+    height: 90vh;
+}
+
+.loginx .loginx_form, .loginx_form2, .loginx_form3{
+ width: 100%;
+ left: 0;
+    
+}
+.details_wrapper_inner {
+    .order_details{ width: 35.75% !important;
+    }    
+}
 }

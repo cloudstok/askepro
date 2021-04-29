@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Segment,  Container } from "semantic-ui-react";
+import { Grid, Container } from "semantic-ui-react";
 
 const Apply = () => {
   return (
@@ -19,8 +19,9 @@ const Apply = () => {
         </p>
         </div>
         <Container> 
+          
         <Grid stackable columns={3}>
-            
+          <Grid.Row>
             <Grid.Column>
   
             <div className="circle">
@@ -38,12 +39,13 @@ const Apply = () => {
               
                 </div>
                 </Grid.Column>
-              
+                </Grid.Row>
               </Grid>
         
         <div className="process">
            
         <Grid stackable columns={3}>
+          <Grid.Row>
                 <Grid.Column>
                 <p className='step_heading'>Step 1 </p>
                 <p>
@@ -68,7 +70,7 @@ const Apply = () => {
                   nulla aut necessitatibus?
                 </p>
               </Grid.Column>
-            
+              </Grid.Row>
           </Grid>
          
         </div>
@@ -80,6 +82,7 @@ const Apply = () => {
           <h1 className="headingOne">Customer Reviews</h1>
           <img className="underline_img" src="assets/images/path.png" />
           <Grid stackable columns={3}>
+            <Grid.Row>
               <Grid.Column>
                 <div className="customer-card">
                   <div className="one">
@@ -155,6 +158,7 @@ const Apply = () => {
                   </div>
                 </div>
               </Grid.Column>
+              </Grid.Row>
           </Grid>
 
           

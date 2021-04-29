@@ -1,12 +1,20 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
+import { Container, Grid  } from "semantic-ui-react";
 import Header from '../../Component/Main-Component/Header';
 import Visa from '../../Component/Main-Component/Visa';
+import Apply from '../../Component/Main-Component/Apply';
+import Footer from '../../Component/Main-Component/Footer';
+import Notification from '../../Component/Main-Component/Notification';
+
 import '../../Sass/Sass-Main/_home.scss';
+import '../../Sass/Sass-Main/_About.scss';
+
 
 
 const Home = () => {
   return (
+
+    <>
     <div className="cover">
       <Header />
       <main className="wrapper">
@@ -39,10 +47,18 @@ const Home = () => {
           <div className="underline_img">
             <img src="assets/images/path.png" />
           </div>
+
+          
         </Container>
         <Visa />
+         
+        <Apply />
+        <Footer />
+        <Notification />
       </main>
+    
     </div>
+    </>
   );
 };
 

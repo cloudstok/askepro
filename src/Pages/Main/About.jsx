@@ -1,8 +1,12 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
+import Footer from '../../Component/Main-Component/Footer';
+import Header from '../../Component/Main-Component/Header';
+
 const About = () => {
   return (
     <>
+    <Header />
      <Container>
       <div className="about">
         <img
@@ -84,7 +88,7 @@ const About = () => {
         </div>
       </div>
       </Container>
-
+    <Footer />
     </>
   );
 };
