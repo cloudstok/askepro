@@ -1,11 +1,14 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
+import Header from '../../Component/Main-Component/Header';
+import Visa from '../../Component/Main-Component/Visa';
 import '../../Sass/Sass-Main/_home.scss';
 
 
 const Home = () => {
   return (
     <div className="cover">
+      <Header />
       <main className="wrapper">
         {/* <!-- //second division// --> */}
 
@@ -37,6 +40,7 @@ const Home = () => {
             <img src="assets/images/path.png" />
           </div>
         </Container>
+        <Visa />
       </main>
     </div>
   );

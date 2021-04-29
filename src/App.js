@@ -103,7 +103,8 @@ function App() {
                 <Route exact path='/view'>  
                 <Crumb />
                 <View_details />
-               </Route>
+                </Route>
+                
             <Route exact path='/apply'><ApplyStepper/></Route>
             <Route exact path='/fill'><FillPage/></Route>
             <Route exact path='/upload'><UploadDocuments/></Route>
