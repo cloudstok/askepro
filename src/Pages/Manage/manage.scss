@@ -17,7 +17,7 @@
     padding: 10px 50px 10px 30px; 
 
     @include tablet{
-        padding:20px 50px 20px 2vw;
+        padding:10px 50px 10px 2vw;
     }
     
     h2{
@@ -53,13 +53,15 @@
     }
     .action{
         display: flex;
+         @include tablet{
+             flex-direction: column;
+             }
         .check, .close{
             border: 1px solid black;
             width: 26px;
             height: 26px;
-            border-radius: 50%;
-       
-            margin: 0 15px 0 0;
+            border-radius: 50%;   
+            margin: 10px 15px 10px 0;
             display: flex;
             cursor: pointer;
             justify-content: center;

@@ -5,7 +5,7 @@ import '../../Sass/app.scss';
 const Stepper = () =>{
         return (
                 <div className="stepper">
-                <Step.Group size='small' stackable='tablet'>
+                <Step.Group size='tiny' stackable='tablet'widths="6">
                 <Step active>
                     <Step.Content>
                     <Step.Title>1</Step.Title>

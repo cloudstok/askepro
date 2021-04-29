@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Link} from 'react-router-dom';
 import '../Component/togglenav.scss';
 import {Icon, Dropdown} from 'semantic-ui-react';
 
@@ -9,7 +10,7 @@ const ToggleNav = () =>{
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
         </div>
         <ul>
-            <li>Home</li>
+        <Link to="/"><li>Home</li></Link>
             <li>About</li>
             <li>Service</li>
             <li>Contact</li>

@@ -5,15 +5,20 @@ import Request_file from "../../Component/Main-Component/Request_file";
 import '../../Sass/Sass-Main/_Admin_dashboard.scss';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import '../../Sass/Sass-Main/_Request_file.scss';
-
+import SideBar from '../../Component/Nav/Sidebar';
 import { Container, Grid } from "semantic-ui-react";
+
+
+
 
 const Admin_dashboard = () => {
   return (
-    <>
-      <div className="admin_wrapper2">
-      <BreadCrumbs/>
-      <Container>
+     <main className='manage-main'>
+      <SideBar/>
+      <div className='history-main'>
+      <BreadCrumbs section={[
+                   {key:'dash', content:'Dashboard', link:true }]}/>
+      <div className="admin_wrapper2 manage-container">
         <Grid stackable columns={2}>
           <Grid.Column width={10}>
             <div className="overview5">
@@ -44,7 +49,6 @@ const Admin_dashboard = () => {
                 <div className="overview5">
                   <p>Overview</p>
                 </div>
-
                 <div className="revenue_data">asd</div>
               </Grid.Column>
             </Grid>
@@ -54,21 +58,17 @@ const Admin_dashboard = () => {
 
           <div className="appointment_heading2">
               <Grid columns>
-                  
-                  <Grid.Row>
-                              
+                  <Grid.Row>               
                   <p> Appointments for approval(4)</p>
                   <a href={URL}><p className="para9"> VIEW ALL</p></a>
-                  
                   </Grid.Row>
-                  
-                
                 </Grid>
                 </div>
             <Grid columns>
-              <Grid.Column>
-               
+              <Grid.Column> 
                 <Appointment_card />
+                <Appointment_card />
+                 <Appointment_card />
               </Grid.Column>
             </Grid>
             
@@ -76,9 +76,7 @@ const Admin_dashboard = () => {
               <Grid.Column>
               <div className="appointment_heading2">
               <Grid columns>
-                  
-                  <Grid.Row>
-                              
+                  <Grid.Row>             
                   <p> Appointments for approval(4)</p>
                   <a href={URL}><p className="para9"> VIEW ALL</p></a>
                   </Grid.Row>     
@@ -89,10 +87,9 @@ const Admin_dashboard = () => {
             </Grid>
           </Grid.Column>
         </Grid>
-        </Container>
       </div>
-     
-    </>
+      </div>
+      </main>
   );
 };
 

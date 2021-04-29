@@ -9,15 +9,15 @@ import '../StepPages/stepPage.scss';
 
 function FillPage(){
         return (
-             <div className='fill-main'>
-                 <div className='head'>
+             <main>
+                 <div className='fill-section'>
                  <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
-                 </div>
-                 <div className='data'>
+                 <Grid className='data' columns='2' stackable='tablet'>
+                 <Grid.Column width={11}>
                 <Container className="stepper-container">
                 <Stepper/>
                 <Divider/>
@@ -103,10 +103,14 @@ function FillPage(){
                     </Grid>
                 </div>
                 </Container>
+                </Grid.Column>
+                <Grid.Column width={5}>
                 <DataCard/>
+                </Grid.Column>
+                </Grid>
                 </div>
                 <ButtonBar/>
-                </div>
+                </main>
         )
 }
 export default FillPage;

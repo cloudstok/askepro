@@ -8,20 +8,18 @@ import '../StepPages/stepPage.scss';
 
 const Payment = () =>{
     return (    
-        <main className='fill-main'>
-        <div className='head'>
+        <main>   
+        <div className='payment-section'>
         <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
         <Heading/>
-        </div>
-        <div className='data'>
         <Container className="stepper-container">
         <Stepper/>
         <Divider/>
         <div className='form'>
-        <label className='summary'>Summary</label>
+        <label className='payment-header'>Summary</label>
         <div className='payment-container'>
         <h3>Company Formation Services</h3>
         <Grid columns='5' fluid stackable='tablet'>
@@ -69,8 +67,8 @@ const Payment = () =>{
         </Grid.Row>
         </Grid>
         </div>
+        <label className='payment-header'>Choose payment method</label>
         <Grid columns='3' stackable='mobile'>
-        <label>Choose payment method</label>
                 <Grid.Row>
                     <Grid.Column>
                     <Radio label='Pay via Debit Card' />
