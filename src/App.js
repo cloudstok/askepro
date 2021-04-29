@@ -43,7 +43,6 @@ function App() {
   return (
     <>
     <Router>
-      <div className='main'>
         <div className='wrapper'>
           <Nav/> 
             <Switch>
@@ -121,7 +120,6 @@ function App() {
             <Route exact path='/toggle'><ToggleNav/></Route>
           </Switch>
         </div>
-      </div>
       </Router>      
       </>
   );
