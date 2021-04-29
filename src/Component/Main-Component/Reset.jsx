@@ -1,0 +1,102 @@
+import _ from 'lodash';
+import React from 'react';
+import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
+
+const Reset = () => {
+    const url = 'http://localhost:8000/users/forget/password';
+
+    const history = useHistory();
+    const [rePassword, setConfirmPassword] = React.useState(null);
+    const [password, setPassword] = React.useState(null);
+
+    const forgetPassword = async (event) => {
+        try {
+            event.preventDefault();
+            let jsonPostData;
+            if (Object.keys(localStorage).includes('email'))
+                jsonPostData = {
+                    'email': localStorage.getItem('email'),
+                    'new_password': password,
+                    'confirm_password': rePassword
+                }
+            if (Object.keys(localStorage).includes('phone'))
+                jsonPostData = {
+                    'phone': localStorage.getItem('phone'),
+                    'new_password': password,
+                    'confirm_password': rePassword
+                }
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonPostData)
+            });
+
+            const data = await res.json();
+
+            if (data.status == 1 && res.status == 200) {
+                localStorage.removeItem("email");
+                localStorage.removeItem("phone");
+                history.push('/login1');
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    return (
+        <>
+            <div
+                className="loginx"
+                style={{
+                    background: "url(assets/images/login.png)",
+                    height: "100vh",
+                    backgroundSize: "cover",
+                }}
+            >
+                <Form className="loginx_form2" onSubmit={forgetPassword}>
+                    <h3>Reset Your Password</h3>
+                    <Form.Field>
+                        <label>Password</label>
+                        <input onChange={(event) => setPassword(event.target.value)} placeholder="Enter your new Password" />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Re-Enter Password</label>
+                        <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Re-Enter Password</label>
+                        <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
+                    </Form.Field>
+                    {/*
+          <Form.Field>
+            <label>Enter OTP</label>
+          <div className="otp">
+          
+            <input style={{width:'70px'}}/>
+            <input style={{width:'70px'}}/>
+            <input style={{width:'70px'}}/>
+            <input style={{width:'70px'}}/>
+            <input style={{width:'70px'}}/>
+          
+          </div>
+          
+          </Form.Field>
+        
+          <span class="fgt1">
+             <a href="#">Resend in 01:45</a>
+          </span>
+          */}
+
+                    <button className="form-btn" type="submit">Submit</button>
+                </Form>
+            </div>
+
+        </>
+    );
+}
+
+export default Reset;
