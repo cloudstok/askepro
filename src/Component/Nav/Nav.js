@@ -1,5 +1,4 @@
 import React, {useState, useEffect, Component } from "react";
-import {useMediaQuery} from 'react-responsive';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
@@ -16,9 +15,7 @@ export function Nav() {
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
         </div>
      { 
-     open ? <Icon name='close' onClick={() => setOpen(!open)}/>:
-     <Icon name='bars' onClick={() => setOpen(!open)}/>
-     
+     open ? <Icon name='close' onClick={() => setOpen(!open)}/>: <Icon name='bars' onClick={() => setOpen(!open)}/>
      }
       {
         open && <ToggleNav/>
