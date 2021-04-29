@@ -9,7 +9,7 @@ const ManageApplication = ({title}) =>{
         return (
           <main className='manage-main'>
             <SideBar/>
-            <div className='history-main'>
+            <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
                    {key:'history', content:'Manage Application', active:true }

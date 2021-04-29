@@ -10,7 +10,7 @@ const ManageAppointments = ({title}) =>{
           
           <main className='manage-main'>
             <SideBar value='appointment' active='active'/>
-            <div className='history-main'>
+            <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
                    {key:'appointment', content:'Manage Appointments', active:true }

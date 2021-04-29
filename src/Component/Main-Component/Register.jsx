@@ -9,6 +9,7 @@ const Login2 = () => {
     const history = useHistory();
     const [name, setName] = React.useState(null);
     const [phone, setPhone] = React.useState(null);
+    const [email, setEmail] = React.useState(null);
     const [password, setPassword] = React.useState(null);
   
     const doUserCreate = async (event) => {
@@ -17,6 +18,7 @@ const Login2 = () => {
       const jsonPostData = {
         'name': name,
         'phone': parseInt(phone),
+        'email':email,
         'password': password
       }
       
@@ -56,6 +58,10 @@ const Login2 = () => {
           <Form.Field>
             <label>Mobile Number</label>
             <input onChange={(event) => setPhone(event.target.value)} placeholder="Enter your mobile number" />
+          </Form.Field>
+          <Form.Field>
+            <label>Email</label>
+            <input onChange={(event) => setEmail(event.target.value)} placeholder="Enter your Email Address" />
           </Form.Field>
           <Form.Field>
             <label>Password</label>

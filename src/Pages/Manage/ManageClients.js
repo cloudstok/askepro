@@ -9,7 +9,7 @@ const ManageClients = ({title}) =>{
         return (
           <main className='manage-main'>
             <SideBar value='clients' active='active'/>
-            <div className='history-main'>
+            <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
                    {key:'client', content:'Manage Clients', active:true }

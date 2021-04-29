@@ -27,7 +27,7 @@ const UploadDocuments = () =>{
                         <Grid.Column width={8}>
                             <Form.Field>
                                 <label>Scan and upload documents</label>
-                                <Input placeholder='Uplaod file(s) from your computer'/>
+                                <Input type='file' placeholder='Uplaod file(s) from your computer'/>
                                 </Form.Field>
                                 </Grid.Column>
                             <Grid.Column>

@@ -13,7 +13,7 @@ header{
             position: absolute !important;
             display: block !important;
             z-index: 1;
-            left: 20px;
+            left: 30px;
             padding: 6px 0;
          }
     }
@@ -24,7 +24,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    padding:0 50px;
+    padding:0 60px;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 
     .nav-brand{
@@ -170,6 +170,7 @@ nav{
             display: flex;
             align-self:center;
             align-items: center;
+        
     
                  .dropdown-btn{
                     width: 10em;
@@ -182,6 +183,11 @@ nav{
                     border-radius: 20px;
                     border: 1px solid black;
                     cursor: pointer;
+
+                    @media screen and (max-width:580px) {
+                        width: 50%;
+                    }
+            
     
                     &:hover{
                         border:transparent;
@@ -316,21 +322,21 @@ nav{
 //toggleble Navigation Bar
 header{
     @include tablet{
-     width: 100%;
+    width: 100%;
     height: 70px;
     background: #fff !important;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
     }
 
 
-    .bars, .close{
+.bars, .close{
     @include tablet{
         display: block !important; 
         position: relative;
         cursor: pointer;
-        top:25px; 
-        left: 89%;
         font-size: 24px !important;
+        top:25px;
+        left:89%;
         }   
     }
 

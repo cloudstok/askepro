@@ -9,6 +9,8 @@ const Reset = () => {
     const history = useHistory();
     const [rePassword, setConfirmPassword] = React.useState(null);
     const [password, setPassword] = React.useState(null);
+    const [otp, setOtp] = React.useState(null);
+
 
     const forgetPassword = async (event) => {
         try {
@@ -18,13 +20,15 @@ const Reset = () => {
                 jsonPostData = {
                     'email': localStorage.getItem('email'),
                     'new_password': password,
-                    'confirm_password': rePassword
+                    'confirm_password': rePassword,
+                    'otp': parseInt(otp)
                 }
             if (Object.keys(localStorage).includes('phone'))
                 jsonPostData = {
                     'phone': localStorage.getItem('phone'),
                     'new_password': password,
-                    'confirm_password': rePassword
+                    'confirm_password': rePassword,
+                    'otp': parseInt(otp)
                 }
             const res = await fetch(url, {
                 method: 'POST',
@@ -66,6 +70,11 @@ const Reset = () => {
                     <Form.Field>
                         <label>Re-Enter Password</label>
                         <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>OTP</label>
+                        <h4>(OTP will be sent on your registered email ID)</h4>
+                        <input onChange={(event) => setOtp(event.target.value)}/>
                     </Form.Field>
                     {/*
           <Form.Field>
