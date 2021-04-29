@@ -116,6 +116,7 @@ function App() {
                 <Crumb />
                 <View_details />
                 </Route>
+                
             <Route exact path='/apply'><ApplyStepper/></Route>
             <Route exact path='/fill'><FillPage/></Route>
             <Route exact path='/upload'><UploadDocuments/></Route>
