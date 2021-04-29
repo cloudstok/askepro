@@ -29,8 +29,14 @@ main{
      
 .apply-section{
     padding: 0 40px;
+
+    @include tablet{
+        padding: 0 20px;
+    }
+
    .form{
     padding: 30px;        
+    
     .radio{
         background-color:$white;
         height: 60px;
@@ -53,6 +59,11 @@ main{
 // Book Appointment 
 .book-section{
     width: 100%;
+    padding: 0 40px;
+    
+    @include tablet{
+        padding: 0 20px;
+    }
 
         .header{
             text-align: center;
@@ -69,8 +80,8 @@ main{
                 clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
             }
         }
-        .form_{
-            padding: 20px 20px 40px;
+        .form{
+            padding: 20px;
             background-color: #fff;
             font-family: 'Lato' !important;
 
@@ -87,7 +98,10 @@ main{
 
 //Fill Documents
  .fill-section{   
-    padding: 0 40px;
+    padding: 0 40px;    
+    @include tablet{
+        padding: 0 20px;
+    }
 .form{        
     background-color: #fff;
     padding: 30px;
@@ -147,6 +161,7 @@ main{
 .upload-form{
     background-color: #fff;
     padding: 30px;
+
     label{
         display: block;
         font-weight: bold !important;
@@ -198,6 +213,11 @@ main{
 
 .payment-section{
     padding: 0 40px;
+    
+    @include tablet{
+        padding: 0 20px;
+    }
+
 
     .radio{
         width: 100%;
@@ -269,6 +289,12 @@ main{
 // Successs 
 .success-main{
     padding: 0 40px;
+
+    
+    @include tablet{
+        padding: 0 20px;
+    }
+
 
     .heading{
         font-size: 12px !important;

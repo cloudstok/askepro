@@ -1,15 +1,12 @@
-import {useState} from 'react';
 import {BrowserRouter as Router, Link, Switch, Route, useLocation} from 'react-router-dom';
 import ApplyStepper from "./Pages/StepPages/Apply_page";
 import FillPage from './Pages/StepPages/FillPage';
-import ButtonBar from '././Component/ButtonBar/buttonbar';
-import DataCard from '././Component/Card/card'
 import './Sass/app.scss';
 import UploadDocuments from './Pages/StepPages/upload';
 import BookAppointment from './Pages/StepPages/bookappointment';
 import Payment from './Pages/StepPages/payment';
 import {Nav} from './Component/Nav/Nav';
-import {ManageNav} from '../src/Component/Nav/manageNav';
+import ManageNav from '../src/Component/Nav/manageNav';
 import Success from './Pages/StepPages/SuccessPage';
 import History from './Pages/Manage/history';
 import ManageClients from './Pages/Manage/ManageClients';
@@ -40,28 +37,18 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-import BreadCrumbs from './Component/Breadcrumb/breadcrumb';
 
 
-
-
-//const PATHS_FOR_NAV_1 = {
-  //"/": null,
- // "/apply": null,
-//}
 function App() {
-
-  //const pathname = useLocation();
   return (
     <>
     <Router>
       <div className='main'>
         <div className='wrapper'>
-         
-          <Switch>
-         
+          <Nav/> 
+            <Switch>
             <Route exact path="/">
-                <Home />
+              <Home />
                 <Visa />
                 <Apply />
                 <Footer />
@@ -116,7 +103,7 @@ function App() {
                 <Route exact path='/view'>  
                 <Crumb />
                 <View_details />
-                </Route>
+               </Route>
             <Route exact path='/apply'><ApplyStepper/></Route>
             <Route exact path='/fill'><FillPage/></Route>
             <Route exact path='/upload'><UploadDocuments/></Route>

@@ -5,10 +5,9 @@ import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
 
-const History = ({title}) =>{
+const History = ({title, key}) =>{
         return (
           <main className='manage-main'>
-            <SideBar value='history' active='active'/>
             <div className='history-main'>
             <BreadCrumbs section={[
                    {key:'home', content:'Home', link:true },
@@ -135,7 +134,7 @@ const History = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='.page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing 9 of 5</label>
 <Pagination
     size='small'
     defaultActivePage={1}

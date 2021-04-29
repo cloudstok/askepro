@@ -6,18 +6,28 @@
 
     .breadcrumb{
         padding: 20px 30px;
+        
         @include tablet{
             padding:20px 2vw;
         }
     }
-.history-main{
+.table-container{
     width: 100%;
 }
-.manage-container{
-    padding: 10px 50px 10px 30px; 
+
+.history-main{
+    width: 100%;
+    margin: 0 30px 0 30px;
 
     @include tablet{
-        padding:10px 50px 10px 2vw;
+        margin: 0;
+    }
+}
+.manage-container{
+    padding: 10px 40px 10px 30px; 
+
+    @include tablet{
+        padding:10px 20px 10px 2vw;
     }
     
     h2{
@@ -96,10 +106,10 @@
      }
     .page-name{
         display: block;
-        font-weight: bold;
+        font-weight: 500 !important;
         @include tablet{
             margin-left: 12px;
-            margin-bottom:10px ;
+            margin-bottom:10px;
         }
     }
      .pagination{
