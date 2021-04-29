@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "semantic-ui-react";
 import '../../Sass/Sass-Main/_home.scss';
 
+
 const Home = () => {
   return (
     <div className="cover">

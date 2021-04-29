@@ -3,18 +3,54 @@ import { Accordion, Grid, Icon, Container } from "semantic-ui-react";
 
 export default class AccordionExampleFluid extends Component {
   state = { activeIndex: 0 };
-
+  
+ 
+  constructor(props) {
+    super(props);
+    this.faq = {
+      title: "",
+      description:""
+    };
+  }
+  componentDidMount() {
+    const getFaq= async()=>{
+      try {
+        const data= await fetch('http://localhost:8000/faqs', {
+          method: "GET",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        })
+        const title=[];
+        const description=[];
+        console.log(data);
+        const result = await data.json();
+        console.log(result.data);
+        result=result.data
+        this.setState({
+        result  
+        });
+        
+      } catch (error) {
+        return error
+      }
+     
+    };
+    getFaq();
+  }
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
+    
 
     this.setState({ activeIndex: newIndex });
   };
 
   render() {
     const { activeIndex } = this.state;
-
+    console.log(this.state);
     return (
       <>
         <Container>

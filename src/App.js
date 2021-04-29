@@ -30,9 +30,10 @@ import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
 import Crumb from './Component/Main-Component/Crumb';
-import Login1 from './Component/Main-Component/Login1'; 
-import Login2 from './Component/Main-Component/Login2'; 
-import Login3 from './Component/Main-Component/Login3'; 
+import Login1 from './Component/Main-Component/Login'; 
+import Login2 from './Component/Main-Component/Register'; 
+import Login3 from './Component/Main-Component/Fgpasswd'; 
+import Reset from './Component/Main-Component/Reset';
 import Account from './Pages/Main/Account';
 import Accept from './Component/Main-Component/Accept';
 import Reject from './Component/Main-Component/Reject';
@@ -56,8 +57,9 @@ function App() {
     <Router>
       <div className='main'>
         <div className='wrapper'>
-          <Nav/>
+         
           <Switch>
+         
             <Route exact path="/">
                 <Home />
                 <Visa />
@@ -95,6 +97,9 @@ function App() {
                 </Route>
                 <Route exact path='/login3'>  
                   <Login3 />
+                </Route>
+                <Route exact path='/reset'>  
+                  <Reset />
                 </Route>
                 <Route exact path='/account'>  
                   <Account />
