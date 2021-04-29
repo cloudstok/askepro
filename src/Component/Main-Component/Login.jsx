@@ -6,7 +6,7 @@ const Login1 = () => {
   const history = useHistory();
   
   const url = 'http://localhost:8000/login'
-  const [name, setName] = React.useState(null);
+  const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
   
@@ -16,7 +16,7 @@ const Login1 = () => {
     console.log(event.target);
     
     const jsonPostData = {
-      'name': name,
+      'email': email,
       'password': password
     }
     
@@ -57,8 +57,8 @@ const Login1 = () => {
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
             <h3>Login into your account</h3>
           <Form.Field>
-            <label>Username</label>
-            <input type="text" onChange = {(event) => setName(event.target.value)} name="name" placeholder="Enter username" required={true}/>
+            <label>Email</label>
+            <input type="text" onChange = {(event) => setEmail(event.target.value)} name="Email" placeholder="Enter username" required={true}/>
           </Form.Field>
           <Form.Field>
             <label> Password</label>
