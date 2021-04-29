@@ -1,0 +1,47 @@
+@import './variable';
+
+
+.border_appointment{
+    background-color:  #ffffff;
+    
+  
+}
+.appoint_card{
+    display: inline-flex;
+   
+    border-bottom: solid 1px #e6e6e6;
+.appoint_card content{
+
+
+   
+}
+& p{
+       background-color: #ffffff;
+        @include main_heading;
+        font-weight: normal;
+        margin-right: 32px;
+       
+       
+    }
+
+
+.appoint_card images{
+    display: inline-flex;
+    width: 34px;
+
+    height: 34px;
+}
+& img{
+    
+    width: 34px;
+   margin: 15px 0 15px 20px;
+    height: 34px;
+}
+img:hover{
+    filter: invert(1);
+}
+
+}
+.content6{
+    padding: 10px 5px;
+}
