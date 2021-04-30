@@ -139,6 +139,7 @@
         }
         .next, .prev{
             color: #000 !important;
+            
            &:after{
                content:'';
                position:absolute;

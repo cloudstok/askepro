@@ -50,7 +50,7 @@ function App() {
                 <Route exact path='/contact'><Contact /></Route>
                 <Route exact path='/company'><Company /></Route>
                 <Route exact path='/login'><Login /></Route>
-                <Route exact path='/register'><Register /></Route>
+                <Route exact path='/register'><Register/></Route>
                 <Route exact path='/fgpasswd'><Fgpasswd /></Route>
                 <Route exact path='/reset'><Reset /></Route>
                 <Route exact path='/account'><Account /></Route>

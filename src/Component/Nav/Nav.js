@@ -1,27 +1,33 @@
+import userEvent from "@testing-library/user-event";
 import React, {useState, useEffect, Component } from "react";
 import {Link, useHistory, withRouter} from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
-
-const options = [
-  { text: "Wiiliam", value: "William" },
-];  
+ 
 export function Nav() {
+  const history = useHistory();
   const [open, setOpen] = useState(false);
-  const [activeItem, setItem] = useState("home");
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
+  const name = localStorage.getItem("name");
+  const fullname = name.split(' ');
+  const firstname = fullname[0];
 
-  // useEffect(() => {
-  //   if (token) setIsLoggedIn(true)
-  //   else setIsLoggedIn(false)
-  // }, [token])
+const logout = (e) =>{
+  localStorage.clear();
+  history.push("/login");
+}
+
+  useEffect(() => {
+    if (token){
+      setIsLoggedIn(true)
+    }
+    else {
+      setIsLoggedIn(false)
+    }
+   }, [token])
     
-  const handleClick = (name) => {
-    setItem({activeItem:name});
-  };
   return (
     <>
     <header>
@@ -38,86 +44,71 @@ export function Nav() {
     <div className='nav-brand'>
     <a href="/"> <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>
     </div>
-    <div>
-    <Menu pointing secondary>
-    <Link to='/'>
-    <Menu.Item
-    name='Home'            
-    active={activeItem==='home'}
-    onClick={handleClick}
-    /></Link>
-    <Link to='/service'><Menu.Item
-    name='service'
-    active={activeItem=='service'}
-    onClick={handleClick}
-    /></Link>
-    <Link to='/about'><Menu.Item
-    name='About'
-    active={activeItem=='about'} 
-    onClick={handleClick}
-    /></Link>
-    <Link to='/contact'><Menu.Item
-    name='Contact'
-    active={activeItem==='contact'}
-    onClick={handleClick}
-    /></Link>
-    </Menu>
-    </div>
+      <MenuBar />
     {
       isLoggedIn ? (
-        
         <div className="btn-group">
         <Icon name='bell outline'/>
         <div class='dropdown-btn'>
         <Icon name='user outline'/>
-        <Dropdown text='William'>
+        <Dropdown text={firstname}>
         <Dropdown.Menu className='dropdown-menu'>
-        <li className='item-name'><Icon name='user outline'/>My Account</li>
-        <li className='item-name'><Icon name='history'/>History</li>
-        <li className='item-name'><Icon name='history'></Icon>Logout</li>
+        <Link to={'/account'}><li className='item-name' style={{color:"#000"}}><Icon name='user outline'/>My Account</li></Link>
+        <Link to={'/history'}><li className='item-name' style={{color:"#000"}}><Icon name='history'/>History</li></Link>
+        <li className='item-name' onClick={e=>logout(e)}><Icon name='history'></Icon>Logout</li>
         </Dropdown.Menu>
         </Dropdown>
         </div>
         </div>
-        ): (
-          <div>
-          
+        ): (  
+        <div className="action-group">
+        <Link to="/login"><button className="btn-login">LOGIN</button></Link>
+        <Link to="/register"><button className='btn-apply'>APPLY NOW</button></Link>
           </div>
           )
-        }
-        
+        } 
         </nav>
         </header>
         </>
         );
       }
-      
-      
-      
-      class MenuBar extends Component {
-        render() {
-          const { activeItem } = this.state
-          return (
-            <div>
-            
-            <Link to={'/service'}><Menu.Item
-            name='services'
+    
+
+export default class MenuBar extends Component {
+  state = { activeItem: 'home'}
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <div>
+      <Menu pointing secondary>
+        <Link to='/'> 
+        <Menu.Item
+            name='home'
+            active={activeItem === 'home'}
             onClick={this.handleItemClick}
-            /></Link>
-            <Link to="/about"><Menu.Item
+          /></Link>
+         <Link to="/service"><Menu.Item
+            name='services'
+            active={activeItem === 'services'}
+            onClick={this.handleItemClick}
+          /></Link>   
+          <Link to="/about"><Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
-            /></Link>
+          />
+          </Link>
             <Link to="/contact"><Menu.Item
-            name='contact'
-            active={activeItem === 'contact'}
-            onClick={this.handleItemClick}
+              name='contact'
+              active={activeItem === 'contact'}
+              onClick={this.handleItemClick}
             /></Link>
-            </div>
-            )
-          }
-        }
-        
-        export default withRouter(MenuBar);
-        
+        </Menu> 
+      </div>
+    )
+  }
+}
