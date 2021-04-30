@@ -76,11 +76,11 @@ const Company = () => {
               
               { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                 <div className="testimonial">
-                  <img src="/assets/images/Rectangle 242@2x.png" />
+                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
                   <p>
                     {d}
                   </p>
-                </div> 
+                </div>
               )}
               
               {/*
