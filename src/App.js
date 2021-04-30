@@ -44,7 +44,7 @@ function App() {
                 <Route exact path='/service'><Service /></Route>
                 <Route exact path='/about'><About /></Route>
                 <Route exact path='/contact'><Contact /></Route>
-                <Route exact path='/company'><Company /></Route>
+                <Route exact path='/service/:slug'><Company /></Route>
                 <Route exact path='/login'><Login /></Route>
                 <Route exact path='/register'><Register /></Route>
                 <Route exact path='/fgpasswd'><Fgpasswd /></Route>
