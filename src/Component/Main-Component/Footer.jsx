@@ -71,7 +71,7 @@ const Footer = () => {
 
               <div className="reach-Submit">
                 <p>By clicking on 'Submit' you will agree to T&C of AskePro</p>
-                <button className="reach-btn bt n-outline-dark" type="submit">
+                <button className="same-btn" type="submit">
                   <strong> SUBMIT </strong>
                 </button>
               </div>

@@ -1,6 +1,6 @@
  import React from 'react';
 import { Form } from 'semantic-ui-react';
- const Login3 = () => {
+ const Login30 = () => {
      return (
          <>
          <div
@@ -31,4 +31,4 @@ import { Form } from 'semantic-ui-react';
          </>
      );
  }
- export default Login3;
+ export default Login30;

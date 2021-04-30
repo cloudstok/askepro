@@ -1,8 +1,13 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
+import Footer from '../../Component/Main-Component/Footer';
+import Header from '../../Component/Main-Component/Header';
+
 const Company = () => {
   return (
     <>
+
+    <Header />
       <div
         class="company"
         style={{
@@ -26,7 +31,7 @@ const Company = () => {
 
 
       <div className="overview">
-      <Grid doubling column={2}>
+      <Grid stackable column={2}>
       <Grid.Column width={11}>
             <div>
               <h3>Overview</h3>
@@ -147,6 +152,7 @@ const Company = () => {
         </div>
 
         </Container>
+        <Footer />
           </>
   );
 };

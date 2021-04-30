@@ -9,11 +9,11 @@ import '../StepPages/stepPage.scss';
 function ApplyStepper(){
     return (
     <main>
-           <BreadCrumbs section={[
+    <div className='apply-section'>
+   <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
-    <div className='fill-main'>
      <Heading/>
      <Container className="stepper-container" stackable='mobile'>
       <Stepper/>

@@ -9,7 +9,7 @@ const ManagePayments = ({title}) =>{
         return (
           <main className='manage-main'>
             <SideBar value='payment' active='active'/>
-            <div className='history-main'>
+            <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
                    {key:'payment', content:'Manage Payment', active:true }

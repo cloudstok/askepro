@@ -1,6 +1,5 @@
 @import './variable';
-
-
+@import '../variables.scss';
 .border_appointment{
     background-color:  #ffffff;
     
@@ -8,33 +7,44 @@
 }
 .appoint_card{
     display: inline-flex;
-   
     border-bottom: solid 1px #e6e6e6;
-.appoint_card content{
 
-
-   
-}
 & p{
        background-color: #ffffff;
         @include main_heading;
         font-weight: normal;
-        margin-right: 32px;
-       
-       
+        margin-right: 32px;       
     }
 
 
-.appoint_card images{
-    display: inline-flex;
-    width: 34px;
+.action-icon{
+    display: flex;
+    margin-left: auto !important;    
+    margin-right: 0;
+    .check, .close{
+        border: 1px solid black;
+        width: 34px;
+        height: 34px;
+        font-size:16px;
+        border-radius: 50%;   
+        margin: 15px !important;
+        margin-right: 0 !important;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
 
-    height: 34px;
+        &:hover{
+            background: $hover-color;
+            border:transparent;
+        }
+    }
 }
+
 & img{
     
     width: 34px;
-   margin: 15px 0 15px 20px;
+     margin: 15px 0 15px 20px;
     height: 34px;
 }
 img:hover{

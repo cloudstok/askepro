@@ -1,8 +1,9 @@
 @import "./variable";
+
 .admin_wrapper2{
-    background-color:#fcfcfc;
-    padding-top: 20px;
+    height: 120vh;
 }
+
 .overview5{
     p{
     @include main_heading;
@@ -17,7 +18,7 @@
 
     text-align: center;
     background-color:  #ffffff;
-    height: 128px;                                           ;
+    height: 128px;                                    
     h6{
         color: #cccccc; 
         line-height: 1.19;
@@ -52,9 +53,8 @@
 }
 
 .appointment_heading2{
-    display:flex;
+    display: inline-flex;
     margin:0 auto;
-    
     p{
         
         @include main_heading;  
@@ -72,7 +72,38 @@
         @include para11;
         
     }
+    
 }   
+.appointment_divider{
+    margin-top: 28px;
+}
+.appointment_heading3{
+    
+    margin-top: 5rem;
+    display: inline-flex;
+    margin:0 auto;
+    
+    p{
+        
+        @include main_heading;  
+        position: relative;
+        margin-bottom: 33px;
+    }
+    &::after{
+        @include after;
+        position: absolute;
+        top: 29px;
+        left: 0;
+    }
+  
+    .para10{
+        margin-left: 16rem;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+}   
+
 
 
 

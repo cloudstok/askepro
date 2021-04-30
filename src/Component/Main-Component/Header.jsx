@@ -14,9 +14,9 @@ export default class MenuExampleBasic extends Component {
       <>
         
       <header className="top_header">
-     
-        <Menu secondary>
-        <Container>
+
+        <Menu secondary > 
+      
         <a href="#"><img src="/assets/images/Epro Logo_Web.png" /></a>
           <Menu.Menu position="right">
            
@@ -31,10 +31,10 @@ export default class MenuExampleBasic extends Component {
 
             <div className="Item"
               name="Service"
-              active={activeItem === "Service"}
+              active={activeItem === "Services"}
               onClick={this.handleItemClick}
             >
-             Service
+             Services
             </div>
 
             <div className="Item"
@@ -75,7 +75,7 @@ export default class MenuExampleBasic extends Component {
              
             </div>
           </Menu.Menu>
-          </Container>
+         
         </Menu>
 
         </header>

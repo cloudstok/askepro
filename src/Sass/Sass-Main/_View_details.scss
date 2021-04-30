@@ -110,7 +110,8 @@
 .details_wrapper_inner{
     height: 130vh;
     border: solid 1px #e6e6e6;
-    background-color: #ffffff;
+    background-color: #ffffff;  
+    border-top: none;
 }
 
 .view_detail_wrapper{
@@ -141,6 +142,7 @@
     td p{
              @include main_heading;
              margin-top: 10px;
+             font-weight: 500;
          }
      
 }

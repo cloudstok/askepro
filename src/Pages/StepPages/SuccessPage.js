@@ -8,14 +8,13 @@ import '../../Sass/app.scss';
 
 const Success = () =>{
             return(
-                 <main className='success-main'>
-                <div className='head'>
+            <main>
+             <div className='success-main'>
                  <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
-                 </div>
              <div className='step-data'>
                 <Container className="stepper-container" stackable='mobile'>
                 <Stepper/>
@@ -26,7 +25,7 @@ const Success = () =>{
                 <Icon name='check'/>
                 </div>   
                 <p className='text'>
-                   Your payment was successful and we have also recieved the slot for your appointment. <br />
+                   Your payment was successful and we have also recieved the slot for your appointment.
                    You can keep track of your application from your 
                    "History". 
                 </p>
@@ -93,7 +92,8 @@ const Success = () =>{
                 </div>
                 </Container>     
             </div>
-               </main>       
+            </div>       
+            </main>
         )
 }
 

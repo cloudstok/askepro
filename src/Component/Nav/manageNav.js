@@ -5,8 +5,7 @@ import '../../Sass/nav.scss';
 const options = [
   { text: "Wiiliam", value: "William" },
 ];  
-
-export function ManageNav() {
+ function ManageNav() {
   return (
     <>
       <header>
@@ -33,3 +32,4 @@ export function ManageNav() {
     </>
   );
   }
+  export default ManageNav;

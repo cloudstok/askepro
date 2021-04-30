@@ -9,15 +9,15 @@ import '../StepPages/stepPage.scss';
 
 const UploadDocuments = () =>{
             return(
-                <main className='fill-main'>
-                <div className='head'>
+                <main>
+                <div className='apply-section'>
                 <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'Apply Now', active:true }
                  ]}/>
                  <Heading/>
-                 </div>
-                 <div className='data'>
+                 <Grid className='data' columns='2' stackable='tablet'>
+                 <Grid.Column width={11}>
                 <Container className="stepper-container">
                 <Stepper/>
                 <Divider/>
@@ -27,7 +27,7 @@ const UploadDocuments = () =>{
                         <Grid.Column width={8}>
                             <Form.Field>
                                 <label>Scan and upload documents</label>
-                                <Input placeholder='Uplaod file(s) from your computer'/>
+                                <Input type='file' placeholder='Uplaod file(s) from your computer'/>
                                 </Form.Field>
                                 </Grid.Column>
                             <Grid.Column>
@@ -62,7 +62,11 @@ const UploadDocuments = () =>{
                     </div>
                     </div>
                 </Container>
+                </Grid.Column>
+                <Grid.Column width={5}>
                 <DataCard/>
+                </Grid.Column>
+                </Grid>
                 </div>
                 <ButtonBar/>
                 </main>
