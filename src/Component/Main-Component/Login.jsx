@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const Login1 = () => {
   const history = useHistory();
   
-  const url = 'http://localhost:8000/login'
+  const url = `${process.env.REACT_APP_BASE_URL}/login`
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
