@@ -30,7 +30,7 @@ const Visa = () => {
           { services && services.map((service) =>
             <Grid.Column>
               <div className="service-card" onClick={() => history.push(`/service/${service.slug}`)}>
-                <img src={process.env.PUBLIC_URL+"Assets/images/building.png"} />
+                <img src={process.env.PUBLIC_URL+"Assets/Images/building.png"} />
                 <p>{service.name}</p>
               </div>
             </Grid.Column>
