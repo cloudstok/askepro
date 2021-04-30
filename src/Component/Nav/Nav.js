@@ -15,14 +15,14 @@ export function Nav() {
 
 useEffect(() => {
     if (token) {
-      // let name=localStorage.getItem("name");
-      // fullname = name.split(' ');
-      // if (fullname.length > 1){
-      //   setName(fullname[0])
-      // }
-      // else{
-      //   setName(name);  
-      // }
+       let name=localStorage.getItem("name");
+      fullname = name.split(' ');
+      if (fullname.length > 1){
+        setName(fullname[0])
+       }
+       else{
+         setName(name);  
+      }
       setIsLoggedIn(true);
     }
     else {
