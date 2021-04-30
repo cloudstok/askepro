@@ -3,8 +3,9 @@ import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
-  const url = `${process.env.REACT_APP_BASE_URL}/login`
   const history = useHistory();
+  
+  const url = `${process.env.REACT_APP_BASE_URL}/login`
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
@@ -51,7 +52,6 @@ const Login1 = () => {
     localStorage.setItem('id', idData._id);
 
   };
-
   return (
     <>
       <div
@@ -62,13 +62,12 @@ const Login1 = () => {
           backgroundSize: "cover",
         }}
       >
-
-        {
-          msg && <Message negative>
-            <Message.Header>Error</Message.Header>
-            <p>{msg}</p>
-          </Message>
-        }
+      
+      {msg && <Message negative>
+                        <Message.Header>Error</Message.Header>
+                        <p>{msg}</p>
+                    </Message>
+                    }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
           <h3>Login into your account</h3>
           <Form.Field>
