@@ -34,6 +34,7 @@ const Login1 = () => {
       history.push('/')
     } else{
       alert("Incorrect Email/Password");
+      setMsg("Invalid Incorrect Email/Password ")
     }
   };
  
@@ -58,7 +59,7 @@ const Login1 = () => {
             <h3>Login into your account</h3>
           <Form.Field>
             <label>Email</label>
-            <input type="text" onChange = {(event) => setEmail(event.target.value)} name="Email" placeholder="Enter username" required={true}/>
+            <input type="text" onChange = {(event) => setEmail(event.target.value)} name="Email" placeholder="Enter Email" required={true}/>
           </Form.Field>
           <Form.Field>
             <label> Password</label>
