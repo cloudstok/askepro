@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button} from "semantic-ui-react";
 import '../../Sass/Sass-Main/_home.scss';
 
+
 const Notification = () => {
-    return(
+  const [show,setShow]=useState(false)
+  return(
         <>
 
+
 <div className="banner3">
+  {
+    show?<h1>Hello world!</h1>:null
+  }
         <img src="assets/images/covid-19.png"/>
           
           <div className="pop_content">
@@ -37,6 +43,7 @@ const Notification = () => {
               <strong>KNOW MORE</strong>
             </button>
           </div>  
+          
         </div>
 
         </>

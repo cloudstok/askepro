@@ -18,7 +18,7 @@ const Apply = () => {
           tempora. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, laborum?
         </p>
         </div>
-        <Container> 
+        <Container>
           
         <Grid stackable columns={3}>
           <Grid.Row>
@@ -78,7 +78,7 @@ const Apply = () => {
       </section>
 
       <section className="customer">
-      <Container>
+      <Container fluid>
           <h1 className="headingOne">Customer Reviews</h1>
           <img className="underline_img" src="assets/images/path.png" />
           <Grid stackable columns={3}>

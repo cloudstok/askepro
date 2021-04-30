@@ -3,8 +3,9 @@ import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
-  const url = `${process.env.BASE_API_URL}/login`
   const history = useHistory();
+  
+  const url = `${process.env.REACT_APP_BASE_URL}/login`
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
@@ -33,8 +34,10 @@ const Login1 = () => {
       localStorage.setItem('token', data.token);
       history.push('/')
     } else{
-      setMsg(data.msg);
+      alert("Incorrect Email/Password");
+      setMsg("Invalid Incorrect Email/Password ")
     }
+     // (data.usertype == 2) history.push('/admin')
   };
   
   return (
@@ -57,7 +60,7 @@ const Login1 = () => {
             <h3>Login into your account</h3>
           <Form.Field>
             <label>Email</label>
-            <input type="text" onChange = {(event) => setEmail(event.target.value)} name="Email" placeholder="Enter username" required={true}/>
+            <input type="text" onChange = {(event) => setEmail(event.target.value)} name="Email" placeholder="Enter Email" required={true}/>
           </Form.Field>
           <Form.Field>
             <label> Password</label>
@@ -67,12 +70,12 @@ const Login1 = () => {
             <Checkbox label="I’m not a Robot" required={true} readOnly={false}/>
           </Form.Field>
           <span class="fgt1">
-             <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
+             <a href="#">Forgot password?</a>
           </span>
           
           <button className="form-btn" type="submit">Submit</button>
           <span class="fgt2">
-             <a href="javascript:void(0);" onClick={() => history.push('/register')}>New to Epro? Sign Up here</a>
+             <a href="#">New to Epro? Sign Up here</a>
           </span>
         </Form>
       </div>

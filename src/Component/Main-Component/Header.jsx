@@ -14,7 +14,7 @@ export default class MenuExampleBasic extends Component {
       <>
         
       <header className="top_header">
-
+      <Container>
         <Menu secondary > 
       
         <a href="#"><img src="/assets/images/Epro Logo_Web.png" /></a>
@@ -57,9 +57,9 @@ export default class MenuExampleBasic extends Component {
           <Menu.Menu position="right">
           <div className="Btn-Item">
           <button className="same-btn"
-            style={{borderRadius:'20px'}}
+            
           >
-            <strong>APPLY NOW</strong>
+          LOGIN
           </button>
           
              
@@ -68,16 +68,16 @@ export default class MenuExampleBasic extends Component {
             <div className="Btn-Item">
           <button basic color='black' className="same-btn"
             style={{borderRadius:'20px'}}
+            >
+              APPLY NOW
             
-          >
-            <strong>LOGIN</strong>
           </button>
              
             </div>
           </Menu.Menu>
          
         </Menu>
-
+        </Container>
         </header>
         
      </>

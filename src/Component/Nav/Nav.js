@@ -10,95 +10,114 @@ const options = [
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [activeItem, setItem] = useState("home");
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
+  const token = localStorage.getItem("token")
+
+  // useEffect(() => {
+  //   if (token) setIsLoggedIn(true)
+  //   else setIsLoggedIn(false)
+  // }, [token])
+    
   const handleClick = (name) => {
     setItem({activeItem:name});
   };
   return (
     <>
-      <header>
-      <div className='logo'>
-      <a href="#"><img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>  
+    <header>
+    <div className='logo'>
+    <a href="#"><img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>  
+    </div>
+    { 
+      open ? <Icon name='close' onClick={() => setOpen(!open)}/>: <Icon name='bars' onClick={() => setOpen(!open)}/>
+    }
+    {
+      open && <ToggleNav/>
+    }
+    <nav>
+    <div className='nav-brand'>
+    <a href="/"> <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>
+    </div>
+    <div>
+    <Menu pointing secondary>
+    <Link to='/'>
+    <Menu.Item
+    name='Home'            
+    active={activeItem==='home'}
+    onClick={handleClick}
+    /></Link>
+    <Link to='/service'><Menu.Item
+    name='service'
+    active={activeItem=='service'}
+    onClick={handleClick}
+    /></Link>
+    <Link to='/about'><Menu.Item
+    name='About'
+    active={activeItem=='about'} 
+    onClick={handleClick}
+    /></Link>
+    <Link to='/contact'><Menu.Item
+    name='Contact'
+    active={activeItem==='contact'}
+    onClick={handleClick}
+    /></Link>
+    </Menu>
+    </div>
+    {
+      isLoggedIn ? (
+        
+        <div className="btn-group">
+        <Icon name='bell outline'/>
+        <div class='dropdown-btn'>
+        <Icon name='user outline'/>
+        <Dropdown text='William'>
+        <Dropdown.Menu className='dropdown-menu'>
+        <li className='item-name'><Icon name='user outline'/>My Account</li>
+        <li className='item-name'><Icon name='history'/>History</li>
+        <li className='item-name'><Icon name='history'></Icon>Logout</li>
+        </Dropdown.Menu>
+        </Dropdown>
         </div>
-          { 
-          open ? <Icon name='close' onClick={() => setOpen(!open)}/>: <Icon name='bars' onClick={() => setOpen(!open)}/>
-          }
-      {
-        open && <ToggleNav/>
-      }
-        <nav>
-        <div className='nav-brand'>
-        <a href="/"> <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>
         </div>
+        ): (
           <div>
-          <Menu pointing secondary>
-         <Link to='/'>
-           <Menu.Item
-            name='Home'            
-            active={activeItem==='home'}
-            onClick={handleClick}
-          /></Link>
-              <Link to='/service'><Menu.Item
-                name='service'
-                active={activeItem=='service'}
-                onClick={handleClick}
-          /></Link>
-              <Link to='/about'><Menu.Item
-                name='About'
-                active={activeItem=='about'} 
-                onClick={handleClick}
-          /></Link>
-              <Link to='/contact'><Menu.Item
-                name='Contact'
-                active={activeItem==='contact'}
-                onClick={handleClick}
-          /></Link>
-          </Menu>
+          
           </div>
-          <div className="btn-group">
-            <Icon name='bell outline'/>
-            <div class='dropdown-btn'>
-              <Icon name='user outline'/>
-                <Dropdown text='William'>
-                  <Dropdown.Menu className='dropdown-menu'>
-                  <li className='item-name'><Icon name='user outline'/>My Account</li>
-                  <li className='item-name'><Icon name='history'/>History</li>
-                  <li className='item-name'><Icon name='history'></Icon>Logout</li>
-                </Dropdown.Menu>
-                </Dropdown>
-            </div>
-          </div>
+          )
+        }
+        
         </nav>
-      </header>
-    </>
-  );
-}
-
-
-
-class MenuBar extends Component {
-  render() {
-    const { activeItem } = this.state
-    return (
-      <div>
+        </header>
+        </>
+        );
+      }
       
-          <Link to={'/service'}><Menu.Item
+      
+      
+      class MenuBar extends Component {
+        render() {
+          const { activeItem } = this.state
+          return (
+            <div>
+            
+            <Link to={'/service'}><Menu.Item
             name='services'
             onClick={this.handleItemClick}
-          /></Link>
-          <Link to="/about"><Menu.Item
+            /></Link>
+            <Link to="/about"><Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
-          /></Link>
-          <Link to="/contact"><Menu.Item
+            /></Link>
+            <Link to="/contact"><Menu.Item
             name='contact'
             active={activeItem === 'contact'}
             onClick={this.handleItemClick}
-          /></Link>
-        </div>
-    )
-  }
-}
-
-export default withRouter(MenuBar);
+            /></Link>
+            </div>
+            )
+          }
+        }
+        
+        export default withRouter(MenuBar);
+        

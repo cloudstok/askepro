@@ -27,7 +27,7 @@ const Home = () => {
               industry. Lorem Ipsum has been the industry’s
             </p>
             <button type="button" className="same-btn">
-              <strong> APPLY NOW </strong>
+               APPLY NOW 
             </button>
           </div>
 

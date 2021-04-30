@@ -22,9 +22,10 @@ import Service from './Pages/Main/Service';
 import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
-import Login1 from './Component/Main-Component/Login'; 
-import Login2 from './Component/Main-Component/Register'; 
-import Login3 from './Component/Main-Component/Fgpasswd'; 
+import Crumb from './Component/Main-Component/Crumb';
+import Login from './Component/Main-Component/Login'; 
+import Register from './Component/Main-Component/Register'; 
+import Fgpasswd from './Component/Main-Component/Fgpasswd'; 
 import Reset from './Component/Main-Component/Reset';
 import Account from './Pages/Main/Account';
 import Accept from './Component/Main-Component/Accept';
@@ -44,15 +45,15 @@ function App() {
     <Router>
             <Nav/>
             <Switch>
-                <Route exact path='/service' component={Service} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/contact' component={Contact} />
-                <Route exact path='/company' component={Company} />
-                <Route exact path='/login1' component={Login1} />
-                <Route exact path='/login2' component={Login2} />
-                <Route exact path='/login3' component={Login3} />
-                <Route exact path='/reset' component={Reset} />
-                <Route exact path='/account' component={Account} />
+                <Route exact path='/service'><Service /></Route>
+                <Route exact path='/about'><About /></Route>
+                <Route exact path='/contact'><Contact /></Route>
+                <Route exact path='/company'><Company /></Route>
+                <Route exact path='/login'><Login /></Route>
+                <Route exact path='/register'><Register /></Route>
+                <Route exact path='/fgpasswd'><Fgpasswd /></Route>
+                <Route exact path='/reset'><Reset /></Route>
+                <Route exact path='/account'><Account /></Route>
                 <Route exact path='/reject'><Accept /><Reject /><Verification /></Route>    
                 <Route exact path='/admin' component={Admin_dashboard}/>
                 <Route exact path='/view' component={View_details}/> 
