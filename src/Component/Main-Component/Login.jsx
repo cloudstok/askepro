@@ -50,7 +50,7 @@ const Login1 = () => {
         })).json();
     idData=idData.data;
     localStorage.setItem('id', idData._id);
-
+    
   };
   return (
     <>

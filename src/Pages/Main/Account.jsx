@@ -3,7 +3,10 @@ import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from '../../Component/Main-Component/StatusChip';
 const Account = () => {
   const [user, setUser] = React.useState(null);
-  React.useEffect(() => {getUser()}, []);
+  const [add, setAdd] = React.useState(null);
+  const [appointment, setAppointment] = React.useState(null);
+  const [application, setApplication] = React.useState(null);
+  React.useEffect(() => { getUser() });
   let id = localStorage.getItem('id');
   const getUser = async () => {
     let user = await (
@@ -17,15 +20,19 @@ const Account = () => {
         })).json();
 
     user = user.data;
+    console.log(user);
+     
+    setAdd(user.address[0] || []); 
+    
+    delete user.address;
     setUser(user || []);
   }
-  console.log(1)
-  console.log(user);
-  if (!user) {
+  if (!add || !user) {
     return 'loading';
   }
+
   return (
-    
+
     <>
       <div className="account_wrapper">
         <Container>
@@ -55,8 +62,8 @@ const Account = () => {
                     <br />
                     <h6>Address</h6>
                     <p>
-                     {user.address}
-                </p>
+                      {add.address} <br></br>{add.city} {add.state} <br></br>{add.country}
+                    </p>
                   </div>
                 </div>
               </Segment>
@@ -66,7 +73,7 @@ const Account = () => {
 
               <div className="account_carousel">
                 <p className='carousel_p'>Total number of applications <br />
-                  <span className="carousel_number">80</span>
+                  <span className="carousel_number">{0}</span>
                 </p>
               </div>
 
@@ -99,7 +106,7 @@ const Account = () => {
                     </Table.Row>
                   </Table.Header>
 
-                  <Table.Body>
+                  {/* <Table.Body>
                     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
@@ -145,21 +152,21 @@ const Account = () => {
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
                     </Table.Row>
-                  </Table.Body>
+                  </Table.Body> */}
                 </Table>
               </div>
-              <div className="history">
+              {/* <div className="history">
                 <button type="button" className="account-btn">
                   <strong> VIEW ALL HISTORY </strong>
                 </button>
-              </div>
+              </div> */}
             </Grid.Column>
             <Grid.Column width={5}>
               <div className="user_heading">
-                <h4>Appointments(11)</h4>
+                <h4>Appointments(0)</h4>
                 <img src="Assets/images/Path_tiny.png" />
               </div>
-              <Segment className="appointment" style={{ marginTop: '0' }}>
+              {/* <Segment className="appointment" style={{ marginTop: '0' }}>
                 <div className="appoint">
                   <div className="date">
                     <span className="number">23</span>
@@ -198,11 +205,11 @@ const Account = () => {
                     <span className="minute">11:00 - 12:00 </span>
                   </div>
                 </div>
-              </Segment>
-              <div className="circle_btn">
+              </Segment> */
+              /* <div className="circle_btn">
                 <img src="Assets/images/arrow.png" />
                 <img src="Assets/images/arrowA.png" />
-              </div>
+              </div> */}
             </Grid.Column>
           </Grid>
         </Container>
