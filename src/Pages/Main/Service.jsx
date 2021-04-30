@@ -5,12 +5,15 @@ import Footer from '../../Component/Main-Component/Footer';
 import Notification from '../../Component/Main-Component/Notification';
 import Visa from '../../Component/Main-Component/Visa';
 import Accordion from '../../Component/Main-Component/Accordion';
+
 import '../../Sass/Sass-Main/_home.scss';
 import '../../Sass/Sass-Main/_About.scss';
+
 
 const Service = () => {
     return (
         <>
+        
         <div className="service-banner">
         <img src="assets/images/banner.jpg" />
         <div className="banner-content">

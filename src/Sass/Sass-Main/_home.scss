@@ -7,9 +7,12 @@
 
 body{
   max-width: 100%;
+  
 }
 
-
+.wrapper_home{
+  background-color: #fff;
+}
 
 
 .banner1 {
@@ -166,30 +169,25 @@ filter: brightness(.3);
   
 }
 .slide-btn{
+  
   text-align: center;
-
   margin: 30px 0 126px 0;
   
 
   
 
- .arrow{
+ .chevron{
  border-radius: 50%;
  border: 1px solid #000;
- display: inline-flex;
- 
- justify-content: center;
- align-items: center;
- 
+ padding: 15px;
+ margin: 0 15px;
  width: 48px;
 
  height: 48px;
 
- margin: 0 15px 0 15px;
-
 }
 
-.arrow:hover{
+.chevron:hover{
   border: 1px solid transparent;
   background: $gradient;
 } 

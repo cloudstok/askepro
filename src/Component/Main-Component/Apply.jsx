@@ -161,13 +161,13 @@ const Apply = () => {
 
           
         <div className="slide-btn">
-          
-          
-          <Icon name='arrow left' />
+        <Icon name='chevron left'></Icon>  
+        <Icon name='chevron right'></Icon>
+        
           
 
           
-          <Icon name='arrow right'></Icon>
+          
           
         </div>
         </Container>
