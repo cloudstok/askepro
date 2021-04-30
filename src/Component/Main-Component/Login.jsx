@@ -3,8 +3,9 @@ import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
-  const url = `${process.env.REACT_APP_BASE_URL}/login`
   const history = useHistory();
+  
+  const url = 'http://localhost:8000/login'
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
@@ -33,10 +34,10 @@ const Login1 = () => {
       localStorage.setItem('token', data.token);
       history.push('/')
     } else{
-      alert("Incorrect Email/Password");
+      setMsg(data.msg);
     }
   };
- 
+  
   return (
     <>
       <div
@@ -48,12 +49,11 @@ const Login1 = () => {
         }}
       >
       
-      {
-        msg && <Message negative>
-          <Message.Header>Error</Message.Header>
-            <p>{msg}</p>
-          </Message>
-      }
+      {msg && <Message negative>
+                        <Message.Header>Error</Message.Header>
+                        <p>{msg}</p>
+                    </Message>
+                    }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
             <h3>Login into your account</h3>
           <Form.Field>
@@ -68,12 +68,12 @@ const Login1 = () => {
             <Checkbox label="I’m not a Robot" required={true} readOnly={false}/>
           </Form.Field>
           <span class="fgt1">
-             <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
+             <a href="#">Forgot password?</a>
           </span>
           
           <button className="form-btn" type="submit">Submit</button>
           <span class="fgt2">
-             <a href="javascript:void(0);" onClick={() => history.push('/register')}>New to Epro? Sign Up here</a>
+             <a href="#">New to Epro? Sign Up here</a>
           </span>
         </Form>
       </div>
