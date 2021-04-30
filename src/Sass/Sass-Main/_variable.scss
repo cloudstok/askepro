@@ -4,19 +4,14 @@
 
 /* ////color/// */
 $primary-color: rgb(199, 160, 6);
+
+
 $gradient: linear-gradient(
   251deg,
-  rgba(199, 160, 6, 1) 11%,
-  rgba(231, 237, 50, 1) 51%,
-  rgba(199, 160, 6, 1) 92%
-);
-
-$golden: linear-gradient(
-  251deg,
-  rgba(199, 160, 6, 1) 11%,
-  rgba(231, 237, 50, 1) 51%,
-  rgba(199, 160, 6, 1) 92%
-);
+  #c7a006,
+  #e7ed32,
+  #c7a006
+  );
 
 @mixin para {
   font-size: 16px;

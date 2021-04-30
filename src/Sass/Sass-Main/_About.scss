@@ -255,18 +255,15 @@
     padding: 11px 25px;
     border: 1px solid #000;
     background: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
     object-fit: contain;
     border-radius: 20px;
     color: #000;
   }
   .form-btn:hover {
     background: rgb(199, 160, 6);
-    background: linear-gradient(
-      90deg,
-      rgba(199, 160, 6, 1) 11%,
-      rgba(231, 237, 50, 1) 51%,
-      rgba(199, 160, 6, 1) 92%
-    );
+    background: $gradient;
     color: #000;
     border: 1px solid #c7a006;
   }
