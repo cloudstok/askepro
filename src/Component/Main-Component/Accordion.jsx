@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import { Accordion, Grid, Icon, Container } from "semantic-ui-react";
 export default class AccordionExampleFluid extends Component {
   state = { activeIndex: 0 };
@@ -72,9 +73,9 @@ export default class AccordionExampleFluid extends Component {
           </Accordion>
 
           <div className="question">
-            <button className="same-btn">
+          <Link to="/register"><button className="same-btn">
               APPLY NOW
-            </button>
+            </button></Link>
           </div>
         </Container>
       </>
