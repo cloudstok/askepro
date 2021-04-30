@@ -49,12 +49,14 @@ const Home = () => {
           </div>
 
           
-        </Container>
+     
         <Visa />
-         
+        </Container>
         <Apply />
+       
         <Footer />
         <Notification />
+      
       </main>
     
     </div>

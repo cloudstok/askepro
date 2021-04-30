@@ -34,8 +34,7 @@ const Login1 = () => {
       localStorage.setItem('token', data.token);
       history.push('/')
     } else{
-      alert("Incorrect Email/Password");
-      setMsg("Invalid Incorrect Email/Password ")
+      setMsg("Incoreect email/ Password");
     }
   };
   
@@ -51,8 +50,7 @@ const Login1 = () => {
       >
       
       {msg && <Message negative>
-                        <Message.Header>Error</Message.Header>
-                        <p>{msg}</p>
+                        <Message.Header>{msg}</Message.Header>
                     </Message>
                     }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
