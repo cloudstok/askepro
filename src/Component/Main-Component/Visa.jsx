@@ -1,16 +1,48 @@
 import React from "react";
 import { Grid, Container } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
 
-const Visa = () => (
+const Visa = () => {
+  const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
+  const history = useHistory();
+  
+  const [services, setServices] = React.useState(null);
+  
+  React.useEffect(() => { getServices()}, []);
+  
+  const getServices = async () => {
+    const services = await (await fetch(service_url, { method: "GET" })).json();
+    const serviceData = services.data.map(e => ({
+      _id: e._id,
+      name: e.name,
+      scode: e.scode,
+      slug: e.slug,
+      image: e.serviceDetail.image[0]
+    }));
+    
+    setServices(serviceData);
+  };
+  
+  return (
   <>
     <Container fluid>
     <Grid stackable columns={4}> 
-          <Grid.Column>
-            <div className="service-card">
-              <img src="assets/images/building.png" />
-              <p>Company Formation Services</p>
-            </div>
-          </Grid.Column>
+          { services && services.map((service) =>
+            <Grid.Column>
+              <div className="service-card" onClick={() => history.push(`/service/${service.slug}`)}>
+                <img src="assets/images/building.png" />
+                <p>{service.name}</p>
+              </div>
+            </Grid.Column>
+          )}
+          
+          {/*
+            <Grid.Column>
+              <div className="service-card">
+                <img src="assets/images/building.png" />
+                <p>Company Formation Services</p>
+              </div>
+            </Grid.Column>
           <Grid.Column>
             <div className="service-card">
               <img src="assets/images/solution.png" />
@@ -77,6 +109,8 @@ const Visa = () => (
               <p>Emirates ID</p>
             </div>
           </Grid.Column>
+        */}
+        
         <Grid.Row columns={4}>
           <Grid.Column>
             <div className="service-card">
@@ -94,6 +128,8 @@ const Visa = () => (
             </div>
           </Grid.Column>
         </Grid.Row>
+      
+      
       </Grid>
     
       
@@ -240,6 +276,7 @@ const Visa = () => (
         </div>
     </Container>
   </>
-);
+ );
+};
 
 export default Visa;
