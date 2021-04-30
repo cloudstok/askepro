@@ -16,8 +16,7 @@ const Home = () => {
 
     <>
     <div className="cover">
-      <Header />
-      <main className="wrapper_home">
+      <main className="wrapper">
         {/* <!-- //second division// --> */}
 
         <div className="home">

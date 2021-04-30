@@ -39,21 +39,17 @@ const Company = () => {
   
   return (
     <>
-
-    <Header />
       <div
         class="company"
         style={{
-          background: "url(assets/images/contact-bg.png)",
-          backgroundSize: "cover",
+          background:`url(${process.env.PUBLIC_URL+"/Assets/Images/contact-bg.png"})`,
+          backgroundSize: "cover",      
         }}
-      >
+  >
         <Container>
           <h1 class="headingOne">{service.name} </h1>
-          <img src="assets/images/center.png" />
           <p>
             {service.description}
-            
             {/* <br />
             veniam. Doloribus officiis minus Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Sunt, ratione. eius!

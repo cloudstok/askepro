@@ -7,31 +7,34 @@ import ToggleNav from "../toggle_nav";
 
 export function Nav() {
   const history = useHistory();
-  const [open, setOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
-
-  const [name, setName]=React.useState(false);
+  const [name, setName]= useState(false);
   let fullname; 
 
-  React.useEffect(() => {
+useEffect(() => {
     if (token) {
-      let name=localStorage.getItem("name");
+       let name=localStorage.getItem("name");
       fullname = name.split(' ');
-      if (fullname.length > 1)
+      if (fullname.length > 1){
         setName(fullname[0])
-      else
-        setName(name);  
+       }
+       else{
+         setName(name);  
+      }
       setIsLoggedIn(true);
     }
     else {
       setIsLoggedIn(false)
     }
-  }, []);
+  }, [token]);
+
   const handleClick = () => {
     localStorage.clear();
     alert("You have been logged out");
     history.push("/");
+    window.location.reload(false);
   }
 console.log(name);
   return (
@@ -52,8 +55,8 @@ console.log(name);
           </div>
           <MenuBar />
           {
-            isLoggedIn ? (
-              <div className="btn-group">
+          isLoggedIn ?
+            <div className="btn-group">
                 <Icon name='bell outline' />
                 <div class='dropdown-btn'>
                   <Icon name='user outline' />
@@ -66,13 +69,12 @@ console.log(name);
                   </Dropdown>
                 </div>
               </div>
-            ) : (
+              :
               <div className="action-group">
                 <Link to="/login"><button className="btn-login">LOGIN</button></Link>
                 <Link to="/register"><button className='btn-apply'>APPLY NOW</button></Link>
               </div>
-            )
-          }
+        }
         </nav>
       </header>
     </>

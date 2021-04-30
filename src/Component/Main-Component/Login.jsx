@@ -14,7 +14,7 @@ const Login1 = () => {
     event.preventDefault();
 
     console.log(event.target);
-
+    
     const jsonPostData = {
       'email': email,
       'password': password
@@ -32,7 +32,7 @@ const Login1 = () => {
     const data = await res.json();
     if (data.status == 1 && data.token) {
       localStorage.setItem('token', data.token);
-      history.push('/');
+     
       let idData = await (
         await fetch(
           `${process.env.REACT_APP_BASE_URL}/users`,
@@ -44,13 +44,14 @@ const Login1 = () => {
           })).json();
       idData = idData.data;
       localStorage.setItem('id', idData._id);
-      localStorage.setItem('name', idData.name)
+      localStorage.setItem('name', idData.name);
+      history.push("/");
     } else {
       alert("Incorrect Email/Password");
       setMsg("Invalid Incorrect Email/Password ")
     }
 
-
+    window.location.reload(false);
 
   };
   return (

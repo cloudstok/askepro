@@ -134,15 +134,17 @@ nav{
         font-family:  'Lato' !important;
         margin-top:35px !important;
         margin-left: 20% !important;
+
         .active{
         font-size: 15px !important;
         border-bottom-width: 4px !important ;
            @include tablet{   
-                    border-bottom-color: #fff !important;      
+                 border-bottom-color: #fff !important;      
+
                }
              }
 
-            .item{
+         .item{
             padding:0 5px 30px !important;
             font-size: 15px !important;
             margin:0 25px !important; 
