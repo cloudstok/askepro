@@ -97,9 +97,17 @@ filter: brightness(.3);
   text-align: center;
 
 }
-.service{
+.service{ 
   margin-top: 88px;
- 
+ h1{
+  &::after{
+    @include after;
+    height: 9px;
+    margin: 11px 0 40px 0;
+  }
+
+ }
+
 }
 
 /* section 3 */
@@ -343,6 +351,13 @@ margin-left: 2rem;
 
 .tourist{
   margin-top: 80px;
+  h1{
+    &::after{
+      @include after;
+      height: 9px;
+      margin: 11px 0 10px 0;
+    }
+  }
   p{
     font-family: Open Sans;
     color: #9d9494;
@@ -555,7 +570,7 @@ p{
   font-weight: 500;
   
   }
-}
+} 
 
 .service-banner{
   position: relative;

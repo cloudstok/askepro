@@ -132,7 +132,7 @@ const Visa = () => {
     
       
       <div className="tourist">
-          <h1 className="headingTwo">Tourist Visa Services</h1>
+          <h1 className="headingOne">Tourist Visa Services</h1>
         
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad velit
