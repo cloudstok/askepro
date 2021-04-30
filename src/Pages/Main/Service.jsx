@@ -11,7 +11,6 @@ import '../../Sass/Sass-Main/_About.scss';
 const Service = () => {
     return (
         <>
-        <Header />
         <div className="service-banner">
         <img src="assets/images/banner.jpg" />
         <div className="banner-content">

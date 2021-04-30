@@ -2,6 +2,7 @@
 @import '/src/Sass/index.scss';
 header{
     width: 100% !important;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 
     .bars, .close{
         display: none !important;
@@ -63,13 +64,14 @@ nav{
                
             .dropdown-menu{
                 position: absolute !important;
-                top: 200%;
+                top: 50%;
                 left: -170%;
                 background: #fff;
                 height: 180px;
                 width: 260px;
                 list-style: none;
                 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
                     .item-name{
                         cursor: pointer;
                         width: 100%;
@@ -125,13 +127,13 @@ nav{
                 margin-bottom: 20px !important;
             }
         }
-    }
+     }
+
     .menu{
         border:none !important;
         font-family:  'Lato' !important;
-        margin-left: 12% !important;
         margin-top:35px !important;
-
+        margin-left: 20% !important;
         .active{
         font-size: 15px !important;
         border-bottom-width: 4px !important ;
@@ -143,13 +145,35 @@ nav{
             .item{
             padding:0 5px 30px !important;
             font-size: 15px !important;
-            margin: 0 32px !important;
+            margin:0 25px !important; 
             border-bottom-width: 4px !important;
             &::after{
                 border: 4px !important;
             }
           }
      }
+
+    .action-group{
+        display: inline-flex;
+        .btn-apply, .btn-login{        
+        width: 130px;
+        background-color: #fff;
+        border-radius: 20px;
+        height: 38px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        border: 1px solid black;
+            
+        &:hover{
+            background:$hover-color;
+            border:transparent;
+        }
+        }
+        .btn-login{
+            margin-right: 30px;
+        }
+    }
  }
 
     //Manage Navigation
@@ -201,7 +225,7 @@ nav{
                    
                 .dropdown-menu{
                     position: absolute !important;
-                    top: 200%;
+                    top: 120%;
                     left: -170%;
                     background: #fff;
                     height: 180px;

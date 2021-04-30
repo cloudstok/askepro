@@ -14,13 +14,11 @@ export default class MenuExampleBasic extends Component {
       <>
         
       <header className="top_header">
-      <Container>
-        <Menu secondary > 
+      <Container>"
+        {/* <Menu secondary > 
       
         <a href="#"><img src="/assets/images/Epro Logo_Web.png" /></a>
           <Menu.Menu position="right">
-           
-
             <div className="Item"
               name="Home"
               active={activeItem === "Home"}
@@ -52,31 +50,20 @@ export default class MenuExampleBasic extends Component {
             >
             Contact
             </div>
-          </Menu.Menu>
+          </Menu.Menu> */}
 
           <Menu.Menu position="right">
           <div className="Btn-Item">
-          <button className="same-btn"
-            
-          >
-          LOGIN
-          </button>
-          
-             
+          <button className="same-btn"> LOGIN</button> 
             </div>
-
-            <div className="Btn-Item">
+          <div className="Btn-Item">
           <button basic color='black' className="same-btn"
-            style={{borderRadius:'20px'}}
-            >
+            style={{borderRadius:'20px'}}>
               APPLY NOW
-            
-          </button>
+             </button>
              
             </div>
-          </Menu.Menu>
-         
-        </Menu>
+          </Menu.Menu>         
         </Container>
         </header>
         
