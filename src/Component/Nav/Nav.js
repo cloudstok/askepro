@@ -11,8 +11,13 @@ export function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
   const name = localStorage.getItem("name");
+<<<<<<< HEAD
    //let fullname = name.split(' ');
   //let firstname = fullname[0];
+=======
+  //  let fullname = name.split(' ');
+  // let firstname = fullname[0];
+>>>>>>> 879f467e625a8b5815fdf398195d3a1f6ee1bbc5
 
   useEffect(() => {
     if (token){

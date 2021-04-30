@@ -43,6 +43,17 @@ const Company = () => {
                 survived not only five ce
               </p>
               <h3>How to Apply</h3>
+              
+              { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
+                <div className="testimonial">
+                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
+                  <p>
+                    {d}
+                  </p>
+                </div>
+              )}
+              
+              {/*
               <div className="testimonial">
                 <img src="/assets/images/Rectangle 242@2x.png" />
                 <p>
