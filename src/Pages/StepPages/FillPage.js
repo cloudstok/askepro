@@ -58,7 +58,8 @@ function FillPage(){
                             </Grid.Column>
                             <Grid.Column className='radio-group'>
                             <Radio label='Address 3' className='radio-item'/>  
-                            </Grid.Column>                                                        <Grid.Column>
+                            </Grid.Column>                                                       
+                             <Grid.Column>
                             <Form.Field>
                                 <label>Address Line 1*</label>
                                 <Input placeholder='Enter address line 1' />
