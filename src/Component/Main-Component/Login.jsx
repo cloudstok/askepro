@@ -33,10 +33,10 @@ const Login1 = () => {
       localStorage.setItem('token', data.token);
       history.push('/')
     } else{
-      setMsg(data.msg);
+      alert("Incorrect Email/Password");
     }
   };
-  
+ 
   return (
     <>
       <div
