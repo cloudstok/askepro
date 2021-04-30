@@ -2,6 +2,7 @@ import React, {useState, useEffect, Component } from "react";
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
+import { withRouter } from 'react-router-dom';
 
 const options = [
   { text: "Wiiliam", value: "William" },
@@ -48,10 +49,13 @@ export function Nav() {
 
 
 
-export default class MenuBar extends Component {
+class MenuBar extends Component {
   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    e.preventDefault();
+    this.setState({ activeItem: name });
+  };
 
   render() {
     const { activeItem } = this.state
@@ -84,3 +88,5 @@ export default class MenuBar extends Component {
     )
   }
 }
+
+export default withRouter(MenuBar);

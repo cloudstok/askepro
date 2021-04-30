@@ -3,9 +3,9 @@ import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
-  const history = useHistory();
+  const url = `${process.env.BASE_API_URL}/login`
   
-  const url = 'http://localhost:8000/login'
+  const history = useHistory();
   const [name, setName] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
@@ -68,12 +68,12 @@ const Login1 = () => {
             <Checkbox label="I’m not a Robot" required={true} readOnly={false}/>
           </Form.Field>
           <span class="fgt1">
-             <a href="#">Forgot password?</a>
+             <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
           </span>
           
           <button className="form-btn" type="submit">Submit</button>
           <span class="fgt2">
-             <a href="#">New to Epro? Sign Up here</a>
+             <a href="javascript:void(0);" onClick={() => history.push('/register')}>New to Epro? Sign Up here</a>
           </span>
         </Form>
       </div>

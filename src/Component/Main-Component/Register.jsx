@@ -4,7 +4,15 @@ import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Login2 = () => {
-    const url = 'http://localhost:8000/create';
+  const url = `${process.env.BASE_API_URL}/create`;
+  
+  const history = useHistory();
+  const [name, setName] = React.useState(null);
+  const [phone, setPhone] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
+
+  const doUserCreate = async (event) => {
+    event.preventDefault();
     
     const history = useHistory();
     const [name, setName] = React.useState(null);
@@ -76,6 +84,7 @@ const Login2 = () => {
           
           </Form.Field>
         
+<<<<<<< Updated upstream
           <span class="fgt1">
              <a href="#">Resend in 01:45</a>
           </span>
@@ -86,6 +95,13 @@ const Login2 = () => {
              <a href="#">Already an existing customer? Login here</a>
           </span>
         </Form>
+=======
+        <button className="form-btn" type="submit">Submit</button>
+        <span class="fgt2">
+           <a href="javascript:void(0);" onClick={() => history.push('/login')}>Already an existing customer? Login here</a>
+        </span>
+      </Form>
+>>>>>>> Stashed changes
       </div>
 
     </>    
