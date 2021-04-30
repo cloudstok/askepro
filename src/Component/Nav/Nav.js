@@ -10,6 +10,7 @@ export function Nav() {
   const [open, setOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const token = localStorage.getItem("token")
+
   const [name, setName]=React.useState(false);
   let fullname; 
 
@@ -22,7 +23,6 @@ export function Nav() {
       else
         setName(name);  
       setIsLoggedIn(true);
-
     }
     else {
       setIsLoggedIn(false)
