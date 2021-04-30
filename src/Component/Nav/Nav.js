@@ -1,33 +1,59 @@
 import React, {useState, useEffect, Component } from "react";
-import {Link} from 'react-router-dom';
+import {Link, useHistory, withRouter} from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
-import { withRouter } from 'react-router-dom';
 
 const options = [
   { text: "Wiiliam", value: "William" },
 ];  
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [activeItem, setItem] = useState("home");
+
+  const handleClick = (name) => {
+    setItem({activeItem:name});
+  };
   return (
     <>
       <header>
       <div className='logo'>
-        <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
+      <a href="#"><img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>  
         </div>
-     { 
-     open ? <Icon name='close' onClick={() => setOpen(!open)}/>: <Icon name='bars' onClick={() => setOpen(!open)}/>
-     }
+          { 
+          open ? <Icon name='close' onClick={() => setOpen(!open)}/>: <Icon name='bars' onClick={() => setOpen(!open)}/>
+          }
       {
         open && <ToggleNav/>
       }
         <nav>
         <div className='nav-brand'>
-        <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
+        <a href="/"> <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/></a>
         </div>
           <div>
-          <MenuBar/>
+          <Menu pointing secondary>
+         <Link to='/'>
+           <Menu.Item
+            name='Home'            
+            active={activeItem==='home'}
+            onClick={handleClick}
+          /></Link>
+              <Link to='/service'><Menu.Item
+                name='service'
+                active={activeItem=='service'}
+                onClick={handleClick}
+          /></Link>
+              <Link to='/about'><Menu.Item
+                name='About'
+                active={activeItem=='about'} 
+                onClick={handleClick}
+          /></Link>
+              <Link to='/contact'><Menu.Item
+                name='Contact'
+                active={activeItem==='contact'}
+                onClick={handleClick}
+          /></Link>
+          </Menu>
           </div>
           <div className="btn-group">
             <Icon name='bell outline'/>
@@ -51,41 +77,25 @@ export function Nav() {
 
 
 class MenuBar extends Component {
-  state = { activeItem: 'home' }
-
-  handleItemClick = (e, { name }) => {
-    e.preventDefault();
-    this.setState({ activeItem: name });
-  };
-
   render() {
     const { activeItem } = this.state
-
     return (
       <div>
-        <Menu pointing secondary>
-         <Link to='/'> <Menu.Item
-            name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
-          /></Link>
-           <Link to='/service'><Menu.Item
+      
+          <Link to={'/service'}><Menu.Item
             name='services'
-            active={activeItem === 'services'}
             onClick={this.handleItemClick}
           /></Link>
-          <Link to='/about'><Menu.Item
+          <Link to="/about"><Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
           /></Link>
-          <Link to='/contact'><Menu.Item
+          <Link to="/contact"><Menu.Item
             name='contact'
             active={activeItem === 'contact'}
             onClick={this.handleItemClick}
-          />
-          </Link>
-        </Menu>
+          /></Link>
         </div>
     )
   }

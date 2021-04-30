@@ -6,9 +6,7 @@ import Header from '../../Component/Main-Component/Header';
 const Contact = () => {
     return(
         <>
-        <Header />
-        <div class="contact" style={{ background: "url(assets/images/contact-bg.png)",backgroundSize: 'cover' }}>
-            
+        <div class="contact" style={{ background: "url(assets/images/contact-bg.png)",backgroundSize: 'cover' }}>            
     <h1 class="headingOne">Contact</h1>
     <img src="assets/images/center.png" />
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis numquam nemo voluptatibus fuga fugit quod

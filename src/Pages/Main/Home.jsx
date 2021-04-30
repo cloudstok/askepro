@@ -16,7 +16,6 @@ const Home = () => {
 
     <>
     <div className="cover">
-      <Header />
       <main className="wrapper">
         {/* <!-- //second division// --> */}
 
