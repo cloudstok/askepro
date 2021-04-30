@@ -78,7 +78,7 @@ const Company = () => {
                 <div className="testimonial">
                   <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
                   <p>
-                    {d}
+                    lkasjdf lkasjd flkasjdf aslkdfj lasdf {d}
                   </p>
                 </div>
               )}
