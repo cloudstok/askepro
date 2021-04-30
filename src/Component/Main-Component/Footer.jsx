@@ -4,7 +4,7 @@ import '../../Sass/Sass-Main/_Footer.scss';
 
 
 const Footer = () => {
-  const url = 'http://localhost:8000/contact/create';
+  const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
 
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
