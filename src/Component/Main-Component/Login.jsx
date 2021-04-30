@@ -15,7 +15,6 @@ const Login1 = () => {
 
     console.log(event.target);
 
-    
     const jsonPostData = {
       'email': email,
       'password': password
@@ -50,7 +49,8 @@ const Login1 = () => {
         })).json();
     idData=idData.data;
     localStorage.setItem('id', idData._id);
-
+    localStorage.setItem('name', idData.name)
+    
   };
   return (
     <>
@@ -64,8 +64,7 @@ const Login1 = () => {
       >
       
       {msg && <Message negative>
-                        <Message.Header>Error</Message.Header>
-                        <p>{msg}</p>
+                        <Message.Header>{msg}</Message.Header>
                     </Message>
                     }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>

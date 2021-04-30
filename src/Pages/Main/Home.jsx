@@ -16,7 +16,6 @@ const Home = () => {
 
     <>
     <div className="cover">
-      <Header />
       <main className="wrapper">
         {/* <!-- //second division// --> */}
 
@@ -49,12 +48,14 @@ const Home = () => {
           </div>
 
           
-        </Container>
+     
         <Visa />
-         
+        </Container>
         <Apply />
+       
         <Footer />
         <Notification />
+      
       </main>
     
     </div>

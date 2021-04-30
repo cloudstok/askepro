@@ -28,7 +28,6 @@ const Login10 = () => {
           <span class="fgt1">
              <a href="#">Forgot password?</a>
           </span>
-          
           <button className="form-btn" type="submit">Submit</button>
           <span class="fgt2">
              <a href="#">New to Epro? Sign Up here</a>

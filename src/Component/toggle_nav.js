@@ -10,10 +10,10 @@ const ToggleNav = () =>{
         <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
         </div>
         <ul>
-        <Link to="/"><li>Home</li></Link>
-            <li>About</li>
-            <li>Service</li>
-            <li>Contact</li>
+            <Link to="/"><li>Home</li></Link>
+            <Link to="/service"><li>Service</li></Link>
+            <Link to="/about"><li>About</li></Link>
+            <Link to="/contact"><li>Contact</li></Link>
         </ul>
         <div className="btn-group">
             <Icon name='bell outline'/>

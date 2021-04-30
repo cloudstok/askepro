@@ -115,7 +115,7 @@
 .information{
   background-color: #fff;
   width: 570px;
-  height: 294px;
+  
   position: absolute;
   bottom: 48px;
   border: solid 1px #f7f7f7;
@@ -169,7 +169,8 @@
 
 .reach-Submit{
   display: flex;
-  padding-top: 1rem;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .reach-Submit p{

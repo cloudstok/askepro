@@ -109,15 +109,13 @@ const Visa = () => {
               <p>Emirates ID</p>
             </div>
           </Grid.Column>
-        */}
-        
         <Grid.Row columns={4}>
           <Grid.Column>
             <div className="service-card">
               <img src="assets/images/service1.png" />
               <p>Medical Services</p>
-            </div>
-          </Grid.Column>
+          </div>
+          </Grid.Column>*/}
           <Grid.Column width={8}>
             <div className="service-card2">
               <img src="assets/images/stamp.png" />
@@ -127,7 +125,7 @@ const Visa = () => {
               </p>
             </div>
           </Grid.Column>
-        </Grid.Row>
+        
       
       
       </Grid>

@@ -6,7 +6,6 @@ import Header from '../../Component/Main-Component/Header';
 const About = () => {
   return (
     <>
-    <Header />
      <Container>
       <div className="about">
         <img
