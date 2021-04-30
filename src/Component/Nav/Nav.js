@@ -10,20 +10,19 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
-
   const [name, setName]= useState(false);
   let fullname; 
 
 useEffect(() => {
     if (token) {
-      let name=localStorage.getItem("name");
-      fullname = name.split(' ');
-      if (fullname.length > 1){
-        setName(fullname[0])
-      }
-      else{
-        setName(name);  
-      }
+      // let name=localStorage.getItem("name");
+      // fullname = name.split(' ');
+      // if (fullname.length > 1){
+      //   setName(fullname[0])
+      // }
+      // else{
+      //   setName(name);  
+      // }
       setIsLoggedIn(true);
     }
     else {
@@ -56,8 +55,8 @@ console.log(name);
           </div>
           <MenuBar />
           {
-          isLoggedIn ? (
-              <div className="btn-group">
+          isLoggedIn ?
+            <div className="btn-group">
                 <Icon name='bell outline' />
                 <div class='dropdown-btn'>
                   <Icon name='user outline' />
@@ -70,13 +69,12 @@ console.log(name);
                   </Dropdown>
                 </div>
               </div>
-            ) : (
+              :
               <div className="action-group">
                 <Link to="/login"><button className="btn-login">LOGIN</button></Link>
                 <Link to="/register"><button className='btn-apply'>APPLY NOW</button></Link>
               </div>
-            )
-          }
+        }
         </nav>
       </header>
     </>
