@@ -43,9 +43,7 @@ const Home = () => {
           <div className="service">
             <h1 className="headingOne">Our Services</h1>
           </div>
-          <div className="underline_img">
-            <img src="assets/images/path.png" />
-          </div>
+      
 
           
      
