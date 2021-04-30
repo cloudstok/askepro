@@ -4,7 +4,7 @@ import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Reset = () => {
-    const url = 'http://localhost:8000/users/forget/password';
+    const url = `${process.env.REACT_APP_BASE_URL}/users/forget/password`;
 
     const history = useHistory();
     const [rePassword, setConfirmPassword] = React.useState(null);

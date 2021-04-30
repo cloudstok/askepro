@@ -49,7 +49,11 @@ const Login1 = () => {
         })).json();
     idData=idData.data;
     localStorage.setItem('id', idData._id);
+<<<<<<< HEAD
     localStorage.setItem('name', idData.name);
+=======
+    
+>>>>>>> 27bbdc4b7ed9ff38b7c660c8346c745165c94f7c
   };
   return (
     <>
@@ -63,8 +67,7 @@ const Login1 = () => {
       >
       
       {msg && <Message negative>
-                        <Message.Header>Error</Message.Header>
-                        <p>{msg}</p>
+                        <Message.Header>{msg}</Message.Header>
                     </Message>
                     }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
