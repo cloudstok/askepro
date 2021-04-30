@@ -25,7 +25,7 @@ const Visa = () => {
   
   return (
   <>
-    <Container fluid>
+    <Container>
     <Grid stackable columns={4}> 
           { services && services.map((service) =>
             <Grid.Column>

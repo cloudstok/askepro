@@ -103,7 +103,7 @@ filter: brightness(.3);
   &::after{
     @include after;
     height: 9px;
-    margin: 11px 0 40px 0;
+    margin: 10px 0 40px 0;
   }
 
  }
@@ -122,7 +122,7 @@ filter: brightness(.3);
     color: #ffffff;
   }
   
-}
+
 
 
 .step p{
@@ -130,6 +130,7 @@ filter: brightness(.3);
   line-height: 1.38;
   font-size: 16px;
   color: #fff;
+}
 }
 .step-circle{
   height: 10rem;
@@ -144,6 +145,13 @@ filter: brightness(.3);
 .customer{
   min-height: auto;
   margin-top: 60px;
+  h1{
+    &::after{
+      @include after;
+      height: 9px;
+      margin-top: 10px;
+    }
+  }
 }
 
 .nesting-feed{
@@ -184,7 +192,7 @@ filter: brightness(.3);
 .arrow:hover{
   border: 1px solid transparent;
   background: $gradient;
-}
+} 
 }
 
 .nexted-box{
@@ -470,7 +478,15 @@ margin-left: 2rem;
   }
 
 .step{
-  margin: 50px 0 70px 0;
+  padding: 50px 0 70px 0;
+  h1{
+    &:after{
+      @include center_after;
+      margin-top: 10px;
+      
+
+    }
+  }
 .apply{
   margin-bottom: 60px;
 }
@@ -548,6 +564,11 @@ p{
   text-align: center  ;
   margin: 38px 0 20px 0;
   border: none;
+  h1{
+    &::after{
+      @include center_after;
+    }
+  }
   .accordion_section{
     border: none;
     border: solid 1px #e6e6e6;
@@ -598,6 +619,11 @@ p{
    font-size: 44px;
    line-height: 1.18;
    font-weight: bold;
+   &::after{
+     @include after;
+     height: 9px;
+     margin: 10px;
+   }
   } 
 }
 .underline_img img{
@@ -606,6 +632,15 @@ p{
 
 .service-formation{
   text-align: center;
+  h1{
+    &::after{
+      @include center_after;
+      margin-bottom: 10px;
+      
+      
+
+    }
+  }
   p{
     width: 50rem;
     margin: 0 auto;
@@ -615,7 +650,7 @@ p{
     line-height: 1.38;
     color: #9d9494;
     font-size: 16px;
-    padding-bottom: 30px  ;
+    margin-bottom: 30px!important;
   }
 }
 .question{

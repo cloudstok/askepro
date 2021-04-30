@@ -66,11 +66,19 @@ $gradient: linear-gradient(
   display: block;
   width: 79px;
   height: 4px;
-  margin: 6px 0 10px 0;
   background: $gradient;
   clip-path: polygon(0 0, 87% 0, 100% 100%, 0% 100%);
 }
-
+@mixin center_after {
+  margin-top: 10px !important;
+  margin: 0 auto;
+  content: '';
+  display: block;
+  width: 80px;
+  height: 9px;
+  background: $gradient;
+  clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
+}
 /* ///Media query/// */
 
 @media (max-width: 850px) {

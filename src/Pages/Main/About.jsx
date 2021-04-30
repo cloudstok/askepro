@@ -1,12 +1,11 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
-import Footer from '../../Component/Main-Component/Footer';
-import Header from '../../Component/Main-Component/Header';
+import Footer from "../../Component/Main-Component/Footer";
+import Header from "../../Component/Main-Component/Header";
 
 const About = () => {
   return (
     <>
-     <Container>
       <div className="about">
         <img
           src="assets/images/Group 4794.png"
@@ -15,7 +14,7 @@ const About = () => {
         <div className="about-content">
           <img src="assets/images/Epro Logo_Web@3x.png" />
           <h1 className="headingOne">About</h1>
-          <img src="assets/images/center.png" />
+
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
             amet! Velit quod sit dicta et accusamus? Rerum earum tempore ab,
@@ -24,13 +23,14 @@ const About = () => {
           </p>
         </div>
       </div>
-   
+
       <div className="team">
-        <div className="about_conteiner">
-          <h1 className="headingOne">Our Team</h1>
-          <img src="assets/images/path.png" />
-          <Grid stackable columns={2}>
-            
+
+        <Container>
+        <div className="about_container">    
+            <h1 className="headingOne">Our Team</h1>
+
+            <Grid stackable columns={2}>
               <Grid.Column>
                 <div className="space1">
                   <div className="about-card">
@@ -41,9 +41,11 @@ const About = () => {
                       </div>
                       <div className="team-content">
                         <p>
-                          Lorem, ipsum dolor sit amet consectetur adipisicing
-                          elit. Autem similique quos, non excepturi sint numquam
-                          adipisci dolor quas architecto? Aliquam.
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry. Lorem Ipsum has been the
+                          industry’s standard dummy text ever since the 1500s,
+                          when an unknown printer took a galley of type and
+                          scrambled it to make a type
                         </p>
                       </div>
                       <div className="team-image">
@@ -66,9 +68,11 @@ const About = () => {
                       </div>
                       <div className="team-content">
                         <p>
-                          Lorem, ipsum dolor sit amet consectetur adipisicing
-                          elit. Autem similique quos, non excepturi sint numquam
-                          adipisci dolor quas architecto? Aliquam.
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry. Lorem Ipsum has been the
+                          industry’s standard dummy text ever since the 1500s,
+                          when an unknown printer took a galley of type and
+                          scrambled it to make a type
                         </p>
                       </div>
                       <div className="team-image">
@@ -78,16 +82,17 @@ const About = () => {
                         />
                       </div>
                     </div>
-                    <div className="team"></div>
+                    
                   </div>
                 </div>
               </Grid.Column>
               <Grid.Column></Grid.Column>
-          </Grid>
-        </div>
+            </Grid>
+          </div>
+        </Container>
       </div>
-      </Container>
-    <Footer />
+
+      <Footer />
     </>
   );
 };

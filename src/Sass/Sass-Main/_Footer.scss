@@ -103,14 +103,16 @@
   font-weight: bold;
   color: #fff;
   margin: 0;
+  &::after{
+    @include after;
+    margin: 5px 0 10px 0;
+  }
 }
 .reach h2::after{
   @include after; 
   height: 9px;
-  margin: 5px 0 10px 0;
-}
 
- 
+}
 
 .information{
   background-color: #fff;

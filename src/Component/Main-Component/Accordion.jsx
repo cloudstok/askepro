@@ -37,9 +37,7 @@ export default class AccordionExampleFluid extends Component {
         <Container>
           <div className="accordion">
             <h1 className="headingOne">Frequently Asked Questions</h1>
-            <div className="underline_img">
-              <img src="assets/images/center.png" />
-            </div>
+           
           </div>
           <Accordion fluid>
             {this.state.data.map((el,index) =>

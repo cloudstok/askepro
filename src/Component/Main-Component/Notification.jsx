@@ -11,10 +11,9 @@ const Notification = () => {
 
 
 <div className="banner3">
-    {
-      show ? <h1>Hellow asda</h1>:null
-    }
-        <img src="assets/images/covid-19.png"/>
+    
+    
+        <img src="Assets/images/covid-19.png"/>
           
           <div className="pop_content">
             <h6>Covid-19 Guidelines & Updates</h6>
