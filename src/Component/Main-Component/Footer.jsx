@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="reach-Submit">
                 <p>By clicking on 'Submit' you will agree to T&C of AskePro</p>
                 <button className="same-btn" type="submit">
-                  <strong> SUBMIT </strong>
+                   SUBMIT
                 </button>
               </div>
             </Form>
@@ -90,12 +90,12 @@ const Footer = () => {
                 />
                 <img
                   className="footer_image1"
-                  src="assets/images/Image 1@2x.png"
+                  src="assets/images/playstore.png"
                  
                 />
                 <img
                   className="footer_image2"
-                  src="assets/images/Image 2@2x.png"
+                  src="assets/images/ios.png"
          
                 />
               </div>

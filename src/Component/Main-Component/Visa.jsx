@@ -3,7 +3,7 @@ import { Grid, Container } from "semantic-ui-react";
 
 const Visa = () => (
   <>
-    <Container>
+    <Container fluid>
     <Grid stackable columns={4}> 
           <Grid.Column>
             <div className="service-card">
@@ -19,13 +19,13 @@ const Visa = () => (
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Layer 15.png" />
+              <img src="assets/images/office.png" />
               <p>Office Arrangements</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/passport (1).png" />
+              <img src="assets/images/passport.png" />
               <p>Visa Services</p>
             </div>
           </Grid.Column>
@@ -43,13 +43,13 @@ const Visa = () => (
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/building.png" />
+              <img src="assets/images/govt.png" />
               <p>Dubai Economic Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Group 4736.png" />
+              <img src="assets/images/trakhees.png" />
               <p>Trakhees Services</p>
             </div>
           </Grid.Column>
@@ -61,32 +61,32 @@ const Visa = () => (
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Group 4732.png" />
+              <img src="assets/images/amer.png" />
               <p>Amer Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Group 4730.png" />
+              <img src="assets/images/tas-heel.png" />
               <p>Tasheel Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Group 4730.png" />
+              <img src="assets/images/service2.png" />
               <p>Emirates ID</p>
             </div>
           </Grid.Column>
         <Grid.Row columns={4}>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/Group 4730.png" />
+              <img src="assets/images/service1.png" />
               <p>Medical Services</p>
             </div>
           </Grid.Column>
           <Grid.Column width={8}>
-            <div className="service-card">
-              <img src="assets/images/Group 4730.png" />
+            <div className="service-card2">
+              <img src="assets/images/stamp.png" />
               <p>
                 Didn't find what you were looking for? Contact us we will help
                 you out.

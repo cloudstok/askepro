@@ -263,8 +263,8 @@ export default class AccordionExampleFluid extends Component {
           </Accordion>
 
           <div className="question">
-            <button className="same-btn" style={{ borderRadius: "20px" }}>
-              <strong>APPLY NOW</strong>
+            <button className="same-btn">
+              APPLY NOW
             </button>
           </div>
         </Container>
