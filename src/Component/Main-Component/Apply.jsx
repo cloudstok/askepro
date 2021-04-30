@@ -9,9 +9,7 @@ const Apply = () => {
       <section className="step">
         <div className="apply">
         <h1 className="headingOne">How to apply</h1>
-        <div className="underline_img">
-        <img src="assets/images/center.png" />
-        </div>
+        
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quam
           distinctio impedit ducimus? Eum incidunt sequi quae molestias non<br/>
@@ -80,7 +78,7 @@ const Apply = () => {
       <section className="customer">
       <Container>
           <h1 className="headingOne">Customer Reviews</h1>
-          <img className="underline_img" src="assets/images/path.png" />
+          
           <Grid stackable columns={3}>
             <Grid.Row>
               <Grid.Column>
