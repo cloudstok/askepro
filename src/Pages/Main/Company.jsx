@@ -2,28 +2,58 @@ import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
+import { useHistory, useParams } from 'react-router-dom';
 
 const Company = () => {
+  const history = useHistory();
+  const [service, setService] = React.useState({});
+  
+  const { slug } = useParams();
+  const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
+  
+  React.useEffect(() => { getServiceSlugDetail();}, []);
+  
+  const getServiceSlugDetail = async () => {
+    const services = await (await fetch(service_url, { method: "GET" })).json();
+    const serviceData = {
+      deleted: services.data.deleted,
+      _id: services.data._id,
+      name: services.data.name,
+      scode: services.data.scode,
+      description: services.data.description,
+      slug: services.data.slug,
+      serviceHowToApply: services.data.serviceDetail.serviceHowToApply,
+      image: services.data.serviceDetail.image[0],
+      reqDocs: services.data.serviceDetail.reqDocs,
+      overview: services.data.serviceDetail.overview,
+      processT: services.data.serviceDetail.processT,
+      stayPeriod: services.data.serviceDetail.stayPeriod,
+      validity: services.data.serviceDetail.validity,
+      entry: services.data.serviceDetail.entry,
+      price: services.data.serviceDetail.price
+    };
+    setService(serviceData);
+  };
+  
+  console.log(service);
+  
   return (
     <>
-
-    <Header />
       <div
         class="company"
         style={{
-          background: "url(assets/images/contact-bg.png)",
-          backgroundSize: "cover",
+          background:`url(${process.env.PUBLIC_URL+"/Assets/Images/contact-bg.png"})`,
+          backgroundSize: "cover",      
         }}
-      >
+  >
         <Container>
-          <h1 class="headingOne">Company Formation Services </h1>
-          <img src="assets/images/center.png" />
+          <h1 class="headingOne">{service.name} </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            numquam nemo voluptatibus fuga fugit quod
-            <br />
+            {service.description}
+            {/* <br />
             veniam. Doloribus officiis minus Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Sunt, ratione. eius!
+            */}
           </p>
         </Container>
       </div>
@@ -36,21 +66,18 @@ const Company = () => {
             <div>
               <h3>Overview</h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry’s standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five ce
+                {service.overview}
               </p>
               <h3>How to Apply</h3>
               
               { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                 <div className="testimonial">
-                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
+                  <img src="Assets/images/Rectangle 242@2x.png" />
                   <p>
                     {d}
                   </p>
-                </div>
+                </div> 
+                
               )}
               
               {/*
@@ -86,14 +113,8 @@ const Company = () => {
                   standard.{" "}
                 </p>
               </div>
-              <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard.{" "}
-                </p>
-              </div>
+              
+              */}
 
               <h3>Documents Required</h3>
 

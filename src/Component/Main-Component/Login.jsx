@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
   const history = useHistory();
-  
+
   const url = `${process.env.REACT_APP_BASE_URL}/login`
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
@@ -14,7 +14,7 @@ const Login1 = () => {
     event.preventDefault();
 
     console.log(event.target);
-
+    
     const jsonPostData = {
       'email': email,
       'password': password
@@ -32,25 +32,26 @@ const Login1 = () => {
     const data = await res.json();
     if (data.status == 1 && data.token) {
       localStorage.setItem('token', data.token);
-      history.push('/')
+      history.push('/');
+      let idData = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/users`,
+          {
+            method: "GET",
+            headers: {
+              'x-access-token': localStorage.getItem('token'),
+            }
+          })).json();
+      idData = idData.data;
+      localStorage.setItem('id', idData._id);
+      localStorage.setItem('name', idData.name)
     } else {
       alert("Incorrect Email/Password");
       setMsg("Invalid Incorrect Email/Password ")
     }
 
-    let idData = await (
-      await fetch(
-        `${process.env.REACT_APP_BASE_URL}/users`,
-        {
-          method: "GET",
-          headers: {
-            'x-access-token': localStorage.getItem('token'),
-          }
-        })).json();
-    idData=idData.data;
-    localStorage.setItem('id', idData._id);
-    localStorage.setItem('name', idData.name)
-    
+
+
   };
   return (
     <>
@@ -62,11 +63,11 @@ const Login1 = () => {
           backgroundSize: "cover",
         }}
       >
-      
-      {msg && <Message negative>
-                        <Message.Header>{msg}</Message.Header>
-                    </Message>
-                    }
+
+        {msg && <Message negative>
+          <Message.Header>{msg}</Message.Header>
+        </Message>
+        }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
           <h3>Login into your account</h3>
           <Form.Field>
