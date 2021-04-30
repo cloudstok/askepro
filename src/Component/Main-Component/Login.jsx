@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
   const url = `${process.env.BASE_API_URL}/login`
+  const history = useHistory();
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
