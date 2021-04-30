@@ -49,11 +49,8 @@ const Login1 = () => {
         })).json();
     idData=idData.data;
     localStorage.setItem('id', idData._id);
-<<<<<<< HEAD
-    localStorage.setItem('name', idData.name);
-=======
+    localStorage.setItem('name', idData.name)
     
->>>>>>> 27bbdc4b7ed9ff38b7c660c8346c745165c94f7c
   };
   return (
     <>

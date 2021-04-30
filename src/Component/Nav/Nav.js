@@ -11,13 +11,8 @@ export function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
   const name = localStorage.getItem("name");
-  const fullname = name.split(' ');
-  const firstname = fullname[0];
-
-const logout = (e) =>{
-  localStorage.clear();
-  history.push("/login");
-}
+   let fullname = name.split(' ');
+  let firstname = fullname[0];
 
   useEffect(() => {
     if (token){
@@ -55,7 +50,7 @@ const logout = (e) =>{
         <Dropdown.Menu className='dropdown-menu'>
         <Link to={'/account'}><li className='item-name' style={{color:"#000"}}><Icon name='user outline'/>My Account</li></Link>
         <Link to={'/history'}><li className='item-name' style={{color:"#000"}}><Icon name='history'/>History</li></Link>
-        <li className='item-name' onClick={e=>logout(e)}><Icon name='history'></Icon>Logout</li>
+        <li className='item-name'><Icon name='history'></Icon>Logout</li>
         </Dropdown.Menu>
         </Dropdown>
         </div>
