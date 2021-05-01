@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Icon, Pagination, Table, Label } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
-import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
 import { useHistory } from 'react-router';
 

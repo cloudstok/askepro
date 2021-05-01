@@ -1,13 +1,13 @@
 @import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
-
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 
 
 //Heading 
 
 .header{
     text-align: center;
-    margin:0px 0 39px !important;
+    margin:20px 0 39px !important;
     
     &:after{
         margin-top: 10px !important;
@@ -37,15 +37,19 @@ main{
    .form{
     padding: 30px;        
     
-    .radio{
+    .checkbox{
         background-color:$white;
-        height: 60px;
         border: 1px solid #f4f4f4;
+        height: 60px;
+        padding:20px;   
         display: flex !important;
+        margin:20px;
         align-items: center;
-        padding:8px 10px 0 0px !important;
-        margin: 15px;
-        
+    
+        .state{
+            position: absolute;
+        }
+
         label{
             font-weight: normal;
             font-size: 14px !important;
@@ -98,7 +102,7 @@ main{
 
 //Fill Documents
  .fill-section{   
-    padding: 0 40px;    
+     padding: 0 40px;    
     @include tablet{
         padding: 0 20px;
     }
@@ -231,10 +235,10 @@ main{
 //Payment Step
 
 .payment-section{
-    padding: 0 40px;
+    padding: 0px 40px !important;
     
     @include tablet{
-        padding: 0 20px;
+        padding: 0 20px 40px !important;
     }
 
 
