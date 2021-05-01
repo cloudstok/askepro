@@ -1,6 +1,6 @@
 @import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
-
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 
 
 //Heading 
@@ -39,12 +39,16 @@ main{
     
     .checkbox{
         background-color:$white;
-        height: 60px;
         border: 1px solid #f4f4f4;
+        height: 60px;
+        padding:20px;   
         display: flex !important;
+        margin:20px;
         align-items: center;
-        padding:8px 10px 0 0px !important;
-        margin:0 0 20px;
+    
+        .state{
+            position: absolute;
+        }
 
         label{
             font-weight: normal;
@@ -231,10 +235,10 @@ main{
 //Payment Step
 
 .payment-section{
-    padding: 0 40px;
+    padding: 0px 40px !important;
     
     @include tablet{
-        padding: 0 20px;
+        padding: 0 20px 40px !important;
     }
 
 

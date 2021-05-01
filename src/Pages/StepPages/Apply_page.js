@@ -59,8 +59,14 @@ function ApplyStepper() {
               <Grid.Row>
                 <Grid.Column>
                   {services &&
-                    services.map((service) => <Checkbox label={service.name} onChange={handleChange} >
-                    </Checkbox>)}
+                    services.map((service) =>      
+                        <div class="checkbox p-default p-round pretty">
+                        <input type="checkbox" />
+                        <span class="state">
+                            <label>{service.name}</label>
+                        </span>
+                    </div>
+                        )}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
