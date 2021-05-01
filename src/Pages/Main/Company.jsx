@@ -117,7 +117,15 @@ const Company = () => {
               */}
 
               <h3>Documents Required</h3>
-
+              
+              { service.reqDocs && service.reqDocs.map((d) =>
+                <div className="testimonial">
+                  <img src={process.env.PUBLIC_URL + "Assets/Images/Rectangle 242@2x.png"} />
+                  <p>{d}</p>
+                </div>
+              )}
+              
+              {/*
               <div className="testimonial">
                 <img src="/assets/images/Rectangle 242@2x.png" />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
@@ -134,11 +142,8 @@ const Company = () => {
                 <img src="/assets/images/Rectangle 242@2x.png" />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
-              <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
-                <p>Lorem Ipsum is simply dummy text of the printing </p>
-              </div>
-            </div>  
+              */}
+            </div>
       </Grid.Column>
 
       <Grid.Column width={5}>
@@ -153,25 +158,25 @@ const Company = () => {
                       <div className="hours-content">
                         <div className="rectangle11">
                           <div className="days-dull">Processing Time:</div>
-                          <div className="days">Upto 5 Days</div>
+                          <div className="days">Upto {service.processT} Days</div>
                         </div>
                         <div className="rectangle11">
                           <div className="days-dull">Stay Period:</div>
-                          <div className="days">14 Days</div>
+                          <div className="days">{service.stayPeriod} Days</div>
                         </div>
                         <div className="rectangle11">
                           <div className="days-dull">Validity</div>
-                          <div className="days">58 Days</div>
+                          <div className="days">{service.validity} Days</div>
                         </div>
                         <div className="rectangle11">
                           <div className="days-dull">Entry:</div>
-                          <div className="days">Single</div>
+                          <div className="days">{service.entry}</div>
                         </div>
                       </div>
                       <div className="hours-total">
                         <div className="fees">
                           <div className="total-left">Fees</div>
-                          <div className="total-right">350 AED</div>
+                          <div className="total-right">{service.price} AED</div>
                         </div>
                       </div>
                     </div>
