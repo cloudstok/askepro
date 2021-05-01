@@ -85,12 +85,12 @@ console.log(name);
 
 
 export default class MenuBar extends Component {
-  state = { activeItem: newLocation[1] }
+  state = { activeItem: newLocation[1],homeIndex: newLocation[0] }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
+    const { activeItem, homeIndex } = this.state
 
     return (
       <div>
@@ -98,12 +98,12 @@ export default class MenuBar extends Component {
           <Link to='/'>
             <Menu.Item
               name='home'
-              active={activeItem === 'home'}
+              active={homeIndex === "" && !activeItem }
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/service"><Menu.Item
             name='services'
-            active={activeItem === 'services'}
+            active={activeItem === 'service'}
             onClick={this.handleItemClick}
           /></Link>
           <Link to="/about"><Menu.Item

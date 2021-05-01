@@ -25,9 +25,9 @@ const Contact = () => {
         
           <div class="contact-details-1">
             <img src={process.env.PUBLIC_URL + '/Assets/images/pin.png'} />
-            <p>Marina Crown<br />
-              King Salman Bin Abdulaziz Al Saud St
-              Dubai, United Arab Emirates</p>
+            <p>Kalari Documents Clearing Services<br />
+            Dragon Mart 1,Shop No DHOFF16
+            Dubai, United Arab Emirates</p>
           </div>
           <div class="contact-details">
           <img src={process.env.PUBLIC_URL + '/Assets/images/phone.png'} />
@@ -42,7 +42,7 @@ const Contact = () => {
       </Grid.Column>
       <Grid.Column width={10}>
         <div id="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.353890326994!2d55.14604381427655!3d25.08987918394629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5004392cff%3A0x34dd31289ede45e!2sMarina%20Crown%20-%20King%20Salman%20Bin%20Abdulaziz%20Al%20Saud%20St%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1619884139758!5m2!1sen!2sin" ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.8211987464706!2d55.410161214484!3d25.175514538758975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f61ce99959ff3%3A0x9f391776b31195c4!2sKALARI%20DCS!5e0!3m2!1sen!2sin!4v1619901723581!5m2!1sen!2sin" ></iframe>
         </div>
       </Grid.Column>
       </Grid>
