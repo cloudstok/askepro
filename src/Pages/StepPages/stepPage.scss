@@ -37,15 +37,15 @@ main{
    .form{
     padding: 30px;        
     
-    .radio{
+    .checkbox{
         background-color:$white;
         height: 60px;
         border: 1px solid #f4f4f4;
         display: flex !important;
         align-items: center;
         padding:8px 10px 0 0px !important;
-        margin: 15px;
-        
+        margin:0 0 20px;
+
         label{
             font-weight: normal;
             font-size: 14px !important;
