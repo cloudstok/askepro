@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
-import StatusChip from '../../Component/Main-Component/StatusChip';
+import StatusChip from "../../Component/Main-Component/StatusChip";
 const Account = () => {
   const history = useHistory();
 
@@ -39,13 +39,11 @@ const Account = () => {
     return "loading";
   }
   return (
-
     <>
       <div className="account_wrapper">
         <Container>
           <div className="account">
             <h4>Account Overview</h4>
-            <img src="Assets/images/Path_tiny.png" />
           </div>
           <Grid stackable columns={2}>
             <Grid.Column width={11}>
@@ -53,7 +51,8 @@ const Account = () => {
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <img src="Assets/images/user.png" width="100px" />{" "}
+                      <img src={process.env.PUBLIC_URL + "Assets/images/user.png"}/>
+                      ;{" "}
                     </div>
                   </div>
                   <div className="user_inner2">
@@ -69,7 +68,9 @@ const Account = () => {
                     <br />
                     <h6>Address</h6>
                     <p>
-                      {add.address} <br></br>{add.city} {add.state} <br></br>{add.country}
+                      {add.address} <br></br>
+                      {add.city} {add.state} <br></br>
+                      {add.country}
                     </p>
                   </div>
                 </div>
@@ -77,39 +78,45 @@ const Account = () => {
             </Grid.Column>
 
             <Grid.Column width={5}>
-
               <div className="account_carousel">
-                <p className='carousel_p'>Total number of applications <br />
+                <p className="carousel_p">
+                  Total number of applications <br />
                   <span className="carousel_number">{0}</span>
                 </p>
               </div>
-
             </Grid.Column>
           </Grid>
 
-
-
-
           <Grid stackable columns={2}>
-
-
             <Grid.Column width={11}>
-
               <div className="user_heading">
                 <h4>Recent Applications </h4>
-                <img src="Assets/images/Path_tiny.png" />
               </div>
               <div className="account_table">
                 <Table striped>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell><h6>Date</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Service id</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Service Name</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Transaction Id</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Status</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Mode</h6></Table.HeaderCell>
-                      <Table.HeaderCell><h6>Amount(AED)</h6></Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Date</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Service id</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Service Name</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Transaction Id</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Status</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Mode</h6>
+                      </Table.HeaderCell>
+                      <Table.HeaderCell>
+                        <h6>Amount(AED)</h6>
+                      </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 
@@ -171,7 +178,6 @@ const Account = () => {
             <Grid.Column width={5}>
               <div className="user_heading">
                 <h4>Appointments(0)</h4>
-                <img src="Assets/images/Path_tiny.png" />
               </div>
               {/* <Segment className="appointment" style={{ marginTop: '0' }}>
                 <div className="appoint">
@@ -214,8 +220,11 @@ const Account = () => {
                 </div>
               </Segment> */
               /* <div className="circle_btn">
-                <img src="Assets/images/arrow.png" />
-                <img src="Assets/images/arrowA.png" />
+                
+                <img src={process.env.PUBLIC_URL + 'Assets/images/arrow.png'} />;
+                <img src={process.env.PUBLIC_URL + 'Assets/images/arrowA.png'} />;
+
+           
               </div> */}
             </Grid.Column>
           </Grid>

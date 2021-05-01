@@ -148,23 +148,23 @@ const View_details = () => {
               <Segment>
                   <div className="details_3_outer">
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                               <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />;
                   <p>Emirates ID.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />;
                   <p>Special ID.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />;
                   <p>GDFRA permit.jpg </p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />;
                   <p>Entry Permit.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />;
                   <p>XYZ government ID.jpg</p>
                 </div>
                 </div>

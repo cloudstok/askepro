@@ -85,23 +85,23 @@ const Verification = () => {
           <div className="documents">
             <h6>Documents Submitted</h6>
             <div className="doc_inner">
-              <img src="Assets/images/doc_pin.png" />
+              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
               <p>Emirates ID.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src="Assets/images/doc_pin.png" />
+              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
               <p>Special ID.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src="Assets/images/doc_pin.png" />
+              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
               <p>GDFRA permit.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src="Assets/images/doc_pin.png" />
+              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
               <p>Entry Permit.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src="Assets/images/doc_pin.png" />
+              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
               <p>XYZ government ID.jpg</p>
             </div>
           </div>
