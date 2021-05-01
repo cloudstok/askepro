@@ -4,8 +4,8 @@
 
 .about {
   position: relative;
-  height: 60vh;
-  
+  height: 494px;
+  margin-bottom: 52px;
 
   
   .about-content {
@@ -27,7 +27,7 @@
     margin-top: 20px;
   }
   h1 {
-    margin: 48px 0 10px 0;
+ 
     &::after{
       @include center_after;  
     }
@@ -105,7 +105,7 @@
 
 .contact {
   text-align: center;
-  height: auto;
+  height: 283px;
   img {
     background-size: cover;
   }
@@ -227,31 +227,27 @@
   text-decoration: none;    
   position: absolute;
   top: 72px;
-  left: 61px;
-  
-
-    height: 17px; 
-
+  left: 61px; 
   color: #fff;
-  background: transparent;
-  font-family: Open Sans;
+
   z-index: 1;
-
   a {
-    width: 42px;
-    height: 17px;
-    text-decoration: none;
-    color: red;
-   
-
-  }
-  .active{
-    color:#fff !important; 
-    font-weight: 500 !important;
-    width: 54px;
-    font-size: 12px;
-    height: 17px;
   
+    font-family: Open Sans;
+    font-size: 12px;
+    line-height: 1.42;
+    font-weight: normal;
+}
+.active{
+  font-family: Open Sans;
+  font-size: 12px;
+  line-height: 1.42;
+  font-weight: normal !important;
+  color: #fff !important;
+  text-decoration: none;
+}
+.icon{
+  color:#fff !important;
 }
 }
 
