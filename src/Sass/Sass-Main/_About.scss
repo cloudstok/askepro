@@ -20,7 +20,7 @@
   p {
     line-height: 1.33;
     font-size: 18px;
-    text-align: center; 
+    text-align: justify; 
     font-size: Open Sans;
     color: #9d9494;
     margin-bottom: 38px;
@@ -197,16 +197,19 @@
 .overview {
   margin: 40px 0 136px 0;
   width: 100%;
-
+  .p{
+    white-space: pre-line;
+  }
   .testimonial {
-    display: inline-flex;
+    display: flex;
+    align-items: center;
     margin: 20px 0;
   }
   .testimonial img {
     width: 17px;
     height: 17px;
     margin-right: 11px;
-    margin-top: 5px;
+    margin-top: 0px;
   }
   .testimonial p {
     font-size: 16px;
@@ -600,6 +603,5 @@
   padding-top: 30px;
   height: 150vh;
 }
-
 
 

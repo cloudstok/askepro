@@ -8,8 +8,8 @@ import '../../Sass/app.scss';
 const Stepper = () => {
     const location = useLocation();
     const [result, setResult] = React.useState(null);
-    const arr = ["/apply", "/fill", "/upload", "/book", "/payment", "/success"];
-    const titleArr = ["Choose Service", "Fill Details", "Upload Documents", "Book an appointment", "Payment", "Success"];
+    const arr = ["/apply", "/fill", "/upload", "/book", "/payment"];
+    const titleArr = ["Choose Service", "Fill Details", "Upload Documents", "Book an appointment", "Payment"];
     React.useEffect(() => {
         let final = [];
         for (let i = 0; i < arr.length; i++) {
@@ -26,7 +26,6 @@ const Stepper = () => {
     },[]);
     if(!result){
     return (<div></div>);}
-    arr.pop('/success');
     return (
         <div className="stepper">
             <Step.Group size='tiny' stackable='tablet' widths="6">

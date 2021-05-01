@@ -1,11 +1,13 @@
 import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect, Component } from "react";
-import { Link, useHistory, withRouter } from 'react-router-dom';
+import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
-
+let newLocation;
 export function Nav() {
+  const location = useLocation();
+  newLocation = location.pathname.split('/');
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -83,7 +85,7 @@ console.log(name);
 
 
 export default class MenuBar extends Component {
-  state = { activeItem: 'home' }
+  state = { activeItem: newLocation[1] }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 

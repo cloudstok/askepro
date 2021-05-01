@@ -21,10 +21,9 @@ const Home = () => {
 
         <div className="home">
           <div className="home-content">
-            <h1>Mainland Company Registration in UAE</h1>
+            <h1>Leading Immigration Consultants in Dubai</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s
+            Our business is to make your business easier in the UAE.
             </p>
             <Link to="apply"><button type="button" className="same-btn">
                APPLY NOW 
