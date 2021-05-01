@@ -3,6 +3,7 @@ import { Container, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
 import { useHistory, useParams } from 'react-router-dom';
+import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 const Company = () => {
   const history = useHistory();
@@ -39,6 +40,7 @@ const Company = () => {
   
   return (
     <>
+      <Crumb />
       <div
         class="company"
         style={{

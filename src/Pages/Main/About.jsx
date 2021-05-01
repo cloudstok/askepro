@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
-import Header from "../../Component/Main-Component/Header";
-
+import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 
 const About = () => {
   return (
     <>
-    
+      <Crumb />
       <div className="about">
         <img
           src="Assets/images/Group 4794.png"
