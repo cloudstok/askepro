@@ -141,8 +141,12 @@
             .content{
                 .title, .description{
                     color:black !important;
-                }
-            }
+                         }
+                    }
+                    &::after{
+                        background:linear-gradient(252deg, #c7a006 50%, #c7a006) !important;
+                        border-top: none !important;
+                    }
              }
         .step{
             @include tablet{
