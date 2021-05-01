@@ -8,12 +8,12 @@ import '../../Sass/Sass-Main/_About.scss';
 const Company = () => {
   const history = useHistory();
   const [service, setService] = React.useState({});
-  
+
   const { slug } = useParams();
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
-  
-  React.useEffect(() => { getServiceSlugDetail();}, []);
-  
+
+  React.useEffect(() => { getServiceSlugDetail(); }, []);
+
   const getServiceSlugDetail = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
     const serviceData = {
@@ -35,19 +35,19 @@ const Company = () => {
     };
     setService(serviceData);
   };
-  
+
   console.log(service);
-  
+
   return (
     <>
       <Crumb />
       <div
         class="company"
         style={{
-          background:`url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"})`,
-          backgroundSize: "cover"     
+          background: `url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"})`,
+          backgroundSize: "cover"
         }}
-  >
+      >
         <Container>
           <h1 class="headingOne">{service.name} </h1>
           <p>
@@ -62,29 +62,30 @@ const Company = () => {
       <Container>
 
 
-      <div className="overview">
-      <Grid stackable column={2}>
-      <Grid.Column width={11}>
-            <div>
-              <h3>Overview</h3>
-              <p>
-                {service.overview}
-              </p>
-              <h3>How to Apply</h3>
-              
-              { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
-                <div className="testimonial">
-             
-                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
+        <div className="overview">
+          <Grid stackable column={2}>
+            <Grid.Column width={11}>
+              <div>
+                <h3>Overview</h3>
+                <p>
+                  {service.overview}
+                </p>
+                <h3>How to Apply</h3>
 
-                  <p>
-                    {d}
-                  </p>
-                </div> 
-                
-              )}
-              
-              {/*
+                {service.serviceHowToApply && service.serviceHowToApply.map((d) =>
+                  <div className="testimonial">
+
+                    <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
+
+                    <p>
+                      {d}
+                    </p>
+
+                  </div>
+
+                )}
+
+                {/*
               <div className="testimonial">
                 <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>
@@ -120,16 +121,16 @@ const Company = () => {
               
               */}
 
-              <h3>Documents Required</h3>
-              
-              { service.reqDocs && service.reqDocs.map((d) =>
-                <div className="testimonial">
-                  <img src={process.env.PUBLIC_URL + "/Assets/images/pinpoint.png"} />
-                  <p>{d}</p>
-                </div>
-              )}
-              
-              {/*
+                <h3>Documents Required</h3>
+
+                {service.reqDocs && service.reqDocs.map((d) =>
+                  <div className="testimonial">
+                    <img src={process.env.PUBLIC_URL + "/Assets/images/pinpoint.png"} />
+                    <p>{d}</p>
+                  </div>
+                )}
+
+                {/*
               <div className="testimonial">
               <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
@@ -147,54 +148,54 @@ const Company = () => {
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               */}
-            </div>
-      </Grid.Column>
+              </div>
+            </Grid.Column>
 
-      <Grid.Column width={5}>
-      <div className="tourist" style={{margin:'0'}}>
-              <Grid>
-                <Grid.Row>
-                  <Grid.Column>
-                    <div className="tourist-border">
-                      <div className="hours">
-                        <h3>Company Formation Services</h3>
+            <Grid.Column width={5}>
+              <div className="tourist" style={{ margin: '0' }}>
+                <Grid>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <div className="tourist-border">
+                        <div className="hours">
+                          <h3>Company Formation Services</h3>
+                        </div>
+                        <div className="hours-content">
+                          <div className="rectangle11">
+                            <div className="days-dull">Processing Time:</div>
+                            <div className="days">Upto {service.processT} Days</div>
+                          </div>
+                          <div className="rectangle11">
+                            <div className="days-dull">Stay Period:</div>
+                            <div className="days">{service.stayPeriod} Days</div>
+                          </div>
+                          <div className="rectangle11">
+                            <div className="days-dull">Validity</div>
+                            <div className="days">{service.validity} Days</div>
+                          </div>
+                          <div className="rectangle11">
+                            <div className="days-dull">Entry:</div>
+                            <div className="days">{service.entry}</div>
+                          </div>
+                        </div>
+                        <div className="hours-total">
+                          <div className="fees">
+                            <div className="total-left">Fees</div>
+                            <div className="total-right">{service.price} AED</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="hours-content">
-                        <div className="rectangle11">
-                          <div className="days-dull">Processing Time:</div>
-                          <div className="days">Upto {service.processT} Days</div>
-                        </div>
-                        <div className="rectangle11">
-                          <div className="days-dull">Stay Period:</div>
-                          <div className="days">{service.stayPeriod} Days</div>
-                        </div>
-                        <div className="rectangle11">
-                          <div className="days-dull">Validity</div>
-                          <div className="days">{service.validity} Days</div>
-                        </div>
-                        <div className="rectangle11">
-                          <div className="days-dull">Entry:</div>
-                          <div className="days">{service.entry}</div>
-                        </div>
-                      </div>
-                      <div className="hours-total">
-                        <div className="fees">
-                          <div className="total-left">Fees</div>
-                          <div className="total-right">{service.price} AED</div>
-                        </div>
-                      </div>
-                    </div>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </div>
-      </Grid.Column>
-    </Grid>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </div>
+            </Grid.Column>
+          </Grid>
         </div>
 
-        </Container>
-        <Footer />
-          </>
+      </Container>
+      <Footer />
+    </>
   );
 };
 export default Company;

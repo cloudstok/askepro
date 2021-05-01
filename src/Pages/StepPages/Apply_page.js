@@ -57,17 +57,17 @@ function ApplyStepper() {
           <div className="form">
             <Grid columns="3" stackable="mobile">
               <Grid.Row>
+              {services &&
+                    services.map((service) =>
                 <Grid.Column>
-                  {services &&
-                    services.map((service) =>      
                         <div class="checkbox p-default p-round pretty">
                         <input type="checkbox" />
                         <span class="state">
                             <label>{service.name}</label>
                         </span>
                     </div>
+                    </Grid.Column>
                         )}
-                </Grid.Column>
               </Grid.Row>
             </Grid>
           </div>
