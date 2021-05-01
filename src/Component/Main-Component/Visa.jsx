@@ -5,141 +5,152 @@ import { useHistory } from "react-router-dom";
 const Visa = () => {
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
   const history = useHistory();
-  
+
   const [services, setServices] = React.useState(null);
-  
-  React.useEffect(() => { getServices(); }, []);
-  
+
+  React.useEffect(() => {
+    getServices();
+  }, []);
+
   const getServices = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
-    const serviceData = services.data.map(e => ({
+    const serviceData = services.data.map((e) => ({
       _id: e._id,
       name: e.name,
       scode: e.scode,
       slug: e.slug,
-      image: e.serviceDetail.image[0]
+      image: e.serviceDetail.image[0],
     }));
-    
+
     setServices(serviceData);
   };
-  
+
   return (
-  <>
-    <Container>
-    <Grid stackable columns={4}> 
-          { services && services.map((service) =>
-            <Grid.Column>
-              <div className="service-card" onClick={() => history.push(`/service/${service.slug}`)}>
-                <img src={process.env.PUBLIC_URL+"Assets/images/building.png"} />
-                <p>{service.name}</p>
-              </div>
-            </Grid.Column>
-          )}
-          
+    <>
+      <Container>
+        <Grid stackable columns={4}>
+          {services &&
+            services.map((service) => (
+              <Grid.Column>
+                <div
+                  className="service-card"
+                  onClick={() => history.push(`/service/${service.slug}`)}
+                >
+                  <img src={process.env.PUBLIC_URL + "/Assets/images/building.png"}/>
+
+                  <p>{service.name}</p>
+                </div>
+              </Grid.Column>
+            ))}
+
           {/*
             <Grid.Column>
               <div className="service-card">
-                <img src="assets/images/building.png" />
+              
+                 <img src={process.env.PUBLIC_URL+"/Assets/images/building.png"} />
                 <p>Company Formation Services</p>
               </div>
             </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/solution.png" />
+          
+              <img src={process.env.PUBLIC_URL+"/Assets/images/solution.png"} />
+              
               <p>Local Sponser Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/office.png" />
+             
+              <img src={process.env.PUBLIC_URL+"/Assets/images/office.png"} />
               <p>Office Arrangements</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/passport.png" />
+              
+              <img src={process.env.PUBLIC_URL+"/Assets/images/passport.png"} />
               <p>Visa Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/policy.png" />
+             
+              <img src={process.env.PUBLIC_URL+"/Assets/images/policy.png"} />
               <p>Attestation Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/translator.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/translator.png"} />
               <p>Translation Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/govt.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/govt.png"} />
               <p>Dubai Economic Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/trakhees.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/trakhees.png"} />
               <p>Trakhees Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/stamp.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/stamp.png"} />
+
               <p>Company Stamp</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/amer.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/amer.png"} />
               <p>Amer Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/tas-heel.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/tas-heel.png"} />
               <p>Tasheel Services</p>
             </div>
           </Grid.Column>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/service2.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/service2.png"} />
               <p>Emirates ID</p>
             </div>
           </Grid.Column>
         <Grid.Row columns={4}>
           <Grid.Column>
             <div className="service-card">
-              <img src="assets/images/service1.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/service1.png"} />
               <p>Medical Services</p>
           </div>
           </Grid.Column>*/}
           <Grid.Column width={8}>
             <div className="service-card2">
-              <img src="assets/images/stamp.png" />
+              <img src={process.env.PUBLIC_URL+"/Assets/images/stamp.png"} />
               <p>
                 Didn't find what you were looking for? Contact us we will help
                 you out.
               </p>
             </div>
           </Grid.Column>
-        
-      
-      
-      </Grid>
-    
-      
-      <div className="tourist">
+        </Grid>
+
+        <div className="tourist">
           <h1 className="headingOne">Tourist Visa Services</h1>
-        
+
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad velit
-            quaerat. Dignissimos odio animi minus deleniti dolorem, in adipisci?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad
+            velit quaerat. Dignissimos odio animi minus deleniti dolorem, in
+            adipisci?
           </p>
 
-          <Grid stackable columns={4}  only='computer'>
+          <Grid stackable columns={4} only="computer">
             <Grid.Row>
               <Grid.Column>
                 <div className="tourist-border">
@@ -269,12 +280,12 @@ const Visa = () => {
                   </div>
                 </div>
               </Grid.Column>
-              </Grid.Row>
+            </Grid.Row>
           </Grid>
         </div>
-    </Container>
-  </>
- );
+      </Container>
+    </>
+  );
 };
 
 export default Visa;

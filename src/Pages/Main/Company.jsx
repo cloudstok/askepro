@@ -3,7 +3,7 @@ import { Container, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
 import { useHistory, useParams } from 'react-router-dom';
-
+import '../../Sass/Sass-Main/_About.scss';
 const Company = () => {
   const history = useHistory();
   const [service, setService] = React.useState({});
@@ -72,7 +72,9 @@ const Company = () => {
               
               { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                 <div className="testimonial">
-                  <img src="Assets/images/Rectangle 242@2x.png" />
+             
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+
                   <p>
                     {d}
                   </p>
@@ -82,7 +84,7 @@ const Company = () => {
               
               {/*
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -90,7 +92,7 @@ const Company = () => {
                 </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -98,7 +100,7 @@ const Company = () => {
                 </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -106,7 +108,7 @@ const Company = () => {
                 </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -119,23 +121,23 @@ const Company = () => {
               <h3>Documents Required</h3>
 
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-                <img src="/assets/images/Rectangle 242@2x.png" />
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
             </div>  
