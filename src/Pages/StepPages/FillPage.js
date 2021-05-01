@@ -44,8 +44,8 @@ function FillPage(){
                             <Grid.Column>
                             <Form.Field>
                                 <label>Date of Birth</label>
-                                <Input
-                                    icon={{ name: 'calendar outline', link: true }}
+                                <Input type='date'
+                                    //icon={{ name: 'calendar outline', link: true }}
                                         placeholder='Search...'
                                         />
                             </Form.Field>

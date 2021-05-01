@@ -8,7 +8,7 @@ import './manage.scss';
 const ManageApplication = ({title}) =>{
         return (
           <main className='manage-main'>
-            <SideBar/>
+            <SideBar  value='application' active='active'/>
             <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },

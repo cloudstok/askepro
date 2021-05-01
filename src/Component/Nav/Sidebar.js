@@ -16,7 +16,7 @@ return (
       <Menu.Item as='a' className={value==='dashboard' ? active : ""}>
       <Link to='/admin'><Icon name='th large' /></Link>
       </Menu.Item>
-      <Menu.Item as='a' className={value==='history' ? active : ""}>
+      <Menu.Item as='a' className={value==='application' ? active : ""}>
       <Link to='/application'><Icon name='file alternate outline' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='clients' ? active : ""}>
