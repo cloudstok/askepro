@@ -51,8 +51,8 @@ const Account = () => {
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <img src={process.env.PUBLIC_URL + "Assets/images/user.png"}/>
-                      ;{" "}
+                      <img src={process.env.PUBLIC_URL + "Assets/images/team.png"}/>
+                      {" "}
                     </div>
                   </div>
                   <div className="user_inner2">
