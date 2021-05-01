@@ -24,7 +24,7 @@ const Stepper = () => {
         setResult(final);
     },[]);
     if(!result){
-    return "loading";}
+    return (<div></div>);}
     arr.pop('/success');
     return (
         <div className="stepper">
