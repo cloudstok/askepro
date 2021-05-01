@@ -378,14 +378,17 @@
   padding: 20px;
 }
 .user_inner1 {
-  & .round {
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    outline: 3px solid goldenrod;
+  img {
+
+    background-image: linear-gradient(to bottom,#c7a006, #d9cb1f, #e7ed32 , #dacd20 , #c7a006);
+    padding: 3px;
     margin-right: 30px;
     width: 97px;
     height: 97px;
+    border-radius: 50%; 
+ 
   }
+ 
 }
 .user_inner2 {
   h6 {
@@ -423,17 +426,16 @@
     background: linear-gradient(0.95turn, #010101, #505050, #010101);   
   width: auto;
   height: 194px;
-  position: relative;
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   .carousel_p{
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    color: white;
-    text-align: center;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.19;
+
+  color: #fff;
     
   }
   .carousel_number{
