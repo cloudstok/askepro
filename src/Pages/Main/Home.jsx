@@ -21,7 +21,7 @@ const Home = () => {
 
         <div className="home">
           <div className="home-content">
-            <h1>Leading Immgigration Consultants in Dubai</h1>
+            <h1>Leading Immigration Consultants in Dubai</h1>
             <p>
             Our business is to make your business easier in the UAE.
             </p>
