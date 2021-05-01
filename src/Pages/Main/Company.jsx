@@ -42,7 +42,7 @@ const Company = () => {
       <div
         class="company"
         style={{
-          background:`url(${process.env.PUBLIC_URL+"/Assets/Images/contact-bg.png"})`,
+          background:`url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"})`,
           backgroundSize: "cover",      
         }}
   >
@@ -73,7 +73,7 @@ const Company = () => {
               { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                 <div className="testimonial">
              
-                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
 
                   <p>
                     {d}
@@ -122,7 +122,7 @@ const Company = () => {
               
               { service.reqDocs && service.reqDocs.map((d) =>
                 <div className="testimonial">
-                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
+                  <img src={process.env.PUBLIC_URL + "/Assets/images/pinpoint.png"} />
                   <p>{d}</p>
                 </div>
               )}

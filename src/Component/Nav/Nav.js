@@ -41,7 +41,7 @@ console.log(name);
     <>
       <header>
         <div className='logo'>
-          <a href="#"><img src={process.env.PUBLIC_URL + "Assets/Logo/brand.png"} alt='logo' /></a>
+          <a href="#"><img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
         </div>
         {
           open ? <Icon name='close' onClick={() => setOpen(!open)} /> : <Icon name='bars' onClick={() => setOpen(!open)} />
@@ -51,7 +51,7 @@ console.log(name);
         }
         <nav>
           <div className='nav-brand'>
-            <a href="/"> <img src={process.env.PUBLIC_URL + "Assets/Logo/brand.png"} alt='logo' /></a>
+            <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
           </div>
           <MenuBar />
           {
