@@ -3,9 +3,12 @@ import { Container, Grid } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
 import Header from "../../Component/Main-Component/Header";
 
+import '../../Sass/Sass-Main/_About.scss';
+
 const About = () => {
   return (
     <>
+    
       <div className="about">
         <img
           src="assets/images/Group 4794.png"

@@ -5,8 +5,13 @@ import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 import '../../Sass/app.scss';
+import { useHistory } from 'react-router';
 
 const Success = () =>{
+    const history=useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
             return(
             <main>
              <div className='success-main'>

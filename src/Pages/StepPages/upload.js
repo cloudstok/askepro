@@ -6,8 +6,13 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import Heading from '../../Component/Heading/heading';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import '../StepPages/stepPage.scss';
+import { useHistory } from 'react-router';
 
 const UploadDocuments = () =>{
+    const history= useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
             return(
                 <main>
                 <div className='apply-section'>

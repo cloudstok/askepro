@@ -84,20 +84,12 @@ const Footer = () => {
           <Grid doubling columns={2}>
             <Grid.Column>
             <div className="footer-part-1">
-                <img
-                  className="footer_image"
-                  src="assets/images/Epro Logo_Web.png"
-                />
-                <img
-                  className="footer_image1"
-                  src="assets/images/playstore.png"
-                 
-                />
-                <img
-                  className="footer_image2"
-                  src="assets/images/ios.png"
-         
-                />
+               
+                <img className="footer_image" src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web.png'} />;
+               
+                <img className="footer_image1" src={process.env.PUBLIC_URL + '/Assets/images/playstore.png'} />;
+              
+                <img className="footer_image2" src={process.env.PUBLIC_URL + '/Assets/images/ios.png'} />;
               </div>
             </Grid.Column>
 

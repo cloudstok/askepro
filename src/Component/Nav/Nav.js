@@ -72,7 +72,7 @@ console.log(name);
               :
               <div className="action-group">
                 <Link to="/login"><button className="btn-login">LOGIN</button></Link>
-                <Link to="/register"><button className='btn-apply'>APPLY NOW</button></Link>
+                <Link to="/apply"><button className='btn-apply'>APPLY NOW</button></Link>
               </div>
         }
         </nav>
