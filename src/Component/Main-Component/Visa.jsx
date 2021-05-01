@@ -165,19 +165,19 @@ const Visa = () => {
                       </div>
                       <div className="hours-content">
                         <div className="rectangle11">
-                          <div className="days-dull">Processing Time:</div>
+                          <div className="days-dull">Processing Time :</div>
                           <div className="days">Upto {d.serviceDetail.processT} Days</div>
                         </div>
                         <div className="rectangle11">
-                          <div className="days-dull">Stay Period:</div>
+                          <div className="days-dull">Stay Period :</div>
                           <div className="days">{d.serviceDetail.stayPeriod} Days</div>
                         </div>
                         <div className="rectangle11">
-                          <div className="days-dull">Validity</div>
+                          <div className="days-dull">Validity :</div>
                           <div className="days">{d.serviceDetail.validity} Days</div>
                         </div>
                         <div className="rectangle11">
-                          <div className="days-dull">Entry:</div>
+                          <div className="days-dull">Entry :</div>
                           <div className="days">{d.serviceDetail.entry}</div>
                         </div>
                       </div>

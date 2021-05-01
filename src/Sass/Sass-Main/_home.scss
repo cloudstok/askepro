@@ -396,21 +396,20 @@ body {
     font-weight: bold;
     color: #000000;
   }
-  .hours-content {
-    width: 100%;
-    height: auto;
-    padding: 0 20px;
-  }
-  .fees {
-    display: flex;
-    padding: 20px 0;
-  }
-
   .transit {
     font-size: 14px;
     line-height: 1.36;
     text-align: left;
   }
+  
+  .hours-content {
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+  }
+  
+
+
   .tourist-border {
     border: solid 1px #e6e6e6;
     background: #fff;
@@ -419,19 +418,10 @@ body {
 
   .tourist-border:hover {
     outline: 8px solid gold;
-    border: solid
-      linear-gradient(
-        to top,
-        rgba(199, 160, 6, 1) 11%,
-        rgba(231, 237, 50, 1) 51%,
-        rgba(199, 160, 6, 1) 92%
-      );
-
-    border-image: linear-gradient(to bottom, #c7a006, #e7ed32, #c7a006) 1 100%;
   }
 
   .rectangle11 {
-    width: 100%;
+   
     display: flex;
   }
   .days {
@@ -450,6 +440,10 @@ body {
     line-height: 3.36;
     text-align: left;
     font-family: Open Sans;
+  }
+  .fees {
+    display: flex;
+    padding: 20px 0;
   }
   .total-left {
     font-family: Open Sans;
@@ -507,12 +501,26 @@ body {
   .circle {
     border: 1px solid #ffffff;
     border-radius: 50%;
-    outline: 3px dashed #ffffff;
-    outline-offset: 20px;
     margin: 0 auto;
+  
     color: #ffffff;
-    width: 150px;
-    height: 150px;
+    width: 143px;
+    height: 143px;
+    
+  
+    &::after{
+      content: '';
+      position: absolute;
+      border: 3px dashed;
+      top: -19px;  
+      
+      left: 0;
+      right: 0;
+      width: 181px;
+      margin: 0 auto;
+      height: 181px;
+      border-radius: 50%;
+    }
   }
 }
 
