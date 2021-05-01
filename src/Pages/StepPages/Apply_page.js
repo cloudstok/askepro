@@ -24,7 +24,6 @@ function ApplyStepper() {
         slug: e.slug,
         image: e.serviceDetail.image[0]
       }));
-      
       setServices(serviceData);
     };
         return (

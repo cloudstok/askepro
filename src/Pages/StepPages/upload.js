@@ -11,7 +11,7 @@ import { useHistory } from 'react-router';
 const UploadDocuments = () =>{
     const history= useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
-    history.push("/login");
+     history.push("/login");
 
             return(
                 <main>

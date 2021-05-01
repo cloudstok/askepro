@@ -7,7 +7,7 @@
 
 .header{
     text-align: center;
-    margin:0px 0 39px !important;
+    margin:20px 0 39px !important;
     
     &:after{
         margin-top: 10px !important;
@@ -98,7 +98,7 @@ main{
 
 //Fill Documents
  .fill-section{   
-    padding: 0 40px;    
+     padding: 0 40px;    
     @include tablet{
         padding: 0 20px;
     }
