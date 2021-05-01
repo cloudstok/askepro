@@ -11,7 +11,7 @@ const options = [
       <header>
         <div className='manage-nav'>
           <div className='nav-brand'>
-             <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
+             <img src={process.env.PUBLIC_URL+"/Assets/Logo/brand.png"} alt='logo'/>
           </div>
           <Input icon='search' placeholder='Search'/>
           <div className="btn-group">
