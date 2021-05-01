@@ -13,8 +13,9 @@ const Contact = () => {
 
     <h1 class="headingOne">Contact</h1>
     
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis numquam nemo voluptatibus fuga fugit quod
-      veniam. Doloribus officiis minus eius!</p>
+    <p>Experience success with UAE and take your business to new heights with Askepro.<br/><br/>
+            Contact us, today!
+</p>
   </div>
   <Container>
   <div class="address">
@@ -41,8 +42,7 @@ const Contact = () => {
       </Grid.Column>
       <Grid.Column width={10}>
         <div id="map">
-
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.090007291963!2d77.37166581492322!3d28.62706438242004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce559fabd5969%3A0x48a08667edff0402!2sThe%20Corenthum!5e0!3m2!1sen!2sin!4v1608110081574!5m2!1sen!2sin" ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.353890326994!2d55.14604381427655!3d25.08987918394629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5004392cff%3A0x34dd31289ede45e!2sMarina%20Crown%20-%20King%20Salman%20Bin%20Abdulaziz%20Al%20Saud%20St%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1619884139758!5m2!1sen!2sin" ></iframe>
         </div>
       </Grid.Column>
       </Grid>

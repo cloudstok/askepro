@@ -158,7 +158,7 @@ const Company = () => {
                     <Grid.Column>
                       <div className="tourist-border">
                         <div className="hours">
-                          <h3>Company Formation Services</h3>
+                          <h3>{service.name}</h3>
                         </div>
                         <div className="hours-content">
                           <div className="rectangle11">
