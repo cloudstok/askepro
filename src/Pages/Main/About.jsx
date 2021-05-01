@@ -11,11 +11,11 @@ const About = () => {
     
       <div className="about">
         <img
-          src="assets/images/Group 4794.png"
+          src="Assets/images/Group 4794.png"
           style={{ width: "100%", height: "60vh", objectFit: "cover" }}
         />
         <div className="about-content">
-          <img src="assets/images/Epro Logo_Web@3x.png" />
+          <img src="Assets/images/Epro Logo_Web@3x.png" />
           <h1 className="headingOne">About</h1>
 
           <p>
@@ -53,7 +53,7 @@ const About = () => {
                       </div>
                       <div className="team-image">
                         <img
-                          src="assets/images/Mask Group 8@3x.png"
+                          src="Assets/images/Mask Group 8@3x.png"
                           style={{ width: "120px", height: "120px" }}
                         />
                       </div>
@@ -80,7 +80,7 @@ const About = () => {
                       </div>
                       <div className="team-image">
                         <img
-                          src="assets/images/Mask Group 8@3x.png"
+                          src="Assets/images/Mask Group 8@3x.png"
                           style={{ width: "120px", height: "120px" }}
                         />
                       </div>

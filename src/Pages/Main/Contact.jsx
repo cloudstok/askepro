@@ -6,9 +6,9 @@ import Header from '../../Component/Main-Component/Header';
 const Contact = () => {
     return(
         <>
-        <div class="contact" style={{ background: "url(assets/images/contact-bg.png)",backgroundSize: 'cover' }}>            
+        <div class="contact" style={{ background: "url(Assets/images/contact-bg.png)",backgroundSize: 'cover' }}>            
     <h1 class="headingOne">Contact</h1>
-    <img src="assets/images/center.png" />
+    <img src="Assets/images/center.png" />
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis numquam nemo voluptatibus fuga fugit quod
       veniam. Doloribus officiis minus eius!</p>
   </div>
@@ -19,17 +19,17 @@ const Contact = () => {
       
         
           <div class="contact-details-1">
-            <img src="/assets/images/pin.png" />
+            <img src="/Assets/images/pin.png" />
             <p>Marina Crown<br />
               King Salman Bin Abdulaziz Al Saud St
               Dubai, United Arab Emirates</p>
           </div>
           <div class="contact-details">
-            <img src="/assets/images/phone.png" />
+            <img src="/Assets/images/phone.png" />
             <p>+97180073232</p>
           </div>
           <div class="contact-details">
-            <img src="/assets/images/mail.png" />
+            <img src="/Assets/images/mail.png" />
             <p>care@askepro.ae</p>
           </div>
         
