@@ -47,8 +47,7 @@ const Login1 = () => {
       localStorage.setItem('name', idData.name);
       history.push("/");
     } else {
-      alert("Incorrect Email/Password");
-      setMsg("Invalid Incorrect Email/Password ")
+      setMsg("Invalid Incorrect Email/Password ");
     }
 
     window.location.reload(false);

@@ -35,7 +35,10 @@ const Login2 = () => {
 
       if (data.status == 1 && res.status == 200) {
         history.push('/login');
+      }else {
+        alert(data.msg);
       }
+  
 
     };
 
