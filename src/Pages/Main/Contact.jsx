@@ -2,11 +2,15 @@ import React from 'react';
 import { Grid, Container } from "semantic-ui-react";
 
 import Footer from '../../Component/Main-Component/Footer';
-import Header from '../../Component/Main-Component/Header';
+
+import Crumb from '../../Component/Main-Component/Crumb';
 const Contact = () => {
     return(
         <>
-        <div class="contact" style={{ background: "url(/Assets/images/contact-bg.png)",backgroundSize: 'cover' }}>            
+        <Crumb />
+        <div class="contact" style={{ background: `url(${process.env.PUBLIC_URL + '/Assets/images/contact-bg.png'})`,backgroundSize: 'cover' }}>  
+        
+
     <h1 class="headingOne">Contact</h1>
     
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis numquam nemo voluptatibus fuga fugit quod
@@ -19,17 +23,17 @@ const Contact = () => {
       
         
           <div class="contact-details-1">
-            <img src={process.env.PUBLIC_URL + '/Assets/images/pin.png'} />;
+            <img src={process.env.PUBLIC_URL + '/Assets/images/pin.png'} />
             <p>Marina Crown<br />
               King Salman Bin Abdulaziz Al Saud St
               Dubai, United Arab Emirates</p>
           </div>
           <div class="contact-details">
-            <img src="/Assets/images/phone.png" />
+          <img src={process.env.PUBLIC_URL + '/Assets/images/phone.png'} />
             <p>+97180073232</p>
           </div>
           <div class="contact-details">
-            <img src="/Assets/images/mail.png" />
+          <img src={process.env.PUBLIC_URL + '/Assets/images/mail.png'} />
             <p>care@askepro.ae</p>
           </div>
         

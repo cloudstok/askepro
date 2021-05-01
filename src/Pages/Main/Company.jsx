@@ -3,6 +3,7 @@ import { Container, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
 import { useHistory, useParams } from 'react-router-dom';
+import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 const Company = () => {
   const history = useHistory();
@@ -39,11 +40,12 @@ const Company = () => {
   
   return (
     <>
+      <Crumb />
       <div
         class="company"
         style={{
           background:`url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"})`,
-          backgroundSize: "cover",      
+          backgroundSize: "cover"     
         }}
   >
         <Container>
@@ -100,7 +102,7 @@ const Company = () => {
                 </p>
               </div>
               <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -108,7 +110,7 @@ const Company = () => {
                 </p>
               </div>
               <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry’s
@@ -129,19 +131,19 @@ const Company = () => {
               
               {/*
               <div className="testimonial">
-              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               <div className="testimonial">
-              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+              <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
                 <p>Lorem Ipsum is simply dummy text of the printing </p>
               </div>
               */}

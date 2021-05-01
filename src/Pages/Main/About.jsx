@@ -1,21 +1,19 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
-import Header from "../../Component/Main-Component/Header";
 
+import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 
 const About = () => {
   return (
     <>
-    
+      <Crumb />
       <div className="about">
-        <img
-          src="Assets/images/Group 4794.png"
-          style={{ width: "100%", height: "60vh", objectFit: "cover" }}
-        />
+        
+     <img  classname="about_background" src={process.env.PUBLIC_URL + 'Assets/images/texture.png'}   style={{ width: "100%", height: "60vh", objectFit: "cover"}}/>
         <div className="about-content">
-          <img src="Assets/images/Epro Logo_Web@3x.png" />
+          <img src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web@3x.png'} />
           <h1 className="headingOne">About</h1>
 
           <p>
@@ -52,10 +50,9 @@ const About = () => {
                         </p>
                       </div>
                       <div className="team-image">
-                        <img
-                          src="Assets/images/Mask Group 8@3x.png"
-                          style={{ width: "120px", height: "120px" }}
-                        />
+
+                      <img src={process.env.PUBLIC_URL + '/Assets/images/Mask Group 8@3x.png'} />
+                        
                       </div>
                     </div>
                   </div>
@@ -79,10 +76,7 @@ const About = () => {
                         </p>
                       </div>
                       <div className="team-image">
-                        <img
-                          src="Assets/images/Mask Group 8@3x.png"
-                          style={{ width: "120px", height: "120px" }}
-                        />
+                      <img src={process.env.PUBLIC_URL + '/Assets/images/Mask Group 8@3x.png'} />
                       </div>
                     </div>
                     

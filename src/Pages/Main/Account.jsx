@@ -36,7 +36,7 @@ const Account = () => {
     }
   }
   if (!add || !user) {
-    return "loading";
+    return (<div></div>);
   }
   return (
     <>
@@ -221,8 +221,8 @@ const Account = () => {
               </Segment> */
               /* <div className="circle_btn">
                 
-                <img src={process.env.PUBLIC_URL + 'Assets/images/arrow.png'} />;
-                <img src={process.env.PUBLIC_URL + 'Assets/images/arrowA.png'} />;
+                <img src={process.env.PUBLIC_URL + 'Assets/images/arrow.png'} />
+                <img src={process.env.PUBLIC_URL + 'Assets/images/arrowA.png'} />
 
            
               </div> */}

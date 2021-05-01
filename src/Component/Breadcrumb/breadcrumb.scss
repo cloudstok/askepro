@@ -1,5 +1,6 @@
 @import '/src/Sass/variables.scss';
 @import '/src/Sass/index.scss';
+
 .breadcrumb{
     padding: 15px 0;
     display: flex !important; 
@@ -13,6 +14,7 @@
     .active{
         color:black !important; 
         font-weight: 500 !important;
+        cursor: pointer;
     }
     a{           
      color:$disabled-color !important;
