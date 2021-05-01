@@ -53,7 +53,6 @@ const View_details = () => {
       </Table>
 
       <div className="details_wrapper_inner">
-     
       <Grid stackable columns>
       
         <Grid.Column width={3}>

@@ -51,13 +51,13 @@ export default class AccordionExampleFluid extends Component {
                   <div className="accordion_gap">
                     <Grid>
                       <Grid.Column width={4}>
-                        <img src="assets/images/question.png" width="32px" />
+                        <img src="Assets/images/question.png" width="32px" />
                       </Grid.Column>
                       <Grid.Column width={8}>
                         {el.title}
                       </Grid.Column>
                       <Grid.Column width={4}>
-                        <img src="assets/images/plus.png" width="24px" />
+                        <img src="Assets/images/plus.png" width="24px" />
                       </Grid.Column>
                     </Grid>
                   </div>
@@ -73,7 +73,7 @@ export default class AccordionExampleFluid extends Component {
           </Accordion>
 
           <div className="question">
-          <Link to="/register"><button className="same-btn">
+          <Link to="/apply"><button className="same-btn">
               APPLY NOW
             </button></Link>
           </div>

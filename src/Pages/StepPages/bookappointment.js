@@ -7,8 +7,13 @@ import Heading from '../../Component/Heading/heading';
 import DataCard from '../../Component/Card/card';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import '../StepPages/stepPage.scss';
+import { useHistory } from 'react-router';
 
 const BookAppointment = () =>{
+    const history = useHistory();
+     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
             return (
                 <main>
                  <div className='book-section'>

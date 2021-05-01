@@ -44,7 +44,7 @@ const Reset = () => {
             if (data.status == 1 && res.status == 200) {
                 localStorage.removeItem("email");
                 localStorage.removeItem("phone");
-                history.push('/login1');
+                history.push('/login');
             }
         } catch (error) {
             console.log(error)

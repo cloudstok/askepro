@@ -4,8 +4,12 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
+import { useHistory } from 'react-router';
 
 const History = ({title, key}) =>{
+  const history=useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
         return (
           <main className='manage-main'>
             <div className='history-main'>
@@ -38,97 +42,7 @@ const History = ({title, key}) =>{
         <Table.Cell><StatusChip value="Success"/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row >
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Pending"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="In-process"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="In-process"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Pending"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'><a href="#">View Details</a></Table.Cell>
+        <Table.Cell className='view' textAlign='right'><a href="/view">View Details</a></Table.Cell>
       </Table.Row>
     </Table.Body>
  </Table>

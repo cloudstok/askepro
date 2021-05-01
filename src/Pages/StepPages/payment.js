@@ -1,12 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import {Container, Header, Divider, Grid, Radio} from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
-import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import Heading from '../../Component/Heading/heading';
 import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 
 const Payment = () =>{
+   const history=useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
     return (    
         <main>   
         <div className='payment-section'>
@@ -85,7 +89,6 @@ const Payment = () =>{
         </div>
         </Container>
         </div>
-        <ButtonBar/>
         </main>
     )
 }

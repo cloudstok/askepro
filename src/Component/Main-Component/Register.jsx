@@ -34,7 +34,7 @@ const Login2 = () => {
       const data = await res.json();
 
       if (data.status == 1 && res.status == 200) {
-        history.push('/login1');
+        history.push('/login');
       }
 
     };

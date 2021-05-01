@@ -25,11 +25,11 @@ const Contact = () => {
               Dubai, United Arab Emirates</p>
           </div>
           <div class="contact-details">
-         <img src={process.env.PUBLIC_URL + '/Assets/images/phone.png'} />;
+            <img src="/Assets/images/phone.png" />
             <p>+97180073232</p>
           </div>
           <div class="contact-details">
-                        <img src={process.env.PUBLIC_URL + '/Assets/images/mail.png'} />;
+            <img src="/Assets/images/mail.png" />
             <p>care@askepro.ae</p>
           </div>
         

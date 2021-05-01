@@ -14,7 +14,7 @@ import { Container, Grid } from "semantic-ui-react";
 const Admin_dashboard = () => {
   return (
      <main className='manage-main'>
-      <SideBar/>
+      <SideBar  value='dashboard' active='active'/>
       <div className='history-main'>
       <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true }]}/>

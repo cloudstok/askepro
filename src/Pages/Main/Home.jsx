@@ -5,8 +5,8 @@ import Visa from '../../Component/Main-Component/Visa';
 import Apply from '../../Component/Main-Component/Apply';
 import Footer from '../../Component/Main-Component/Footer';
 import Notification from '../../Component/Main-Component/Notification';
-
 import '../../Sass/Sass-Main/_home.scss';
+import { Link } from "react-router-dom";
 
 
 
@@ -26,9 +26,9 @@ const Home = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry’s
             </p>
-            <button type="button" className="same-btn">
+            <Link to="apply"><button type="button" className="same-btn">
                APPLY NOW 
-            </button>
+            </button></Link>
           </div>
 
           <div className="home-bg">

@@ -1,37 +1,43 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 const Account = () => {
+  const history = useHistory();
+
+
   const [user, setUser] = React.useState(null);
   const [add, setAdd] = React.useState(null);
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
-  React.useEffect(() => {
-    getUser();
-  });
-  let id = localStorage.getItem("id");
+
+  React.useEffect(() => { getUser() });
+  let id = localStorage.getItem('id');
   const getUser = async () => {
-    let user = await (
-      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
-        method: "GET",
-        headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },
-      })
-    ).json();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); setAdd(0); }
+    else {
+      let user = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/users/${id}`,
+          {
+            method: "GET",
+            headers: {
+              'x-access-token': localStorage.getItem('token'),
+            }
+          })).json();
 
-    user = user.data;
-    console.log(user);
+      user = user.data;
+      console.log(user);
 
-    setAdd(user.address[0] || []);
+      setAdd(user.address[0] || []);
 
-    delete user.address;
-    setUser(user || []);
-  };
+      delete user.address;
+      setUser(user || []);
+    }
+  }
   if (!add || !user) {
     return "loading";
   }
-
   return (
     <>
       <div className="account_wrapper">

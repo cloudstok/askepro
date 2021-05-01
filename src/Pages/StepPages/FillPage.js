@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router';
 import { Grid, Divider, Form, Message   , Container, Select, Input, CardDescription, Radio} from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
@@ -8,6 +9,10 @@ import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 
 function FillPage(){
+    const history=useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
         return (
              <main>
                  <div className='fill-section'>
@@ -44,8 +49,8 @@ function FillPage(){
                             <Grid.Column>
                             <Form.Field>
                                 <label>Date of Birth</label>
-                                <Input
-                                    icon={{ name: 'calendar outline', link: true }}
+                                <Input type='date'
+                                    //icon={{ name: 'calendar outline', link: true }}
                                         placeholder='Search...'
                                         />
                             </Form.Field>

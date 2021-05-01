@@ -160,7 +160,12 @@ main{
 //Upload Documents 
 .upload-form{
     background-color: #fff;
-    padding: 30px;
+    padding: 30px 100px !important;
+    font-family:  'Lato' !important;
+
+    @include tablet{
+        padding: 30px !important;
+    }
 
     label{
         display: block;
@@ -171,9 +176,10 @@ main{
             border: 1px dashed #d5d5d5;
             padding: 30px !important; 
             display: flex;
+            justify-content: center;
         
             .btn-upload{
-                margin-top: 25px;
+                margin-top: 29px;
                 height: 40px;
                 background-color: #fff !important;
                 border-radius: 20px !important;
@@ -181,7 +187,11 @@ main{
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
-                color: #000 !important;                
+                color: #000 !important;   
+                
+                @include tablet{
+                    margin-top: 0%;
+                }
         
                 &:hover{
                     border: 1px solid transparent !important;
@@ -189,13 +199,22 @@ main{
                 }
                
             }
+            .file{
+                border: 1px solid #e9e9e9;
+                border-radius: 4px;
+                label{
+                    padding: 10px 15px 0 !important;
+                    font-weight: normal !important;
+                    opacity: 0.5;
+                }
+            }
             .input{
                 width: 100%;
             }
-        }
+        
+         }
         .document-list{
             margin-top: 30px !important;
-            
             .item{
                 margin-bottom: 10px;
                 color: #d9d9d9;
@@ -204,7 +223,7 @@ main{
             .icon{
                 transform: rotate(45deg);
                 font-size: 10px !important;
-            }
+         }
       }
     }
 
