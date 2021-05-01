@@ -17,7 +17,9 @@ export default class MenuExampleBasic extends Component {
       <Container>"
         {/* <Menu secondary > 
       
-        <a href="#"><img src="/assets/images/Epro Logo_Web.png" /></a>
+        <a href="#">
+         <img src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web.png'} />;
+        </a>
           <Menu.Menu position="right">
             <div className="Item"
               name="Home"
@@ -57,8 +59,7 @@ export default class MenuExampleBasic extends Component {
           <button className="same-btn"> LOGIN</button> 
             </div>
           <div className="Btn-Item">
-          <button basic color='black' className="same-btn"
-            style={{borderRadius:'20px'}}>
+          <button basic color='black' className="same-btn">
               APPLY NOW
              </button>
              

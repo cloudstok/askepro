@@ -5,10 +5,9 @@ import Visa from '../../Component/Main-Component/Visa';
 import Apply from '../../Component/Main-Component/Apply';
 import Footer from '../../Component/Main-Component/Footer';
 import Notification from '../../Component/Main-Component/Notification';
-
 import '../../Sass/Sass-Main/_home.scss';
-import '../../Sass/Sass-Main/_About.scss';
 import { Link } from "react-router-dom";
+
 
 
 
@@ -33,10 +32,10 @@ const Home = () => {
           </div>
 
           <div className="home-bg">
-            <img
-              src="/assets/images/login-bg.png"
-              
-            />
+          
+            <img src={process.env.PUBLIC_URL + '/Assets/images/login-bg.png'} />;
+
+
           </div>
         </div>
 

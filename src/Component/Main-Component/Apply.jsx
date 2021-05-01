@@ -63,9 +63,7 @@ const Apply = () => {
               <Grid.Column>
                 <p className='step_heading'>Step 3</p>
                 <p>
-                  Lorem ipsum dolor sit amet consec tetur adipisicing elit.
-                  Assumenda natus neque eveniet minus cumque error delectus ut
-                  nulla aut necessitatibus?
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
                 </p>
               </Grid.Column>
               </Grid.Row>
@@ -85,23 +83,15 @@ const Apply = () => {
                 <div className="customer-card">
                   <div className="one">
                     <div className="left">
-                      <img
-                        src="assets/images/Mask Group 4@2x.png"
-                        width="60px"
-                      />
+                    <img src={process.env.PUBLIC_URL+"/Assets/images/user_review.png"}/>
                     </div>
                     <div className="right">
                       Fatima Sheikh <br />
-                      <img
-                        src="assets/images/Group 4617@3x.png"
-                        style={{ width: "61px", height: "14px" }}
-                      />
+                      <img src={process.env.PUBLIC_URL+"/Assets/images/ratings.png"}/>
                     </div>
                   </div>
                   <div className="two">
-                    Lorem ips um dolor sit amet conse cte tur adipisicing elit.
-                    Illum, pariatur animi hic rerum voluptatibus autem veritatis
-                    fugit necessitatibus expedita tempore!
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
                   </div>
                 </div>
               </Grid.Column>
@@ -110,23 +100,15 @@ const Apply = () => {
                 <div className="customer-card">
                   <div className="one">
                     <div className="left">
-                      <img
-                        src="assets/images/user.png"
-                        width="60px"
-                      />
+                    <img src={process.env.PUBLIC_URL+"/Assets/images/user_review.png"}/>
                     </div>
                     <div className="right">
                       Muhammed Al- Rasool <br />
-                      <img
-                        src="assets/images/Group 4617@3x.png"
-                        style={{ width: "61px", height: "14px" }}
-                      />
+                       <img src={process.env.PUBLIC_URL+"/Assets/images/ratings.png"}/>
                     </div>
                   </div>
                   <div className="two">
-                    Lorem ipsum dol or sit amet conse ctetur adipisicing elit.
-                    Illum, pariatur animi hic rerum voluptatibus autem veritatis
-                    fugit nec us expedita tempore!
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
                   </div>
                 </div>
               </Grid.Column>
@@ -135,24 +117,16 @@ const Apply = () => {
                 <div className="customer-card">
                   <div className="one">
                     <div className="left">
-                      <img
-                        src="assets/images/user.png"
-                        width="60px"
-                      />
+                    <img src={process.env.PUBLIC_URL+"/Assets/images/user_review.png"}/>
                     </div>
                     <div className="right">
                       Muhammed Al-Imran
                       <br />
-                      <img
-                        src="assets/images/Group 4617@3x.png"
-                        style={{ width: "61px", height: "14px" }}
-                      />
+                       <img src={process.env.PUBLIC_URL+"/Assets/images/ratings.png"}/>
                     </div>
                   </div>
                   <div className="two">
-                    Lorem ipsum dol or sit amet conse ctetur adipisicing elit.
-                    Illum, pariatur animi hic rerum voluptatibus autem veritatis
-                    fugit necessi edita tempore!
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
                   </div>
                 </div>
               </Grid.Column>
@@ -161,13 +135,13 @@ const Apply = () => {
 
           
         <div className="slide-btn">
-          
-          
-          <Icon name='arrow left' />
+        <Icon name='chevron left'></Icon>  
+        <Icon name='chevron right'></Icon>
+        
           
 
           
-          <Icon name='arrow right'></Icon>
+          
           
         </div>
         </Container>
