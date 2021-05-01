@@ -122,7 +122,7 @@ const Company = () => {
               
               { service.reqDocs && service.reqDocs.map((d) =>
                 <div className="testimonial">
-                  <img src={process.env.PUBLIC_URL + "Assets/Images/Rectangle 242@2x.png"} />
+                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
                   <p>{d}</p>
                 </div>
               )}

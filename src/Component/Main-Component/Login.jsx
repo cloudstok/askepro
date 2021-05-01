@@ -59,7 +59,7 @@ const Login1 = () => {
       <div
         className="loginx"
         style={{
-          background: "url(assets/images/login.png)",
+          background: "url(/Assets/images/login.png)",
           height: "100vh",
           backgroundSize: "cover",
         }}
