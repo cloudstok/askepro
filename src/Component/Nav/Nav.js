@@ -12,18 +12,18 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
-  const [name, setName]= useState(false);
-  let fullname; 
+  const [name, setName] = useState(false);
+  let fullname;
 
-useEffect(() => {
+  useEffect(() => {
     if (token) {
-       let name=localStorage.getItem("name");
+      let name = localStorage.getItem("name");
       fullname = name.split(' ');
-      if (fullname.length > 1){
+      if (fullname.length > 1) {
         setName(fullname[0])
-       }
-       else{
-         setName(name);  
+      }
+      else {
+        setName(name);
       }
       setIsLoggedIn(true);
     }
@@ -38,7 +38,7 @@ useEffect(() => {
     history.push("/");
     window.location.reload(false);
   }
-console.log(name);
+  console.log(name);
   return (
     <>
       <header>
@@ -57,8 +57,8 @@ console.log(name);
           </div>
           <MenuBar />
           {
-          isLoggedIn ?
-            <div className="btn-group">
+            isLoggedIn ?
+              <div className="btn-group">
                 <Icon name='bell outline' />
                 <div class='dropdown-btn'>
                   <Icon name='user outline' />
@@ -76,7 +76,7 @@ console.log(name);
                 <Link to="/login"><button className="btn-login">LOGIN</button></Link>
                 <Link to="/apply"><button className='btn-apply'>APPLY NOW</button></Link>
               </div>
-        }
+          }
         </nav>
       </header>
     </>
@@ -85,12 +85,18 @@ console.log(name);
 
 
 export default class MenuBar extends Component {
-  state = { activeItem: newLocation[1] }
+  state = { activeItem: newLocation[1], homeIndex: newLocation[0] }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+  handleItemClick = (e, { name }) => {
+    if (name === 'services')
+      this.setState({ activeItem: 'service' })
+    else if (name === 'home')
+      this.setState({ homeIndex: "", activeItem:undefined })
+    else
+      this.setState({ activeItem: name })
+  }
   render() {
-    const { activeItem } = this.state
+    const { activeItem, homeIndex } = this.state
 
     return (
       <div>
@@ -98,12 +104,12 @@ export default class MenuBar extends Component {
           <Link to='/'>
             <Menu.Item
               name='home'
-              active={activeItem === 'home'}
+              active={homeIndex === "" && (activeItem===undefined || !activeItem)}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/service"><Menu.Item
             name='services'
-            active={activeItem === 'services'}
+            active={activeItem === 'service'}
             onClick={this.handleItemClick}
           /></Link>
           <Link to="/about"><Menu.Item

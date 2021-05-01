@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Container } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 
 const Visa = () => {
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
@@ -131,14 +131,14 @@ const Visa = () => {
               <p>Medical Services</p>
           </div>
           </Grid.Column>*/}
-          <Grid.Column width={8}>
+          <Grid.Column width={16}><Link to="/contact">
             <div className="service-card2">
               <img src={process.env.PUBLIC_URL+"/Assets/images/stamp.png"} />
               <p>
                 Didn't find what you were looking for? Contact us we will help
                 you out.
               </p>
-            </div>
+            </div></Link>
           </Grid.Column>
         </Grid>
 
