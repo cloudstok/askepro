@@ -41,7 +41,7 @@ console.log(name);
 return (
      <div className='toggle'>
         <div className='nav-brand'>
-        <img src={process.env.PUBLIC_URL+"Assets/Logo/brand.png"} alt='logo'/>
+        <img src={process.env.PUBLIC_URL+"/Assets/Logo/brand.png"} alt='logo'/>
         </div>
         <MenuBar/>
         {

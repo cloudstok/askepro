@@ -3,6 +3,7 @@ import { Container, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
 import { useHistory, useParams } from 'react-router-dom';
+import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 const Company = () => {
   const history = useHistory();
@@ -39,10 +40,11 @@ const Company = () => {
   
   return (
     <>
+      <Crumb />
       <div
         class="company"
         style={{
-          background:`url(${process.env.PUBLIC_URL+"/Assets/Images/contact-bg.png"})`,
+          background:`url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"})`,
           backgroundSize: "cover",      
         }}
   >
@@ -73,7 +75,7 @@ const Company = () => {
               { service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                 <div className="testimonial">
              
-                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
 
                   <p>
                     {d}
@@ -122,7 +124,7 @@ const Company = () => {
               
               { service.reqDocs && service.reqDocs.map((d) =>
                 <div className="testimonial">
-                  <img src={process.env.PUBLIC_URL + "Assets/images/Rectangle 242@2x.png"} />
+                  <img src={process.env.PUBLIC_URL + "/Assets/images/pinpoint.png"} />
                   <p>{d}</p>
                 </div>
               )}

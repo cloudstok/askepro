@@ -123,10 +123,10 @@
 }
 
 .address {
-  margin: 76px 0 126px 0;
+  margin: 76px 0 116px 0;
   iframe {
     width: 100%;
-
+    border: transparent;
     height: 349px;
   }
   .contact-details-1 {
@@ -226,24 +226,33 @@
 .crumb {
   text-decoration: none;    
   position: absolute;
-  top: 77px;
+  top: 72px;
+  left: 61px;
+  
 
-
+    height: 17px; 
 
   color: #fff;
   background: transparent;
-
+  font-family: Open Sans;
   z-index: 1;
 
-  .section {
-      color: #ffff;
-    font-size: 12px;
-    font-family: Open Sans;
-    font-weight: normal;
-  }
-  .active .section {
+  a {
+    width: 42px;
+    height: 17px;
+    text-decoration: none;
     color: red;
+   
+
   }
+  .active{
+    color:#fff !important; 
+    font-weight: 500 !important;
+    width: 54px;
+    font-size: 12px;
+    height: 17px;
+  
+}
 }
 
 /* login pages sass */

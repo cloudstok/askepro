@@ -2,10 +2,12 @@ import React from 'react';
 import { Grid, Container } from "semantic-ui-react";
 
 import Footer from '../../Component/Main-Component/Footer';
-import Header from '../../Component/Main-Component/Header';
+
+import Crumb from '../../Component/Main-Component/Crumb';
 const Contact = () => {
     return(
         <>
+        <Crumb />
         <div class="contact" style={{ background: "url(/Assets/images/contact-bg.png)",backgroundSize: 'cover' }}>            
     <h1 class="headingOne">Contact</h1>
     

@@ -36,7 +36,7 @@ const Account = () => {
     }
   }
   if (!add || !user) {
-    return "loading";
+    return (<div></div>);
   }
   return (
     <>

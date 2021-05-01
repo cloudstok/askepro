@@ -6,13 +6,13 @@ import Notification from '../../Component/Main-Component/Notification';
 import Visa from '../../Component/Main-Component/Visa';
 import Accordion from '../../Component/Main-Component/Accordion';
 import '../../Sass/Sass-Main/_home.scss';
-
+import Crumb from '../../Component/Main-Component/Crumb';
 
 
 const Service = () => {
     return (
         <>
-        
+        <Crumb />
         <div className="service-banner">
       
         <img src={process.env.PUBLIC_URL + '/Assets/images/banner.jpg'} />;
