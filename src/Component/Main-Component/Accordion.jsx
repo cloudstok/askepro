@@ -73,7 +73,7 @@ export default class AccordionExampleFluid extends Component {
           </Accordion>
 
           <div className="question">
-          <Link to="/register"><button className="same-btn">
+          <Link to="/apply"><button className="same-btn">
               APPLY NOW
             </button></Link>
           </div>
