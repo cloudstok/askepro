@@ -5,9 +5,8 @@ import Footer from '../../Component/Main-Component/Footer';
 import Notification from '../../Component/Main-Component/Notification';
 import Visa from '../../Component/Main-Component/Visa';
 import Accordion from '../../Component/Main-Component/Accordion';
-
 import '../../Sass/Sass-Main/_home.scss';
-import '../../Sass/Sass-Main/_About.scss';
+
 
 
 const Service = () => {
@@ -15,7 +14,8 @@ const Service = () => {
         <>
         
         <div className="service-banner">
-        <img src="assets/images/banner.jpg" />
+      
+        <img src={process.env.PUBLIC_URL + '/Assets/images/banner.jpg'} />;
         <div className="banner-content">
           <h1 className="headingOne">Our Services</h1>
         
