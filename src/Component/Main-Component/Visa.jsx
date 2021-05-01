@@ -17,9 +17,10 @@ const Visa = () => {
     const serviceData = services.data.map((e) => ({
       _id: e._id,
       name: e.name,
+      tv_type: e.tv_type,
       scode: e.scode,
       slug: e.slug,
-      image: e.serviceDetail.image[0],
+      serviceDetail: e.serviceDetail
     }));
 
     setServices(serviceData);
@@ -152,6 +153,80 @@ const Visa = () => {
 
           <Grid stackable columns={4} only="computer">
             <Grid.Row>
+            
+            { services && services.map((d) => {
+              if (d.tv_type) {
+                return (
+                  <Grid.Column>
+                    <div className="tourist-border" onClick={() => history.push(`/service/${d.slug}`)}>
+                      <div className="hours">
+                        <h3>{d.serviceDetail.hours ? d.serviceDetail.hours : 96 } Hours</h3>
+                        <p className="transit">Transit Visa + Insurance (Covid)</p>
+                      </div>
+                      <div className="hours-content">
+                        <div className="rectangle11">
+                          <div className="days-dull">Processing Time:</div>
+                          <div className="days">Upto {d.serviceDetail.processT} Days</div>
+                        </div>
+                        <div className="rectangle11">
+                          <div className="days-dull">Stay Period:</div>
+                          <div className="days">{d.serviceDetail.stayPeriod} Days</div>
+                        </div>
+                        <div className="rectangle11">
+                          <div className="days-dull">Validity</div>
+                          <div className="days">{d.serviceDetail.validity} Days</div>
+                        </div>
+                        <div className="rectangle11">
+                          <div className="days-dull">Entry:</div>
+                          <div className="days">{d.serviceDetail.entry}</div>
+                        </div>
+                      </div>
+                      <div className="hours-total">
+                        <div className="fees">
+                          <div className="total-left">Fees</div>
+                          <div className="total-right">{d.serviceDetail.price} AED</div>
+                        </div>
+                      </div>
+                    </div>
+                  </Grid.Column>
+                )
+              }
+            }
+            )}
+              
+              {/*
+                <Grid.Column>
+                  <div className="tourist-border">
+                    <div className="hours">
+                      <h3>96 Hours</h3>
+                      <p className="transit">Transit Visa + Insurance (Covid)</p>
+                    </div>
+                    <div className="hours-content">
+                      <div className="rectangle11">
+                        <div className="days-dull">Processing Time:</div>
+                        <div className="days">Upto 5 Days</div>
+                      </div>
+                      <div className="rectangle11">
+                        <div className="days-dull">Stay Period:</div>
+                        <div className="days">14 Days</div>
+                      </div>
+                      <div className="rectangle11">
+                        <div className="days-dull">Validity</div>
+                        <div className="days">58 Days</div>
+                      </div>
+                      <div className="rectangle11">
+                        <div className="days-dull">Entry:</div>
+                        <div className="days">Single</div>
+                      </div>
+                    </div>
+                    <div className="hours-total">
+                      <div className="fees">
+                        <div className="total-left">Fees</div>
+                        <div className="total-right">350 AED</div>
+                      </div>
+                    </div>
+                  </div>
+                </Grid.Column>
               <Grid.Column>
                 <div className="tourist-border">
                   <div className="hours">
@@ -248,38 +323,8 @@ const Visa = () => {
                   </div>
                 </div>
               </Grid.Column>
-              <Grid.Column>
-                <div className="tourist-border">
-                  <div className="hours">
-                    <h3>96 Hours</h3>
-                    <p className="transit">Transit Visa + Insurance (Covid)</p>
-                  </div>
-                  <div className="hours-content">
-                    <div className="rectangle11">
-                      <div className="days-dull">Processing Time:</div>
-                      <div className="days">Upto 5 Days</div>
-                    </div>
-                    <div className="rectangle11">
-                      <div className="days-dull">Stay Period:</div>
-                      <div className="days">14 Days</div>
-                    </div>
-                    <div className="rectangle11">
-                      <div className="days-dull">Validity</div>
-                      <div className="days">58 Days</div>
-                    </div>
-                    <div className="rectangle11">
-                      <div className="days-dull">Entry:</div>
-                      <div className="days">Single</div>
-                    </div>
-                  </div>
-                  <div className="hours-total">
-                    <div className="fees">
-                      <div className="total-left">Fees</div>
-                      <div className="total-right">350 AED</div>
-                    </div>
-                  </div>
-                </div>
-              </Grid.Column>
+              */}
+              
             </Grid.Row>
           </Grid>
         </div>
