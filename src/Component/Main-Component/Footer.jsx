@@ -80,16 +80,16 @@ const Footer = () => {
         </Container>
       </div>
       <footer className="footer">
-        <Container>
-          <Grid doubling columns={2}>
+        <Container fluid>
+          <Grid stackable columns={2}>
             <Grid.Column>
             <div className="footer-part-1">
                
-                <img className="footer_image" src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web.png'} />;
+                <img className="footer_image" src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web.png'} />
                
-                <img className="footer_image1" src={process.env.PUBLIC_URL + '/Assets/images/playstore.png'} />;
+                <img className="footer_image1" src={process.env.PUBLIC_URL + '/Assets/images/playstore.png'} />
               
-                <img className="footer_image2" src={process.env.PUBLIC_URL + '/Assets/images/ios.png'} />;
+                <img className="footer_image2" src={process.env.PUBLIC_URL + '/Assets/images/ios.png'} />
               </div>
             </Grid.Column>
 
