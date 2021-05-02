@@ -25,51 +25,47 @@ migration visas, <br />overseas business establishment, and resettlement in UAE.
                 <div className="circle">
 
                 </div>
-
-              </Grid.Column>
-              <Grid.Column>
-                <div className="circle">
-
+                <div className='step_heading'>
+                  <h6>Step 1</h6> 
+                  <p>
+                    Get in-touch with our world-class consultants that will help you in navigating through the best
+                    solutions of setting up a business in Dubai
+                </p>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div className="circle">
 
                 </div>
+                <div className='step_heading'>
+                  <h6>Step 2</h6>
+                  <p>
+                    Get in-touch with our world-class consultants that will help you in navigating through the best
+                    solutions of setting up a business in Dubai
+                </p>
+                </div>
+
+                
               </Grid.Column>
-            </Grid.Row>
-          </Grid>
+              <Grid.Column>
+                <div className="circle">
 
-          <div className="process">
-
-            <Grid stackable columns={3}>
-              <Grid.Row>
-                <Grid.Column>
-                  <p className='step_heading'>Step 1 </p>
-                  <p>
-                    Get in-touch with our world-class consultants that will help you in navigating through the best
-                    solutions of setting up a business in Dubai
-                </p>
-                </Grid.Column>
-                <Grid.Column>
-                  <p className='step_heading'>Step 2</p>
-                  <p>
-                    Get in-touch with our world-class consultants that will help you in navigating through the best
-                    solutions of setting up a business in Dubai
-                </p>
-                </Grid.Column>
-                <Grid.Column>
-                  <p className='step_heading'>Step 3</p>
+                </div>
+                <div className='step_heading'><h6>Step 3</h6>
                   <p>
                     Once done, we keep on following up to ensure that the business is covered from 360-degree
                     perspective and help you in managing all your legal and subjective requirements.
 
                 </p>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
 
-          </div>
+          
+
+            
+          
         </Container>
       </section>
 
