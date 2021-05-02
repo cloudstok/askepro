@@ -26,7 +26,7 @@ migration visas, <br />overseas business establishment, and resettlement in UAE.
 
                 </div>
                 <div className='step_heading'>
-                  <h6>Step 1</h6> 
+                  <h6>Step 1</h6>
                   <p>
                     Get in-touch with our world-class consultants that will help you in navigating through the best
                     solutions of setting up a business in Dubai
@@ -40,12 +40,12 @@ migration visas, <br />overseas business establishment, and resettlement in UAE.
                 <div className='step_heading'>
                   <h6>Step 2</h6>
                   <p>
-                    Get in-touch with our world-class consultants that will help you in navigating through the best
-                    solutions of setting up a business in Dubai
+                    After fixating on the solutions, we take up the challenges and help in setting up your organization
+                    that can include finding an office space and arranging supplies too.
                 </p>
                 </div>
 
-                
+
               </Grid.Column>
               <Grid.Column>
                 <div className="circle">
@@ -62,12 +62,12 @@ migration visas, <br />overseas business establishment, and resettlement in UAE.
             </Grid.Row>
           </Grid>
 
-         <div className="dashed_line">
-           
-           </div> 
+          <div className="dashed_line">
 
-            
-          
+          </div>
+
+
+
         </Container>
       </section>
 
