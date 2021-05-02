@@ -500,41 +500,35 @@ body {
     }
   }
 
+.outer_circle{
+  border: 2px dashed #fff;
+  width: 181px;
+  height: 181px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #000;
+  position: relative;
+  
+}
 
   .circle {
-    
     border-radius: 50%;
+    position: relative;
     margin: 0 auto;
-    
-    color: #ffffff;
+    top: 7.5%;
     width: 143px;
     height: 143px;
-    
-    z-index: -2;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    border: 1px solid #fff;
   
-    &::after{
-      content: '';
-      position: absolute;
-      border: 3px dashed;
-      top: -19px;  
-      left: 0;
-      right: 0;
-      width: 181px;
-      margin: 0 auto;
-      height: 181px;
-      border-radius: 50%;
-      z-index: 0;
-      background: transparent;
-      
-      
-    }
+
     & img{
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border:5px solid #fff;
-      z-index: 4;
     }
   }
   .dashed_line{
