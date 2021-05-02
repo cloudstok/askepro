@@ -190,6 +190,11 @@
   padding: 82px 0;
   .headingOne {
     color: #ffffff;
+    &::after{
+      @include after;
+      margin-top: 10px;
+      height: 9px;
+    }
   }
 
   img {
