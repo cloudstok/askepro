@@ -13,7 +13,7 @@ $gradient: linear-gradient(
   #c7a006
   );
 
-@mixin para {
+@mixin para { 
   font-size: 16px;
   line-height: 1.25;
   font-family: Helvetica;
@@ -259,5 +259,9 @@ $gradient: linear-gradient(
       width: 35.75% !important;
     }
   }
+  .circle
+    &::after{
+      top:50px;
+    }
 }
     

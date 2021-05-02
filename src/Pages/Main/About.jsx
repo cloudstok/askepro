@@ -9,11 +9,14 @@ const About = () => {
   return (
     <>
       <Crumb />
-      <div className="about">
+      <div className="about" >
+      <img className="about_bg" src={process.env.PUBLIC_URL + '/Assets/images/texture.png'} />
 
-        <img classname="about_background" src={process.env.PUBLIC_URL + 'Assets/images/texture.png'} style={{ width: "100%", height: "60vh", objectFit: "cover" }} />
+      
+       
         <div className="about-content">
-          <img src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web@3x.png'} />
+
+          <img className="about_logo" src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web@3x.png'} />
           <h1 className="headingOne">About</h1>
 
           <p>
@@ -32,17 +35,7 @@ const About = () => {
           </p>
         </div>
       </div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+
       <div className="team">
 
         <Container>
@@ -69,7 +62,7 @@ const About = () => {
                       </div>
                       <div className="team-image">
 
-                        <img src={process.env.PUBLIC_URL + '/Assets/images/Mask Group 8@3x.png'} />
+                        <img src={process.env.PUBLIC_URL + '/Assets/images/team.png'} />
 
                       </div>
                     </div>
@@ -94,7 +87,7 @@ const About = () => {
                         </p>
                       </div>
                       <div className="team-image">
-                        <img src={process.env.PUBLIC_URL + '/Assets/images/Mask Group 8@3x.png'} />
+                        <img src={process.env.PUBLIC_URL + '/Assets/images/team.png'} />
                       </div>
                     </div>
 

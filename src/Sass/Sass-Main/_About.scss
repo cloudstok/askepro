@@ -2,17 +2,26 @@
 @import "./variable";
 
 
-.about {
-  position: relative;
-  height: 494px;
-  margin-bottom: 52px;
-
+.about { 
   
+  padding-bottom: 52px;
+  position: relative;
+  height:100vh;
+  background-color: #fff;
+  .about_bg{
+    width: 100%;
+  }
   .about-content {
+    
     position: absolute;
-    top: 38px;
-    left: 28%;
-    width: 700px;
+    margin: auto;
+    height: auto;
+    
+
+    width: 1000px;
+    top: 38px; left: 0; bottom: 0; right: 0;
+    transform: translateX(20%,50px);
+    
     
     text-align: center;
   }
@@ -25,9 +34,10 @@
     color: #9d9494;
     margin-bottom: 38px;
     margin-top: 20px;
+    text-align: center;
   }
   h1 {
- 
+    margin-top: 52px;
     &::after{
       @include center_after;  
     }
