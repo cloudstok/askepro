@@ -180,13 +180,14 @@ $gradient: linear-gradient(
     &::after{
       top: -7px;
     }
-  
     }
     .step_heading p{
       margin-bottom: 2rem;
     }
 
-    
+    .dashed_line{
+      display: none;
+    }
   }
  
 }

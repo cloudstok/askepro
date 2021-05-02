@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper_home {
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .banner1 {
@@ -461,10 +461,12 @@ body {
 
 .step {
   padding: 50px 0;
+  position: relative;
   h1 {
     &:after {
       @include center_after;
       margin-top: 10px;
+      
     }
   }
   .apply {
@@ -475,7 +477,8 @@ body {
     font-size: 16px;
     margin: 10px 0 60px 0;
   }
-}
+  }
+
 
   .step_heading {
 
@@ -499,28 +502,52 @@ body {
 
 
   .circle {
-    border: 1px solid #ffffff;
+    
     border-radius: 50%;
     margin: 0 auto;
-  
+    
     color: #ffffff;
     width: 143px;
     height: 143px;
     
+    z-index: -2;
   
     &::after{
       content: '';
       position: absolute;
       border: 3px dashed;
       top: -19px;  
-      
       left: 0;
       right: 0;
       width: 181px;
       margin: 0 auto;
       height: 181px;
       border-radius: 50%;
+      z-index: 0;
+      background: transparent;
+      
+      
     }
+    & img{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border:5px solid #fff;
+      z-index: 4;
+    }
+  }
+  .dashed_line{
+    position: absolute;
+    top: 50%;
+    margin:0 auto;
+    left:0;
+    right: 0;
+    height: 1px;
+    color: #fff;
+    border: 1px dashed #fff;
+    width: 50%;
+    z-index: 0;
   }
 }
 

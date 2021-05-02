@@ -15,7 +15,7 @@ const Service = () => {
         <Crumb />
         <div className="service-banner">
       
-        <img src={process.env.PUBLIC_URL + '/Assets/images/banner.jpg'} />
+        <img src={process.env.PUBLIC_URL + '/Assets/images/banner.png'} />
         <div className="banner-content">
           <h1 className="headingOne">Our Services</h1>
         
