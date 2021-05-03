@@ -20,7 +20,7 @@ const About = () => {
           <h1 className="headingOne">About</h1>
 
           <p>
-            With an objective of successfully set-up businesses in UAE, Askepro was established in 2019, in Dubai. With a streamlined approach, we ensure that all our experienced consultants help you navigate through all
+            With an objective of successfully set-up businesses in UAE, Askepro was established in 2021, in Dubai. With a streamlined approach, we ensure that all our experienced consultants help you navigate through all
             the processes that are needed to relocate, establish or start a venture from scratch. Cost-effectiveness
             and transparent communication are constantly emphasised on because our business’s success lies in
             yours.<br/><br/>
