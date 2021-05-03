@@ -179,7 +179,7 @@ const Account = () => {
               <div className="user_heading">
                 <h4>Appointments(0)</h4>
               </div>
-              {/* <Segment className="appointment" style={{ marginTop: '0' }}>
+               <Segment className="appointment" style={{ marginTop: '0' }}>
                 <div className="appoint">
                   <div className="date">
                     <span className="number">23</span>
@@ -193,7 +193,7 @@ const Account = () => {
                   </div>
                 </div>
               </Segment>
-              <Segment>
+           {/*   <Segment>
                 <div className="appoint">
                   <div className="date">
                     <span className="number2">16</span>
