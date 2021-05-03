@@ -29,12 +29,8 @@ const Home = () => {
                APPLY NOW 
             </button></Link>
           </div>
-
           <div className="home-bg">
-          
             <img src={process.env.PUBLIC_URL + '/Assets/images/login-bg.png'} />
-
-
           </div>
         </div>
 
