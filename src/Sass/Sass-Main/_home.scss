@@ -555,23 +555,32 @@ body {
   color: #000000;
   .home-content {
     width: 40%;
-
-    padding: 134px 116px 10px 80px;
+    padding: 0px 116px 0px 80px;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+    display: grid;
   }
-  h1 {
+  .main_content{
+    grid-template-rows: 134px auto 167px auto;
+    background-color: #fff;
+  & h1 {
+    background-color: #fff;
     cursor: pointer;
     font-size: 44px;
     font-family: Lato;
     line-height: 1.18;
     color: #000000;
+    
   }
-  p {
+ & p {
     font-size: 20px;
     font-family: Open Sans;
     line-height: 1.35;
     cursor: pointer;
     margin-bottom: 30px;
   }
+}
   .home-bg {
     width: 60%;
   }

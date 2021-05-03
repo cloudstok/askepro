@@ -19,8 +19,10 @@ const Home = () => {
       <main className="wrapper_home">
         {/* <!-- //second division// --> */}
 
+
         <div className="home">
           <div className="home-content">
+            <div className="main_content">
             <h1>Leading Immigration Consultants in Dubai</h1>
             <p>
             Our business is to make your business easier in the UAE.
@@ -28,6 +30,7 @@ const Home = () => {
             <Link to="apply"><button type="button" className="same-btn">
                APPLY NOW 
             </button></Link>
+            </div>
           </div>
           <div className="home-bg">
             <img src={process.env.PUBLIC_URL + '/Assets/images/login-bg.png'} />
