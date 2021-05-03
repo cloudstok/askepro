@@ -72,17 +72,15 @@ const Apply = () => {
           </Grid>
         </Container>
       </section>
-
+      <Container fluid>
       <section className="customer">
-        <Container>
+        
           <h1 className="headingOne">Customer Reviews</h1>
 
           <p>
             Our Clients and their successful businesses are a true mark of our
             values and skills that we use to ensure that your venture thrives.
             Our success depends on your success.
-            <br />
-            <br />
             Here’s what your successful clients have to say about Askepro
           </p>
           <Grid stackable columns={3}>
@@ -181,8 +179,9 @@ const Apply = () => {
             <Icon name="chevron left"></Icon>
             <Icon name="chevron right"></Icon>
           </div>
-        </Container>
+        
       </section>
+      </Container>
     </>
   );
 };
