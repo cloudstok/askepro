@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper_home {
-  
+  background-color: #fff;
 }
 
 .banner1 {
@@ -558,11 +558,11 @@ body {
 
 .home {
   display: flex;
-  align-items: center;
   color: #000000;
-  .home-content {
-    flex-basis: 40vw; 
-    padding:0 40px;
+  .home-content 
+  {
+    width: 40vw;
+    padding:0 80px;
   }
   h1 {
     cursor: pointer;
@@ -579,7 +579,6 @@ body {
     margin-bottom: 30px;
   }
   img {
-    width: 100%;
     max-width: 100%;
     object-fit: cover;
   }
