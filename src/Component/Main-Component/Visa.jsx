@@ -131,7 +131,7 @@ const Visa = () => {
               <p>Medical Services</p>
           </div>
           </Grid.Column>*/}
-          <Grid.Column width={16}><Link to="/contact">
+          <Grid.Column width={8}><Link to="/contact">
             <div className="service-card2">
               <img src={process.env.PUBLIC_URL+"/Assets/images/stamp.png"} />
               <p>
