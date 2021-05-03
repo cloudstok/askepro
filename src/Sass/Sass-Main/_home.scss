@@ -559,7 +559,7 @@ body {
   align-items: center;
   color: #000000;
   .home-content {
-    flex: 1;
+    flex-basis: 40vw; 
     padding:0 40px;
   }
   h1 {
