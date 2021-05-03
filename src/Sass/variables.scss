@@ -25,7 +25,7 @@ $simple-border: solid 1px #000000 !important;
 }
 
 @mixin tablet{
-    @media only screen and (max-width:769px){
+    @media only screen and (max-width:768px){
         @content;
     }
 }
@@ -33,7 +33,7 @@ $simple-border: solid 1px #000000 !important;
 @mixin laptop{
     @media only screen and (max-width:1200)
     {
-            @content;
+        @content;
     }
 }
 

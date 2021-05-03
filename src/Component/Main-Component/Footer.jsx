@@ -43,8 +43,10 @@ const Footer = () => {
   return (
     <>
      <div className="reach">
-        <Container>
+        <Container fluid>
           <h2>Reach Out To Us</h2>
+          
+          
           <p>Kalari Documents Clearing Services</p>
           <p>Dragon Mart 1,Shop No DHOFF16</p>
           <p>Dubai, United Arab Emirates</p>
