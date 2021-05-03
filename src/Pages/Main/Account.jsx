@@ -120,7 +120,7 @@ const Account = () => {
                     </Table.Row>
                   </Table.Header>
 
-                  {/* <Table.Body>
+                  <Table.Body>
                     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
@@ -130,7 +130,7 @@ const Account = () => {
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
                     </Table.Row>
-                    <Table.Row>
+                  {/*     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
                       <Table.Cell>Local Sponsorship Se…</Table.Cell>
@@ -165,8 +165,8 @@ const Account = () => {
                       <Table.Cell><StatusChip value="Success" /></Table.Cell>
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
-                    </Table.Row>
-                  </Table.Body> */}
+                    </Table.Row>*/}
+                  </Table.Body> 
                 </Table>
               </div>
               {/* <div className="history">
@@ -179,7 +179,7 @@ const Account = () => {
               <div className="user_heading">
                 <h4>Appointments(0)</h4>
               </div>
-              {/* <Segment className="appointment" style={{ marginTop: '0' }}>
+               <Segment className="appointment" style={{ marginTop: '0' }}>
                 <div className="appoint">
                   <div className="date">
                     <span className="number">23</span>
@@ -193,7 +193,7 @@ const Account = () => {
                   </div>
                 </div>
               </Segment>
-              <Segment>
+            {/*  <Segment>
                 <div className="appoint">
                   <div className="date">
                     <span className="number2">16</span>
