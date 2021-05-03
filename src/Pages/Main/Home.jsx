@@ -38,22 +38,16 @@ const Home = () => {
           </div>
         </div>
 
-        <Container>
-          <div className="service">
+        <Container fluid className="our_services">
+          <div className="service_heading">
             <h1 className="headingOne">Our Services</h1>
           </div>
-        
-
-          
-     
-        
+          <Visa />
         </Container>
-        <Visa />
-        <Apply />
        
+        <Apply />
         <Footer />
         <Notification />
-        
       </main>
     
     </div>

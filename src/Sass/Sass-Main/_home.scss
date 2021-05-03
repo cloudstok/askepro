@@ -94,15 +94,19 @@ body {
   right: 2%;
   text-align: center;
 }
-.service {
-  margin-top: 88px;
+
+.our_services{
+  padding: 50px ;
+  margin-top: 100px;
+.service_heading {
   h1 {
     &::after {
       @include after;
       height: 9px;
-      margin: 10px 0 40px 0;
+      margin: 10px 0px 40px 0;
     }
   }
+}
 }
 
 /* section 3 */
