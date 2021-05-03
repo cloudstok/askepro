@@ -120,7 +120,7 @@ const Account = () => {
                     </Table.Row>
                   </Table.Header>
 
-                  {/* <Table.Body>
+                  <Table.Body>
                     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
@@ -130,7 +130,7 @@ const Account = () => {
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
                     </Table.Row>
-                    <Table.Row>
+                  {/*   <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
                       <Table.Cell>Local Sponsorship Se…</Table.Cell>
@@ -165,8 +165,8 @@ const Account = () => {
                       <Table.Cell><StatusChip value="Success" /></Table.Cell>
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
-                    </Table.Row>
-                  </Table.Body> */}
+                    </Table.Row>*/}
+                  </Table.Body> 
                 </Table>
               </div>
               {/* <div className="history">
