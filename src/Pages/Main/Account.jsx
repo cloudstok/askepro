@@ -130,7 +130,7 @@ const Account = () => {
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
                     </Table.Row>
-                  {/*   <Table.Row>
+                  {/*     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
                       <Table.Cell>Local Sponsorship Se…</Table.Cell>
@@ -193,7 +193,7 @@ const Account = () => {
                   </div>
                 </div>
               </Segment>
-           {/*   <Segment>
+            {/*  <Segment>
                 <div className="appoint">
                   <div className="date">
                     <span className="number2">16</span>
