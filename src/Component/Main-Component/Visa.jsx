@@ -146,9 +146,7 @@ const Visa = () => {
           <h1 className="headingOne">Tourist Visa Services</h1>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ad
-            velit quaerat. Dignissimos odio animi minus deleniti dolorem, in
-            adipisci?
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer 
           </p>
 
           <Grid stackable columns={4} only="computer">
@@ -157,7 +155,7 @@ const Visa = () => {
             { services && services.map((d) => {
               if (d.tv_type) {
                 return (
-                  <Grid.Column>
+                  <Grid.Column width={4}>
                     <div className="tourist-border" onClick={() => history.push(`/service/${d.slug}`)}>
                       <div className="hours">
                         <h3>{d.serviceDetail.hours ? d.serviceDetail.hours : 96 } Hours</h3>

@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper_home {
-  /* background-color: #fff; */
+  
 }
 
 .banner1 {
@@ -368,6 +368,7 @@ body {
     }
   }
   p {
+    width: 50%;
     font-family: Open Sans;
     color: #9d9494;
     line-height: 1.38;
@@ -550,12 +551,11 @@ body {
 
 .home {
   display: flex;
-  width: 100%;
+  align-items: center;
   color: #000000;
   .home-content {
-    width: 40%;
-
-    padding: 134px 116px 10px 80px;
+    flex: 1;
+    padding:0 40px;
   }
   h1 {
     cursor: pointer;
@@ -571,11 +571,9 @@ body {
     cursor: pointer;
     margin-bottom: 30px;
   }
-  .home-bg {
-    width: 60%;
-  }
   img {
     width: 100%;
+    max-width: 100%;
     object-fit: cover;
   }
 }

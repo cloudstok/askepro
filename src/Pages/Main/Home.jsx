@@ -44,7 +44,6 @@ const Home = () => {
           </div>
           <Visa />
         </Container>
-       
         <Apply />
         <Footer />
         <Notification />
