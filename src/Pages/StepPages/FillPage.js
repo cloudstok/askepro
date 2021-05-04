@@ -35,10 +35,10 @@ function FillPage(){
                     <Grid columns="2" stackable='tablet'>
                         <Grid.Row>
                             <Grid.Column width={2} className='radio-group'>
-                            <Radio label='Self' className='radio-item' name='choice'/>
+                            <Radio label='Self' name='type' id='self' className='radio-item' name='choice'/>
                             </Grid.Column>
                         <Grid.Column className='radio-group'>
-                        <Radio label='Other' className='radio-item' name='choice'/>  
+                        <Radio label='Other' name='type' id="other" className='radio-item' name='choice'/>  
                             </Grid.Column> 
                             <Grid.Column>
                             <Form.Field>
@@ -55,15 +55,12 @@ function FillPage(){
                                         />
                             </Form.Field>
                             </Grid.Column>
-                            <Grid.Column className='radio-group' width={3}>
-                            <Radio label='Address 1' name='Address' className='radio-item'/>
+                            <Grid.Column className='radio-group' width={2}>
+                            <Radio label='Home' name='Address' id='Address1' className='radio-item'/>
                             </Grid.Column>
-                            <Grid.Column className='radio-group'  width={3}>
-                            <Radio label='Address 2' name='Address' className='radio-item'/>  
-                            </Grid.Column>
-                            <Grid.Column className='radio-group'>
-                            <Radio label='Address 3' name='Address' className='radio-item'/>  
-                            </Grid.Column>                                                       
+                            <Grid.Column className='radio-group'  width={14}>
+                            <Radio label='Office' name='Address' id='Address2' className='radio-item'/>  
+                            </Grid.Column>                                                
                              <Grid.Column>
                             <Form.Field>
                                 <label>Address Line 1*</label>
