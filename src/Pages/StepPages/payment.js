@@ -75,13 +75,13 @@ const Payment = () =>{
         <Grid columns='3' stackable='mobile'>
                 <Grid.Row>
                     <Grid.Column>
-                    <Radio label='Pay via Debit Card' name='paymentGroup' />
+                    <Radio label='Pay via Debit Card' name='paymentGroup' id="dc" />
                     </Grid.Column>
                     <Grid.Column>
-                    <Radio label='Pay via Credit Card' name='paymentGroup'/>
+                    <Radio label='Pay via Credit Card' name='paymentGroup' id="cc"/>
                     </Grid.Column>
                     <Grid.Column>
-                    <Radio label='Pay via Net Banking' name='paymentGroup'/>
+                    <Radio label='Pay via Net Banking' name='paymentGroup' id="upi"/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
