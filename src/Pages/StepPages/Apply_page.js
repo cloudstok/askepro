@@ -61,7 +61,7 @@ function ApplyStepper() {
                     services.map((service) =>
                 <Grid.Column>
                         <div class="checkbox p-default p-round pretty">
-                        <input type="checkbox" />
+                        <input type="radio" name="service_radio" />
                         <span class="state">
                             <label>{service.name}</label>
                         </span>
