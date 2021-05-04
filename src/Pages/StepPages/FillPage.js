@@ -35,10 +35,10 @@ function FillPage(){
                     <Grid columns="2" stackable='tablet'>
                         <Grid.Row>
                             <Grid.Column width={2} className='radio-group'>
-                            <Radio label='Self' className='radio-item'/>
+                            <Radio label='Self' className='radio-item' name='choice'/>
                             </Grid.Column>
                         <Grid.Column className='radio-group'>
-                        <Radio label='Other' className='radio-item'/>  
+                        <Radio label='Other' className='radio-item' name='choice'/>  
                             </Grid.Column> 
                             <Grid.Column>
                             <Form.Field>
@@ -56,13 +56,13 @@ function FillPage(){
                             </Form.Field>
                             </Grid.Column>
                             <Grid.Column className='radio-group' width={3}>
-                            <Radio label='Address 1' className='radio-item'/>
+                            <Radio label='Address 1' name='Address' className='radio-item'/>
                             </Grid.Column>
                             <Grid.Column className='radio-group'  width={3}>
-                            <Radio label='Address 2' className='radio-item'/>  
+                            <Radio label='Address 2' name='Address' className='radio-item'/>  
                             </Grid.Column>
                             <Grid.Column className='radio-group'>
-                            <Radio label='Address 3' className='radio-item'/>  
+                            <Radio label='Address 3' name='Address' className='radio-item'/>  
                             </Grid.Column>                                                       
                              <Grid.Column>
                             <Form.Field>

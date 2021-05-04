@@ -17,6 +17,7 @@ const Crumb = () => {
         <div className="crumb">
         <Breadcrumb icon='right angle' sections={sections} />
         </div>
+        
       </Container>
     </>
   );

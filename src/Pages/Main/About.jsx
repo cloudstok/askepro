@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
-
 import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
 
