@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {getData} from '../../services/api';
 import {Link} from 'react-router-dom';
 import { Accordion, Grid, Icon, Container } from "semantic-ui-react";
 export default class AccordionExampleFluid extends Component {
@@ -11,7 +12,6 @@ export default class AccordionExampleFluid extends Component {
 
   async componentDidMount() {
     try {
-     
     let response = await fetch(`${process.env.REACT_APP_BASE_URL}/faqs`);
     const json = await response.json();
     console.log(json.data);
