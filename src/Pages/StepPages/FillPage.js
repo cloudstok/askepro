@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router';
 import { Grid, Divider, Form, Message   , Container, Select, Input, CardDescription, Radio} from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
@@ -8,6 +9,10 @@ import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 
 function FillPage(){
+    const history=useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+
         return (
              <main>
                  <div className='fill-section'>
@@ -30,10 +35,10 @@ function FillPage(){
                     <Grid columns="2" stackable='tablet'>
                         <Grid.Row>
                             <Grid.Column width={2} className='radio-group'>
-                            <Radio label='Self' className='radio-item'/>
+                            <Radio label='Self' name='type' id='self' className='radio-item' name='choice'/>
                             </Grid.Column>
                         <Grid.Column className='radio-group'>
-                        <Radio label='Other' className='radio-item'/>  
+                        <Radio label='Other' name='type' id="other" className='radio-item' name='choice'/>  
                             </Grid.Column> 
                             <Grid.Column>
                             <Form.Field>
@@ -44,21 +49,19 @@ function FillPage(){
                             <Grid.Column>
                             <Form.Field>
                                 <label>Date of Birth</label>
-                                <Input
-                                    icon={{ name: 'calendar outline', link: true }}
+                                <Input type='date'
+                                    //icon={{ name: 'calendar outline', link: true }}
                                         placeholder='Search...'
                                         />
                             </Form.Field>
                             </Grid.Column>
-                            <Grid.Column className='radio-group' width={3}>
-                            <Radio label='Address 1' className='radio-item'/>
+                            <Grid.Column className='radio-group' width={2}>
+                            <Radio label='Home' name='Address' id='Address1' className='radio-item'/>
                             </Grid.Column>
-                            <Grid.Column className='radio-group'  width={3}>
-                            <Radio label='Address 2' className='radio-item'/>  
-                            </Grid.Column>
-                            <Grid.Column className='radio-group'>
-                            <Radio label='Address 3' className='radio-item'/>  
-                            </Grid.Column>                                                        <Grid.Column>
+                            <Grid.Column className='radio-group'  width={14}>
+                            <Radio label='Office' name='Address' id='Address2' className='radio-item'/>  
+                            </Grid.Column>                                                
+                             <Grid.Column>
                             <Form.Field>
                                 <label>Address Line 1*</label>
                                 <Input placeholder='Enter address line 1' />

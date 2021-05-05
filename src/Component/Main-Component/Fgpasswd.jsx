@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 const Login3 = () => {
   const history = useHistory();
-  const url = 'http://localhost:8000/users/check';
+  const url = `${process.env.REACT_APP_BASE_URL}/users/check`;
 
   const [val, setValue] = React.useState(null);
 
@@ -59,7 +59,7 @@ const Login3 = () => {
       <div
         className="loginx"
         style={{
-          background: "url(assets/images/login.png)",
+          background: "url(/Assets/images/login.png)",
           height: "100vh",
           backgroundSize: "cover",
         }}

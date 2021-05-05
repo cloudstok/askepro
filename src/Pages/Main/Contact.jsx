@@ -2,17 +2,20 @@ import React from 'react';
 import { Grid, Container } from "semantic-ui-react";
 
 import Footer from '../../Component/Main-Component/Footer';
-import Header from '../../Component/Main-Component/Header';
+
+import Crumb from '../../Component/Main-Component/Crumb';
 const Contact = () => {
     return(
         <>
-        <Header />
-        <div class="contact" style={{ background: "url(assets/images/contact-bg.png)",backgroundSize: 'cover' }}>
-            
+        <Crumb />
+        <div class="contact" style={{ background: `url(${process.env.PUBLIC_URL + '/Assets/images/contact-bg.png'})`,backgroundSize: 'cover' }}>  
+        
+
     <h1 class="headingOne">Contact</h1>
-    <img src="assets/images/center.png" />
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis numquam nemo voluptatibus fuga fugit quod
-      veniam. Doloribus officiis minus eius!</p>
+    
+    <p>Experience success with UAE and take your business to new heights with Askepro.<br/><br/>
+            Contact us, today!
+</p>
   </div>
   <Container>
   <div class="address">
@@ -21,17 +24,17 @@ const Contact = () => {
       
         
           <div class="contact-details-1">
-            <img src="/assets/images/pin.png" />
-            <p>Marina Crown<br />
-              King Salman Bin Abdulaziz Al Saud St
-              Dubai, United Arab Emirates</p>
+            <img src={process.env.PUBLIC_URL + '/Assets/images/pin.png'} />
+            <p>Kalari Documents Clearing Services<br />
+            Dragon Mart 1,Shop No DHOFF16
+            Dubai, United Arab Emirates</p>
           </div>
           <div class="contact-details">
-            <img src="/assets/images/phone.png" />
+          <img src={process.env.PUBLIC_URL + '/Assets/images/phone.png'} />
             <p>+97180073232</p>
           </div>
           <div class="contact-details">
-            <img src="/assets/images/mail.png" />
+          <img src={process.env.PUBLIC_URL + '/Assets/images/mail.png'} />
             <p>care@askepro.ae</p>
           </div>
         
@@ -39,8 +42,7 @@ const Contact = () => {
       </Grid.Column>
       <Grid.Column width={10}>
         <div id="map">
-
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.090007291963!2d77.37166581492322!3d28.62706438242004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce559fabd5969%3A0x48a08667edff0402!2sThe%20Corenthum!5e0!3m2!1sen!2sin!4v1608110081574!5m2!1sen!2sin" ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.8211987464706!2d55.410161214484!3d25.175514538758975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f61ce99959ff3%3A0x9f391776b31195c4!2sKALARI%20DCS!5e0!3m2!1sen!2sin!4v1619901723581!5m2!1sen!2sin" ></iframe>
         </div>
       </Grid.Column>
       </Grid>

@@ -53,7 +53,6 @@ const View_details = () => {
       </Table>
 
       <div className="details_wrapper_inner">
-     
       <Grid stackable columns>
       
         <Grid.Column width={3}>
@@ -112,8 +111,8 @@ const View_details = () => {
         <Grid.Column width={9}>
           <Grid.Row>
             <Grid.Column>
-              <div  className="view_segment">
-              <Segment>
+       
+          
               <div className="vertical_step1">
               <Icon color="green" size='huge' link name='check square' /> 
                 <p>
@@ -122,12 +121,12 @@ const View_details = () => {
                   from your “History”.
                 </p>
               </div>
-              </Segment>
-              </div>
+           
+          
             </Grid.Column>
             <Grid.Column>
-            <div  className="view_segment">
-              <Segment>
+            
+              
                 <div className="appoint2">
                   <div className="date">
                     <span className="number">23</span>
@@ -137,45 +136,45 @@ const View_details = () => {
                     <span className="done_info">UPCOMING</span>
                     <br />
                     <p>Appointment with AMER executive in Dubai Media City</p>
-                    <span className="minutfe">11:00 - 12:00 </span>
+                    <span className="minute">11:00 - 12:00 </span>
                   </div>
                 </div>
-                </Segment>
-                </div>
+            
+           
             </Grid.Column>
 
             <Grid.Column>
-            <div  className="view_segment">
-              <Segment>
+         
+          
                   <div className="details_3_outer">
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                               <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
                   <p>Emirates ID.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
                   <p>Special ID.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
                   <p>GDFRA permit.jpg </p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
                   <p>Entry Permit.jpg</p>
                 </div>
                 <div className="details_3">
-                  <img src="Assets/images/point.png" />
+                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
                   <p>XYZ government ID.jpg</p>
                 </div>
                 </div>
-                </Segment>
-                </div>
+              
+               
             </Grid.Column>
 
             <Grid.Column>
-            <div  className="view_segment">
-              <Segment>
+           
+     
                 <div className="vertical_step4">
                   <div className="vertical_step4_inner1">
                     <div>
@@ -195,13 +194,13 @@ const View_details = () => {
                     <p>14 Sep 1987</p>
                   </div>
                 </div>
-              </Segment>
-              </div>
+             
+             
             </Grid.Column>
 
             <Grid.Column>
-            <div  className="view_segment">
-              <Segment>
+            <div  className="view_segment3">
+           
                 <div className="company_formation1">
                   <h5>Company Formation Services</h5>
                 </div>
@@ -237,7 +236,7 @@ const View_details = () => {
                     </Table.Row>
                   </Table>
                 </div>
-              </Segment>
+
               </div>
             </Grid.Column>
           </Grid.Row>

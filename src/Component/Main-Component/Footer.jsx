@@ -4,7 +4,7 @@ import '../../Sass/Sass-Main/_Footer.scss';
 
 
 const Footer = () => {
-  const url = 'http://localhost:8000/contact/create';
+  const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
 
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
@@ -43,12 +43,12 @@ const Footer = () => {
   return (
     <>
      <div className="reach">
-        <Container>
+        <Container fluid>
           <h2>Reach Out To Us</h2>
           
-
-          <p>Marina Crown</p>
-          <p>King Salman Bin Abdulaziz Al Saud St</p>
+          
+          <p>Kalari Documents Clearing Services</p>
+          <p>Dragon Mart 1,Shop No DHOFF16</p>
           <p>Dubai, United Arab Emirates</p>
           <br />
           <p>care@askepro.ae</p><br />
@@ -72,7 +72,7 @@ const Footer = () => {
               <div className="reach-Submit">
                 <p>By clicking on 'Submit' you will agree to T&C of AskePro</p>
                 <button className="same-btn" type="submit">
-                  <strong> SUBMIT </strong>
+                   SUBMIT
                 </button>
               </div>
             </Form>
@@ -80,24 +80,16 @@ const Footer = () => {
         </Container>
       </div>
       <footer className="footer">
-        <Container>
-          <Grid doubling columns={2}>
+        <Container fluid>
+          <Grid stackable columns={2}>
             <Grid.Column>
             <div className="footer-part-1">
-                <img
-                  className="footer_image"
-                  src="assets/images/Epro Logo_Web.png"
-                />
-                <img
-                  className="footer_image1"
-                  src="assets/images/Image 1@2x.png"
-                 
-                />
-                <img
-                  className="footer_image2"
-                  src="assets/images/Image 2@2x.png"
-         
-                />
+               
+                <img className="footer_image" src={process.env.PUBLIC_URL + '/Assets/images/Epro Logo_Web.png'} />
+               
+                <img className="footer_image1" src={process.env.PUBLIC_URL + '/Assets/images/playstore.png'} />
+              
+                <img className="footer_image2" src={process.env.PUBLIC_URL + '/Assets/images/ios.png'} />
               </div>
             </Grid.Column>
 

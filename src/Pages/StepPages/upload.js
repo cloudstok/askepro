@@ -6,8 +6,13 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import Heading from '../../Component/Heading/heading';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import '../StepPages/stepPage.scss';
+import { useHistory } from 'react-router';
 
 const UploadDocuments = () =>{
+    const history= useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+     history.push("/login");
+
             return(
                 <main>
                 <div className='apply-section'>
@@ -27,7 +32,10 @@ const UploadDocuments = () =>{
                         <Grid.Column width={8}>
                             <Form.Field>
                                 <label>Scan and upload documents</label>
-                                <Input type='file' placeholder='Uplaod file(s) from your computer'/>
+                                <Input type='file' id="file-btn" style={{display:"none"}}/>
+                                <div className='file'>
+                                <label for='file-btn'>Uplaod file(s) from your computer</label>
+                                </div>
                                 </Form.Field>
                                 </Grid.Column>
                             <Grid.Column>

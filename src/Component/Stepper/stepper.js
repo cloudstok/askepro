@@ -1,50 +1,46 @@
 import React from 'react';
-import {Step} from 'semantic-ui-react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Step } from 'semantic-ui-react';
 import '../../Sass/app.scss';
 
-const Stepper = () =>{
-        return (
-                <div className="stepper">
-                <Step.Group size='tiny' stackable='tablet'widths="6">
-                <Step active>
-                    <Step.Content>
-                    <Step.Title>1</Step.Title>
-                    <Step.Description>Choose Service</Step.Description>
-                    </Step.Content>
-                </Step>
 
-                <Step>
-                    <Step.Content>
-                    <Step.Title>2</Step.Title>
-                    <Step.Description>Fill Details</Step.Description>
-                    </Step.Content>
-                </Step>
-                <Step>
-                    <Step.Content>
-                    <Step.Title>3</Step.Title>
-                    <Step.Description>Upload Documents</Step.Description>
-                    </Step.Content>
-                </Step>
-                <Step>
-                    <Step.Content>
-                    <Step.Title>4</Step.Title>
-                    <Step.Description>Book an appointment</Step.Description>
-                    </Step.Content>
-                </Step>
-                <Step>
-                    <Step.Content>
-                    <Step.Title>5</Step.Title>
-                    <Step.Description>Payment</Step.Description>
-                    </Step.Content>
-                </Step>
-                <Step>
-                    <Step.Content>
-                    <Step.Title>6</Step.Title>
-                    <Step.Description>Success</Step.Description>
-                    </Step.Content>
-                </Step>
-                </Step.Group>
-                </div>
-        )
+const Stepper = () => {
+    const location = useLocation();
+    const [result, setResult] = React.useState(null);
+    const arr = ["/apply", "/fill", "/upload", "/book", "/payment"];
+    const titleArr = ["Choose Service", "Fill Details", "Upload Documents", "Book an appointment", "Payment"];
+    React.useEffect(() => {
+        let final = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === location.pathname) {
+                final.push({ title: titleArr[i], status: true });
+                
+            }
+            else {
+                final.push({ title: titleArr[i], status: false });
+            }
+        }
+        console.log(final)
+        setResult(final);
+    },[]);
+    if(!result){
+    return (<div></div>);}
+    return (
+        <div className="stepper">
+            <Step.Group size='tiny' stackable='tablet' widths="6">
+                {result.map((ele, index) => (
+                   <Step active={ele.status} >
+                       <Link to={arr[index]}> 
+                        <Step.Content>
+                            <Step.Title>{index + 1}</Step.Title>
+                            <Step.Description>{ele.title}</Step.Description>
+                        </Step.Content>
+                        </Link>
+                    </Step>))}
+
+            </Step.Group>
+        </div>
+    )
 }
 export default Stepper;

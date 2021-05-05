@@ -26,7 +26,7 @@ import { Menu, Segment, Dropdown, Button, Container } from "semantic-ui-react";
      
         <Menu secondary>
         <Container>
-        <a href="#"><img src="/assets/images/Epro Logo_Web.png" /></a>
+        <a href="#"><img src="/Assets/images/Epro Logo_Web.png" /></a>
           <Menu.Menu position="right">
            
 

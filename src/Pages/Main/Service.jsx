@@ -6,19 +6,19 @@ import Notification from '../../Component/Main-Component/Notification';
 import Visa from '../../Component/Main-Component/Visa';
 import Accordion from '../../Component/Main-Component/Accordion';
 import '../../Sass/Sass-Main/_home.scss';
-import '../../Sass/Sass-Main/_About.scss';
+import Crumb from '../../Component/Main-Component/Crumb';
+
 
 const Service = () => {
     return (
         <>
-        <Header />
+        <Crumb />
         <div className="service-banner">
-        <img src="assets/images/banner.jpg" />
+      
+        <img src={process.env.PUBLIC_URL + '/Assets/images/banner.png'} />
         <div className="banner-content">
           <h1 className="headingOne">Our Services</h1>
-          <div className="underline_img">
-          <img src="assets/images/path.png" style={{width:'85px', height: '10px'}}/>
-          </div>
+        
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
             nulla.
@@ -28,9 +28,7 @@ const Service = () => {
       <div className="service-formation">
           <Container>
         <h1 className="headingOne">List Of Our Services</h1>
-        <div className="underline_img">
-          <img src="assets/images/center.png" style={{width:'85px', height: '10px'}}/>
-          </div>    
+ 
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
           excepturi, ducimus ab eius iste similique? Expedita ipsum atque nam

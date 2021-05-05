@@ -5,9 +5,9 @@ import Visa from '../../Component/Main-Component/Visa';
 import Apply from '../../Component/Main-Component/Apply';
 import Footer from '../../Component/Main-Component/Footer';
 import Notification from '../../Component/Main-Component/Notification';
-
 import '../../Sass/Sass-Main/_home.scss';
-import '../../Sass/Sass-Main/_About.scss';
+import { Link } from "react-router-dom";
+
 
 
 
@@ -16,42 +16,33 @@ const Home = () => {
 
     <>
     <div className="cover">
-      <Header />
-      <main className="wrapper">
+      <main className="wrapper_home">
         {/* <!-- //second division// --> */}
+
 
         <div className="home">
           <div className="home-content">
-            <h1>Mainland Company Registration in UAE</h1>
+            <div className="main_content">
+            <h1>Leading Immigration Consultants in Dubai</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s
+            Our business is to make your business easier in the UAE.
             </p>
-            <button type="button" className="same-btn">
-              <strong> APPLY NOW </strong>
-            </button>
+            <Link to="apply"><button type="button" className="same-btn">
+               APPLY NOW 
+            </button></Link>
+            </div>
           </div>
-
           <div className="home-bg">
-            <img
-              src="/assets/images/login-bg.png"
-              
-            />
+            <img src={process.env.PUBLIC_URL + '/Assets/images/login-bg.png'} />
           </div>
         </div>
 
-        <Container>
-          <div className="service">
+        <Container fluid className="our_services">
+          <div className="service_heading">
             <h1 className="headingOne">Our Services</h1>
           </div>
-          <div className="underline_img">
-            <img src="assets/images/path.png" />
-          </div>
-
-          
+          <Visa />
         </Container>
-        <Visa />
-         
         <Apply />
         <Footer />
         <Notification />

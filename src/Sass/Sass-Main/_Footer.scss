@@ -1,4 +1,5 @@
 @import './variable';
+@import '../variables.scss';
 .bottom-nav{  
     width: 100%;
     background-color: #000;
@@ -26,10 +27,11 @@
   }
 
   .footer{
-    padding: 1rem 0;    
+    padding: 1rem 50px 0 50px ;    
     background-color: #000;
     width: 100%;
     height: auto;
+    
   }
  
   
@@ -79,13 +81,17 @@
     padding-left: 15px;
     border-left: 1px solid;
     color: #ffffff;
-    font-size: 12px ; 
+    font-size: 12 px ; 
 }
 .reach{
   background-color: #707070;
   position: relative;
   height: auto;
-  padding: 48px 0; 
+  padding: 48px 130px !important; 
+  
+  @include tablet{
+    padding: 50px !important;
+  }
 }
 
 .reach p{
@@ -103,28 +109,38 @@
   font-weight: bold;
   color: #fff;
   margin: 0;
+  &::after{
+    @include after;
+    margin: 5px 0 10px 0;
+  }
 }
 .reach h2::after{
   @include after; 
   height: 9px;
-  margin: 5px 0 10px 0;
-}
 
- 
+}
 
 .information{
   background-color: #fff;
   width: 570px;
-  height: 294px;
   position: absolute;
   bottom: 48px;
   border: solid 1px #f7f7f7;
-  right: 12.75%;
+  right: 130px;
   padding: 30px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  @include tablet{
+    margin-top: 30px ;
+  }
 
-
- 
+.same-btn{
+    line-height: 1.33;
+    font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+    font-size: 15px;
+    color:#000;
+    margin: 0;
+} 
 .userName{
   display: flex;
 }
@@ -162,7 +178,9 @@
 
 .reach-Submit{
   display: flex;
-  padding-top: 1rem;
+
+  align-items: center;
+  margin-top: 20px;
 }
 
 .reach-Submit p{

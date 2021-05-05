@@ -4,7 +4,7 @@ import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Reset = () => {
-    const url = 'http://localhost:8000/users/forget/password';
+    const url = `${process.env.REACT_APP_BASE_URL}/users/forget/password`;
 
     const history = useHistory();
     const [rePassword, setConfirmPassword] = React.useState(null);
@@ -44,7 +44,7 @@ const Reset = () => {
             if (data.status == 1 && res.status == 200) {
                 localStorage.removeItem("email");
                 localStorage.removeItem("phone");
-                history.push('/login1');
+                history.push('/login');
             }
         } catch (error) {
             console.log(error)
@@ -56,7 +56,7 @@ const Reset = () => {
             <div
                 className="loginx"
                 style={{
-                    background: "url(assets/images/login.png)",
+                    background: "url(/Assets/images/login.png)",
                     height: "100vh",
                     backgroundSize: "cover",
                 }}
