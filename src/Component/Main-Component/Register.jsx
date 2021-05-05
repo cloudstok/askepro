@@ -90,24 +90,11 @@ const Login2 = () => {
           
           </Form.Field>
         
-<<<<<<< Updated upstream
-          <span class="fgt1">
-             <a href="#">Resend in 01:45</a>
-          </span>
-          */}
-          
-          <button className="form-btn" type="submit">Submit</button>
-          <span class="fgt2">
-             <a href="#">Already an existing customer? Login here</a>
-          </span>
-        </Form>
-=======
         <button className="form-btn" type="submit">Submit</button>
         <span class="fgt2">
            <a href="javascript:void(0);" onClick={() => history.push('/login')}>Already an existing customer? Login here</a>
         </span>
       </Form>
->>>>>>> Stashed changes
       </div>
 
     </>    

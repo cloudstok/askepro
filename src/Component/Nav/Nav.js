@@ -1,9 +1,7 @@
 import React, {useState, useEffect, Component } from "react";
-import {Link} from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
 import ToggleNav from "../toggle_nav";
-import { withRouter } from 'react-router-dom';
 
 const options = [
   { text: "Wiiliam", value: "William" },
@@ -50,13 +48,10 @@ export function Nav() {
 
 
 
-class MenuBar extends Component {
+export default class MenuBar extends Component {
   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => {
-    e.preventDefault();
-    this.setState({ activeItem: name });
-  };
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state
@@ -64,31 +59,28 @@ class MenuBar extends Component {
     return (
       <div>
         <Menu pointing secondary>
-         <Link to='/'> <Menu.Item
+         <Link></Link> <Menu.Item
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
-          /></Link>
-           <Link to='/service'><Menu.Item
+          />
+           <Menu.Item
             name='services'
             active={activeItem === 'services'}
             onClick={this.handleItemClick}
-          /></Link>
-          <Link to='/about'><Menu.Item
+          />
+          <Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
-          /></Link>
-          <Link to='/contact'><Menu.Item
+          />
+          <Menu.Item
             name='contact'
             active={activeItem === 'contact'}
             onClick={this.handleItemClick}
           />
-          </Link>
         </Menu>
         </div>
     )
   }
 }
-
-export default withRouter(MenuBar);
