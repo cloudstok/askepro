@@ -84,14 +84,6 @@ export function Nav() {
 }
 
 
-<<<<<<< HEAD
-
-export default class MenuBar extends Component {
-  state = { activeItem: 'home' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-=======
 export default class MenuBar extends Component {
   state = { activeItem: newLocation[1], homeIndex: newLocation[0] }
 
@@ -103,21 +95,12 @@ export default class MenuBar extends Component {
     else
       this.setState({ activeItem: name })
   }
->>>>>>> ff5d18cdfb27232ee47ee88dea721458d81e4aae
   render() {
     const { activeItem, homeIndex } = this.state
 
     return (
       <div>
         <Menu pointing secondary>
-<<<<<<< HEAD
-         <Link></Link> <Menu.Item
-            name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
-          />
-           <Menu.Item
-=======
           <Link to='/'>
             <Menu.Item
               name='home'
@@ -125,35 +108,21 @@ export default class MenuBar extends Component {
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/service"><Menu.Item
->>>>>>> ff5d18cdfb27232ee47ee88dea721458d81e4aae
             name='services'
             active={activeItem === 'service'}
             onClick={this.handleItemClick}
-<<<<<<< HEAD
-          />
-          <Menu.Item
-=======
           /></Link>
           <Link to="/about"><Menu.Item
->>>>>>> ff5d18cdfb27232ee47ee88dea721458d81e4aae
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
           />
-<<<<<<< HEAD
-          <Menu.Item
-            name='contact'
-            active={activeItem === 'contact'}
-            onClick={this.handleItemClick}
-          />
-=======
           </Link>
           <Link to="/contact"><Menu.Item
             name='contact'
             active={activeItem === 'contact'}
             onClick={this.handleItemClick}
           /></Link>
->>>>>>> ff5d18cdfb27232ee47ee88dea721458d81e4aae
         </Menu>
       </div>
     )
