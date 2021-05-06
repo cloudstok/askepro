@@ -2,7 +2,7 @@ import { base_url } from "../constants/const";
 
 
 //Getting Data
-export const getData = async ({token, endpoint}) =>{
+export const getData = async ({token, endpoint, query}) =>{
         const response = await fetch(base_url+endpoint, {
         method:'get',
         headers:{
@@ -15,7 +15,7 @@ export const getData = async ({token, endpoint}) =>{
 }
 
 //Posting Data 
-export const setData = async ({state, endpoint, token}) => {
+export const setData = async ({data, endpoint, token}) => {
         try{
         const response = await fetch(base_url+endpoint, {
                 method: 'post',
@@ -23,7 +23,7 @@ export const setData = async ({state, endpoint, token}) => {
                 'Content-Type': 'application/json',
                 'x-access-token': token,
                 },
-                body: JSON.stringify({state})
+                body: JSON.stringify({data})
         })
         const data = await response.json();
         return data;
@@ -31,16 +31,14 @@ export const setData = async ({state, endpoint, token}) => {
         catch(error)
         {
                 console.log(error);
-        }
-        
+        }  
 }
 
 
-
 //Deleting Data
-export const deleteData = async ({endpoint, id, token}) =>{
+export const deleteData = async ({endpoint, query, token}) =>{
         try{
-        const response = await fetch(base_url+endpoint+id, {
+        const response = await fetch(base_url+endpoint+query, {
         method: 'delete',
         headers: {
                 'Content-Type': 'application/json',
@@ -76,3 +74,7 @@ export const updateData =async ({state, endpoint, token})=>{
                 }
                 
   }
+
+
+//Checking the headerfunction
+
