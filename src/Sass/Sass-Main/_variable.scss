@@ -113,13 +113,15 @@ $gradient: linear-gradient(
     width: 100%;
     height: auto;
   }
-  .team .team-name {
+  .team{
+    width: 100%;
+  team-name {
     text-align: right;
+    }
   }
-
   /* //about section// */
   .about {
-    height: auto;
+    height: 115vh; 
     .about-content {
       text-align: center;
       left: 0%;
@@ -268,9 +270,13 @@ $gradient: linear-gradient(
     width: 110px;
   }
   .about {
-    height: 90vh;
+    height: 135vh; 
   }
-
+  .team .about-card{
+    width: auto;
+    height: auto;
+  }  
+  
   .loginx {
     padding: 15px;
     .loginx_form,

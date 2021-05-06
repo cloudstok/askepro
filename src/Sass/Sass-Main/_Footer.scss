@@ -84,7 +84,7 @@
     font-size: 12 px ; 
 }
 .reach{
-  background-color: #707070;
+  background-color: #707070;  
   position: relative;
   height: auto;
   padding: 48px 130px !important; 
@@ -100,7 +100,11 @@
   font-size: 16px;
   font-weight: normal;
   line-height: 1.25;
-  font-family: Helvetica; 
+  font-family: Helvetica;
+  }
+  .reach_break{
+    padding-bottom: 20px;
+  
 }
 .reach h2{
   font-size: 44px;
@@ -112,13 +116,10 @@
   &::after{
     @include after;
     margin: 5px 0 10px 0;
+    height: 9px;
   }
 }
-.reach h2::after{
-  @include after; 
-  height: 9px;
 
-}
 
 .information{
   background-color: #fff;
@@ -149,23 +150,19 @@
   border-radius: 5px;
   width: 50%;
   margin-right: 0.70rem;
-  border: solid 1px #f7f7f7;
-  background-color: #ffffff;
+  background-color: red;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 }
 .email{
   padding: 1rem;
   width: 50%;
   border-radius: 5px;
-  border: solid 1px #f7f7f7;
-  background-color: #ffffff;
 }
 .placeholder{
   margin: 10px 0;
   border-radius: 5px;
   width: 100%;
   padding: 1rem;
-  border: solid 1px #f7f7f7;
-  background-color: #ffffff;
 }
 .information p{
   color: #9b9b9b;

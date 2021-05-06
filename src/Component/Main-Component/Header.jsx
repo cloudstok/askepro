@@ -59,7 +59,7 @@ export default class MenuExampleBasic extends Component {
           <button className="same-btn"> LOGIN</button> 
             </div>
           <div className="Btn-Item">
-          <button basic color='black' className="same-btn">
+          <button className="s-btn">
               APPLY NOW
              </button>
              
