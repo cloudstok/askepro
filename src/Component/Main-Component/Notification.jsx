@@ -4,11 +4,14 @@ import '../../Sass/Sass-Main/_home.scss';
 
 
 const Notification = () => {
-  const [show,setShow]=useState(true);
+  const [showText, setShowText]=useState(true);
    
   return(
         <>
+      {showText &&  
       <div className="banner3">
+      
+      
         <img src="Assets/images/covid-19.png"/>
           <div className="pop_content">
             <h6>Covid-19 Guidelines & Updates</h6>
@@ -20,7 +23,7 @@ const Notification = () => {
           </div>
           <div className="pop_btn">
             <div className="cancel-tab">
-            <button onclick={()=>setShow(false)}>
+            <button style={{border:'none'}} onClick={() => setShowText(!showText)} > 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -39,7 +42,7 @@ const Notification = () => {
           </div>  
           
         </div>
-
+      }
         </>
     );
 }
