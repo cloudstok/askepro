@@ -2,45 +2,56 @@ import _ from 'lodash';
 import React from 'react';
 import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
+
+const initialValues = {
+  name:"",
+  phone:"",
+  email:"",
+  password:""
+};
 
 const Login2 = () => {
   const url = `${process.env.REACT_APP_BASE_URL}/create`;
+  const history = useHistory();
+  const formik = useFormik({
+    initialValues,
+    validationSchema:Yup.object({
+      name: Yup.string()
+        .max(50, 'Must be 50 characters or less')
+        .required('Required'),
+      phone: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      email: Yup.string().email('Invalid email address').required('Required'),
+      password: Yup.string()
+      .min(6, "Password must be greater than 6 characters")
+      .required('Required')
 
-    const history = useHistory();
-    const [name, setName] = React.useState(null);
-    const [phone, setPhone] = React.useState(null);
-    const [email, setEmail] = React.useState(null);
-    const [password, setPassword] = React.useState(null);
-
-    const doUserCreate = async (event) => {
-      event.preventDefault();
-
-      const jsonPostData = {
-        'name': name,
-        'phone': parseInt(phone),
-        'email': email,
-        'password': password
-      }
+    }),
+    onSubmit: async values => {
+      alert(JSON.stringify(values, null, 2));
 
       const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jsonPostData)
-      });
-
-      const data = await res.json();
-
-      if (data.status == 1 && res.status == 200) {
-        history.push('/login');
-      }else {
-        alert(data.msg);
-      }
-  
-
-    };
+      method: 'POST',
+       headers: {
+             'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(values), 
+           });
+    
+           const data = await res.json();
+    
+           if (data.status == 1 && res.status == 200) {
+             history.push('/login');
+           }else {
+          alert(data.msg);
+           }
+    },
+  });
 
     return (
       <>
@@ -52,23 +63,27 @@ const Login2 = () => {
             backgroundSize: "cover",
           }}
         >
-          <Form className="loginx_form2" onSubmit={doUserCreate}>
+          <Form className="loginx_form2" onSubmit={formik.handleSubmit}>
             <h3>Create an Account</h3>
             <Form.Field>
               <label>Name</label>
-              <input onChange={(event) => setName(event.target.value)} placeholder="Enter your name" />
+              <input type="text" id="name" name="name" value={formik.values.name} onChange={formik.handleChange} placeholder="Enter your name" />
+              {formik.touched.name && formik.errors.name ? (<div>Hello world</div>) : null}
             </Form.Field>
             <Form.Field>
               <label>Mobile Number</label>
-              <input onChange={(event) => setPhone(event.target.value)} placeholder="Enter your mobile number" />
+              <input type="text" id="phone" name="phone" value={formik.values.phone} onChange={formik.handleChange} placeholder="Enter your mobile number" />
+              {formik.touched.phone && formik.errors.phone ? ( <div>{formik.errors.phone}</div>) : null}
             </Form.Field>
             <Form.Field>
               <label>Email</label>
-              <input onChange={(event) => setEmail(event.target.value)} placeholder="Enter your Email Address" />
+              <input type="email" id="email" name="email" value={formik.values.email} onChange={formik.handleChange} placeholder="Enter your Email Address" />
+              {formik.touched.email && formik.errors.email ? ( <div>{formik.errors.email}</div>) : null}
             </Form.Field>
             <Form.Field>
               <label>Password</label>
-              <input onChange={(event) => setPassword(event.target.value)} type="password" placeholder="Enter Password" />
+              <input type="password" id="password" name="password" value={formik.values.password} onChange={formik.handleChange} placeholder="Enter Password" />
+              {formik.touched.password && formik.errors.password ? ( <div>{formik.errors.password}</div>) : null}
             </Form.Field>
             {/*
           <Form.Field>
@@ -84,15 +99,6 @@ const Login2 = () => {
           </div>
           
           </Form.Field>
-<<<<<<< HEAD
-        
-        <button className="form-btn" type="submit">Submit</button>
-        <span class="fgt2">
-           <a href="javascript:void(0);" onClick={() => history.push('/login')}>Already an existing customer? Login here</a>
-        </span>
-      </Form>
-      </div>
-=======
           <span class="fgt1">
              <a href="#">Resend in 01:45</a>
           </span>
@@ -103,7 +109,6 @@ const Login2 = () => {
             </span>
           </Form>
         </div>
->>>>>>> ff5d18cdfb27232ee47ee88dea721458d81e4aae
 
       </>
     );
