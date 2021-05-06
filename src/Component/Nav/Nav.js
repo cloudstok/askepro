@@ -73,8 +73,8 @@ export function Nav() {
               </div>
               :
               <div className="action-group">
-                <Link to="/login"><button className="btn-login">LOGIN</button></Link>
-                <Link to="/apply"><button className='btn-apply'>APPLY NOW</button></Link>
+                <Link to="/login"><button className="same-btn" style={{marginRight:'30px'}}>LOGIN</button></Link>
+                <Link to="/apply"><button className='same-btn'>APPLY NOW</button></Link>
               </div>
           }
         </nav>
