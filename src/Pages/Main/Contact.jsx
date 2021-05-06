@@ -7,7 +7,10 @@ import Crumb from '../../Component/Main-Component/Crumb';
 const Contact = () => {
     return(
         <>
-        <Crumb />
+        <Crumb section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'Contact', active:true }
+                 ]}/>
         <div class="contact" style={{ background: `url(${process.env.PUBLIC_URL + '/Assets/images/contact-bg.png'})`,backgroundSize: 'cover' }}>  
         
 

@@ -35,12 +35,13 @@ export default class AccordionExampleFluid extends Component {
 
       <>
 
-        <Container>
+      <Container>
           <div className="accordion">
+          
             <h1 className="headingOne">Frequently Asked Questions</h1>
            
           </div>
-          <Accordion fluid>
+          <Accordion>
             {this.state.data.map((el,index) =>
               <div className="accordion_section">
                 <Accordion.Title
@@ -76,6 +77,7 @@ export default class AccordionExampleFluid extends Component {
           <Link to="/apply"><button className="same-btn">
               APPLY NOW
             </button></Link>
+       
           </div>
         </Container>
       </>

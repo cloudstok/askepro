@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
+import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 const Account = () => {
   const history = useHistory();
 
@@ -40,8 +41,13 @@ const Account = () => {
   }
   return (
     <>
+    
       <div className="account_wrapper">
         <Container>
+        <BreadCrumbs section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'My Account', active:true }
+                 ]}/>
           <div className="account">
             <h4>Account Overview</h4>
           </div>

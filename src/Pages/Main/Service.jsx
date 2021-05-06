@@ -12,7 +12,10 @@ import Crumb from '../../Component/Main-Component/Crumb';
 const Service = () => {
     return (
         <>
-        <Crumb />
+          <Crumb section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'Service', active:true }
+                 ]}/>
         <div className="service-banner">
       
         <img src={process.env.PUBLIC_URL + '/Assets/images/banner.png'} />

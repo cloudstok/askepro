@@ -43,15 +43,15 @@ body {
     margin-top: 1.5rem;
   }
   .cancel-tab {
-    top: 0;
+    top: 2px;
     position: absolute;
-    right: 5px;
+    right: 2px;
     height: 30%;
     display: block;
+    cursor: pointer;
+    border: none;
   }
-  .cancel-tab a {
-    text-decoration: none;
-  }
+  
 }
 .banner4 {
   position: absolute;
@@ -61,10 +61,9 @@ body {
   text-align: center;
 }
 
-.our_services{
-  padding: 50px ;
-  margin-top: 100px;
 .service_heading {
+
+  margin: 129px 50px 0 50px;
   h1 {
     &::after {
       @include after;
@@ -73,6 +72,8 @@ body {
     }
   }
 }
+.visa_container{
+  margin: 0 50px;
 }
 
 /* section 3 */
@@ -163,6 +164,7 @@ body {
   font-size: 15px;
   border-radius: 20px;
   background-color: #fff;
+  cursor: pointer;
 }
 .same-btn:hover {
   background: rgb(199, 160, 6);
@@ -572,7 +574,7 @@ body {
 
 .accordion {
   text-align: center;
-  margin: 38px 0 20px 0;
+  margin: 38px  0 20px 0;
   border: none;
   h1 {
     &::after {
@@ -613,8 +615,7 @@ body {
   .banner-content {
     position: absolute;
     top: 10%;
-    left: 7.3%;
-    transform: translate(100px, 100px);
+    transform: translate(50px, 100px);
   }
 
   p {
@@ -660,8 +661,9 @@ body {
   }
 }
 .question {
+    display: grid;
+    justify-items: center;
   .same-btn {
-    margin-left: 44%;
     margin-bottom: 126px;
   }
 }

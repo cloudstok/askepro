@@ -23,7 +23,7 @@ const Notification = () => {
           </div>
           <div className="pop_btn">
             <div className="cancel-tab">
-            <button style={{border:'none'}} onClick={() => setShowText(!showText)} > 
+            <button onClick={() => setShowText(!showText)} > 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

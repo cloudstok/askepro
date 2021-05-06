@@ -10,17 +10,11 @@ const sections = [
 ]
 
 
-const Crumb = () => {
+const Crumb = ({section}) =>{
   return (
-    <>
-      <Container>
-        <div className="crumb">
-        <Breadcrumb icon='right angle' sections={sections} />
-        </div>
-        
-      </Container>
-    </>
-  );
-};
-
+    <div className='crumb'>
+  <Breadcrumb icon='right angle' sections ={section} />
+  </div>
+  )
+}
 export default Crumb;

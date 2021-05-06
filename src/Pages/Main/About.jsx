@@ -7,7 +7,12 @@ import '../../Sass/Sass-Main/_About.scss';
 const About = () => {
   return (
     <>
-      <Crumb />
+    <div className="about_crumb">
+      <Crumb section={[
+                        {key:'home', content:'Home', link:true },
+                        {key:'apply', content:'About', active:true }
+                 ]}/>
+      </div>
       <div className="about" >
       <img className="about_bg" src={process.env.PUBLIC_URL + '/Assets/images/texture.png'} />
 
@@ -19,6 +24,7 @@ const About = () => {
           <h1 className="headingOne">About</h1>
 
           <p>
+          <Container text>
             With an objective of successfully set-up businesses in UAE, Askepro was established in 2021, in Dubai. With a streamlined approach, we ensure that all our experienced consultants help you navigate through all
             the processes that are needed to relocate, establish or start a venture from scratch. Cost-effectiveness
             and transparent communication are constantly emphasised on because our business’s success lies in
@@ -30,7 +36,7 @@ const About = () => {
             forward.<br/><br/>
             Experience success with UAE and take your business to new heights with Askepro.<br/><br/>
             Contact us, today!
-
+            </Container>      
           </p>
         </div>
       </div>
