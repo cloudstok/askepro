@@ -78,3 +78,8 @@ export const updateData =async ({state, endpoint, token})=>{
 
 //Checking the headerfunction
 
+// function makeHeader(token){
+//         if(token!==""){
+//                 return 'x-access-token': token
+//         }
+// }

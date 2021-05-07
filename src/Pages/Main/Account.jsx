@@ -43,7 +43,7 @@ const Account = () => {
     <>
     
       <div className="account_wrapper">
-        <Container>
+        <Container fluid style={{padding:"0 50px"}}>
         <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'My Account', active:true }
