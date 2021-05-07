@@ -41,15 +41,8 @@ const Account = () => {
   }
   return (
     <>
-<<<<<<< HEAD
-    
-      <div className="account_wrapper">
-        <Container fluid style={{padding:"0 50px"}}>
-        <BreadCrumbs section={[
-=======
      <div className='account_breadcrumb'>
      <BreadCrumbs section={[
->>>>>>> 007341dbe01330843e028d75ffa51aee952cf19c
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'My Account', active:true }
                  ]}/>

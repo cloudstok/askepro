@@ -22,7 +22,6 @@ import Service from './Pages/Main/Service';
 import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
-
 import Login from './Component/Main-Component/Login'; 
 import Register from './Component/Main-Component/Register'; 
 import Fgpasswd from './Component/Main-Component/Fgpasswd'; 

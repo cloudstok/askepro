@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "./variable";
 
-
 .about { 
   padding-bottom: 52px;
   position: relative;
@@ -363,7 +362,7 @@
 }
 .loginx_form2 {
   @include login_property;
-  height: 512px;
+  height: auto;
   h4{
     font-size: 14px;
     font-weight: 500;
@@ -371,6 +370,20 @@
     text-align: center;
   }
 }
+
+.error{
+  width: 100%;
+  height: 20px;
+  background-color: rgba(229, 24, 26, 0.1);
+  border-radius: 4px;
+  margin: 8px 0; 
+    p{
+      font-size: 12px !important;
+      font-weight: 500;
+      padding:0 10px;
+      color: #e5181a;
+    }
+ }
 
 /* login form3  sass */
 .loginx_form3 {

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from "react";
 import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
@@ -27,8 +26,6 @@ const Username = () => {
       .min(8, "Passwords must be at least 8 characters in length")
       .required('Required')
     }),
-
-
 
 
     onSubmit: async values => {
