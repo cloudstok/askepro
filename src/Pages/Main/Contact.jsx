@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Container } from "semantic-ui-react";
-
+import Notification from '../../Component/Main-Component/Notification';
 import Footer from '../../Component/Main-Component/Footer';
 
 import Crumb from '../../Component/Main-Component/Crumb';
@@ -52,6 +52,7 @@ const Contact = () => {
     </div>
     </Container>
     <Footer />
+    <Notification />
         </>
     );
 } 

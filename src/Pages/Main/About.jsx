@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
 import Crumb from '../../Component/Main-Component/Crumb';
+import Notification from '../../Component/Main-Component/Notification';
 import '../../Sass/Sass-Main/_About.scss';
 
 const About = () => {
@@ -106,6 +107,7 @@ const About = () => {
       </div>
 
       <Footer />
+      <Notification />
     </>
   );
 };

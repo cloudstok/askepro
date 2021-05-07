@@ -43,13 +43,13 @@ body {
     margin-top: 1.5rem;
   }
   .cancel-tab {
-    top: 2px;
+    top: 0px;
     position: absolute;
-    right: 2px;
+    right: 0;
     height: 30%;
     display: block;
     cursor: pointer;
-    border: none;
+
   }
   
 }
@@ -518,7 +518,7 @@ body {
   }
   .dashed_line{
     position: absolute;
-    top: 50%;
+    top: 47%;
     margin:0 auto;
     left:0;
     right: 0;

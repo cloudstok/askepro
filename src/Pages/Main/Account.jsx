@@ -41,13 +41,16 @@ const Account = () => {
   }
   return (
     <>
-    
-      <div className="account_wrapper">
-        <Container>
-        <BreadCrumbs section={[
+     <div className='account_breadcrumb'>
+     <BreadCrumbs section={[
                         {key:'home', content:'Home', link:true },
                         {key:'apply', content:'My Account', active:true }
                  ]}/>
+    </div> 
+      <div className="account_wrapper">
+        
+        <Container fluid>
+       
           <div className="account">
             <h4>Account Overview</h4>
           </div>
