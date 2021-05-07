@@ -33,7 +33,7 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-import username from './Component/Main-Component/username';
+import Username from './Component/Main-Component/Username';
 
 function App() {
   const [token, setToken] =  useState();
@@ -69,7 +69,7 @@ function App() {
                 <Route exact path='/application'><ManageApplication title='Manage Applications'/></Route>
                 <Route exact path='/appointment'><ManageAppointments title='Manage Appointments'/></Route>
                 <Route exact path="/" component={Home} />
-                {/* <Route exact path="user" component={username} /> */}
+                <Route exact path="/user" component={Username} />
           </Switch>
       </Router>      
       </>
