@@ -1,9 +1,36 @@
 import React from "react";
+import { useParams } from "react-router";
 import { Container, Icon, Step, Grid, Table, Segment } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import '../../Sass/Sass-Main/_View_details.scss';
-
+import { useHistory } from 'react-router';
 const View_details = () => {
+  const history = useHistory();
+
+
+  
+  const [application, setApplication] = React.useState(null);
+
+  React.useEffect(() => { getUser() }, []);
+  let {requestId} = useParams();
+  console.log(`${process.env.REACT_APP_BASE_URL}/service/${requestId}`);
+  const getUser = async () => {
+    if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); }
+    else {
+      let application = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/service/${requestId}`,
+          {
+            method: "GET"
+          })).json();
+
+      setApplication(application|| []);
+    }
+  }
+  if (!application) {
+    return (<div></div>);
+  }
+console.log(application);
   return (
     <>
 
@@ -15,17 +42,17 @@ const View_details = () => {
         <Table.Row>
           <Table.Cell>
             <h6>Date</h6>
-            <p>22/01/2021</p>
+            <p>{application.createdAt}</p>
           </Table.Cell>
 
           <Table.Cell>
             <h6>Service Id</h6>
-            <p>BJXCR34</p>
+            <p>{application.serviceCategory.scode}</p>
           </Table.Cell>
 
           <Table.Cell>
             <h6>Service Name</h6>
-            <p>Emirates ID</p>
+            <p>{application.serviceCategory.name}</p>
           </Table.Cell>
 
           <Table.Cell>
@@ -46,7 +73,7 @@ const View_details = () => {
           <Table.Cell>
             <h6>Status</h6>
             <p>
-              <StatusChip value="Success" />
+              <StatusChip value={application.status} />
             </p>
           </Table.Cell>
         </Table.Row>
@@ -129,14 +156,14 @@ const View_details = () => {
               
                 <div className="appoint2">
                   <div className="date">
-                    <span className="number">23</span>
-                    <span className="jan">JAN 21</span>
+                    <span className="number">{application.appointment && application.appointment.appt_date}</span>
+                    <span className="jan">{application.appointment && application.appointment.appt_month} {application.appointment && application.appointment.appt_year}</span>
                   </div>
                   <div className="upcoming">
-                    <span className="done_info">UPCOMING</span>
+                    <span className="done_info">{application.appointment && application.appointment.status}</span>
                     <br />
-                    <p>Appointment with AMER executive in Dubai Media City</p>
-                    <span className="minute">11:00 - 12:00 </span>
+                    <p>{application.appointment && application.appointment.title}</p>
+                    <span className="minute">11:00 - 12:00</span>
                   </div>
                 </div>
             
@@ -146,27 +173,11 @@ const View_details = () => {
             <Grid.Column>
          
           
-                  <div className="details_3_outer">
-                <div className="details_3">
-                               <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
-                  <p>Emirates ID.jpg</p>
-                </div>
-                <div className="details_3">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
-                  <p>Special ID.jpg</p>
-                </div>
-                <div className="details_3">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
-                  <p>GDFRA permit.jpg </p>
-                </div>
-                <div className="details_3">
-                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
-                  <p>Entry Permit.jpg</p>
-                </div>
-                <div className="details_3">
-                  <img src={process.env.PUBLIC_URL + '/Assets/images/point.png'} />
-                  <p>XYZ government ID.jpg</p>
-                </div>
+                 <div className="details_3_outer">
+                {application.docs.map((ele)=><div className="details_3">
+                               <img src={ele.binary} />
+                  <p>{ele.name}</p>
+                </div>)}
                 </div>
               
                
@@ -175,24 +186,27 @@ const View_details = () => {
             <Grid.Column>
            
      
-                <div className="vertical_step4">
+   <div className="vertical_step4">
                   <div className="vertical_step4_inner1">
                     <div>
                       <h6>Name</h6>
-                      <p>Vikas Khana </p>
+                      <p>{application.name}</p>
                     </div>
                     <div>
-                      <h6>Address</h6>
-                      <p>
-                        B 3/ 41, 4th Floor, Greenfileds CHS, Anheri East,
-                        Mumbai, Maharastra, India Pin - 430092
-                      </p>
-                    </div>
-                  </div>
-                  <div className="vertical_step4_inner2">
                     <h6>Date of Birth</h6>
-                    <p>14 Sep 1987</p>
+                    <p>{application.dob}</p>
                   </div>
+                    { application.otherAddress.map((ele)=> <div>
+                      <h6>{ele.alias} Address</h6>
+                      <p>
+                      {ele.addressLineOne} <br></br>
+                      {ele.addressLineTwo} <br></br>
+                      {ele.city} {ele.state} <br></br>
+                      {ele.country}
+                      </p>
+                    </div>)}
+                  </div>
+                  
                 </div>
              
              
@@ -202,14 +216,14 @@ const View_details = () => {
             <div  className="view_segment3">
            
                 <div className="company_formation1">
-                  <h5>Company Formation Services</h5>
+                  <h5>{application.serviceCategory.name}</h5>
                 </div>
                 <div className="company_formation2">
                   <Table  basic='very'>
                       <Table.Row>
                     <Table.Cell>
                       <h6>Date</h6>
-                      <p>22/01/2021</p>
+                      <p>{application.createdAt}</p>
                     </Table.Cell>
 
                 
@@ -231,7 +245,7 @@ const View_details = () => {
 
                     <Table.Cell>
                       <p className="total_amoint_1">Status</p>
-                      <p className="total_amoint_2">350 AED</p>
+                      <p className="total_amoint_2">{application.status}</p>
                     </Table.Cell>
                     </Table.Row>
                   </Table>

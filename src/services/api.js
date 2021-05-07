@@ -2,7 +2,7 @@ import { base_url } from "../constants/const";
 
 
 //Getting Data
-export const getData = async ({token, endpoint, query}) =>{
+export const getData = async (endpoint,token, query) =>{
         const response = await fetch(base_url+endpoint, {
         method:'get',
         headers:{
@@ -15,7 +15,7 @@ export const getData = async ({token, endpoint, query}) =>{
 }
 
 //Posting Data 
-export const setData = async ({data, endpoint, token}) => {
+export const setData = async (endpoint, body, token) => {
         try{
         const response = await fetch(base_url+endpoint, {
                 method: 'post',
@@ -23,7 +23,7 @@ export const setData = async ({data, endpoint, token}) => {
                 'Content-Type': 'application/json',
                 'x-access-token': token,
                 },
-                body: JSON.stringify({data})
+                body: JSON.stringify(body)
         })
         const data = await response.json();
         return data;
@@ -36,7 +36,7 @@ export const setData = async ({data, endpoint, token}) => {
 
 
 //Deleting Data
-export const deleteData = async ({endpoint, query, token}) =>{
+export const deleteData = async (endpoint, query, token) =>{
         try{
         const response = await fetch(base_url+endpoint+query, {
         method: 'delete',
@@ -56,7 +56,7 @@ export const deleteData = async ({endpoint, query, token}) =>{
 
 
 //Updating Data
-export const updateData =async ({state, endpoint, token})=>{
+export const updateData =async (endpoint,state, token)=>{
                 try{
                 const response = await fetch(base_url+endpoint, {
                 method: 'put',

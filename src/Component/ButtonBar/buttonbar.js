@@ -18,7 +18,7 @@ const ButtonBar = () => {
             }
         }
 
-    });
+    },[]);
 
     return (
         <div className="button-group">

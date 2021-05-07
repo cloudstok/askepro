@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useFormik, useformik} from 'formik';
+import { useFormik, useformik } from 'formik';
 import { useHistory } from "react-router";
 import {
   Container,
@@ -18,11 +18,8 @@ function ApplyStepper() {
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
   const [services, setServices] = React.useState(null);
   const history = useHistory();
-  const [picked, setPicked] = useState('');
-  console.log(picked);
-  // const initialValues={
-  //   picked:''
-  // }
+
+
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
   React.useEffect(() => {
@@ -40,19 +37,19 @@ function ApplyStepper() {
     }));
     setServices(serviceData);
   };
-  
-  //Radio Button Check/Uncheck
-    const [isChecked, setIsChecked] = React.useState(false);
-    const handleChange  = (e) =>{
-        setIsChecked(prevCheckedValue => !prevCheckedValue); 
-    }
 
-    // const formik =useFormik({
-    //   initialValues,
-    //   onSubmit:(values)=>{
-    //     alert(JSON.stringify(values, null, 2));
-    //   }
-    // });
+  //Radio Button Check/Uncheck
+  const [isChecked, setIsChecked] = React.useState(false);
+  const handleSubmit = (name) => {
+    localStorage.setItem("serviceName",name);
+  }
+
+  // const formik =useFormik({
+  //   initialValues,
+  //   onSubmit:(values)=>{
+  //     alert(JSON.stringify(values, null, 2));
+  //   }
+  // });
 
   return (
     <main>
@@ -70,19 +67,19 @@ function ApplyStepper() {
           <div className="form">
             <Grid columns="3" stackable="mobile">
               <Grid.Row>
-              {services &&
-                    services.map((service) =>
-                <Grid.Column>
-                  <form>
-                        <div class="checkbox p-default p-round pretty">
-                        <input type="radio" name="picked" onClick={() => setPicked(service.value) }/>
+                {services &&
+                  services.map((service) =>
+                    <Grid.Column >
+
+                      <div class="checkbox p-default p-round pretty">
+                        <input type="radio" name="service_radio" onClick={handleSubmit(service.name)}/>
                         <span class="state">
-                            <label>{service.name}</label>
+                          <label>{service.name}</label>
                         </span>
-                    </div>
-                    </form>
+                      </div>
+
                     </Grid.Column>
-                        )}
+                  )}
               </Grid.Row>
             </Grid>
           </div>

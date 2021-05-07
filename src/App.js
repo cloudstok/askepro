@@ -32,7 +32,7 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-import Username from './Component/Main-Component/Username';
+import Username from './Component/Main-Component/username';
 
 function App() {
   const [token, setToken] =  useState();
@@ -48,6 +48,7 @@ function App() {
                 <Route exact path='/about'><About /></Route>
                 <Route exact path='/contact'><Contact /></Route>
                 <Route exact path='/service/:slug'><Company /></Route>
+                <Route exact path='/view/:requestId' component={View_details}/>
                 <Route exact path='/login'><Login /></Route>
                 <Route exact path='/register'><Register/></Route>
                 <Route exact path='/fgpasswd'><Fgpasswd /></Route>
@@ -55,7 +56,6 @@ function App() {
                 <Route exact path='/account'><Account /></Route>
                 <Route exact path='/reject'><Accept /><Reject /><Verification /></Route>    
                 <Route exact path='/admin' component={Admin_dashboard}/>
-                <Route exact path='/view' component={View_details}/> 
                 <Route exact path='/apply' component={ApplyStepper}/>
                 <Route exact path='/fill' component={FillPage}/>
                 <Route exact path='/upload' component={UploadDocuments}/>

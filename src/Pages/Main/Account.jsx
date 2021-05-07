@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
+import { getData } from "../../services/api";
 const Account = () => {
   const history = useHistory();
 
@@ -12,11 +13,27 @@ const Account = () => {
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
 
-  React.useEffect(() => { getUser() });
+  React.useEffect(() => { getUser() }, []);
   let id = localStorage.getItem('id');
   const getUser = async () => {
     if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); setAdd(0); }
     else {
+      let application = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/service/application/${id}`,
+          {
+            method: "GET"
+          })).json();
+
+
+      let appointment = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/service/appointment/${id}`,
+          {
+            method: "GET"
+          })).json();
+
+
       let user = await (
         await fetch(
           `${process.env.REACT_APP_BASE_URL}/users/${id}`,
@@ -28,29 +45,29 @@ const Account = () => {
           })).json();
 
       user = user.data;
-      console.log(user);
-
+console.log(application);
       setAdd(user.address[0] || []);
-
-      delete user.address;
       setUser(user || []);
+      setApplication(application || []);
+      setAppointment(appointment || []);
     }
   }
-  if (!add || !user) {
+  if (!add || !user || !appointment || !application) {
     return (<div></div>);
   }
+
   return (
     <>
-     <div className='account_breadcrumb'>
-     <BreadCrumbs section={[
-                        {key:'home', content:'Home', link:true },
-                        {key:'apply', content:'My Account', active:true }
-                 ]}/>
-    </div> 
+      <div className='account_breadcrumb'>
+        <BreadCrumbs section={[
+          { key: 'home', content: 'Home', link: true },
+          { key: 'apply', content: 'My Account', active: true }
+        ]} />
+      </div>
       <div className="account_wrapper">
-        
+
         <Container fluid>
-       
+
           <div className="account">
             <h4>Account Overview</h4>
           </div>
@@ -60,7 +77,7 @@ const Account = () => {
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <img src={process.env.PUBLIC_URL + "Assets/images/team.png"}/>
+                      <img src={process.env.PUBLIC_URL + "Assets/images/team.png"} />
                       {" "}
                     </div>
                   </div>
@@ -77,7 +94,8 @@ const Account = () => {
                     <br />
                     <h6>Address</h6>
                     <p>
-                      {add.address} <br></br>
+                      {add.addressLineOne} <br></br>
+                      {add.addressLineTwo} <br></br>
                       {add.city} {add.state} <br></br>
                       {add.country}
                     </p>
@@ -90,7 +108,7 @@ const Account = () => {
               <div className="account_carousel">
                 <p className="carousel_p">
                   Total number of applications <br />
-                  <span className="carousel_number">{0}</span>
+                  <span className="carousel_number">{application.count}</span>
                 </p>
               </div>
             </Grid.Column>
@@ -130,16 +148,16 @@ const Account = () => {
                   </Table.Header>
 
                   <Table.Body>
-                    <Table.Row>
-                      <Table.Cell>22/01/2021</Table.Cell>
-                      <Table.Cell>BJXCR34</Table.Cell>
-                      <Table.Cell>Emirates ID</Table.Cell>
+                    {application.data.map((ele) => <Table.Row>
+                      <Table.Cell>{ele.createdAt}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
                       <Table.Cell>XMBC3457XNT0</Table.Cell>
-                      <Table.Cell><StatusChip value="Success" /></Table.Cell>
+                      <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
-                    </Table.Row>
-                  {/*     <Table.Row>
+                    </Table.Row>)}
+                    {/*     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
                       <Table.Cell>Local Sponsorship Se…</Table.Cell>
@@ -175,7 +193,7 @@ const Account = () => {
                       <Table.Cell>Debit Card</Table.Cell>
                       <Table.Cell textAlign='right'>350.00</Table.Cell>
                     </Table.Row>*/}
-                  </Table.Body> 
+                  </Table.Body>
                 </Table>
               </div>
               {/* <div className="history">
@@ -186,23 +204,23 @@ const Account = () => {
             </Grid.Column>
             <Grid.Column width={5}>
               <div className="user_heading">
-                <h4>Appointments(0)</h4>
+                <h4>Appointments({appointment.count})</h4>
               </div>
-               <Segment className="appointment" style={{ marginTop: '0' }}>
-                <div className="appoint">
+              <Segment className="appointment" style={{ marginTop: '0' }}>
+                {appointment.data.map((ele) => <div className="appoint">
                   <div className="date">
-                    <span className="number">23</span>
-                    <span className="jan">JAN 21</span>
+                    <span className="number">{ele.appt_date}</span>
+                    <span className="jan">{ele.appt_month} {ele.appt_year}</span>
                   </div>
                   <div className="upcoming">
-                    <span className="done_info">UPCOMING</span>
+                    <span className="done_info">{ele.status}</span>
                     <br />
-                    <p>Appointment with AMER executive in Dubai Media City</p>
-                    <span className="minute">11:00 - 12:00 </span>
+                    <p>{ele.title}</p>
+                    <span className="minute">11:00 - 12:00</span>
                   </div>
-                </div>
+                </div>)}
               </Segment>
-            {/*  <Segment>
+              {/*  <Segment>
                 <div className="appoint">
                   <div className="date">
                     <span className="number2">16</span>
