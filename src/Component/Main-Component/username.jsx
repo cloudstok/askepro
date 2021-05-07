@@ -1,21 +1,20 @@
 import React from "react";
 import { Button, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
-import {useFormik} from 'formik';
+import { useFormik} from "formik";
 import * as Yup from 'yup';
 
 
 
 const initialValues = {
     email:"",
-    password:""
+    password:"",
+    checkbox:""
   };
   
-
 const Username = () => {
-    const history = useHistory();
     const url = `${process.env.REACT_APP_BASE_URL}/login`;
-
+    const history = useHistory();
   const formik = useFormik({
     initialValues,
     validationSchema:Yup.object({
@@ -24,7 +23,9 @@ const Username = () => {
         .required('Required'),
       password: Yup.string()
       .min(8, "Passwords must be at least 8 characters in length")
-      .required('Required')
+      .required('Required'),
+      checkbox: Yup.string()
+        .required('Required')
     }),
 
 
@@ -67,15 +68,30 @@ const Username = () => {
           <Form.Field>
             <label>Email</label>
             <input type="email" id="email" name="email" value={formik.values.email} onChange={formik.handleChange} placeholder="Enter your Email Address" />
-              {formik.touched.email && formik.errors.email ? ( <div>{formik.errors.email}</div>) : null}
+              {formik.touched.email && formik.errors.email ? (
+                     <div className="error">
+                     <p>Invalid email</p>
+                 </div>
+              ) : null}
               
           </Form.Field>
           <Form.Field>
             <label> Password</label>
             <input type="password" id="password" name="password" value={formik.values.password} onChange={formik.handleChange} placeholder="Enter Password" />
-              {formik.touched.password && formik.errors.password ? ( <div>{formik.errors.password}</div>) : null}
+              {formik.touched.password && formik.errors.password ? ( 
+                     <div className="error">
+                     <p>Invalid password</p>
+                 </div>
+              ) : null}
           </Form.Field>
-      
+          <Form.Field>
+            <Checkbox label="I’m not a Robot" id='checkbox' name='checkbox' value={formik.values.checkbox} onClick={formik.handleChange} />
+             {formik.touched.checkbox && formik.errors.checkbox? (
+                 <div className="error">
+                     <p>Please check this box if you want to proceed</p>
+                 </div>
+             ) :null}
+          </Form.Field>
           <span class="fgt1">
             <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
           </span>
