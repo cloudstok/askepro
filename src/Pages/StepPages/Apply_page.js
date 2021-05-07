@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import {useFormik, useformik} from 'formik';
 import { useHistory } from "react-router";
 import {
   Container,
@@ -17,6 +18,11 @@ function ApplyStepper() {
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
   const [services, setServices] = React.useState(null);
   const history = useHistory();
+  const [picked, setPicked] = useState('');
+  console.log(picked);
+  // const initialValues={
+  //   picked:''
+  // }
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
   React.useEffect(() => {
@@ -41,6 +47,13 @@ function ApplyStepper() {
         setIsChecked(prevCheckedValue => !prevCheckedValue); 
     }
 
+    // const formik =useFormik({
+    //   initialValues,
+    //   onSubmit:(values)=>{
+    //     alert(JSON.stringify(values, null, 2));
+    //   }
+    // });
+
   return (
     <main>
       <div className="apply-section">
@@ -60,12 +73,14 @@ function ApplyStepper() {
               {services &&
                     services.map((service) =>
                 <Grid.Column>
+                  <form>
                         <div class="checkbox p-default p-round pretty">
-                        <input type="radio" name="service_radio" />
+                        <input type="radio" name="picked" onClick={() => setPicked(service.value) }/>
                         <span class="state">
                             <label>{service.name}</label>
                         </span>
                     </div>
+                    </form>
                     </Grid.Column>
                         )}
               </Grid.Row>
