@@ -67,8 +67,8 @@ const Login2 = () => {
             <h3>Create an Account</h3>
             <Form.Field>
               <label>Name</label>
-              <input type="text" id="name" name="name" value={formik.values.name} onChange={formik.handleChange} placeholder="Enter your name" />
-              {formik.touched.name && formik.errors.name ? (<div>Hello world</div>) : null}
+                <input type="text" id="name" name="name" value={formik.values.name} onChange={formik.handleChange} placeholder="Enter your name" />
+                {formik.touched.name && formik.errors.name ? (<div>Hello world</div>) : null}
             </Form.Field>
             <Form.Field>
               <label>Mobile Number</label>

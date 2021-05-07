@@ -2,14 +2,20 @@
 
 .admin_wrapper2{
     height: 120vh;
+    margin-top: 20px;
+    
 }
-
+.history-main .breadcrumb {
+    padding-left: 0px;
+    padding-top: 24px;
+    }
 .overview5{
     p{
     @include main_heading;
     }
     &:after{
       @include after;
+      margin: 6px 0 10px 0;
 
     }
 }
@@ -63,6 +69,7 @@
     }
     &::after{
         @include after;
+        margin: 6px 0 10px 0;
         position: absolute;
         top: 29px;
         left: 0;
@@ -74,12 +81,10 @@
     }
     
 }   
-.appointment_divider{
-    margin-top: 28px;
-}
+
 .appointment_heading3{
     
-    margin-top: 5rem;
+    padding-top: 28px;
     display: inline-flex;
     margin:0 auto;
     
@@ -87,19 +92,21 @@
         
         @include main_heading;  
         position: relative;
-        margin-bottom: 33px;
-    }
+       
+
     &::after{
         @include after;
-        position: absolute;
-        top: 29px;
-        left: 0;
+        margin: 5px 0 10px;
+            }
     }
   
     .para10{
         margin-left: 16rem;
         cursor: pointer;
         text-decoration: underline;
+     &::after{
+         display: none;
+     }
     }
     
 }   

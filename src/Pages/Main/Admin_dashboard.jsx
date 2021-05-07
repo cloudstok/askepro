@@ -15,9 +15,12 @@ const Admin_dashboard = () => {
   return (
      <main className='manage-main'>
       <SideBar  value='dashboard' active='active'/>
+      
       <div className='history-main'>
       <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true }]}/>
+   
+      
       <div className="admin_wrapper2">
         <Grid stackable columns={2}>
           <Grid.Column width={10}>
@@ -49,7 +52,7 @@ const Admin_dashboard = () => {
             <Grid>
               <Grid.Column>
                 <div className="overview5">
-                  <p>Overview</p>
+                  <p>Revenue Overview</p>
                 </div>
                 <div className="revenue_data">asd</div>
               </Grid.Column>
@@ -75,7 +78,7 @@ const Admin_dashboard = () => {
               </Grid.Column>
             </Grid>
             
-          <div className="appointment_divider">
+         
             <Grid columns>
               <Grid.Column>
               <div className="appointment_heading3">
@@ -91,7 +94,7 @@ const Admin_dashboard = () => {
                 <Request_file />
               </Grid.Column>
             </Grid>
-            </div>
+         
           </Grid.Column>
         </Grid>
       </div>
