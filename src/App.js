@@ -32,7 +32,7 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-import Username from './Component/Main-Component/username';
+import Username from './Component/Main-Component/Username';
 
 function App() {
   const [token, setToken] =  useState();
