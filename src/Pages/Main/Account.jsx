@@ -53,6 +53,7 @@ const Account = () => {
   if ( !user || !appointment || !application) {
     return (<div></div>);
   }
+  console.log(application);
 
   return (
     <>
@@ -92,10 +93,10 @@ const Account = () => {
                     <br />
                     <h6>Address</h6>
                     <p>
-                      {user.address.addressLineOne} <br></br>
-                      {user.address.addressLineTwo} <br></br>
-                      {user.address.city} {user.address.state} <br></br>
-                      {user.address.country}
+                      {user. address && user.address.addressLineOne} <br></br>
+                      {user. address && user.address.addressLineTwo} <br></br>
+                      {user. address && user.address.city} {user. address && user.address.state} <br></br>
+                      {user. address && user.address.country}
                     </p>
                   </div>
                 </div>
