@@ -32,8 +32,9 @@ const Login2 = () => {
         .required("Required"),
     }),
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
 
+
+      values.phone = parseInt(values.phone);
       const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -92,9 +93,9 @@ const Login2 = () => {
               placeholder="Enter your mobile number"
             />
             {formik.touched.phone && formik.errors.phone ? (
-             <div className="error">
-             <p>Invalid Phone number</p>
-           </div>
+              <div className="error">
+                <p>Invalid Phone number</p>
+              </div>
             ) : null}
           </Form.Field>
           <Form.Field>
@@ -108,9 +109,9 @@ const Login2 = () => {
               placeholder="Enter your Email Address"
             />
             {formik.touched.email && formik.errors.email ? (
-           <div className="error">
-            <p>Invalid email</p>
-             </div>
+              <div className="error">
+                <p>Invalid email</p>
+              </div>
             ) : null}
           </Form.Field>
           <Form.Field>
@@ -124,9 +125,9 @@ const Login2 = () => {
               placeholder="Enter Password"
             />
             {formik.touched.password && formik.errors.password ? (
-            <div className="error">
-               <p>Invalid password</p>
-             </div>
+              <div className="error">
+                <p>Invalid password</p>
+              </div>
             ) : null}
           </Form.Field>
           {/*
