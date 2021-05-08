@@ -81,26 +81,20 @@ const Admin_dashboard = () => {
 
               <Grid columns>
                 <Grid.Column>
-             
-
-
-
-
-
-                <div className="appointment_heading3">
-                <Grid columns>
-                  <Grid.Row>
-                    <Grid.Column width={8}>
-                      <p>Document Verification Request(4)</p>
-                    </Grid.Column>
-                    <Grid.Column floated="right" width={3}>
-                      <a href={URL}>
-                        <p className="para9"> VIEW ALL</p>
-                      </a>
-                    </Grid.Column>
-                  </Grid.Row>
-                </Grid>
-              </div>
+                  <div className="appointment_heading3">
+                    <Grid columns>
+                      <Grid.Row>
+                        <Grid.Column width={8}>
+                          <p>Document Verification Request(4)</p>
+                        </Grid.Column>
+                        <Grid.Column floated="right" width={3}>
+                          <a href={URL}>
+                            <p className="para9"> VIEW ALL</p>
+                          </a>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </div>
                   <Request_file />
                   <Request_file />
                   <Request_file />
