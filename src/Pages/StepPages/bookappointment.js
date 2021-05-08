@@ -26,8 +26,8 @@ const BookAppointment = () => {
 
             jsonData = {
                 "day": dates[0],
-                "date": dates[1],
-                "month": dates[2],
+                "date": dates[2],
+                "month": dates[1],
                 "year": dates[3]
             }
             console.log(jsonData)
