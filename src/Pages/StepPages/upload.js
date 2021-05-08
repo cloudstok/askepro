@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Grid, Divider, Form, Button, Input, List } from 'semantic-ui-react';
+import { Container, Header, Grid, Divider, Form, Button, Input, List, Select } from 'semantic-ui-react';
 import Stepper from '../../Component/Stepper/stepper';
 import DataCard from '../../Component/Card/card';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
@@ -9,9 +9,10 @@ import '../StepPages/stepPage.scss';
 import { useHistory } from 'react-router';
 
 const UploadDocuments = () => {
+
     const [fileName, setfilename] = React.useState("");
     const [file, setFile] = React.useState(null);
-    const submitDocs = [];
+    const [docsArray, updateMyArray] = React.useState([]);
     const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
         history.push("/login");
@@ -38,23 +39,29 @@ const UploadDocuments = () => {
     }
     const requestId = localStorage.getItem("applicationId");
     const url = `${process.env.REACT_APP_BASE_URL}/service/upload/${requestId}`;
-    const uploadWithFormData = async () => {
+    const uploadWithFormData = async (event) => {
+        event.preventDefault();
+
+        console.log(file, fileName);
+
         const formData = new FormData();
         formData.append("file", file);
         formData.append("name", fileName);
-
+        console.log(...formData);
         const result = await (await fetch(url, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            },
-            data: formData
+            body: formData
         })).json();
-        console.log(result);
-        if (result.status === 1)
-            submitDocs.push(fileName);
+       
+      if(result.status===1)
+        updateMyArray(oldArray => [...oldArray, fileName]);
     }
+    const handleSubmitForm = (event) => {
+        
+        history.push("/book");
 
+
+    }
     return (
         <main>
             <div className='apply-section'>
@@ -69,21 +76,15 @@ const UploadDocuments = () => {
                             <Stepper />
                             <Divider />
                             <div className='upload-form'>
-                                <Grid column='2' stackable='tablet' centered>
+                                <Grid column='3' stackable='tablet' centered>
                                     <Grid.Row className='upload-container'>
-                                    <Grid.Column width={4}>
+                                        <Grid.Column width={6}>
                                             <Form.Field>
-
                                                 <label for="docs">Choose a documnet</label>
-
-                                                <select name="docs" id="docs">
-                                                {services.reqDocs.map((ele) =><option value={ele}>{ele}</option>)}
-                    
-                                                </select>
-                                                <input type="submit" value="Submit" onClick={(event) => setfilename(event.target.value)}></input>
+                                                <Select placeholder='Chose a document' onChange={(e, { value }) => setfilename(value)} options={services.reqDocs.map((ele, index) => ({ key: index, value: ele, text: ele }))} />
                                             </Form.Field>
                                         </Grid.Column>
-                                        <Grid.Column width={4}>
+                                        <Grid.Column width={7}>
                                             <Form.Field>
                                                 <label>Scan and upload documents</label>
                                                 <Input type='file' name='file' onChange={(event) => setFile(event.target.files[0])} id="file-btn" style={{ display: "none" }} />
@@ -92,9 +93,8 @@ const UploadDocuments = () => {
                                                 </div>
                                             </Form.Field>
                                         </Grid.Column>
-                                        
-                                        <Grid.Column>
-                                            <Button className='btn-upload' onClick={() => uploadWithFormData}>UPLOAD</Button>
+                                        <Grid.Column width={3}>
+                                            <Button className='btn-upload' onClick={uploadWithFormData}>UPLOAD</Button>
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>
@@ -110,13 +110,16 @@ const UploadDocuments = () => {
                                 <div className='document-list'>
                                     <label>Documents Subitted</label>
                                     <List>
-                                        {submitDocs.map((ele) => <List.Item>
+                                        {docsArray.map((ele) => <List.Item>
                                             <List.Icon name='square' />
                                             <List.Content>{ele}</List.Content>
                                         </List.Item>)}
                                     </List>
                                 </div>
                             </div>
+                            <div className="upload_save" style={{textAlign:'center'}}>
+                                <button className="same-btn"  onClick={handleSubmitForm}  value="submit">Save</button>
+                                </div>
                         </Container>
                     </Grid.Column>
                     <Grid.Column width={5}>
