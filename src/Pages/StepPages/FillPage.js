@@ -12,7 +12,21 @@ function FillPage(){
     const history=useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
-
+const jsonPostData={
+    "name": "",
+    "dob": "",
+    "type": "",
+    "address": 
+        {
+            "alias": "",
+            "addressLineOne": "",
+            "addressLineTwo": "",
+            "state": "",
+            "city": "",
+            "country": ""
+        }
+    
+}
         return (
              <main>
                  <div className='fill-section'>

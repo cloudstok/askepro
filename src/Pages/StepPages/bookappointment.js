@@ -10,26 +10,44 @@ import '../StepPages/stepPage.scss';
 import { useHistory } from 'react-router';
 
 const BookAppointment = () => {
-    const [date, setDate] = React.useState(new Date());
-
-    const onDateChange = (newDate) => {
-        setDate(newDate);
-       let dates=date.toString();
-        dates=dates.split(" ")
-        console.log(dates);
-        if (window.confirm(`Are you sure you want to select ${date} as your appointment`)) {
-           
-            console.log('Thing was saved to the database.');
-          } else {
-            
-            console.log('Thing was not saved to the database.');
-          }
-        console.log(newDate);
-    }
-
     const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
         history.push("/login");
+    const [date, setDate] = React.useState(new Date());
+    let jsonData;
+    const requestId=localStorage.getItem("applicationId");
+    const url = `${process.env.REACT_APP_BASE_URL}/service/appointment/${requestId}`
+    const onDateChange =async (newDate) => {
+        setDate(newDate);
+        let dates = date.toString();
+        dates = dates.split(" ")
+        console.log(dates);
+        if (window.confirm(`Are you sure you want to select ${dates[1]} ${dates[2]},${dates[3]} as your appointment`)) {
+
+            jsonData = {
+                "day": dates[0],
+                "date": dates[1],
+                "month": dates[2],
+                "year": dates[3]
+            }
+            console.log(jsonData)
+            const result = await(await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })).json();
+
+            history.push("/payment");
+        } else {
+            console.log('Thing was not saved to the database.');
+        }
+        
+    }
+
+   
 
     return (
         <main>

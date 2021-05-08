@@ -7,10 +7,44 @@ import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 
 const Payment = () =>{
-   const history=useHistory();
+    const history=useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
 
+    const [services, setService] = React.useState(null);
+    const slug= localStorage.getItem("serviceSlug");
+    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
+   
+    React.useEffect(() => {
+        getServices();
+    }, []);
+
+    const getServices = async () => {
+        const service = await (await fetch(service_url, { method: "GET" })).json();
+        const serviceData = {
+          deleted: service.data.deleted,
+          _id: service.data._id,
+          name: service.data.name,
+          scode: service.data.scode,
+          description: service.data.description,
+          slug: service.data.slug,
+          serviceHowToApply: service.data.serviceDetail.serviceHowToApply,
+          image: service.data.serviceDetail.image[0],
+          reqDocs: service.data.serviceDetail.reqDocs,
+          overview: service.data.serviceDetail.overview,
+          processT: service.data.serviceDetail.processT,
+          stayPeriod: service.data.serviceDetail.stayPeriod,
+          validity: service.data.serviceDetail.validity,
+          entry: service.data.serviceDetail.entry,
+          price: service.data.serviceDetail.price
+        };
+        setService(serviceData);
+
+    };
+    console.log(service_url);
+    if(!services){
+        return (<div/>)
+    }  
     return (    
         <main>   
         <div className='payment-section'>
@@ -25,7 +59,7 @@ const Payment = () =>{
         <div className='form'>
         <label className='payment-header'>Summary</label>
         <div className='payment-container'>
-        <h3>Company Formation Services</h3>
+        <h3>{services.name}</h3>
         <Grid columns='5' fluid stackable='tablet'>
         <Grid.Row>
         <Grid.Column>
@@ -33,7 +67,7 @@ const Payment = () =>{
             Processing Time
         </label>
         <label className='value'>
-            Upto 5 days
+            Upto {services.processT} days
         </label>
         </Grid.Column>
         <Grid.Column>
@@ -41,7 +75,7 @@ const Payment = () =>{
             Stay Period
         </label>
         <label className='value'>
-           14 days
+           {services.stayPeriod} days
         </label>
         </Grid.Column>
         <Grid.Column>
@@ -49,7 +83,7 @@ const Payment = () =>{
           Validity
         </label>
         <label className='value'>
-            58 Days
+            {services.validity} Days
         </label>
         </Grid.Column>
         <Grid.Column>
@@ -57,7 +91,7 @@ const Payment = () =>{
             Entry
         </label>
         <label className='value'>
-            Single
+            {services.entry}
         </label>
         </Grid.Column>
         <Grid.Column>
@@ -65,7 +99,7 @@ const Payment = () =>{
             Fees
         </label>
         <label className='value total'>
-            350 AED
+            {services.price} AED
         </label>
         </Grid.Column>
         </Grid.Row>
