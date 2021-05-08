@@ -119,7 +119,7 @@ const Account = () => {
               </div>
               <div className="account_table">
                 <Table striped>
-                  <Table.Header>
+                  <Table.Header basic='very'>
                     <Table.Row>
                       <Table.HeaderCell>
                         <h6>Date</h6>
@@ -145,7 +145,7 @@ const Account = () => {
                     </Table.Row>
                   </Table.Header>
 
-                  <Table.Body>
+                  <Table.Body> 
                     {application.data.map((ele) => <Table.Row>
                       <Table.Cell>{ele.createdAt}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>

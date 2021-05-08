@@ -18,7 +18,7 @@ const Login1 = () => {
     const jsonPostData = {
       'email': email,
       'password': password
-    }
+    } 
 
     const res = await fetch(url, {
       method: 'POST',

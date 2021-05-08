@@ -59,56 +59,51 @@
 }
 
 .appointment_heading2{
-    display: inline-flex;
-    margin:0 auto;
+    
+    margin: 0;
+
     p{
         
         @include main_heading;  
         position: relative;
         margin-bottom: 33px;
+       
     }
     &::after{
         @include after;
         margin: 6px 0 10px 0;
-        position: absolute;
-        top: 29px;
-        left: 0;
+  
+        
     }
   
     .para9{
         @include para11;
-        
+      
     }
     
 }   
 
 .appointment_heading3{
-    
-    padding-top: 28px;
-    display: inline-flex;
-    margin:0 auto;
-    
+    margin: 0;
+    padding-top: 28px;    
     p{
         
         @include main_heading;  
         position: relative;
+        margin-bottom: 33px;
        
-
+    }
     &::after{
         @include after;
-        margin: 5px 0 10px;
-            }
+        margin: 6px 0 10px 0px;
+        
+        
     }
   
-    .para10{
-        margin-left: 16rem;
-        cursor: pointer;
-        text-decoration: underline;
-     &::after{
-         display: none;
-     }
+    .para9{
+        @include para11;
+      
     }
-    
 }   
 
 

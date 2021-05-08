@@ -7,9 +7,9 @@ import '../../Sass/Sass-Main/_Admin_dashboard.scss';
 const Appointment_card = () =>{
 return(
     <>
-      
-      <Grid columns>
       <div className="border_appointment">
+      <Grid columns>
+      
       <Grid.Column>
         <div className="appoint_card">
           <div className="appoint_card content">  
@@ -25,8 +25,9 @@ return(
        </div>
       </Grid.Column>
 
-      </div>
+      
     </Grid>
+    </div>
     </>
 );
 

@@ -2,19 +2,25 @@
 @import '../variables.scss';
 .border_appointment{
     background-color:  #ffffff;
+    width: 100%;
+    padding: 15px;
+    height: 91px;
+    border-bottom: solid 1px #e6e6e6;
     
-  
 }
 .appoint_card{
-    display: inline-flex;
-    border-bottom: solid 1px #e6e6e6;
-
+    display: flex;
+    width: 100%;
+   
+    
 & p{
        background-color: #ffffff;
         @include main_heading;
         font-weight: normal;
-        margin-right: 32px;       
+        margin-right: 32px;
+        width: 80%;     
     }
+    
 
 
 .action-icon{
@@ -51,7 +57,4 @@ img:hover{
     filter: invert(1);
 }
 
-}
-.content6{
-    padding: 10px 5px;
 }
