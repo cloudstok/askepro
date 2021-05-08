@@ -196,15 +196,15 @@ console.log(application);
                     <h6>Date of Birth</h6>
                     <p>{application.dob}</p>
                   </div>
-                    { application.otherAddress.map((ele)=> <div>
-                      <h6>{ele.alias} Address</h6>
+                    <div>
+                      <h6>{application.otherAddress.alias} Address</h6>
                       <p>
-                      {ele.addressLineOne} <br></br>
-                      {ele.addressLineTwo} <br></br>
-                      {ele.city} {ele.state} <br></br>
-                      {ele.country}
+                      {application.otherAddress.addressLineOne} <br></br>
+                      {application.otherAddress.addressLineTwo} <br></br>
+                      {application.otherAddress.city} {application.otherAddress.state} <br></br>
+                      {application.otherAddress.country}
                       </p>
-                    </div>)}
+                    </div>
                   </div>
                   
                 </div>

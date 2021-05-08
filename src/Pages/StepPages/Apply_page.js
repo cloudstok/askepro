@@ -38,10 +38,24 @@ function ApplyStepper() {
     setServices(serviceData);
   };
 
-  //Radio Button Check/Uncheck
-  const [isChecked, setIsChecked] = React.useState(false);
-  const handleSubmit = (name) => {
-    localStorage.setItem("serviceName",name);
+  const handleSubmit = async (name,slug) => {
+    localStorage.setItem("serviceSlug",slug);
+    const jsonPostData={
+      "serviceName": name
+    }
+    let userId= localStorage.getItem('id')
+    const url=`${process.env.REACT_APP_BASE_URL}/service/${userId}`
+    const result = await(await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonPostData)
+    })).json();
+    
+    localStorage.setItem("applicationId", result.data._id);
+    history.push(`/fill`);
   }
 
   // const formik =useFormik({
@@ -72,7 +86,7 @@ function ApplyStepper() {
                     <Grid.Column >
 
                       <div class="checkbox p-default p-round pretty">
-                        <input type="radio" name="service_radio" onClick={handleSubmit(service.name)}/>
+                        <input type="radio" name="service_radio" onClick={() =>handleSubmit(service.name,service.slug)}/>
                         <span class="state">
                           <label>{service.name}</label>
                         </span>

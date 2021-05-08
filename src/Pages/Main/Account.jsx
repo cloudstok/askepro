@@ -9,14 +9,13 @@ const Account = () => {
 
 
   const [user, setUser] = React.useState(null);
-  const [add, setAdd] = React.useState(null);
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
 
   React.useEffect(() => { getUser() }, []);
   let id = localStorage.getItem('id');
   const getUser = async () => {
-    if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); setAdd(0); }
+    if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); }
     else {
       let application = await (
         await fetch(
@@ -45,14 +44,13 @@ const Account = () => {
           })).json();
 
       user = user.data;
-console.log(application);
-      setAdd(user.address[0] || []);
+
       setUser(user || []);
       setApplication(application || []);
       setAppointment(appointment || []);
     }
   }
-  if (!add || !user || !appointment || !application) {
+  if ( !user || !appointment || !application) {
     return (<div></div>);
   }
 
@@ -94,10 +92,10 @@ console.log(application);
                     <br />
                     <h6>Address</h6>
                     <p>
-                      {add.addressLineOne} <br></br>
-                      {add.addressLineTwo} <br></br>
-                      {add.city} {add.state} <br></br>
-                      {add.country}
+                      {user.address.addressLineOne} <br></br>
+                      {user.address.addressLineTwo} <br></br>
+                      {user.address.city} {user.address.state} <br></br>
+                      {user.address.country}
                     </p>
                   </div>
                 </div>
