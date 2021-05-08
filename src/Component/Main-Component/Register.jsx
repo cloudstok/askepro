@@ -32,7 +32,7 @@ const Login2 = () => {
         .required("Required"),
     }),
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
+
 
       values.phone = parseInt(values.phone);
       const res = await fetch(url, {
