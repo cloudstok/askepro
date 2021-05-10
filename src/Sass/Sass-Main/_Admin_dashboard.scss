@@ -1,133 +1,104 @@
 @import "./variable";
 
-.admin_wrapper2{
-    height: 120vh;
-    margin-top: 20px;
-    
+.admin_wrapper2 {
+  height: 120vh;
+  margin-top: 20px;
 }
 .history-main .breadcrumb {
-    padding-left: 0px;
-    padding-top: 24px;
-    }
-.overview5{
-    p{
+  padding-left: 0px;
+  padding-top: 24px;
+}
+.overview5 {
+  p {
     @include main_heading;
-    }
-    &:after{
-      @include after;
-      margin: 6px 0 10px 0;
-
-    }
+  }
+  &:after {
+    @include after;
+    margin: 6px 0 10px 0;
+  }
 }
 
-.clients{
-
-    text-align: center;
-    background-color:  #ffffff;
-    height: 128px;                                    
-    h6{
-        color: #cccccc; 
-        line-height: 1.19;
-        font-size: 16px;
-        font-weight: 500; 
-        padding: 30px 0 6px 0;
-    }
-    h1{
-        font-size: 30px;
-        line-height: 1.2;
-        font-weight: bold;  
-        color: #000000;
-        margin: 0;
-        padding-bottom: 27px;
-
-    }
-    &::after{
-    
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            height: 4px;
-            border-radius: inherit;
-            background: $gradient;
-            margin: 0 14px;   
-          
-          
-    }
-   
+.clients {
+  text-align: center;
+  background-color: #ffffff;
+  height: 128px;
+  h6 {
+    color: #cccccc;
+    line-height: 1.19;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 30px 0 6px 0;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+    padding-bottom: 27px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    border-radius: inherit;
+    background: $gradient;
+    margin: 0 14px;
+  }
 }
 
-.appointment_heading2{
-    display: inline-flex;
-    margin:0 auto;
-    p{
-        
-        @include main_heading;  
-        position: relative;
-        margin-bottom: 33px;
-    }
-    &::after{
-        @include after;
-        margin: 6px 0 10px 0;
-        position: absolute;
-        top: 29px;
-        left: 0;
-    }
-  
-    .para9{
-        @include para11;
-        
-    }
-    
-}   
+.appointment_heading2 {
+  margin: 0;
 
-.appointment_heading3{
-    
-    padding-top: 28px;
-    display: inline-flex;
-    margin:0 auto;
-    
-    p{
-        
-        @include main_heading;  
-        position: relative;
-       
+  p {
+    @include main_heading;
+    position: relative;
+    margin-bottom: 33px;
+  }
+  &::after {
+    @include after;
+    margin: 6px 0 10px 0;
+  }
 
-    &::after{
-        @include after;
-        margin: 5px 0 10px;
-            }
-    }
-  
-    .para10{
-        margin-left: 16rem;
-        cursor: pointer;
-        text-decoration: underline;
-     &::after{
-         display: none;
-     }
-    }
-    
-}   
-
-
-
-
-.revenue_data{
-    background: black;
-    width: auto;
-
-    height: 424px;
+  .para9 {
+    @include para11;
+  }
 }
-.data7{
-    display: flex;
-    margin-bottom: 25px;
-    p{
-        @include main_heading;  
-    }
-    .para8{
-        @include para7;
-    }    
-    
+
+.appointment_heading3 {
+  margin: 0;
+  padding-top: 28px;
+  p {
+    @include main_heading;
+    position: relative;
+    margin-bottom: 33px;
+  }
+  &::after {
+    @include after;
+    margin: 6px 0 10px 0px;
+  }
+
+  .para9 {
+    @include para11;
+  }
+}
+
+.revenue_data {
+  background: black;
+  width: auto;
+
+  height: 424px;
+}
+.data7 {
+  display: flex;
+  margin-bottom: 25px;
+  p {
+    @include main_heading;
+  }
+  .para8 {
+    @include para7;
+  }
 }

@@ -5,15 +5,9 @@
 /* ////color/// */
 $primary-color: rgb(199, 160, 6);
 
+$gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006);
 
-$gradient: linear-gradient(
-  251deg,
-  #c7a006,
-  #e7ed32,
-  #c7a006
-  );
-
-@mixin para { 
+@mixin para {
   font-size: 16px;
   line-height: 1.25;
   font-family: Helvetica;
@@ -51,13 +45,13 @@ $gradient: linear-gradient(
   font-weight: 500;
 }
 @mixin para7 {
-  position: absolute;
-  right: 15px;
   text-decoration: underline;
   cursor: pointer;
+  width: 100%;
+  text-align: right;
 }
 @mixin para11 {
-  margin-left: 18rem;
+  text-align: right;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -72,12 +66,18 @@ $gradient: linear-gradient(
 @mixin center_after {
   margin-top: 10px !important;
   margin: 0 auto;
-  content: '';
+  content: "";
   display: block;
   width: 80px;
   height: 9px;
   background: $gradient;
   clip-path: polygon(11% 0, 89% 0, 100% 100%, 0% 100%);
+}
+
+@mixin contact_p {
+  font-family: Open Sans;
+  font-size: 18px;
+  line-height: 1.33;
 }
 /* ///Media query/// */
 
@@ -113,15 +113,15 @@ $gradient: linear-gradient(
     width: 100%;
     height: auto;
   }
-  .team{
+  .team {
     width: 100%;
-  team-name {
-    text-align: right;
+    team-name {
+      text-align: right;
     }
   }
   /* //about section// */
   .about {
-    height: 115vh; 
+    height: 115vh;
     .about-content {
       text-align: center;
       left: 0%;
@@ -178,23 +178,22 @@ $gradient: linear-gradient(
     }
   }
   .step {
-    .circle{
-    &::after{
-      top: -7px;
+    .circle {
+      &::after {
+        top: -7px;
+      }
     }
-    }
-    .step_heading p{
+    .step_heading p {
       margin-bottom: 2rem;
     }
 
-    .dashed_line{
+    .dashed_line {
       display: none;
     }
   }
- 
 }
 
-@media (max-width: 480px)  {
+@media (max-width: 480px) {
   .contact {
     p {
       padding: 20px 0;
@@ -231,20 +230,17 @@ $gradient: linear-gradient(
   }
 
   .step {
-    
-
-    .circle{
-    &::after{
-      top: -7px;
+    .circle {
+      &::after {
+        top: -7px;
+      }
+    }
+    .step_heading {
+      & p {
+        margin-bottom: 30px;
+      }
     }
   }
-  .step_heading{
-    & p{
-    margin-bottom: 30px;
-    }
-  }
-
-}
 
   .banner3 {
     max-width: 100%;
@@ -270,13 +266,13 @@ $gradient: linear-gradient(
     width: 110px;
   }
   .about {
-    height: 135vh; 
+    height: 135vh;
   }
-  .team .about-card{
+  .team .about-card {
     width: auto;
     height: auto;
-  }  
-  
+  }
+
   .loginx {
     padding: 15px;
     .loginx_form,
@@ -292,20 +288,16 @@ $gradient: linear-gradient(
       width: 35.75% !important;
     }
   }
-  .footer{
-    
+  .footer {
     width: 100%;
     padding: 0;
     padding-bottom: 25px;
     display: block;
 
-    .footer-part-2 a{
-     display: grid;
-  
+    .footer-part-2 a {
+      display: grid;
+
       margin-top: 25px;
- 
     }
   }
-    
 }
-    

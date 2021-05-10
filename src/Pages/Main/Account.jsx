@@ -7,41 +7,44 @@ import { getData } from "../../services/api";
 const Account = () => {
   const history = useHistory();
 
-
   const [user, setUser] = React.useState(null);
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
 
-  React.useEffect(() => { getUser() }, []);
-  let id = localStorage.getItem('id');
+  React.useEffect(() => {
+    getUser();
+  }, []);
+  let id = localStorage.getItem("id");
   const getUser = async () => {
-    if (!localStorage.getItem("token") && !localStorage.getItem("id")) { history.push("/login"); }
-    else {
+    if (!localStorage.getItem("token") && !localStorage.getItem("id")) {
+      history.push("/login");
+    } else {
       let application = await (
         await fetch(
           `${process.env.REACT_APP_BASE_URL}/service/application/${id}`,
           {
-            method: "GET"
-          })).json();
-
+            method: "GET",
+          }
+        )
+      ).json();
 
       let appointment = await (
         await fetch(
           `${process.env.REACT_APP_BASE_URL}/service/appointment/${id}`,
           {
-            method: "GET"
-          })).json();
-
+            method: "GET",
+          }
+        )
+      ).json();
 
       let user = await (
-        await fetch(
-          `${process.env.REACT_APP_BASE_URL}/users/${id}`,
-          {
-            method: "GET",
-            headers: {
-              'x-access-token': localStorage.getItem('token'),
-            }
-          })).json();
+        await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+          method: "GET",
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        })
+      ).json();
 
       user = user.data;
 
@@ -49,24 +52,24 @@ const Account = () => {
       setApplication(application || []);
       setAppointment(appointment || []);
     }
-  }
-  if ( !user || !appointment || !application) {
-    return (<div></div>);
+  };
+  if (!user || !appointment || !application) {
+    return <div></div>;
   }
   console.log(application);
 
   return (
     <>
-      <div className='account_breadcrumb'>
-        <BreadCrumbs section={[
-          { key: 'home', content: 'Home', link: true },
-          { key: 'apply', content: 'My Account', active: true }
-        ]} />
+      <div className="account_breadcrumb">
+        <BreadCrumbs
+          section={[
+            { key: "home", content: "Home", link: true },
+            { key: "apply", content: "My Account", active: true },
+          ]}
+        />
       </div>
       <div className="account_wrapper">
-
         <Container fluid>
-
           <div className="account">
             <h4>Account Overview</h4>
           </div>
@@ -76,8 +79,9 @@ const Account = () => {
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <img src={process.env.PUBLIC_URL + "Assets/images/team.png"} />
-                      {" "}
+                      <img
+                        src={process.env.PUBLIC_URL + "Assets/images/team.png"}
+                      />{" "}
                     </div>
                   </div>
                   <div className="user_inner2">
@@ -93,10 +97,11 @@ const Account = () => {
                     <br />
                     <h6>Address</h6>
                     <p>
-                      {user. address && user.address.addressLineOne} <br></br>
-                      {user. address && user.address.addressLineTwo} <br></br>
-                      {user. address && user.address.city} {user. address && user.address.state} <br></br>
-                      {user. address && user.address.country}
+                      {user.address && user.address.addressLineOne} <br></br>
+                      {user.address && user.address.addressLineTwo} <br></br>
+                      {user.address && user.address.city}{" "}
+                      {user.address && user.address.state} <br></br>
+                      {user.address && user.address.country}
                     </p>
                   </div>
                 </div>
@@ -120,7 +125,7 @@ const Account = () => {
               </div>
               <div className="account_table">
                 <Table striped>
-                  <Table.Header>
+                  <Table.Header basic="very">
                     <Table.Row>
                       <Table.HeaderCell>
                         <h6>Date</h6>
@@ -205,19 +210,23 @@ const Account = () => {
               <div className="user_heading">
                 <h4>Appointments({appointment.count})</h4>
               </div>
-              <Segment className="appointment" style={{ marginTop: '0' }}>
-                {appointment.data.map((ele) => <div className="appoint">
-                  <div className="date">
-                    <span className="number">{ele.appt_date}</span>
-                    <span className="jan">{ele.appt_month} {ele.appt_year}</span>
+              <Segment className="appointment" style={{ marginTop: "0" }}>
+                {appointment.data.map((ele) => (
+                  <div className="appoint">
+                    <div className="date">
+                      <span className="number">{ele.appt_date}</span>
+                      <span className="jan">
+                        {ele.appt_month} {ele.appt_year}
+                      </span>
+                    </div>
+                    <div className="upcoming">
+                      <span className="done_info">{ele.status}</span>
+                      <br />
+                      <p>{ele.title}</p>
+                      <span className="minute">11:00 - 12:00</span>
+                    </div>
                   </div>
-                  <div className="upcoming">
-                    <span className="done_info">{ele.status}</span>
-                    <br />
-                    <p>{ele.title}</p>
-                    <span className="minute">11:00 - 12:00</span>
-                  </div>
-                </div>)}
+                ))}
               </Segment>
               {/*  <Segment>
                 <div className="appoint">

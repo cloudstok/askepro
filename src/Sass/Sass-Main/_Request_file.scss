@@ -1,20 +1,17 @@
 @import './variable';
 
 .Request_bg{
-    background: #ffffff;
-    width: 100%;
-   
+    height: 91px;
+    padding: 15px;
 }
 .request3{
 
     background: #fff;
-    margin: 0;
-    padding: 15px;
-    height: 91px;
+    width: 100%;
     p{
         @include main_heading;  
         font-weight: 500;
-       
+        width: 70%;
     }
     .para6{
         @include para7;
@@ -22,6 +19,6 @@
     }
 
     .date_time{
-        margin-left: 15px;
+        
     }
 }
