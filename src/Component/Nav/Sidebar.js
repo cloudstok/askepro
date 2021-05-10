@@ -17,19 +17,22 @@ return (
       <Link to='/admin'><Icon name='th large' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='application' ? active : ""}>
-      <Link to='/application'><Icon name='file alternate outline' /></Link>
+      <Link to='/admin/application'><Icon name='file alternate outline' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='clients' ? active : ""}>
-      <Link to='/clients'><Icon name='users '/></Link>
+      <Link to='/admin/clients'><Icon name='users '/></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='appointment' ? active : ""}>
-      <Link to='/appointment'> <Icon name='calendar outline' /></Link>
+      <Link to='/admin/appointment'> <Icon name='calendar outline' /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='payment' ? active : ""}>
-      <Link to='/payments'><Icon name='payment' /></Link>
+      <Link to='/admin/payments'><Icon name='payment' /></Link>
       </Menu.Item>
-      <Menu.Item as='a'  className={value==='help' ? active : ""}>
-      <Link to='/'><Icon name='help' /></Link>
+      <Menu.Item as='a'  className={value==='query' ? active : ""}>
+      <Link to='/admin/query'><Icon name='help' /></Link>
+      </Menu.Item>
+      <Menu.Item as='a'  className={value==='faq' ? active : ""}>
+      <Link to='/admin/faq'><Icon name='help' /></Link>
       </Menu.Item>
     </div>
     );

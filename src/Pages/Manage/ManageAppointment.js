@@ -6,6 +6,18 @@ import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
 
 const ManageAppointments = ({title}) =>{
+  const [appointment, setAppointment] = React.useState(null);
+    React.useEffect(() => {
+        getappointment();
+    }, []);
+
+    const getappointment = async () => {
+        const appointment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/appointment`, { method: "GET"})).json();
+       
+        setAppointment(appointment);
+    }
+    if(!appointment)
+    {return (<div></div>)}
         return (
           
           <main className='manage-main'>
@@ -26,140 +38,24 @@ const ManageAppointments = ({title}) =>{
         <Table.HeaderCell>Email Id</Table.HeaderCell>
         <Table.HeaderCell>Phone No.</Table.HeaderCell>
         <Table.HeaderCell>Service Name</Table.HeaderCell>
-        <Table.HeaderCell>Appointment Time</Table.HeaderCell>
+        <Table.HeaderCell>Appointment Date</Table.HeaderCell>
         <Table.HeaderCell>Actions</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
-      <Table.Row>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
+    {appointment.data&&appointment.data.map((ele) =>  <Table.Row>
+        <Table.Cell>{ele.users._id}</Table.Cell>
+        <Table.Cell>{ele.users.name}</Table.Cell>
+        <Table.Cell>{ele.users.email}</Table.Cell>
+        <Table.Cell>{ele.users.phone}</Table.Cell>
+        <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
+        <Table.Cell>{ele.appointment.appt_date} {ele.appointment.appt_month} {ele.appointment.appt_year}</Table.Cell>
         <Table.Cell className='action'>
          <Icon name='check'/>
          <Icon name='close'/>     
         </Table.Cell>
-      </Table.Row>
-      <Table.Row>
+      </Table.Row>)}
         
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row >
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>Emirates Id</Table.Cell>
-        <Table.Cell>22 Jun 2020, 12:00</Table.Cell>
-        <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
-        </Table.Cell>
-      </Table.Row>
     </Table.Body>
  </Table>
 </Container>

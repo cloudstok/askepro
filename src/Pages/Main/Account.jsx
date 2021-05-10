@@ -147,7 +147,7 @@ const Account = () => {
                   </Table.Header>
 
                   <Table.Body>
-                    {application.data.map((ele) => <Table.Row>
+                    {application.data && application.data.map((ele) => <Table.Row>
                       <Table.Cell>{ele.createdAt}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory.name}</Table.Cell>

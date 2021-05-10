@@ -15,6 +15,8 @@ import ManageClients from './Pages/Manage/ManageClients';
 import ManagePayments from './Pages/Manage/ManagePayment';
 import ManageApplication from './Pages/Manage/ManageApplication';
 import ManageAppointments from './Pages/Manage/ManageAppointment';
+import ManageFaq from './Pages/Manage/ManageFaq';
+import ManageQuery from './Pages/Manage/ManageQuery';
 import SideBar from './Component/Nav/Sidebar';
 import Home from './Pages/Main/Home';
 import ToggleNav from './Component/toggle_nav';
@@ -32,7 +34,7 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-import Username from './Component/Main-Component/Username';
+import Username from './Component/Main-Component/username';
 
 function App() {
   const [token, setToken] =  useState();
@@ -63,10 +65,12 @@ function App() {
                 <Route exact path='/payment' component={Payment}/>
                 <Route exact path='/Success' component={Success}/>
                 <Route exact path='/history'><History title='History'/></Route>
-                <Route exact path='/clients'><ManageClients title='Manage Clients'/></Route>
-                <Route exact path='/payments'><ManagePayments title='Manage Payments'/></Route>
-                <Route exact path='/application'><ManageApplication title='Manage Applications'/></Route>
-                <Route exact path='/appointment'><ManageAppointments title='Manage Appointments'/></Route>
+                <Route exact path='/admin/clients'><ManageClients title='Manage Clients'/></Route>
+                <Route exact path='/admin/payments'><ManagePayments title='Manage Payments'/></Route>
+                <Route exact path='/admin/application'><ManageApplication title='Manage Applications'/></Route>
+                <Route exact path='/admin/appointment'><ManageAppointments title='Manage Appointments'/></Route>
+                <Route exact path='/admin/query'><ManageQuery title='Manage Query'/></Route>
+                <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/user" component={Username} />
           </Switch>

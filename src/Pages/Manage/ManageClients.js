@@ -5,14 +5,26 @@ import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
 
-const ManageClients = ({title}) =>{
+const Manageclient = ({title}) =>{
+  const [client, setClient] = React.useState(null);
+    React.useEffect(() => {
+        getclient();
+    }, []);
+
+    const getclient = async () => {
+        const client = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/client`, { method: "GET"})).json();
+       
+        setClient(client);
+    }
+    if(!client)
+    {return (<div></div>)}
         return (
           <main className='manage-main'>
-            <SideBar value='clients' active='active'/>
+            <SideBar value='client' active='active'/>
             <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
-                   {key:'client', content:'Manage Clients', active:true }
+                   {key:'client', content:'Manage client', active:true }
             ]}/>
             <div className='manage-container'>
             <h2>{title}</h2>
@@ -25,100 +37,19 @@ const ManageClients = ({title}) =>{
         <Table.HeaderCell>Email Id</Table.HeaderCell>
         <Table.HeaderCell>Phone No.</Table.HeaderCell>
         <Table.HeaderCell>Created on</Table.HeaderCell>
-        <Table.HeaderCell>Status</Table.HeaderCell>
         <Table.HeaderCell  >Actions</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
-      <Table.Row>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
+    {client.data&&client.data.map((ele) =><Table.Row>
+        <Table.Cell>{ele._id}</Table.Cell>
+        <Table.Cell>{ele.name}</Table.Cell>
+        <Table.Cell>{ele.email}</Table.Cell>
+        <Table.Cell>{ele.phone}</Table.Cell>
+        <Table.Cell>{ele.createdAt}</Table.Cell>
         <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row >
-      <Table.Row>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Pending"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="In-process"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="In-process"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-          <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Pending"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row><Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
-      <Table.Row>
-      <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>singh.vikas@gmail.com</Table.Cell>
-        <Table.Cell>1234567890</Table.Cell>
-        <Table.Cell>22/01/2021</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
-      </Table.Row>
+      </Table.Row>)}
+    
     </Table.Body>
  </Table>
 </Container>
@@ -141,4 +72,4 @@ const ManageClients = ({title}) =>{
         )
 }
 
-export default ManageClients;
+export default Manageclient;
