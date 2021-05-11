@@ -34,7 +34,7 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-// import Username from './Component/Main-Component/username';
+{/* import Username from './Component/Main-Component/username'; */}
 
 function App() {
   const [token, setToken] =  useState();
@@ -72,7 +72,7 @@ function App() {
                 <Route exact path='/admin/query'><ManageQuery title='Manage Query'/></Route>
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
                 <Route exact path="/" component={Home} />
-                // <Route exact path="/user" component={Username} />
+                {/* <Route exact path="/user" component={Username} /> */}
           </Switch>
       </Router>      
       </>
