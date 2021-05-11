@@ -57,6 +57,11 @@ const Account = () => {
     return <div></div>;
   }
   console.log(application);
+  
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
 
   return (
     <>
@@ -152,19 +157,15 @@ const Account = () => {
                   </Table.Header>
 
                   <Table.Body>
-                    {application.data.map((ele) => (
-                      <Table.Row>
-                        <Table.Cell>{ele.createdAt}</Table.Cell>
-                        <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
-                        <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-                        <Table.Cell>XMBC3457XNT0</Table.Cell>
-                        <Table.Cell>
-                          <StatusChip value={ele.status} />
-                        </Table.Cell>
-                        <Table.Cell>Debit Card</Table.Cell>
-                        <Table.Cell textAlign="right">350.00</Table.Cell>
-                      </Table.Row>
-                    ))}
+                    {application.data && application.data.map((ele) => <Table.Row>
+                      <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
+                      <Table.Cell>XMBC3457XNT0</Table.Cell>
+                      <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
+                      <Table.Cell>Debit Card</Table.Cell>
+                      <Table.Cell textAlign='right'>350.00</Table.Cell>
+                    </Table.Row>)}
                     {/*     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>

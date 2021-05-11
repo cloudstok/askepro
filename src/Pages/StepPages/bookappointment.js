@@ -17,8 +17,7 @@ const BookAppointment = () => {
     let jsonData;
     const requestId=localStorage.getItem("applicationId");
     const url = `${process.env.REACT_APP_BASE_URL}/service/appointment/${requestId}`
-    const onDateChange =async (newDate) => {
-        setDate(newDate);
+    const onDateChange =async date => {
         let dates = date.toString();
         dates = dates.split(" ")
         console.log(dates);
@@ -30,7 +29,6 @@ const BookAppointment = () => {
                 "month": dates[1],
                 "year": dates[3]
             }
-            console.log(jsonData)
             const result = await(await fetch(url, {
                 method: 'PUT',
                 headers: {

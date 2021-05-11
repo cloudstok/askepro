@@ -5,30 +5,29 @@ import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 
-const ManageApplication = ({title}) =>{
-
-
-  
-  const [application, setApplication] = React.useState(null);
+const ManageQuery = ({title}) =>{
+    const [query, setquery] = React.useState(null);
     React.useEffect(() => {
-        getapplication();
+        getquery();
     }, []);
 
-    const getapplication = async () => {
-        const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/application`, { method: "GET"})).json();
+    const getquery = async () => {
+        const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact`, { method: "GET", headers: {
+            'x-access-token': localStorage.getItem('token'),
+          } })).json();
        
-        setApplication(application);
+        setquery(query);
     }
-    if(!application)
-    {return (<div></div>)}
+if(!query){
+    return(<div/>)
+}
         return (
-          
           <main className='manage-main'>
-            <SideBar  value='application' active='active'/>
+            <SideBar  value='query' active='active'/>
             <div className='table-container'>
             <BreadCrumbs section={[
                    {key:'dash', content:'Dashboard', link:true },
-                   {key:'history', content:'Manage Application', active:true }
+                   {key:'history', content:'Manage Query', active:true }
             ]}/>
             <div className='manage-container'>
             <h2>{title}</h2>
@@ -37,29 +36,24 @@ const ManageApplication = ({title}) =>{
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Date</Table.HeaderCell>
-        <Table.HeaderCell>Service Id</Table.HeaderCell>
-        <Table.HeaderCell>Service name</Table.HeaderCell>
-        <Table.HeaderCell>Transaction Id</Table.HeaderCell>
+        <Table.HeaderCell>Email</Table.HeaderCell>
+        <Table.HeaderCell>Name</Table.HeaderCell>
+        <Table.HeaderCell>Query</Table.HeaderCell>
         <Table.HeaderCell>Status</Table.HeaderCell>
-        <Table.HeaderCell>Mode</Table.HeaderCell>
-        <Table.HeaderCell textAlign='right'>Amount(AED)</Table.HeaderCell>
-        <Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
-    {application.data&&application.data.map((ele) => <Table.Row>
+    {query.data&&query.data.map((ele) =><Table.Row>
         <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
-        <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-        <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'>View Details</Table.Cell>
+        <Table.Cell>{ele.email}</Table.Cell>
+        <Table.Cell>{ele.name}</Table.Cell>
+        <Table.Cell>{ele.query}</Table.Cell>
+        <Table.Cell>{ele.status}</Table.Cell>
       </Table.Row>)}
-      
     </Table.Body>
  </Table>
+
+ 
 </Container>
 <div className='pagination-container'>
 <label className='page-name'>Showing 9 of 5</label>
@@ -79,4 +73,4 @@ const ManageApplication = ({title}) =>{
         )
 }
 
-export default ManageApplication;
+export default ManageQuery;
