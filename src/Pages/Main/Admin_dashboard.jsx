@@ -6,9 +6,12 @@ import "../../Sass/Sass-Main/_Admin_dashboard.scss";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import "../../Sass/Sass-Main/_Request_file.scss";
 import SideBar from "../../Component/Nav/Sidebar";
+import Reject from "../../Component/Main-Component/Reject";
+import Accept from "../../Component/Main-Component/Accept";
 import { Container, Grid, Icon} from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Appointment_card.scss";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
+
 import {
   BarChart,
   Bar,
@@ -18,6 +21,7 @@ import {
   Tooltip,
   Legend
 } from "recharts";
+
 
 const Admin_dashboard = () => {
   const [data, setData] = React.useState("null");
@@ -85,13 +89,13 @@ const Admin_dashboard = () => {
                   </div>
                   <div className="revenue_data">asd</div> */}
                   <BarChart
-                    width={800}
+                    width={1140}
                     height={500}
                     data={data.graphData}
                     margin={{
                       top: 5,
-                      right: 30,
-                      left: 20,
+                      right: 0,
+                      left: 0,
                       bottom: 5
                     }}
                   >
@@ -136,8 +140,8 @@ const Admin_dashboard = () => {
                             </div>
                           </div>
                           <div className="action-icon">
-                            <Icon name="close"></Icon>
-                            <Icon name="check"></Icon>
+                            <Reject />
+                            <Accept />
                           </div>
                         </div>
                       </Grid.Column>
