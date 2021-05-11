@@ -19,6 +19,11 @@ const ManageFaq = ({title}) =>{
        
         setfaq(faq);
     }
+    
+    const pageClick = async (p) => {
+      const faq = await (await fetch(`${process.env.REACT_APP_BASE_URL}/faqs?page=${p}`, { method: "GET" })).json();
+      setfaq(faq);
+    };
 
 
 const submitFaq = async()=>{
@@ -117,15 +122,16 @@ if(!faqs){
  
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing {faqs.totalPages} of {faqs.currentPage}</label>
 <Pagination
     size='small'
-    defaultActivePage={1}
+    defaultActivePage={faqs.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next'>NEXT</label>}}
-    nextItem={{ content: <label className='prev'>PREV</label>}}
-    totalPages={5}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--faqs.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++faqs.currentPage)}>NEXT</label>}}
+    totalPages={faqs.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
   />
  </div>
  </div>
