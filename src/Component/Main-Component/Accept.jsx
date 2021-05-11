@@ -21,9 +21,7 @@ const Accept = () => {
 
   return (
     <>
-      <Button onClick={() => dispatch({ type: "open", size: "tiny" })}>
-        Accept
-      </Button>
+      <Icon name="check" onClick={() => dispatch({ type: 'open', size: 'tiny' })}></Icon>
       <Modal
         size={size}
         open={open}

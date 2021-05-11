@@ -53,7 +53,7 @@ const Manageclient = ({title}) =>{
         <Table.Cell>{ele.name}</Table.Cell>
         <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.phone}</Table.Cell>
-        <Table.Cell>{ele.createdAt}</Table.Cell>
+        <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
         <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
       </Table.Row>)}
     
