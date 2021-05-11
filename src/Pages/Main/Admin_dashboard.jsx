@@ -89,7 +89,7 @@ const Admin_dashboard = () => {
                   </div>
                   <div className="revenue_data">asd</div> */}
                   <BarChart
-                    width={1140}
+                    width={875}
                     height={500}
                     data={data.graphData}
                     margin={{
