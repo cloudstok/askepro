@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Container, Icon, Button } from "semantic-ui-react";
 
+
 const Apply = () => {
   return (
     <>
@@ -21,7 +22,7 @@ const Apply = () => {
                 <div className="outer_circle">
                 <div className="circle">
                   <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step1.jpg"}
+                    src={process.env.PUBLIC_URL + "/Assets/images/step1.png"}
                   />
                 </div>
                 </div>
@@ -38,7 +39,7 @@ const Apply = () => {
               <div className="outer_circle">
                 <div className="circle">
                 <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step2.jpg"}
+                    src={process.env.PUBLIC_URL + "/Assets/images/step2.png"}
                   />
                 </div>
                 </div>
@@ -55,7 +56,7 @@ const Apply = () => {
               <div className="outer_circle">
                 <div className="circle">
                 <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step3.jpg"}
+                    src={process.env.PUBLIC_URL + "/Assets/images/step3.png"}
                   />
                 </div>
                 </div>

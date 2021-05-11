@@ -54,7 +54,7 @@ const History = ({ title, key }) => {
                 <Table.Row>
                 </Table.Row>
                 {application.data && application.data.map((ele) => <Table.Row>
-                  <Table.Cell>{ele.createdAt}</Table.Cell>
+                  <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
                   <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
                   <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
                   <Table.Cell>XMBC3457XNT0</Table.Cell>

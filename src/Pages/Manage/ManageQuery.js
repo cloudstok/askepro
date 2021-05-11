@@ -44,7 +44,7 @@ if(!query){
     </Table.Header>
     <Table.Body>
     {query.data&&query.data.map((ele) =><Table.Row>
-        <Table.Cell>{ele.createdAt}</Table.Cell>
+        <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
         <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.name}</Table.Cell>
         <Table.Cell>{ele.query}</Table.Cell>

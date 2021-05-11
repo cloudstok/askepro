@@ -106,7 +106,7 @@ if(!faqs){
     </Table.Header>
     <Table.Body>
     {faqs.data&&faqs.data.map((ele) => <Table.Row>
-        <Table.Cell>{ele.createdAt}</Table.Cell>
+        <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
         <Table.Cell>{ele.title}</Table.Cell>
         <Table.Cell>{ele.description}</Table.Cell>
        <Table.Cell> <Button className='btn-upload' onClick={()=>deleteFaq(ele._id)}>DELETE</Button></Table.Cell>
