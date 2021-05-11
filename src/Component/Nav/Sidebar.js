@@ -13,8 +13,8 @@ return (
       visible
       width='thin'
     >
-      <Menu.Item as='a' className={value==='dashboard' ? active : ""}>
-      <Link to='/admin'><Icon name='th large' /></Link>
+      <Menu.Item as='a'  className={value==='dashboard' ? active : ""}>
+      <Link to='/admin'><Icon name='th large' /> </Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='application' ? active : ""}>
       <Link to='/admin/application'><Icon name='file alternate outline' /></Link>
@@ -28,11 +28,11 @@ return (
       <Menu.Item as='a' className={value==='payment' ? active : ""}>
       <Link to='/admin/payments'><Icon name='payment' /></Link>
       </Menu.Item>
-      <Menu.Item as='a'  className={value==='query' ? active : ""}>
-      <Link to='/admin/query'><Icon name='help' /></Link>
-      </Menu.Item>
       <Menu.Item as='a'  className={value==='faq' ? active : ""}>
-      <Link to='/admin/faq'><Icon name='help' /></Link>
+      <Link to='/admin/faq'><Icon name='tasks' /></Link>
+      </Menu.Item>
+      <Menu.Item as='a'  className={value==='query' ? active : ""}>
+      <Link to='/admin/query'><Icon name='envelope' /></Link>
       </Menu.Item>
     </div>
     );

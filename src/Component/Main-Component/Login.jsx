@@ -45,7 +45,10 @@ const Login1 = () => {
       idData = idData.data;
       localStorage.setItem('id', idData._id);
       localStorage.setItem('name', idData.name);
+      if (idData.isAdmin===false)
       history.push("/");
+      else
+      history.push("/admin");
     } else {
       setMsg("Invalid Incorrect Email/Password ");
     }
