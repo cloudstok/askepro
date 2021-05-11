@@ -2,7 +2,8 @@ import React from "react";
 import { Grid, Icon } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Appointment_card.scss";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
-
+import Reject from "../Main-Component/Reject";
+import Accept from "../Main-Component/Accept";
 const Appointment_card = () => {
   return (
     <>
@@ -20,8 +21,9 @@ const Appointment_card = () => {
                 </div>
               </div>
               <div className="action-icon">
-                <Icon name="close"></Icon>
-                <Icon name="check"></Icon>
+               
+                <Reject />
+                <Accept />
               </div>
             </div>
           </Grid.Column>
