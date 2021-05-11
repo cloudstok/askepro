@@ -27,6 +27,11 @@ const History = ({ title, key }) => {
     return (<div></div>);
   }
   
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
+  
   return (
     <main className='manage-main'>
       <div className='history-main'>
@@ -54,7 +59,7 @@ const History = ({ title, key }) => {
                 <Table.Row>
                 </Table.Row>
                 {application.data && application.data.map((ele) => <Table.Row>
-                  <Table.Cell>{ele.createdAt}</Table.Cell>
+                  <Table.Cell>{dateFormat(ele.createdAt)}</Table.Cell>
                   <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
                   <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
                   <Table.Cell>XMBC3457XNT0</Table.Cell>

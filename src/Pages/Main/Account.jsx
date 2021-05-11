@@ -57,6 +57,11 @@ const Account = () => {
     return <div></div>;
   }
   console.log(application);
+  
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
 
   return (
     <>
@@ -153,7 +158,7 @@ const Account = () => {
 
                   <Table.Body>
                     {application.data && application.data.map((ele) => <Table.Row>
-                      <Table.Cell>{ele.createdAt}</Table.Cell>
+                      <Table.Cell>{dateFormat(ele.createdAt)}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
                       <Table.Cell>XMBC3457XNT0</Table.Cell>
