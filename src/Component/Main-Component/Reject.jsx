@@ -22,9 +22,7 @@ const Reject = () => {
 
     return(
         <>
-              <Button onClick={() => dispatch({ type: 'open', size: 'tiny' })}>
-        Reject
-      </Button>
+      <Icon name="close" onClick={() => dispatch({ type: 'open', size: 'tiny' })}></Icon>
 <Modal
      size={size}
      open={open}
@@ -43,7 +41,8 @@ const Reject = () => {
                 
          <Form className="verification_form"> 
     
-         <label className="about">About</label>
+         <label className="reason">Reason ?</label>
+         
          <Form.TextArea />
          </Form>
         
