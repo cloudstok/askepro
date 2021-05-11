@@ -29,10 +29,10 @@ return (
       <Link to='/admin/payments'><img src={process.env.PUBLIC_URL + '/Assets/images/credit-card.svg'} /></Link>
       </Menu.Item>
       <Menu.Item as='a'  className={value==='faq' ? active : ""}>
-      <Link to='/admin/faq'><img src={process.env.PUBLIC_URL + '/Assets/images/send.svg'} /></Link>
+      <Link to='/admin/faq'><img src={process.env.PUBLIC_URL + '/Assets/images/help-circle.svg'}/></Link>
       </Menu.Item>
       <Menu.Item as='a'  className={value==='query' ? active : ""}>
-      <Link to='/admin/query'><img src={process.env.PUBLIC_URL + '/Assets/images/help-circle.svg'} /></Link>
+      <Link to='/admin/query'><img src={process.env.PUBLIC_URL + '/Assets/images/inbox.svg'}/></Link>
       </Menu.Item>
     </div>
     );
