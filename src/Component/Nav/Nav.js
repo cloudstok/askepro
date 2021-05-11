@@ -66,7 +66,7 @@ export function Nav() {
                     <Dropdown.Menu className='dropdown-menu'>
                       <Link to={'/account'}><li className='item-name' style={{ color: "#000" }}><Icon name='user outline' />My Account</li></Link>
                       <Link to={'/history'}><li className='item-name' style={{ color: "#000" }}><Icon name='history' />History</li></Link>
-                      <li className='item-name' onClick={handleClick}><Icon name='history'></Icon>Logout</li>
+                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large"/>Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>

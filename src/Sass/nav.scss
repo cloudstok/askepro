@@ -78,12 +78,12 @@ header {
             width: 100%;
             padding: 20px 30px !important;
             font-weight: bold;
-
             .user,
-            .history {
+            .history, .logout {
               font-size: 18px;
-              margin-right: 15px;
+              margin-right: 13.3px;
               font-weight: 400 !important;
+          
             }
             &:hover {
               background: #fafafa;

@@ -40,6 +40,7 @@ const Company = () => {
 
   return (
     <>
+    <div className="company_wrapper">
       <Crumb />
       <div
         class="company"
@@ -152,6 +153,7 @@ const Company = () => {
             </Grid.Column>
 
             <Grid.Column width={5}>
+              <div className="company_plans">
               <div className="tourist" style={{ margin: '0' }}>
                 <Grid>
                   <Grid.Row>
@@ -184,10 +186,12 @@ const Company = () => {
                             <div className="total-right">{service.price} AED</div>
                           </div>
                         </div>
+                        <button className="form-btn" type="submit">APPLY NOW</button>
                       </div>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
+              </div>
               </div>
             </Grid.Column>
           </Grid>
@@ -195,6 +199,7 @@ const Company = () => {
 
       </Container>
       <Footer />
+      </div>
     </>
   );
 };

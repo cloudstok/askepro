@@ -5,7 +5,7 @@
 /* ////color/// */
 $primary-color: rgb(199, 160, 6);
 
-$gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006);
+$gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
 
 @mixin para {
   font-size: 16px;

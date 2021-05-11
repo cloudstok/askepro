@@ -130,28 +130,28 @@ const Account = () => {
               </div>
               <div className="account_table">
                 <Table striped>
-                  <Table.Header basic="very">
+                  <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell>
-                        <h6>Date</h6>
+                        Date
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Service id</h6>
+                        Service id
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Service Name</h6>
+                        Service Name
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Transaction Id</h6>
+                        Transaction Id
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Status</h6>
+                        Status
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Mode</h6>
+                        Mode
                       </Table.HeaderCell>
                       <Table.HeaderCell>
-                        <h6>Amount(AED)</h6>
+                        Amount(AED)
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
