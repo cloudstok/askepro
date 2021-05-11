@@ -27,6 +27,11 @@ const History = ({ title, key }) => {
     return (<div></div>);
   }
   
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
+  
   return (
     <main className='manage-main'>
       <div className='history-main'>

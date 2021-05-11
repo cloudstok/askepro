@@ -57,6 +57,11 @@ const Account = () => {
     return <div></div>;
   }
   console.log(application);
+  
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
 
   return (
     <>

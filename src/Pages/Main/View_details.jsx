@@ -30,6 +30,13 @@ const View_details = () => {
   if (!application) {
     return (<div></div>);
   }
+  
+  function dateFormat(d){
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
+  
+  
 console.log(application);
   return (
     <>
@@ -42,7 +49,7 @@ console.log(application);
         <Table.Row>
           <Table.Cell>
             <h6>Date</h6>
-            <p>{application.createdAt}</p>
+            <p>{dateFormat(application.createdAt)}</p>
           </Table.Cell>
 
           <Table.Cell>
@@ -223,7 +230,7 @@ console.log(application);
                       <Table.Row>
                     <Table.Cell>
                       <h6>Date</h6>
-                      <p>{application.createdAt}</p>
+                      <p>{dateFormat(application.createdAt)}</p>
                     </Table.Cell>
 
                 
