@@ -17,16 +17,16 @@ return (
       <Link to='/admin'><Icon name='th large' /> </Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='application' ? active : ""}>
-      <Link to='/admin/application'><Icon name='file alternate outline' /></Link>
+      <Link to='/admin/application'><img src={process.env.PUBLIC_URL + '/Assets/images/file-text.svg'}/></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='clients' ? active : ""}>
-      <Link to='/admin/clients'><Icon name='users '/></Link>
+      <Link to='/admin/clients'><img src={process.env.PUBLIC_URL + '/Assets/images/users.svg'} /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='appointment' ? active : ""}>
-      <Link to='/admin/appointment'> <Icon name='calendar outline' /></Link>
+      <Link to='/admin/appointment'> <img src={process.env.PUBLIC_URL + '/Assets/images/calendar.svg'} /></Link>
       </Menu.Item>
       <Menu.Item as='a' className={value==='payment' ? active : ""}>
-      <Link to='/admin/payments'><Icon name='payment' /></Link>
+      <Link to='/admin/payments'><img src={process.env.PUBLIC_URL + '/Assets/images/credit-card.svg'} /></Link>
       </Menu.Item>
       <Menu.Item as='a'  className={value==='faq' ? active : ""}>
       <Link to='/admin/faq'><Icon name='tasks' /></Link>

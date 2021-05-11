@@ -306,27 +306,22 @@ nav{
     
     .item{
          cursor: pointer;
-
-         .icon{
-                width: 100%;
-                height: 100%;
-                padding: 20px 0;
-                font-size: 22px !important;
-                color:#d5d5d5;
-           }
+         padding: 20px 0;
+         img{
+            filter: opacity(30%);
+        
         &:hover{
-            content: '';
-            width: 115%;
-            display: flex;
-            justify-content: center;
-            background:$hover-color;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-
+            
+            width: 105%;
+     
+          
+             filter: none;
+            }
+        }
             .bi, .icon{
                 color:#000;
             }
-        }
+        
     }
     
     .active{
@@ -336,8 +331,9 @@ nav{
         background:$hover-color;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
-
-        .icon{
+        filter: none;
+        
+        .img{
                color:#000;
         }
     }
