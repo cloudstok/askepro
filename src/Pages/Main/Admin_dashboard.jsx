@@ -100,7 +100,7 @@ const Admin_dashboard = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="count" fill="#c7a006" />
+                    <Bar dataKey="count" fill="#9d9494" />
                   </BarChart>
                 </Grid.Column>
               </Grid>
