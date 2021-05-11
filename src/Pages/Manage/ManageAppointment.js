@@ -16,6 +16,12 @@ const ManageAppointments = ({title}) =>{
        
         setAppointment(appointment);
     }
+    
+    const pageClick = async (p) => {
+      const appointment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/appointment?page=${p}`, { method: "GET"})).json();
+      setAppointment(appointment);
+    };
+    
     if(!appointment)
     {return (<div></div>)}
         return (
@@ -60,15 +66,16 @@ const ManageAppointments = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing { appointment.totalPages } of { appointment.currentPage || 1 }</label>
 <Pagination
     size='small'
-    defaultActivePage={1}
+    defaultActivePage={appointment.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next'>NEXT</label>}}
-    nextItem={{ content: <label className='prev'>PREV</label>}}
-    totalPages={5}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--appointment.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++appointment.currentPage)}>NEXT</label>}}
+    totalPages={appointment.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
   />
  </div>
 

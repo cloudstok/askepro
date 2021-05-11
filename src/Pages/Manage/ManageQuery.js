@@ -18,6 +18,15 @@ const ManageQuery = ({title}) =>{
        
         setquery(query);
     }
+    
+    const pageClick = async (p) => {
+      const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact?page=${p}`, { method: "GET", headers: {
+          'x-access-token': localStorage.getItem('token'),
+        } })).json();
+     
+      setquery(query);
+    };
+    
 if(!query){
     return(<div/>)
 }
@@ -56,15 +65,16 @@ if(!query){
  
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing {query.totalPages} of {query.currentPage}</label>
 <Pagination
     size='small'
-    defaultActivePage={1}
+    defaultActivePage={query.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next'>NEXT</label>}}
-    nextItem={{ content: <label className='prev'>PREV</label>}}
-    totalPages={5}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--query.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++query.currentPage)}>NEXT</label>}}
+    totalPages={query.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
   />
  </div>
  </div>

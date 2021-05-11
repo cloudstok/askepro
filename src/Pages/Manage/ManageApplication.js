@@ -19,6 +19,13 @@ const ManageApplication = ({title}) =>{
        
         setApplication(application);
     }
+    
+    const pageClick = async (p) => {
+      const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/application?page=${p}`, { method: "GET"})).json();
+     
+      setApplication(application);
+    };
+    
     if(!application)
     {return (<div></div>)}
         return (
@@ -62,15 +69,16 @@ const ManageApplication = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing {application.totalPages} of {application.currentPage}</label>
 <Pagination
     size='small'
-    defaultActivePage={1}
+    defaultActivePage={application.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next'>NEXT</label>}}
-    nextItem={{ content: <label className='prev'>PREV</label>}}
-    totalPages={5}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--application.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++application.currentPage)}>NEXT</label>}}
+    totalPages={application.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
   />
  </div>
  </div>

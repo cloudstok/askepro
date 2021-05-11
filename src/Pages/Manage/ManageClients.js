@@ -18,6 +18,13 @@ const Manageclient = ({title}) =>{
     }
     if(!client)
     {return (<div></div>)}
+    
+    const pageClick = async (p) => {
+      const client = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/client?page=${p}`, { method: "GET"})).json();
+     
+      setClient(client);
+    };
+    
         return (
           <main className='manage-main'>
             <SideBar value='client' active='active'/>
@@ -54,15 +61,16 @@ const Manageclient = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing 9 of 5</label>
+<label className='page-name'>Showing { client.totalPages } of { client.currentPage || 1 }</label>
 <Pagination
     size='small'
-    defaultActivePage={1}
+    defaultActivePage={client.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next'>NEXT</label>}}
-    nextItem={{ content: <label className='prev'>PREV</label>}}
-    totalPages={5}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--client.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++client.currentPage)}>NEXT</label>}}
+    totalPages={client.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
   />
  </div>
 
