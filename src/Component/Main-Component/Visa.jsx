@@ -20,7 +20,8 @@ console.log(service_url);
       tv_type: e.tv_type,
       scode: e.scode,
       slug: e.slug,
-      serviceDetail: e.serviceDetail
+      serviceDetail: e.serviceDetail,
+      image:e.serviceDetail.image
     }));
 
     setServices(serviceData);
@@ -37,8 +38,8 @@ console.log(service_url);
                   className="service-card"
                   onClick={() => history.push(`/service/${service.slug}`)}
                 >
-                  <img src={process.env.PUBLIC_URL + "/Assets/images/building.png"}/>
-
+                  {/* <img src={process.env.PUBLIC_URL + "/Assets/images/building.png"}/> */}
+                  <img src={"data:image/png;base64," + service.image}/>
                   <p>{service.name}</p>
                 </div>
               </Grid.Column>
