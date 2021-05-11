@@ -71,8 +71,8 @@ if(!query){
     defaultActivePage={query.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next' onClick={() => pageClick(--query.currentPage)}>PREV</label>}}
-    nextItem={{ content: <label className='prev' onClick={() => pageClick(++query.currentPage)}>NEXT</label>}}
+    prevItem={{ content: <label className='next'>PREV</label>}}
+    nextItem={{ content: <label className='prev'>NEXT</label>}}
     totalPages={query.totalPages}
     onClick={e => pageClick(parseInt(e.target.outerText))}
   />
