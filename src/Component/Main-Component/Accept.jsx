@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Icon, Header, Image, Modal } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Modal.scss";
+
 function exampleReducer(state, action) {
   switch (action.type) {
     case "close":
@@ -44,7 +45,7 @@ const Accept = () => {
           <div className="accept_bottom">
             <button
               color="black"
-              className="accept-btn"
+              className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               CLOSE

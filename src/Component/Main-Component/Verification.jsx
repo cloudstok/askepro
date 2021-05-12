@@ -10,7 +10,7 @@ import {
   Form,
 } from "semantic-ui-react";
 
-function exampleReducer(state, action) {
+function exampleVerify(state, action) {
   switch (action.type) {
     case "close":
       return { open: false };
@@ -22,7 +22,7 @@ function exampleReducer(state, action) {
 }
 
 const Verification = () => {
-  const [state, dispatch] = React.useReducer(exampleReducer, {
+  const [state, dispatch] = React.useReducer(exampleVerify, {
     open: false,
     size: undefined,
   });
@@ -85,23 +85,23 @@ const Verification = () => {
           <div className="documents">
             <h6>Documents Submitted</h6>
             <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
+              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
               <p>Emirates ID.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
+              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
               <p>Special ID.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
+              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
               <p>GDFRA permit.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
+              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
               <p>Entry Permit.jpg</p>
             </div>
             <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + '//Assets/images/doc_pin.png'} />;
+              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
               <p>XYZ government ID.jpg</p>
             </div>
           </div>
@@ -109,14 +109,14 @@ const Verification = () => {
           <div className="accept_bottom">
             <button
               color="black"
-              className="reject-btn"
+              className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
-              <strong>Reject</strong>
+              REJECT
             </button>
             <button
               color="black"
-              className="reject-btn"
+              className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               <strong>APPROVE</strong>

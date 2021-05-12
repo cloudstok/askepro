@@ -34,7 +34,8 @@ import Reject from './Component/Main-Component/Reject';
 import Verification from './Component/Main-Component/Verification';
 import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
-{/* import Username from './Component/Main-Component/username'; */}
+import FAQ_modal from './Component/Main-Component/FAQ_modal';
+{/* import Username from './Component/Main-Component/Username'; */}
 
 function App() {
   const [token, setToken] =  useState();
@@ -46,17 +47,16 @@ function App() {
     <Router>
             <Nav/>
             <Switch>
-                <Route exact path='/service'><Service /></Route>
-                <Route exact path='/about'><About /></Route>
-                <Route exact path='/contact'><Contact /></Route>
-                <Route exact path='/service/:slug'><Company /></Route>
+                <Route exact path='/service' component={Service} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/service/:slug' component={Company} />
                 <Route exact path='/view/:requestId' component={View_details}/>
-                <Route exact path='/login'><Login /></Route>
-                <Route exact path='/register'><Register/></Route>
-                <Route exact path='/fgpasswd'><Fgpasswd /></Route>
-                <Route exact path='/reset'><Reset /></Route>
-                <Route exact path='/account'><Account /></Route>
-                <Route exact path='/reject'><Accept /><Reject /><Verification /></Route>    
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/register' component={Register} />
+                <Route exact path='/fgpasswd' component={Fgpasswd} />
+                <Route exact path='/reset' component={Reset} />
+                <Route exact path='/account' component={Account} />  
                 <Route exact path='/admin' component={Admin_dashboard}/>
                 <Route exact path='/apply' component={ApplyStepper}/>
                 <Route exact path='/fill' component={FillPage}/>
@@ -64,6 +64,7 @@ function App() {
                 <Route exact path='/book' component={BookAppointment}/>
                 <Route exact path='/payment' component={Payment}/>
                 <Route exact path='/Success' component={Success}/>
+                <Route exact path='/faq' component={FAQ_modal} />
                 <Route exact path='/history'><History title='History'/></Route>
                 <Route exact path='/admin/clients'><ManageClients title='Manage Clients'/></Route>
                 <Route exact path='/admin/payments'><ManagePayments title='Manage Payments'/></Route>
@@ -71,7 +72,9 @@ function App() {
                 <Route exact path='/admin/appointment'><ManageAppointments title='Manage Appointments'/></Route>
                 <Route exact path='/admin/query'><ManageQuery title='Manage Query'/></Route>
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
+                
                 <Route exact path="/" component={Home} />
+
                 {/* <Route exact path="/user" component={Username} /> */}
           </Switch>
       </Router>      
