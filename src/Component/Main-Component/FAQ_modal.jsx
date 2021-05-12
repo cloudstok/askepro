@@ -1,129 +1,105 @@
-import React from 'react';
+import React from "react";
 import {
-    Button,
-    Icon,
-    Grid,
-    Header,
-    Image,
-    Modal,
-    Form,
-  } from "semantic-ui-react";
+  Button,
+  Icon,
+  Grid,
+  Header,
+  Image,
+  Modal,
+  Form,
+  Table,
+} from "semantic-ui-react";
+import Reject from "./Reject";
+import Accept from "./Accept";
+import Verification from "./Verification";
 
-  function exampleVerify(state, action) {
-    switch (action.type) {
-      case "close":
-        return { open: false };
-      case "open":
-        return { open: true, size: action.size };
-      default:
-        throw new Error("Unsupported action...");
-    }
+function exampleVerify(state, action) {
+  switch (action.type) {
+    case "close":
+      return { open: false };
+    case "open":
+      return { open: true, size: action.size };
+    default:
+      throw new Error("Unsupported action...");
   }
-   
-  const FAQ_modal = () => {
-    const [state, dispatch] = React.useReducer(exampleVerify, {
-      open: false,
-      size: undefined,
-    });
-    const { open, size } = state;
-  
-    return (
-      <>
-        <Button onClick={() => dispatch({ type: "open", size: "small" })}>
-          Verify
-        </Button>
-        <Modal
-          size={size}
-          open={open}
-          onClose={() => dispatch({ type: "close" })}
-        >
-          <Modal.Header>
-            <center>Document verification</center>
-          </Modal.Header>
-          <Modal.Content>
-            <Grid stackable columns={3}>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Service name</h6>
-                  <p>Company Formation Services</p>
-                </div>
-              </Grid.Column>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Submitted by</h6>
-                  <p>Vikas Singh</p>
-                </div>
-              </Grid.Column>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Submitted on</h6>
-                  <p> 23 Jan 2021, 12:23</p>
-                </div>
-              </Grid.Column>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Phone number</h6>
-                  <p>9868333029</p>
-                </div>
-              </Grid.Column>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Email</h6>
-                  <p>Singh.vikas@gmail.com</p>
-                </div>
-              </Grid.Column>
-              <Grid.Column>
-                <div className="verify">
-                  <h6>Amount</h6>
-                  <p>1,500.00 AED</p>
-                </div>
-              </Grid.Column>
-            </Grid>
-          </Modal.Content>
-          <Modal.Description>
-            <div className="documents">
-              <h6>Documents Submitted</h6>
-              <div className="doc_inner">
-                <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-                <p>Emirates ID.jpg</p>
-              </div>
-              <div className="doc_inner">
-                <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-                <p>Special ID.jpg</p>
-              </div>
-              <div className="doc_inner">
-                <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-                <p>GDFRA permit.jpg</p>
-              </div>
-              <div className="doc_inner">
-                <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-                <p>Entry Permit.jpg</p>
-              </div>
-              <div className="doc_inner">
-                <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-                <p>XYZ government ID.jpg</p>
-              </div>
-            </div>
-  
-            <div className="accept_bottom">
-              <button
-                color="black"
-                className="modal-btn"
-                onClick={() => dispatch({ type: "close" })}
-              >
-                REJECT
-              </button>
-              <button
-                color="black"
-                className="modal-btn"
-                onClick={() => dispatch({ type: "close" })}
-              >
-                <strong>APPROVE</strong>
-              </button>
-            </div>
-          </Modal.Description>
-        </Modal>
-        </>
+}
+
+const FAQ_modal = () => {
+  const [state, dispatch] = React.useReducer(exampleVerify, {
+    open: false,
+    size: undefined,
+  });
+  const { open, size } = state;
+
+  return (
+    <>
+      <Button onClick={() => dispatch({ type: "open", size: "small" })}>
+        FAQ
+      </Button>
+      <Modal
+        size={size}
+        open={open}
+        onClose={() => dispatch({ type: "close" })}
+      >
+        <Modal.Header>
+          <div className="accept_heading">Add New FAQ</div>
+        </Modal.Header>
+        <Modal.Content>
+          <div className="faq_content">
+            <Table.Row>
+              <Table.Cell collapsing>
+                <p>Service name</p>
+              </Table.Cell>
+              <Table.Cell>
+                <Form.Select
+                  options="random" /* {options} */
+                  placeholder="Gender"
+                />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell collapsing>
+                <p>Question</p>
+              </Table.Cell>
+              <Table.Cell>
+                <input placeholder="Last Name" />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell collapsing>
+                <p>Answer</p>
+              </Table.Cell>
+              <Table.Cell>
+                <Form.Field>
+                  <input placeholder="First Name" />
+                </Form.Field>
+              </Table.Cell>
+            </Table.Row>
+          </div>
+        </Modal.Content>
+        <Modal.Description>
+          <div className="accept_bottom">
+            <button
+              color="black"
+              className="modal-btn"
+              onClick={() => dispatch({ type: "close" })}
+            >
+              CANCEL
+            </button>
+            <button
+              color="black"
+              className="modal-btn"
+              onClick={() => dispatch({ type: "close" })}
+            >
+              SAVE
+            </button>
+          </div>
+        </Modal.Description>
+      </Modal>
+      <Reject />
+      <Accept />
+      <Verification />
+    </>
   );
 };
 export default FAQ_modal;

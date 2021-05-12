@@ -40,7 +40,7 @@ const Reject = () => {
         onClose={() => dispatch({ type: "close" })}
       >
         <Modal.Header>
-          <center>Reject Appointment</center>
+          <div className="accept_heading">Reject Appointment</div>
         </Modal.Header>
         <Modal.Content>
           <div className="modal_img2">
@@ -65,14 +65,14 @@ const Reject = () => {
               className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
-              <strong>CLOSE</strong>
+              CLOSE
             </button>
             <button
               color="black"
               className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
-              <strong>REJECT</strong>
+              REJECT
             </button>
           </div>
         </Modal.Description>

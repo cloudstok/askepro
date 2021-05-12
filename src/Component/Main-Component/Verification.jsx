@@ -39,7 +39,9 @@ const Verification = () => {
         onClose={() => dispatch({ type: "close" })}
       >
         <Modal.Header>
-          <center>Document verification</center>
+        <div className="accept_heading">
+          Document verification
+        </div>
         </Modal.Header>
         <Modal.Content>
           <Grid stackable columns={3}>
@@ -119,7 +121,7 @@ const Verification = () => {
               className="modal-btn"
               onClick={() => dispatch({ type: "close" })}
             >
-              <strong>APPROVE</strong>
+            APPROVE
             </button>
           </div>
         </Modal.Description>
