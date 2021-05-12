@@ -69,18 +69,20 @@ const Footer = () => {
                 </Form.Field>
               </Form.Group>
               <Form.Field>
-              <label>Query</label>
-              <Form.TextArea
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Describe Your Query"
-              />
+                <label>Query</label>
+                <Form.TextArea
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Describe Your Query"
+                />
 
-              <div className="reach-Submit">
-                <p>By clicking on 'Submit' you will agree to T&C of AskePro</p>
-                <button className="same-btn" type="submit">
-                  SUBMIT
-                </button>
-              </div>
+                <div className="reach-Submit">
+                  <p>
+                    By clicking on 'Submit' you will agree to T&C of AskePro
+                  </p>
+                  <button className="same-btn" type="submit">
+                    SUBMIT
+                  </button>
+                </div>
               </Form.Field>
             </Form>
           </div>

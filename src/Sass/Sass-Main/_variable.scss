@@ -211,6 +211,28 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
       display: none;
     }
   }
+  .customer p{
+
+    width: auto;
+  }
+  .banner3{
+    width: 90%;
+  }
+  .banner3{
+    width: auto;
+  }
+  .footer {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 25px;
+    display: block;
+
+    .footer-part-2 a, p{
+      display: table;
+
+      margin-top: 25px;
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -308,16 +330,8 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
       width: 35.75% !important;
     }
   }
-  .footer {
-    width: 100%;
-    padding: 0;
-    padding-bottom: 25px;
-    display: block;
 
-    .footer-part-2 a {
-      display: grid;
-
-      margin-top: 25px;
-    }
+  .reach{
+    padding: 10px;
   }
 }

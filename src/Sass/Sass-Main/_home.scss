@@ -16,7 +16,7 @@ body {
   display: flex;
   position: sticky;
   height: 100px;
-  width: 894px;
+  max-width: 894px;
   margin: 0 auto;
   box-shadow: 5px 15px 10px #423c3c;
   background-color: #fff;
@@ -95,7 +95,6 @@ body {
 }
 .customer {
   min-height: auto;
-
   margin: 60px 50px 0 50px;
   h1 {
     &::after {
