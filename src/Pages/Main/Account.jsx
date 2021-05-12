@@ -4,6 +4,8 @@ import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import { getData } from "../../services/api";
+import "../../Sass/Sass-Main/_About.scss";
+
 const Account = () => {
   const history = useHistory();
 
@@ -150,7 +152,7 @@ const Account = () => {
                       <Table.HeaderCell>
                         Mode
                       </Table.HeaderCell>
-                      <Table.HeaderCell>
+                      <Table.HeaderCell  textAlign='right'>
                         Amount(AED)
                       </Table.HeaderCell>
                     </Table.Row>

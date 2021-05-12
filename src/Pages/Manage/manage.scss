@@ -25,11 +25,20 @@
 }
 .manage-container{
     padding: 10px 40px 10px 30px; 
-
+    
     @include tablet{
         padding:10px 20px 10px 2vw;
     }
-    
+    .manage_heading{
+        width: 100%;
+       
+        & .same-btn{
+            float: right;
+            margin-bottom: 10px;
+            width: 153px;
+            height: 31px;
+        }
+    }
     h2{
         font-family: 'Lato' !important;
         font-size: 18px;
