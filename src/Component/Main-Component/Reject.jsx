@@ -62,14 +62,14 @@ const Reject = () => {
           <div className="accept_bottom">
             <button
               color="black"
-              className="modal-btn"
+              className="same-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               CLOSE
             </button>
             <button
               color="black"
-              className="modal-btn"
+              className="same-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               REJECT

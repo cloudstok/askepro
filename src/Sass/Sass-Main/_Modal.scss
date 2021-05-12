@@ -92,29 +92,12 @@ background-color: #ffe9e9;
 
   }
 
-  .modal-btn {
-    font-family: Lato;
-    width: 137px;
-    height: 40px;
-    padding: 11px 25px;
-    border: 1px solid #000;
-    background: #ffffff;
-    object-fit: contain;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 15px;
+  .same-btn {
     margin: 0 10px 40px 10px;
     
   }
-  .modal-btn:hover {
-    background: rgb(199, 160, 6);
-    background: linear-gradient(
-      90deg,
-      rgba(199, 160, 6, 1) 11%,
-      rgba(231, 237, 50, 1) 51%,
-      rgba(199, 160, 6, 1) 92%
-    );
-  }
+
+
 
   .documents{
      padding: 20px 30px 42px 30px; 
@@ -162,7 +145,11 @@ background-color: #ffe9e9;
      display: flex;
 
    } 
-  
+   p{
+     @include form_para;
+     color: #9d9494;
+     width: 82px;
+   }
    td{
      border: none !important;
 

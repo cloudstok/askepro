@@ -33,7 +33,7 @@ const FAQ_modal = () => {
 
   return (
     <>
-      <Button onClick={() => dispatch({ type: "open", size: "small" })}>
+      <Button onClick={() => dispatch({ type: "open", size: "huge" })}>
         FAQ
       </Button>
       <Modal
@@ -53,7 +53,7 @@ const FAQ_modal = () => {
               <Table.Cell>
                 <Form.Select
                   options="random" /* {options} */
-                  placeholder="Gender"
+                  placeholder="Enter service name"
                 />
               </Table.Cell>
             </Table.Row>
@@ -62,7 +62,7 @@ const FAQ_modal = () => {
                 <p>Question</p>
               </Table.Cell>
               <Table.Cell>
-                <input placeholder="Last Name" />
+                <input placeholder="Enter question here" />
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -71,7 +71,7 @@ const FAQ_modal = () => {
               </Table.Cell>
               <Table.Cell>
                 <Form.Field>
-                  <input placeholder="First Name" />
+                  <input placeholder="Enter answer here" />
                 </Form.Field>
               </Table.Cell>
             </Table.Row>
@@ -81,14 +81,14 @@ const FAQ_modal = () => {
           <div className="accept_bottom">
             <button
               color="black"
-              className="modal-btn"
+              className="same-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               CANCEL
             </button>
             <button
               color="black"
-              className="modal-btn"
+              className="same-btn"
               onClick={() => dispatch({ type: "close" })}
             >
               SAVE
