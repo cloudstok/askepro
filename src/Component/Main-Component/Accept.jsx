@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { Button, Icon, Header, Image, Modal } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Modal.scss";
 function exampleReducer(state, action) {
@@ -12,13 +12,32 @@ function exampleReducer(state, action) {
   }
 }
 
-const Accept = () => {
-  const [state, dispatch] = React.useReducer(exampleReducer, {
+const Accept = (id) => {
+
+  const [state, dispatch] = useReducer(exampleReducer, {
     open: false,
     size: undefined,
   });
   const { open, size } = state;
+  const handleAccept = async (appId) => {
 
+    dispatch({ type: "close" })
+    // const jsonPostData = {
+    //   'time': msg
+    // }
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/appointment/${appId}`
+    console.log(url)
+    const resu = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        // body: JSON.stringify(jsonPostData)
+      })
+      window.location.reload(false);
+   
+  }
   return (
     <>
       <Icon name="check" onClick={() => dispatch({ type: 'open', size: 'tiny' })}></Icon>
@@ -45,7 +64,7 @@ const Accept = () => {
             <button
               color="black"
               className="accept-btn"
-              onClick={() => dispatch({ type: "close" })}
+              onClick={() =>handleAccept(id.id) }
             >
               CLOSE
             </button>
