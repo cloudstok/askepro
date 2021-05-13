@@ -13,6 +13,15 @@ import Reject from "./Reject";
 import Accept from "./Accept";
 import Verification from "./Verification";
 
+
+
+const options = [
+  { key: 'm', text: 'Tasheel', value: 'service1' },
+  { key: 'f', text: 'Company Formation Services', value: 'service2' },
+  { key: 'o', text: 'Emirates ID', value: 'service3' },
+]
+
+
 function exampleVerify(state, action) {
   switch (action.type) {
     case "close":
@@ -28,14 +37,15 @@ const FAQ_modal = () => {
   const [state, dispatch] = React.useReducer(exampleVerify, {
     open: false,
     size: undefined,
+    
   });
   const { open, size } = state;
 
   return (
     <>
-    
-      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
-          + ADD Service
+   
+      <button className="same-btn" onClick={() => dispatch({ type: "open", size: "huge" })}>
+          + ADD FAQ
           </button>
       <Modal
         size={size}
@@ -52,10 +62,11 @@ const FAQ_modal = () => {
                 <p>Service name</p>
               </Table.Cell>
               <Table.Cell>
-                <Form.Select
-                  options="random" /* {options} */
-                  placeholder="Enter service name"
-                />
+              <Form.Select
+     
+            options={options}
+            placeholder='Services'
+          />
               </Table.Cell>
             </Table.Row>
             <Table.Row>

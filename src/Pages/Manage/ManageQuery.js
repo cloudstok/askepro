@@ -51,9 +51,9 @@ if(!query){
         <Table.HeaderCell>
         <Dropdown text='Actions'>
     <Dropdown.Menu>
-      <Dropdown.Item text='Open' />
-      <Dropdown.Item text='Closed...'/>
-      <Dropdown.Item text='Pending'/>
+      <Dropdown.Item text='Mark As Resloved' />
+      <Dropdown.Item text='Resolved'/>
+     
   
     </Dropdown.Menu>
   </Dropdown>
