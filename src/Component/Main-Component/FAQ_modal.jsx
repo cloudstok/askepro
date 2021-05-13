@@ -33,9 +33,10 @@ const FAQ_modal = () => {
 
   return (
     <>
-      <Button onClick={() => dispatch({ type: "open", size: "huge" })}>
-        FAQ
-      </Button>
+    
+      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
+          + ADD Service
+          </button>
       <Modal
         size={size}
         open={open}
@@ -96,9 +97,7 @@ const FAQ_modal = () => {
           </div>
         </Modal.Description>
       </Modal>
-      <Reject />
-      <Accept />
-      <Verification />
+     
     </>
   );
 };

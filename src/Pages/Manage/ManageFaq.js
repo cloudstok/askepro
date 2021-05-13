@@ -16,6 +16,7 @@ import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import StatusChip from "../../Component/StatusChip/StatusChip";
 import SideBar from "../../Component/Nav/Sidebar";
 import "./manage.scss";
+import FAQ_modal from "../../Component/Main-Component/FAQ_modal";
 
 const ManageFaq = ({ title }) => {
   const [faqs, setfaq] = React.useState(null);
@@ -111,9 +112,7 @@ const ManageFaq = ({ title }) => {
           <h2>{title}</h2>
           </Grid.Column>
           <Grid.Column floated='right' width={1}>
-          <button className="same-btn" onClick={submitFaq}>
-          + ADD Service
-          </button>
+          <FAQ_modal/>
           </Grid.Column>
        
           </Grid>
@@ -123,7 +122,6 @@ const ManageFaq = ({ title }) => {
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Date Created</Table.HeaderCell>
-                  <Table.HeaderCell>Service name</Table.HeaderCell>
                   <Table.HeaderCell>Question</Table.HeaderCell>
                   <Table.HeaderCell>Answer</Table.HeaderCell>
                   <Table.HeaderCell>Actions</Table.HeaderCell>
@@ -135,8 +133,7 @@ const ManageFaq = ({ title }) => {
                     <Table.Row>
                       <Table.Cell>
                         {new Date(ele.createdAt).toLocaleString()}
-                      </Table.Cell>
-                      <Table.Cell>{ele.title}</Table.Cell>
+                      </Table.Cell>                 
                       <Table.Cell>{ele.description}</Table.Cell>
                       <Table.Cell>{ele.description}</Table.Cell>
                       <Table.Cell>
