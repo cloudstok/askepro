@@ -3,6 +3,8 @@ import { Container, Icon, Pagination, Table, Label } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
+import Reject from "../../Component/Main-Component/Reject";
+import Accept from "../../Component/Main-Component/Accept";
 import './manage.scss';
 
 const ManageAppointments = ({title}) =>{
@@ -24,6 +26,7 @@ const ManageAppointments = ({title}) =>{
     
     if(!appointment)
     {return (<div></div>)}
+    console.log(appointment)
         return (
           
           <main className='manage-main'>
@@ -55,10 +58,10 @@ const ManageAppointments = ({title}) =>{
         <Table.Cell>{ele.users.email}</Table.Cell>
         <Table.Cell>{ele.users.phone}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-        <Table.Cell>{ele.appointment.appt_date} {ele.appointment.appt_month} {ele.appointment.appt_year}</Table.Cell>
+        <Table.Cell>{ele.appt_date} {ele.appt_month} {ele.appt_year}</Table.Cell>
         <Table.Cell className='action'>
-         <Icon name='check'/>
-         <Icon name='close'/>     
+        <Reject id={ele._id} />
+                            <Accept id={ele._id} />    
         </Table.Cell>
       </Table.Row>)}
         

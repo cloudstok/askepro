@@ -19,7 +19,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 
 
@@ -88,6 +89,7 @@ const Admin_dashboard = () => {
                     <p>Revenue Overview</p>
                   </div>
                   <div className="revenue_data">asd</div> */}
+                  <ResponsiveContainer width="95%" height={400}>
                   <BarChart
                     width={875}
                     height={500}
@@ -106,6 +108,7 @@ const Admin_dashboard = () => {
                     <Legend />
                     <Bar dataKey="count" fill="#9d9494" />
                   </BarChart>
+                  </ResponsiveContainer>
                 </Grid.Column>
               </Grid>
             </Grid.Column>
@@ -140,8 +143,8 @@ const Admin_dashboard = () => {
                             </div>
                           </div>
                           <div className="action-icon">
-                            <Reject />
-                            <Accept />
+                            <Reject id={ele._id} />
+                            <Accept id={ele._id}/>
                           </div>
                         </div>
                       </Grid.Column>
@@ -166,18 +169,18 @@ const Admin_dashboard = () => {
                       </Grid.Row>
                     </Grid>
                   </div>
-                  {data.pendingDcoument&&data.pendingDcoument.map((ele) =>                 <div className="Request_bg">
+                  {data.pendingDcoument&&data.pendingDcoument.map((ele) =><div className="Request_bg">
         <Grid columns>
           <Grid.Column>
             <div className="request3">
               <p>
-                Dummy text , appointment with AMER executive in Dubai Media City
+                {ele && ele.title}
               </p>
               <Grid column={2}>
                 <Grid.Row>
                   <Grid.Column width={8}>
                     <span className="date_time">
-                      23 Jan 2021, 11:00 - 12:00
+                    {ele &&ele.appt_date} {ele &&ele.appt_month} {ele &&ele.appt_year} 
                     </span>
                   </Grid.Column>
                   <Grid.Column floated="right" width={4}>
