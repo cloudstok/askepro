@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label, Sidebar } from 'semantic-ui-react';
+import { Container, Icon, Dropdown, Pagination, Table, Label, Sidebar } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -45,17 +45,26 @@ if(!query){
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Date</Table.HeaderCell>
-        <Table.HeaderCell>Email</Table.HeaderCell>
         <Table.HeaderCell>Name</Table.HeaderCell>
+        <Table.HeaderCell>Email</Table.HeaderCell>
         <Table.HeaderCell>Query</Table.HeaderCell>
-        <Table.HeaderCell>Status</Table.HeaderCell>
+        <Table.HeaderCell>
+        <Dropdown text='Actions'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='Open' />
+      <Dropdown.Item text='Closed...'/>
+      <Dropdown.Item text='Pending'/>
+  
+    </Dropdown.Menu>
+  </Dropdown>
+        </Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
     {query.data&&query.data.map((ele) =><Table.Row>
         <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
-        <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.name}</Table.Cell>
+        <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.query}</Table.Cell>
         <Table.Cell>{ele.status}</Table.Cell>
       </Table.Row>)}
