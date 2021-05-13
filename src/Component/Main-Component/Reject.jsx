@@ -82,10 +82,10 @@ const Reject = (id) => {
 
         <Modal.Description>
           <div className="accept_bottom">
-            <button color='black' className="reject-btn" onClick={() => dispatch({ type: 'close' })}>
+            <button color='black' className="same-btn" onClick={() => dispatch({ type: 'close' })}>
               <strong>CLOSE</strong>
             </button>
-            <button color='black' className="reject-btn" onClick={() => { handleReject(id.id) }}>
+            <button color='black' className="same-btn" onClick={() => { handleReject(id.id) }}>
               <strong>REJECT</strong>
             </button>
           </div>

@@ -49,8 +49,8 @@ const ManageService = ({title}) =>{
         <Table.HeaderCell>Total Fees</Table.HeaderCell>
         <Table.HeaderCell>Processing Time</Table.HeaderCell>
         <Table.HeaderCell>Stay Period</Table.HeaderCell>
-        <Table.HeaderCell textAlign='right'>Validity</Table.HeaderCell>
-        <Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
+        <Table.HeaderCell >Validity</Table.HeaderCell>
+        <Table.HeaderCell>Actions</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>

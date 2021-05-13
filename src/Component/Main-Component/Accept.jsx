@@ -67,7 +67,7 @@ const Accept = (id) => {
           <div className="accept_bottom">
             <button
               color="black"
-              className="accept-btn"
+              className="same-btn"
               onClick={() =>handleAccept(id.id) }
             >
               CLOSE

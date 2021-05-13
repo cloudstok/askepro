@@ -102,7 +102,7 @@ const ManageFaq = ({ title }) => {
                   <Table.HeaderCell>Date Created</Table.HeaderCell>
                   <Table.HeaderCell>Question</Table.HeaderCell>
                   <Table.HeaderCell>Answer</Table.HeaderCell>
-                  <Table.HeaderCell>Actions</Table.HeaderCell>
+                  <Table.HeaderCell >Actions</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
