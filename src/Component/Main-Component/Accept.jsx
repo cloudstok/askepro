@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { Button, Icon, Header, Image, Modal } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Modal.scss";
+
 function exampleReducer(state, action) {
   switch (action.type) {
     case "close":
@@ -40,14 +41,17 @@ const Accept = (id) => {
   }
   return (
     <>
-      <Icon name="check" onClick={() => dispatch({ type: 'open', size: 'tiny' })}></Icon>
+      <Icon
+        name="check"
+        onClick={() => dispatch({ type: "open", size: "tiny" })}
+      ></Icon>
       <Modal
         size={size}
         open={open}
         onClose={() => dispatch({ type: "close" })}
       >
         <Modal.Header>
-          <center>Accept Appointment</center>
+          <div className="accept_heading">Accept Appointment</div>
         </Modal.Header>
         <Modal.Content image>
           <div className="modal_img">

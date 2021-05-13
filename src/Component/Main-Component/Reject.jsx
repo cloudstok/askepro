@@ -1,15 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import { Button, Icon, Header, Image, Modal, Form, Container } from 'semantic-ui-react';
+import {
+  Button,
+  Icon,
+  Header,
+  Image,
+  Modal,
+  Form,
+  Container,
+} from "semantic-ui-react";
 
 function exampleReducer(state, action) {
   switch (action.type) {
-    case 'close':
-      return { open: false }
-    case 'open':
-      return { open: true, size: action.size }
+    case "close":
+      return { open: false };
+    case "open":
+      return { open: true, size: action.size };
     default:
-      throw new Error('Unsupported action...')
+      throw new Error("Unsupported action...");
   }
 }
 
