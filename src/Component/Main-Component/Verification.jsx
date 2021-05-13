@@ -31,7 +31,7 @@ const Verification = () => {
   return (
     <>
       <Button onClick={() => dispatch({ type: "open", size: "small" })}>
-        Verify
+        Verify  
       </Button>
       <Modal
         size={size}
@@ -44,6 +44,7 @@ const Verification = () => {
         </div>
         </Modal.Header>
         <Modal.Content>
+          <div className="verification_content">
           <Grid stackable columns={3}>
             <Grid.Column>
               <div className="verify">
@@ -51,7 +52,7 @@ const Verification = () => {
                 <p>Company Formation Services</p>
               </div>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column> 
               <div className="verify">
                 <h6>Submitted by</h6>
                 <p>Vikas Singh</p>
@@ -82,6 +83,7 @@ const Verification = () => {
               </div>
             </Grid.Column>
           </Grid>
+          </div>
         </Modal.Content>
         <Modal.Description>
           <div className="documents">

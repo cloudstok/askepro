@@ -9,6 +9,7 @@ import {
   Form,
   Container,
 } from "semantic-ui-react";
+ import Service_modal from './Add_service_modal';
 
 function exampleReducer(state, action) {
   switch (action.type) {
@@ -59,20 +60,24 @@ const Reject = (id) => {
         open={open}
         onClose={() => dispatch({ type: 'close' })}
       >
-        <Modal.Header><center>Reject Appointment</center></Modal.Header>
+        <Modal.Header>
+        <div className="accept_heading">
+          Reject Appointment
+          </div>
+          </Modal.Header>
         <Modal.Content>
           <div className="modal_img2">
             <Icon className="icon1" name='close' color="red" size='big' />
           </div>
           <p className="modal_p">
-            Please provide a reason/remark for the rejection.
+            Please provide a reason/ remark for the rejection.
           </p>
         </Modal.Content>
         <Modal.Description>
 
           <Form className="verification_form">
 
-            <label className="reason">Reason ?</label>
+            <label className="reason">Reason</label>
 
             <Form.TextArea onChange={(event) => setMsg(event.target.value)} />
           </Form>
@@ -83,10 +88,10 @@ const Reject = (id) => {
         <Modal.Description>
           <div className="accept_bottom">
             <button color='black' className="same-btn" onClick={() => dispatch({ type: 'close' })}>
-              <strong>CLOSE</strong>
+              CLOSE
             </button>
             <button color='black' className="same-btn" onClick={() => { handleReject(id.id) }}>
-              <strong>REJECT</strong>
+              REJECT
             </button>
           </div>
 

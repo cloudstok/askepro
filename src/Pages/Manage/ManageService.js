@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label, Sidebar } from 'semantic-ui-react';
+import { Container, Icon, Pagination, Table, Label, Grid, Sidebar } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
+import Service_modal from '../../Component/Main-Component/Add_service_modal';
 
 const ManageService = ({title}) =>{
 
@@ -38,7 +39,18 @@ const ManageService = ({title}) =>{
                    {key:'history', content:'Manage service', active:true }
             ]}/>
             <div className='manage-container'>
+            <div className="manage_heading">
+            <Grid>
+             
+                <Grid.Column width={2}>
             <h2>{title}</h2>
+            </Grid.Column>
+          <Grid.Column floated='right' width={1}>
+          <Service_modal />
+          </Grid.Column>
+       
+          </Grid>
+          </div>
             <Container fluid>
           <Table striped stackable='tablet'>
     <Table.Header>
