@@ -13,15 +13,6 @@ import Reject from "./Reject";
 import Accept from "./Accept";
 import Verification from "./Verification";
 
-
-
-const options = [
-  { key: 'm', text: 'Tasheel', value: 'service1' },
-  { key: 'f', text: 'Company Formation Services', value: 'service2' },
-  { key: 'o', text: 'Emirates ID', value: 'service3' },
-]
-
-
 function exampleVerify(state, action) {
   switch (action.type) {
     case "close":
@@ -64,21 +55,14 @@ const FAQ_modal = () => {
   const [state, dispatch] = React.useReducer(exampleVerify, {
     open: false,
     size: undefined,
-    
   });
   const { open, size } = state;
 
   return (
     <>
-<<<<<<< HEAD
 
       <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
         + ADD Service
-=======
-   
-      <button className="same-btn" onClick={() => dispatch({ type: "open", size: "huge" })}>
-          + ADD FAQ
->>>>>>> 99ac9d9975881386e426f1ea85ea35699c5769d8
           </button>
       <Modal
         size={size}
@@ -92,21 +76,6 @@ const FAQ_modal = () => {
           <div className="faq_content">
             <Table.Row>
               <Table.Cell collapsing>
-<<<<<<< HEAD
-=======
-                <p>Service name</p>
-              </Table.Cell>
-              <Table.Cell>
-              <Form.Select
-     
-            options={options}
-            placeholder='Services'
-          />
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell collapsing>
->>>>>>> 99ac9d9975881386e426f1ea85ea35699c5769d8
                 <p>Question</p>
               </Table.Cell>
               <Table.Cell>
@@ -142,7 +111,7 @@ const FAQ_modal = () => {
               SAVE
             </button>
             <br />
-            <br />
+            <br />  
           </div>
         </Modal.Description>
       </Modal>
