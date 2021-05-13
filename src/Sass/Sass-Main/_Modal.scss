@@ -43,8 +43,9 @@
 }
 .accept_bottom {
   text-align: center;
-}
-.accept_bottom::after {
+
+
+&::after {
   content: "";
   position: absolute;
   right: 0;
@@ -55,6 +56,10 @@
 
   border-radius: inherit;
   background: $gradient;
+}
+.same-btn {
+  margin: 0 10px 40px 10px; 
+}
 }
 
 /* reject screen */
@@ -91,9 +96,7 @@ background-color: #ffe9e9;
     }
 
   }
-  .same-btn {
-    margin: 0 10px 40px 10px; 
-  }
+
   .documents{
      padding: 20px 30px 42px 30px; 
      text-align: left;
