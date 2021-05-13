@@ -14,6 +14,7 @@ import History from './Pages/Manage/history';
 import ManageClients from './Pages/Manage/ManageClients';
 import ManagePayments from './Pages/Manage/ManagePayment';
 import ManageApplication from './Pages/Manage/ManageApplication';
+import ManageService from './Pages/Manage/ManageService';
 import ManageAppointments from './Pages/Manage/ManageAppointment';
 import ManageFaq from './Pages/Manage/ManageFaq';
 import ManageQuery from './Pages/Manage/ManageQuery';
@@ -72,6 +73,8 @@ function App() {
                 <Route exact path='/admin/appointment'><ManageAppointments title='Manage Appointments'/></Route>
                 <Route exact path='/admin/query'><ManageQuery title='Manage Query'/></Route>
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
+                <Route exact path='/admin/service'><ManageService title='Manage Service'/></Route>
+
                 
                 <Route exact path="/" component={Home} />
 
