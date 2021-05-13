@@ -26,6 +26,7 @@ import About from './Pages/Main/About';
 import Contact from './Pages/Main/Contact';
 import Company from './Pages/Main/Company';
 import Login from './Component/Main-Component/Login'; 
+import Login3 from './Component/Main-Component/Fgpasswd';
 import Register from './Component/Main-Component/Register'; 
 import Fgpasswd from './Component/Main-Component/Fgpasswd'; 
 import Reset from './Component/Main-Component/Reset';
@@ -76,7 +77,7 @@ function App() {
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
                 <Route exact path='/admin/service'><ManageService title='Manage Service'/></Route>
                 <Route exact path='/add' component={Service_modal}/>
-                <Route exact path='/test'><Verification /> <Reject /> <Accept /> <FAQ_modal /> <Service_modal /></Route>
+                <Route exact path='/test'><Verification /> <Reject /> <Accept /> <FAQ_modal /> <Service_modal /><Login3 /></Route>
 
 
                 
