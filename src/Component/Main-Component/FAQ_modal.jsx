@@ -62,7 +62,7 @@ const FAQ_modal = () => {
     <>
 
       <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
-        + ADD Service
+        + ADD FAQ
           </button>
       <Modal
         size={size}
