@@ -17,6 +17,8 @@ import StatusChip from "../../Component/StatusChip/StatusChip";
 import SideBar from "../../Component/Nav/Sidebar";
 import "./manage.scss";
 import FAQ_modal from "../../Component/Main-Component/FAQ_modal";
+import FAQ_modal_edit from "../../Component/Main-Component/FAQ_modal_Edit"
+import FAQ_Modal_Edit from "../../Component/Main-Component/FAQ_modal_Edit";
 
 const ManageFaq = ({ title }) => {
   const [faqs, setfaq] = React.useState(null);
@@ -44,31 +46,7 @@ const ManageFaq = ({ title }) => {
     setfaq(faq);
   };
 
-  const submitFaq = async () => {
-    const url = `${process.env.REACT_APP_BASE_URL}/faqs`;
-    let jsonData = {
-      title: faqTitle,
-      description: description,
-    };
-    console.log(jsonData);
-    const result = await (
-      await fetch(url, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "x-access-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify(jsonData),
-      })
-    ).json();
-
-    if (result.status === 1) {
-      alert(result.msg);
-      window.location.reload(false);
-    }
-  };
-
+  
   const deleteFaq = async (id) => {
     const url = `${process.env.REACT_APP_BASE_URL}/faqs/${id}`;
     let jsonData = {
@@ -134,17 +112,11 @@ const ManageFaq = ({ title }) => {
                       <Table.Cell>
                         {new Date(ele.createdAt).toLocaleString()}
                       </Table.Cell>                 
-                      <Table.Cell>{ele.description}</Table.Cell>
+                      <Table.Cell>{ele.title}</Table.Cell>
                       <Table.Cell>{ele.description}</Table.Cell>
                       <Table.Cell>
                         {" "}
-                        <img
-                          src={
-                            process.env.PUBLIC_URL + "/Assets/images/edit.png"
-                          }
-                          className="btn-upload"
-                          onClick={() => deleteFaq(ele._id)}
-                        />
+                        <FAQ_Modal_Edit fid={(ele._id)} ques={(ele.title)} ans={(ele.description)}/>
                         <img
                           src={
                             process.env.PUBLIC_URL + "/Assets/images/trash.png"

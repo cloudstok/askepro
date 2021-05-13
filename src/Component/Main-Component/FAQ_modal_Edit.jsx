@@ -24,20 +24,23 @@ function exampleVerify(state, action) {
   }
 }
 
-const FAQ_modal = () => {
+const FAQ_Modal_Edit = (faq) => {
+
+
   const [faqTitle, setTitle] = React.useState(null);
   const [description, setDescription] = React.useState(null);
-  const submitFaq = async () => {
+
+  const submitFaq = async (id) => {
     dispatch({ type: "close" });
-    const url = `${process.env.REACT_APP_BASE_URL}/faqs`;
+    const url = `${process.env.REACT_APP_BASE_URL}/faqs/${id}`;
     let jsonData = {
-      title: faqTitle,
-      description: description,
+      title: faqTitle?faqTitle:faq.ques,
+      description: description?description: faq.ans,
     };
     console.log(jsonData);
     const result = await (
       await fetch(url, {
-        method: "POST",
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -61,9 +64,11 @@ const FAQ_modal = () => {
   return (
     <>
 
-      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
-        + ADD Service
-          </button>
+      <img
+        src={
+          process.env.PUBLIC_URL + "/Assets/images/edit.png"
+        } className="btn-upload" onClick={() => dispatch({ type: "open", size: "huge" })}/>
+  
       <Modal
         size={size}
         open={open}
@@ -79,7 +84,7 @@ const FAQ_modal = () => {
                 <p>Question</p>
               </Table.Cell>
               <Table.Cell>
-                <input placeholder="Enter question here" onChange={(event) => setTitle(event.target.value)} />
+                <input defaultValue= {faq.ques}  onChange={(event) => setTitle(event.target.value)} />
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -88,7 +93,7 @@ const FAQ_modal = () => {
               </Table.Cell>
               <Table.Cell>
                 <Form.Field>
-                  <input placeholder="Enter answer here" onChange={(event) => setDescription(event.target.value)} />
+                  <input defaultValue={faq.ans} onChange={(event) => setDescription(event.target.value)} />
                 </Form.Field>
               </Table.Cell>
             </Table.Row>
@@ -106,7 +111,7 @@ const FAQ_modal = () => {
             <button
               color="black"
               className="same-btn"
-              onClick={() => submitFaq()}
+              onClick={() => submitFaq(faq.fid)}
             >
               SAVE
             </button>
@@ -119,4 +124,4 @@ const FAQ_modal = () => {
     </>
   );
 };
-export default FAQ_modal;
+export default FAQ_Modal_Edit;

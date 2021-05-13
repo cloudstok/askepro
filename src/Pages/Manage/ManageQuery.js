@@ -7,12 +7,16 @@ import './manage.scss';
 
 const ManageQuery = ({title}) =>{
     const [query, setquery] = React.useState(null);
+    
     React.useEffect(() => {
         getquery();
     }, []);
 
-    const getquery = async () => {
-        const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact`, { method: "GET", headers: {
+    const getquery = async (status) => {
+      if(!status){
+        status="Open";
+      }
+        const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact?status=${status}`, { method: "GET", headers: {
             'x-access-token': localStorage.getItem('token'),
           } })).json();
        
@@ -50,11 +54,10 @@ if(!query){
         <Table.HeaderCell>Query</Table.HeaderCell>
         <Table.HeaderCell>
         <Dropdown text='Actions'>
-    <Dropdown.Menu>
-      <Dropdown.Item text='Open' />
-      <Dropdown.Item text='Closed...'/>
-      <Dropdown.Item text='Pending'/>
-  
+    <Dropdown.Menu >
+      <Dropdown.Item text='Open' onClick={()=>getquery('Open')} />
+      <Dropdown.Item text='Resolved' onClick={()=>getquery('Resolved')}/>
+      
     </Dropdown.Menu>
   </Dropdown>
         </Table.HeaderCell>
