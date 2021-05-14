@@ -5,7 +5,7 @@ import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 import Service_modal from '../../Component/Main-Component/Add_service_modal';
-
+import Edit_Modal from '../../Component/Main-Component/Edit_service_modal';
 const ManageService = ({ title }) => {
 
 
@@ -86,10 +86,7 @@ const ManageService = ({ title }) => {
                   <Table.Cell>{ele.serviceDetail.stayPeriod} Days</Table.Cell>
                   <Table.Cell>{ele.serviceDetail.validity} Days </Table.Cell>
                   <Table.Cell>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/Assets/images/edit.png"
-                      } className="btn-upload" />
+                    <Edit_Modal/>
                     <img
                       src={
                         process.env.PUBLIC_URL + "/Assets/images/trash.png"
