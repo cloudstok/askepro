@@ -14,8 +14,9 @@ const View_all = () => {
             ]}
           />
 
-          <div className="details_wrapper">
+       
               <Container>
+             <div className="details_wrapper">     
             <div className="my_details">
               <div className="detail_inner1">
                 <h4>Owner Details</h4>
@@ -30,6 +31,8 @@ const View_all = () => {
                 <p>vikas.sharma@sheelafoam.com</p>
               </div>
             </div>
+            </div>
+            <div className="details_wrapper2">   
             <div className="my_details">
               <div className="detail_inner1">
                 <h4>Contact Details</h4>
@@ -52,9 +55,10 @@ const View_all = () => {
                 <p>123459</p>
               </div>
             </div>
+            </div>
             </Container>
           </div>
-        </div>
+        
       </main>
     </>
   );

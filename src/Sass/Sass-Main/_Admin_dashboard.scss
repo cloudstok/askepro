@@ -105,11 +105,18 @@
 /* //View_all_details/// */
 .details_wrapper{
   background: #fcfcfc;
+  border: solid 1px #e6e6e6;
+}
+.details_wrapper2{
+  background: #fcfcfc;
+   border: solid 1px #e6e6e6;
+   border-top: none;
+
 }
 .my_details{
   display: flex;
   background: #ffffff;
-  border: solid 1px #e6e6e6;
+ 
   width: 910px;
   padding: 30px 30px 6px 30px;
 .detail_inner1{
