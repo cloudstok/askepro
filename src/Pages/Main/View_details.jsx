@@ -204,9 +204,9 @@ const View_details = () => {
                       {application.docs.map((ele) => <div className="details_3">
                         <p>{ele.name}</p>
                         <br/>
-                        <Button onClick={()=>generateLink(ele.key)} >
-                        DOWNLOAD
-                        </Button>
+                        <a onClick={()=>generateLink(ele.key)} >
+                        Download
+                        </a>
                       </div>)}
                     </div>
 

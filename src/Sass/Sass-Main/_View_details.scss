@@ -11,8 +11,10 @@
     .date{
         border-radius: 5px;
         background-color: #f7f7f7;
-        display: block;
+        display: grid;
+        justify-items: center;
         width: 77px;
+        background: red;
         margin-right: 10px;
         height: 70px;
      
@@ -22,14 +24,15 @@
         line-height: 1.25;
         font-weight: 500;
        display: flex;
-        padding: 9px 18px;
+        justify-content: center;
+        align-items: center;
+        
     }
     .number{
         font-size: 30px;
         line-height: 1.2;
         font-size: 30px;
         font-weight: bold;
-        margin: 9px 21px;
     }
     .nov{
         font-size: 12px;
@@ -164,17 +167,23 @@
 .details_3_outer{
     margin-bottom: 60px;
     width: 720px;
-    height: 192px;
-    padding: 21px 31.4px; 
+    height: auto;
+    padding: 0 31.4px; 
+
     border: solid 1px #d5d5d5;
-    
+    & a{
+        text-decoration: underline;
+        margin-left: 30px;
+        font-size: 16px;
+        font-family: Open Sans;
+        line-height: 1.38;
+        cursor: pointer;
+    }
     
 
 .details_3{
     display: flex;
-    padding-bottom: 10px;    
-
-    
+    padding-bottom: 10px;
 }
     p{
         
@@ -182,6 +191,8 @@
         font-family: Open Sans;
         line-height: 1.38;
         margin-left: 12.4px;
+        text-transform: capitalize;
+
     }
     img{
         width: 14.1px;

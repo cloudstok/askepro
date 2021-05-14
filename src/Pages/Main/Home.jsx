@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <div className="cover">
         <main>
-          
+          <div className="wrapper_home">
           {/* <!-- //second division// --> */}
 
           <div className="home">
@@ -44,7 +44,7 @@ const Home = () => {
           <Apply />
           <Footer />
           <Notification />
-          
+          </div>
         </main>
       </div>
     </>

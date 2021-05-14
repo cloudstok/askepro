@@ -72,7 +72,7 @@ const History = ({ title, key }) => {
                   <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
                   <Table.Cell>Debit Card</Table.Cell>
                   <Table.Cell textAlign='right'>350.00</Table.Cell>
-                  <Table.Cell className='view' textAlign='right' onClick={() => history.push(`/view/${ele._id}`)}>View Details</Table.Cell>
+                  <Table.Cell className='view'style={{cursor:'pointer'}} textAlign='right' onClick={() => history.push(`/view/${ele._id}`)}>View Details</Table.Cell>
                 </Table.Row>)}
               </Table.Body>
             </Table>
