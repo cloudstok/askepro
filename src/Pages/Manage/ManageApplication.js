@@ -61,7 +61,7 @@ const ManageApplication = ({title}) =>{
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
         <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
+        <Table.Cell><StatusChip value={ele.status}/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
         <Table.Cell className='view' textAlign='right'>View Details</Table.Cell>
