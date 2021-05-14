@@ -12,7 +12,8 @@ const Home = () => {
   return (
     <>
       <div className="cover">
-        <main className="wrapper_home">
+        <main>
+          
           {/* <!-- //second division// --> */}
 
           <div className="home">
@@ -34,7 +35,7 @@ const Home = () => {
             </div>
           </div>
 
-          <Container fluid className="our_services">
+          <Container fluid>
             <div className="service_heading">
               <h1 className="headingOne">Our Services</h1>
             </div>
@@ -43,6 +44,7 @@ const Home = () => {
           <Apply />
           <Footer />
           <Notification />
+          
         </main>
       </div>
     </>
