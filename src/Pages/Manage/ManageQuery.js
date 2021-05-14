@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Dropdown, Pagination, Table, Label, Sidebar } from 'semantic-ui-react';
+import { Container, Icon, Dropdown, Pagination, Table, Label, Sidebar, Button } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -7,7 +7,7 @@ import './manage.scss';
 
 const ManageQuery = ({title}) =>{
     const [query, setquery] = React.useState(null);
-    
+    const [status,setStatus]=React.useState("Open");
     React.useEffect(() => {
         getquery();
     }, []);
@@ -16,20 +16,30 @@ const ManageQuery = ({title}) =>{
       if(!status){
         status="Open";
       }
-        const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact?status=${status}`, { method: "GET", headers: {
+        const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?status=${status}`, { method: "GET", headers: {
             'x-access-token': localStorage.getItem('token'),
           } })).json();
-       
         setquery(query);
     }
     
     const pageClick = async (p) => {
-      const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/contact?page=${p}`, { method: "GET", headers: {
+      const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}`, { method: "GET", headers: {
           'x-access-token': localStorage.getItem('token'),
         } })).json();
      
       setquery(query);
     };
+
+    const statusChange=async(id)=>{
+
+      const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query/${id}`, { method: "PUT", headers: {
+        'x-access-token': localStorage.getItem('token'),
+      } })).json();
+      if (query.status === 1) {
+        alert(query.msg);
+        window.location.reload(false);
+      }
+    }
     
 if(!query){
     return(<div/>)
@@ -53,14 +63,14 @@ if(!query){
         <Table.HeaderCell>Email</Table.HeaderCell>
         <Table.HeaderCell>Query</Table.HeaderCell>
         <Table.HeaderCell>
-        <Dropdown text='Actions'>
+        <Dropdown text='Status'>
     <Dropdown.Menu >
-      <Dropdown.Item text='Open' onClick={()=>getquery('Open')} />
-      <Dropdown.Item text='Resolved' onClick={()=>getquery('Resolved')}/>
-      
+      <Dropdown.Item text='Open' onClick={()=>{getquery('Open'); setStatus("Open")}} />
+      <Dropdown.Item text='Resolved' onClick={()=>{getquery('Resolved');  setStatus("Resolved")}}/>
     </Dropdown.Menu>
   </Dropdown>
         </Table.HeaderCell>
+        {status==="Open" ?<Table.HeaderCell>Actions</Table.HeaderCell>:<Table.Cell></Table.Cell>}
       </Table.Row>
     </Table.Header>
     <Table.Body>
@@ -70,6 +80,7 @@ if(!query){
         <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.query}</Table.Cell>
         <Table.Cell>{ele.status}</Table.Cell>
+       {status==="Open" ?<Table.Cell><Button onClick={()=>statusChange(ele._id)}>Mark As Resolved</Button></Table.Cell>:<Table.Cell></Table.Cell>}
       </Table.Row>)}
     </Table.Body>
  </Table>
@@ -77,7 +88,7 @@ if(!query){
  
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing {query.totalPages} of {query.currentPage}</label>
+<label className='page-name'>Showing  {query.currentPage} of  {query.totalPages}</label>
 <Pagination
     size='small'
     defaultActivePage={query.currentPage}

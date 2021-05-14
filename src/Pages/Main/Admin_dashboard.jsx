@@ -11,7 +11,6 @@ import Accept from "../../Component/Main-Component/Accept";
 import { Container, Grid, Icon} from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Appointment_card.scss";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
-
 import {
   BarChart,
   Bar,
@@ -22,6 +21,7 @@ import {
   Legend,
   ResponsiveContainer
 } from "recharts";
+import Verification from "../../Component/Main-Component/Verification";
 
 
 const Admin_dashboard = () => {
@@ -144,7 +144,7 @@ const Admin_dashboard = () => {
                           </div>
                           <div className="action-icon">
                             <Reject id={ele._id} />
-                            <Accept id={ele._id}/>
+                            <Accept id={ele._id} name={ele.users.name} userId={ele.users._id}/>
                           </div>
                         </div>
                       </Grid.Column>
@@ -170,26 +170,32 @@ const Admin_dashboard = () => {
                     </Grid>
                   </div>
                   {data.pendingDcoument&&data.pendingDcoument.map((ele) =><div className="Request_bg">
-        <Grid columns>
-          <Grid.Column>
+     <Grid columns>
+     { ele.appointment?   <Grid.Column>
             <div className="request3">
               <p>
-                {ele && ele.title}
+                {ele && ele.appointment.title}
               </p>
               <Grid column={2}>
                 <Grid.Row>
                   <Grid.Column width={8}>
                     <span className="date_time">
-                    {ele &&ele.appt_date} {ele &&ele.appt_month} {ele &&ele.appt_year} 
+                    {ele &&ele.appointment.appt_date} {ele &&ele.appointment.appt_month} {ele &&ele.appointment.appt_year} 
                     </span>
                   </Grid.Column>
                   <Grid.Column floated="right" width={4}>
-                    <p className="para6">View Details</p>
+                    <Verification serviceCategory={ele&& ele.serviceCategory.name}
+                    id={ele&& ele._id}
+                    username={ele&& ele.users.name }
+                    email={ele&& ele.users.email }
+                    phone={ele&& ele.users.phone }
+                    time={ele&& new Date(ele.createdAt).toLocaleString()}
+                    docs={ele&& ele.docs} ></Verification>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
             </div>
-          </Grid.Column>
+          </Grid.Column>:<br/>}
         </Grid>
       </div>)}
                 </Grid.Column>

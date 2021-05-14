@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Button,
   Icon,
@@ -21,7 +20,52 @@ function exampleVerify(state, action) {
   }
 }
 
-const Verification = () => {
+const Verification = (request) => {
+ 
+const generateLink=async (key)=>{
+  
+  const jsonPostData = {
+    'key':  key
+  }
+  const url = `${process.env.REACT_APP_BASE_URL}/users/download`
+  console.log(url)
+  const resu =await( await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonPostData)
+    })).json();
+
+    window.open(resu.data, "_blank");
+}
+
+const[reject,setReject]= React.useState(null);
+
+const handleReject= async (requestId,bool)=>{
+  dispatch({ type: "close" });
+  const jsonData = {
+    'isRejected':  bool
+  }
+  console.log(jsonData)
+  const url = `${process.env.REACT_APP_BASE_URL}/admin/documents/${requestId}`
+  const resu =await( await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(jsonData)
+  })).json();
+
+
+  if(resu.status===1){
+    alert(resu.msg);
+  }
+}
+
+  console.log(request);
   const [state, dispatch] = React.useReducer(exampleVerify, {
     open: false,
     size: undefined,
@@ -49,31 +93,31 @@ const Verification = () => {
             <Grid.Column>
               <div className="verify">
                 <h6>Service name</h6>
-                <p>Company Formation Services</p>
+                <p>{request.serviceCategory}</p>
               </div>
             </Grid.Column>
             <Grid.Column> 
               <div className="verify">
                 <h6>Submitted by</h6>
-                <p>Vikas Singh</p>
+                <p>{request.username}</p>
               </div>
             </Grid.Column>
             <Grid.Column>
               <div className="verify">
                 <h6>Submitted on</h6>
-                <p> 23 Jan 2021, 12:23</p>
+                <p> {request.time}</p>
               </div>
             </Grid.Column>
             <Grid.Column>
               <div className="verify">
                 <h6>Phone number</h6>
-                <p>9868333029</p>
+                <p>{request.phone}</p>
               </div>
             </Grid.Column>
             <Grid.Column>
               <div className="verify">
                 <h6>Email</h6>
-                <p>Singh.vikas@gmail.com</p>
+                <p>{request.email}</p>
               </div>
             </Grid.Column>
             <Grid.Column>
@@ -88,40 +132,26 @@ const Verification = () => {
         <Modal.Description>
           <div className="documents">
             <h6>Documents Submitted</h6>
-            <div className="doc_inner">
+            {request.docs.map((ele)=><div className="doc_inner">
               <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-              <p>Emirates ID.jpg</p>
+              <p> {ele.name} </p>
+             <p><Button onClick={()=>generateLink(ele.key)}>Download</Button></p> 
             </div>
-            <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-              <p>Special ID.jpg</p>
-            </div>
-            <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-              <p>GDFRA permit.jpg</p>
-            </div>
-            <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-              <p>Entry Permit.jpg</p>
-            </div>
-            <div className="doc_inner">
-              <img src={process.env.PUBLIC_URL + "/Assets/images/point.png"} />
-              <p>XYZ government ID.jpg</p>
-            </div>
+            )}
           </div>
 
           <div className="accept_bottom">
             <button
               color="black"
               className="same-btn"
-              onClick={() => dispatch({ type: "close" })}
+              onClick={() =>{handleReject(request.id,true)}}
             >
               REJECT
             </button>
             <button
               color="black"
               className="same-btn"
-              onClick={() => dispatch({ type: "close" })}
+              onClick={() =>{handleReject(request.id, false)}}
             >
             APPROVE
             </button>

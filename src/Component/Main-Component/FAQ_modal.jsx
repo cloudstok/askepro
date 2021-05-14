@@ -27,7 +27,7 @@ const FAQ_modal = () => {
   const [description, setDescription] = React.useState(null);
   const submitFaq = async () => {
     dispatch({ type: "close" });
-    const url = `${process.env.REACT_APP_BASE_URL}/faqs`;
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/faq`;
     let jsonData = {
       title: faqTitle,
       description: description,

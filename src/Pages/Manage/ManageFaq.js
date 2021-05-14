@@ -31,7 +31,7 @@ const ManageFaq = ({ title }) => {
 
   const getfaqs = async () => {
     const faq = await (
-      await fetch(`${process.env.REACT_APP_BASE_URL}/faqs`, { method: "GET" })
+      await fetch(`${process.env.REACT_APP_BASE_URL}/admin/faq`, { method: "GET" })
     ).json();
 
     setfaq(faq);
@@ -39,7 +39,7 @@ const ManageFaq = ({ title }) => {
 
   const pageClick = async (p) => {
     const faq = await (
-      await fetch(`${process.env.REACT_APP_BASE_URL}/faqs?page=${p}`, {
+      await fetch(`${process.env.REACT_APP_BASE_URL}/admin/faq?page=${p}`, {
         method: "GET",
       })
     ).json();
@@ -48,12 +48,7 @@ const ManageFaq = ({ title }) => {
 
   
   const deleteFaq = async (id) => {
-    const url = `${process.env.REACT_APP_BASE_URL}/faqs/${id}`;
-    let jsonData = {
-      title: faqTitle,
-      description: description,
-    };
-    console.log(jsonData);
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/faq/${id}`;
     const result = await (
       await fetch(url, {
         method: "DELETE",
@@ -133,7 +128,7 @@ const ManageFaq = ({ title }) => {
           </Container>
           <div className="pagination-container">
             <label className="page-name">
-              Showing {faqs.totalPages} of {faqs.currentPage}
+              Showing {faqs.currentPage} of {faqs.totalPages}
             </label>
             <Pagination
               size="small"

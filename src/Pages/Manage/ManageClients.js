@@ -61,7 +61,7 @@ const Manageclient = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing { client.totalPages } of { client.currentPage || 1 }</label>
+<label className='page-name'>Showing { client.currentPage || 1 } of { client.totalPages } </label>
 <Pagination
     size='small'
     defaultActivePage={client.currentPage}
