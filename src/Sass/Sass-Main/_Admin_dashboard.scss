@@ -102,3 +102,49 @@
     @include para7;
   }
 }
+/* //View_all_details/// */
+.details_wrapper{
+  background: #fcfcfc;
+}
+.my_details{
+  display: flex;
+  background: #ffffff;
+  border: solid 1px #e6e6e6;
+  width: 910px;
+  padding: 30px 30px 6px 30px;
+.detail_inner1{
+  color: #000000; 
+  width: 20%;
+  & p{
+    margin-bottom: 24px !important;
+    @include form_para;
+    color: #b2b2b2;
+    line-height: 1.43;
+    font-weight: 500;
+  }
+  & h4{
+    margin-bottom: 20px !important;
+    @include form_para;
+    line-height: 1.43;
+    font-weight: 600 !important;
+  }
+}
+.detail_inner2{
+ background: #ffffff;
+
+ & p{
+  margin-bottom: 24px !important;
+  @include form_para;
+  line-height: 1.43;
+  font-weight: normal !important;
+ }
+ & h4{
+   margin-bottom: 20px;
+   visibility: hidden;
+   @include form_para;
+   line-height: 1.43;
+   font-weight: 600 !important;
+ }
+}
+
+}
