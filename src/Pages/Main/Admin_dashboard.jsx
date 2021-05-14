@@ -22,9 +22,13 @@ import {
   ResponsiveContainer
 } from "recharts";
 import Verification from "../../Component/Main-Component/Verification";
+import { useHistory } from "react-router";
 
 
 const Admin_dashboard = () => {
+  const history = useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
   const [data, setData] = React.useState("null");
   React.useEffect(() => {
     getData();

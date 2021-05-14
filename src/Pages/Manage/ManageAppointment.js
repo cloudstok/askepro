@@ -6,8 +6,12 @@ import SideBar from '../../Component/Nav/Sidebar';
 import Reject from "../../Component/Main-Component/Reject";
 import Accept from "../../Component/Main-Component/Accept";
 import './manage.scss';
+import { useHistory } from 'react-router';
 
 const ManageAppointments = ({title}) =>{
+  const history = useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
   const [appointment, setAppointment] = React.useState(null);
     React.useEffect(() => {
         getappointment();

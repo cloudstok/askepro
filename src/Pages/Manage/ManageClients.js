@@ -4,8 +4,12 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
+import { useHistory } from 'react-router';
 
 const Manageclient = ({title}) =>{
+  const history = useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
   const [client, setClient] = React.useState(null);
     React.useEffect(() => {
         getclient();

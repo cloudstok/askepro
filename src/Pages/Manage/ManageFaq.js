@@ -19,8 +19,12 @@ import "./manage.scss";
 import FAQ_modal from "../../Component/Main-Component/FAQ_modal";
 import FAQ_modal_edit from "../../Component/Main-Component/FAQ_modal_Edit"
 import FAQ_Modal_Edit from "../../Component/Main-Component/FAQ_modal_Edit";
+import { useHistory } from "react-router";
 
 const ManageFaq = ({ title }) => {
+  const history = useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
   const [faqs, setfaq] = React.useState(null);
   const [faqTitle, setTitle] = React.useState(null);
   const [description, setDescription] = React.useState(null);

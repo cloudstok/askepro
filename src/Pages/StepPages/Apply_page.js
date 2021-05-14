@@ -33,7 +33,6 @@ function ApplyStepper() {
       name: e.name,
       scode: e.scode,
       slug: e.slug,
-      image: e.serviceDetail.image[0],
     }));
     setServices(serviceData);
   };

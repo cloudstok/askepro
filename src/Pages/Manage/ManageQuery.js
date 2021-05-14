@@ -4,8 +4,12 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
+import { useHistory } from 'react-router';
 
 const ManageQuery = ({title}) =>{
+  const history = useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
     const [query, setquery] = React.useState(null);
     const [status,setStatus]=React.useState("Open");
     React.useEffect(() => {
