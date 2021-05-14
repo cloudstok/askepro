@@ -69,7 +69,7 @@ const ManageApplication = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing {application.totalPages} of {application.currentPage}</label>
+<label className='page-name'>Showing {application.currentPage} of  {application.totalPages}</label>
 <Pagination
     size='small'
     defaultActivePage={application.currentPage}

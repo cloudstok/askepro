@@ -32,7 +32,7 @@ const FAQ_Modal_Edit = (faq) => {
 
   const submitFaq = async (id) => {
     dispatch({ type: "close" });
-    const url = `${process.env.REACT_APP_BASE_URL}/faqs/${id}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/faq/${id}`;
     let jsonData = {
       title: faqTitle?faqTitle:faq.ques,
       description: description?description: faq.ans,

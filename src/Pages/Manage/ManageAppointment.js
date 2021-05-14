@@ -69,7 +69,7 @@ const ManageAppointments = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing { appointment.totalPages } of { appointment.currentPage || 1 }</label>
+<label className='page-name'>Showing { appointment.currentPage || 1 }  of { appointment.totalPages }</label>
 <Pagination
     size='small'
     defaultActivePage={appointment.currentPage}

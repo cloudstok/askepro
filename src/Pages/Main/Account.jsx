@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+import {Link, useHistory} from 'react-router-dom';
 import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
@@ -23,7 +23,7 @@ const Account = () => {
     } else {
       let application = await (
         await fetch(
-          `${process.env.REACT_APP_BASE_URL}/service/application/${id}`,
+          `${process.env.REACT_APP_BASE_URL}/service/application/${id}?limit=5`,
           {
             method: "GET",
           }
@@ -206,6 +206,10 @@ const Account = () => {
                     </Table.Row>*/}
                   </Table.Body>
                 </Table>
+<div className="accept_bottom">
+                <Link to="/history"><button  className="same-btn">
+              VIEW ALL
+            </button></Link> </div>
               </div>
               {/* <div className="history">
                 <button type="button" className="account-btn">

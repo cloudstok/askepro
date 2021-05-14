@@ -27,6 +27,26 @@ const View_details = () => {
       setApplication(application || []);
     }
   }
+
+  const generateLink=async (key)=>{
+  
+    const jsonPostData = {
+      'key':  key
+    }
+    const url = `${process.env.REACT_APP_BASE_URL}/users/download`
+    console.log(url)
+    const resu =await( await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonPostData)
+      })).json();
+  
+      window.open(resu.data, "_blank");
+  }
+  
   if (!application) {
     return (<div></div>);
   }
@@ -183,8 +203,9 @@ const View_details = () => {
                     <div className="details_3_outer">
                       {application.docs.map((ele) => <div className="details_3">
                         <p>{ele.name}</p>
-                        <Button >
-                        <a href={ele.link}>DOWNLOAD</a>
+                        <br/>
+                        <Button onClick={()=>generateLink(ele.key)} >
+                        DOWNLOAD
                         </Button>
                       </div>)}
                     </div>

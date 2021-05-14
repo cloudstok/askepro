@@ -23,6 +23,12 @@ const History = ({ title, key }) => {
       setApplication(application || []);
     }
   }
+
+  const pageClick = async (p) => {
+    const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/service/application/${id}?page=${p}`, { method: "GET"})).json();
+   
+    setApplication(application || []);
+  };
   if (!application) {
     return (<div></div>);
   }
@@ -72,16 +78,17 @@ const History = ({ title, key }) => {
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing {application.data.length} of {application.data.length}</label>
+          <label className='page-name'>Showing {application.currentPage} of  {application.totalPages}</label>
             <Pagination
-              size='small'
-              defaultActivePage={1}
-              firstItem={null}
-              lastItem={null}
-              prevItem={{ content: <label className='next'>NEXT</label> }}
-              nextItem={{ content: <label className='prev'>PREV</label> }}
-              totalPages={5}
-            />
+    size='small'
+    defaultActivePage={application.currentPage}
+    firstItem={null}
+    lastItem={null}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(--application.currentPage)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(++application.currentPage)}>NEXT</label>}}
+    totalPages={application.totalPages}
+    onClick={e => pageClick(parseInt(e.target.outerText))}
+  />
           </div>
 
         </div>

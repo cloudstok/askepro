@@ -60,8 +60,9 @@ const Accept = (id) => {
         </Modal.Content>
         <Modal.Description>
           <p className="modal_p">
-            You have accept the <br />
-            appointment booked by Client BJXCR34
+            You have accepted the <br />
+            appointment booked by <br />
+            {id.name} {id.userId}
           </p>
 
           <div className="accept_bottom">
