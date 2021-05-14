@@ -7,6 +7,7 @@ import ToggleNav from "../toggle_nav";
 let newLocation;
 export function Nav() {
   const location = useLocation();
+  const [isAdmin, setisAdmin] = React.useState(false);
   newLocation = location.pathname.split('/');
   const history = useHistory();
   const [open, setOpen] = useState(false);
@@ -16,6 +17,7 @@ export function Nav() {
   let fullname;
 
   useEffect(() => {
+    
     if (token) {
       let name = localStorage.getItem("name");
       fullname = name.split(' ');
@@ -30,8 +32,26 @@ export function Nav() {
     else {
       setIsLoggedIn(false)
     }
+    getUser();
   }, [token]);
 
+
+  const getUser = async () => {
+    const id = localStorage.getItem("id");
+    let user = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+    user = user.data;
+    if (user && user.isAdmin) {
+      setisAdmin(true);
+    }
+
+  }
   const handleClick = () => {
     localStorage.clear();
     alert("You have been logged out");
@@ -51,33 +71,48 @@ export function Nav() {
         {
           open && <ToggleNav />
         }
-        <nav>
+          {isAdmin ? <nav>
+          <div className='nav-brand'>
+            <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
+          </div> <div className="btn-group">
+                {/* <Icon name='bell outline' /> */}
+                <div class='dropdown-btn'>
+                  <Icon name='user outline' />
+                  <Dropdown text={name}>
+                    <Dropdown.Menu className='dropdown-menu'>
+                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large" />Logout</li>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </div>
+              </nav>
+            :<nav>
           <div className='nav-brand'>
             <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
           </div>
           <MenuBar />
-          {
-            isLoggedIn ?
+        
+           { isLoggedIn ?
               <div className="btn-group">
-                <Icon name='bell outline' />
+                {/* <Icon name='bell outline' /> */}
                 <div class='dropdown-btn'>
                   <Icon name='user outline' />
                   <Dropdown text={name}>
                     <Dropdown.Menu className='dropdown-menu'>
                       <Link to={'/account'}><li className='item-name' style={{ color: "#000" }}><Icon name='user outline' />My Account</li></Link>
                       <Link to={'/history'}><li className='item-name' style={{ color: "#000" }}><Icon name='history' />History</li></Link>
-                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large"/>Logout</li>
+                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large" />Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
               </div>
               :
               <div className="action-group">
-                <Link to="/login"><button className="same-btn" style={{marginRight:'30px'}}>LOGIN</button></Link>
+                <Link to="/login"><button className="same-btn" style={{ marginRight: '30px' }}>LOGIN</button></Link>
                 <Link to="/apply"><button className='same-btn'>APPLY NOW</button></Link>
               </div>
           }
-        </nav>
+        </nav>}
       </header>
     </>
   );
@@ -91,7 +126,7 @@ export default class MenuBar extends Component {
     if (name === 'services')
       this.setState({ activeItem: 'service' })
     else if (name === 'home')
-      this.setState({ homeIndex: "", activeItem:undefined })
+      this.setState({ homeIndex: "", activeItem: undefined })
     else
       this.setState({ activeItem: name })
   }
@@ -104,7 +139,7 @@ export default class MenuBar extends Component {
           <Link to='/'>
             <Menu.Item
               name='home'
-              active={homeIndex === "" && (activeItem===undefined || !activeItem)}
+              active={homeIndex === "" && (activeItem === undefined || !activeItem)}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/service"><Menu.Item
