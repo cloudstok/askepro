@@ -109,10 +109,10 @@ const View_details = () => {
           <div className="details_wrapper_inner">
             <Grid stackable columns>
 
-              <Grid.Column width={3}>
+              <Grid.Column width={4}>
                 <Step.Group vertical>
                   <Step completed>
-                    <Icon name="truck" />
+                    
                     <Step.Content>
 
                       <Step.Description>Appointment Date</Step.Description>
@@ -120,9 +120,9 @@ const View_details = () => {
                     </Step.Content>
 
                   </Step>
-
+                
                   <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
                       <Step.Description>Appointment Date</Step.Description>
 
@@ -130,7 +130,7 @@ const View_details = () => {
                   </Step>
 
                   <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
 
                       <Step.Description>Documents Uploaded</Step.Description>
@@ -138,7 +138,7 @@ const View_details = () => {
                   </Step>
 
                   <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
 
                       <Step.Description>Details Provided</Step.Description>
@@ -146,17 +146,10 @@ const View_details = () => {
                   </Step>
 
                   <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
 
                       <Step.Description>Severice Chosen</Step.Description>
-                    </Step.Content>
-                  </Step>
-
-                  <Step active>
-                    <Icon name="info" />
-                    <Step.Content>
-                      <Step.Description>Confirm Order</Step.Description   >
                     </Step.Content>
                   </Step>
                 </Step.Group>
@@ -203,7 +196,7 @@ const View_details = () => {
                     <div className="details_3_outer">
                       {application.docs.map((ele) => <div className="details_3">
                         <p>{ele.name}</p>
-                        <br/>
+                        
                         <a onClick={()=>generateLink(ele.key)} >
                         Download
                         </a>
