@@ -9,9 +9,7 @@ import {
   Form,
   Table,
 } from "semantic-ui-react";
-import Reject from "./Reject";
-import Accept from "./Accept";
-import Verification from "./Verification";
+
 
 function exampleVerify(state, action) {
   switch (action.type) {
@@ -61,7 +59,7 @@ const FAQ_modal = () => {
   return (
     <>
 
-      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
+      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "small" })}>
         + ADD FAQ
           </button>
       <Modal
@@ -115,7 +113,6 @@ const FAQ_modal = () => {
           </div>
         </Modal.Description>
       </Modal>
-
     </>
   );
 };

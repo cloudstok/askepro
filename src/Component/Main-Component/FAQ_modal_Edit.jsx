@@ -67,7 +67,7 @@ const FAQ_Modal_Edit = (faq) => {
       <img
         src={
           process.env.PUBLIC_URL + "/Assets/images/edit.png"
-        } className="btn-upload" onClick={() => dispatch({ type: "open", size: "huge" })}/>
+        } className="btn-upload" onClick={() => dispatch({ type: "open", size: "small" })}/>
   
       <Modal
         size={size}

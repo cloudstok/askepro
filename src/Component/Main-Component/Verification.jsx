@@ -76,7 +76,7 @@ const handleReject= async (requestId,bool)=>{
   return (
     <>
       <Button onClick={() => dispatch({ type: "open", size: "small" })}>
-        Verify
+        Verify  
       </Button>
       <Modal
         size={size}
@@ -89,6 +89,7 @@ const handleReject= async (requestId,bool)=>{
         </div>
         </Modal.Header>
         <Modal.Content>
+          <div className="verification_content">
           <Grid stackable columns={3}>
             <Grid.Column>
               <div className="verify">
@@ -96,7 +97,7 @@ const handleReject= async (requestId,bool)=>{
                 <p>{request.serviceCategory}</p>
               </div>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column> 
               <div className="verify">
                 <h6>Submitted by</h6>
                 <p>{request.username}</p>
@@ -127,6 +128,7 @@ const handleReject= async (requestId,bool)=>{
               </div>
             </Grid.Column>
           </Grid>
+          </div>
         </Modal.Content>
         <Modal.Description>
           <div className="documents">
