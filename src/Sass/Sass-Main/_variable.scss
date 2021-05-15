@@ -113,7 +113,17 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   font-size: 18px;
   line-height: 1.33;
 }
-
+@mixin admin_after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  border-radius: inherit;
+  background: $gradient;
+  margin: 0 14px;
+}
 .form-btn {
   font-family: Lato;
   width: 100%;
