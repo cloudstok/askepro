@@ -256,15 +256,16 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
     width: auto;
   }
   .footer {
-    width: 100%;
-    padding: 0;
+   
+    padding: 0 100px;
     padding-bottom: 25px;
     display: block;
 
     .footer-part-2 a, p{
-      display: table;
-
+      text-align: right;
+      display: grid;
       margin-top: 25px;
+      border: none;
     }
   }
 }
