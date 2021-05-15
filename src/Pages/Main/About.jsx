@@ -33,7 +33,7 @@ const About = () => {
             <Container text>
               <p>
                 With an objective of successfully set-up businesses in UAE,
-                Askepro was established in 2021, in Dubai. With a streamlined
+                Askepro was established in 2014, in Dubai. With a streamlined
                 approach, we ensure that all our experienced consultants help
                 you navigate through all the processes that are needed to
                 relocate, establish or start a venture from scratch.
