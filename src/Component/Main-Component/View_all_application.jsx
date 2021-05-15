@@ -73,7 +73,7 @@ const View_all = () => {
                 </div>
               </div>
             </div>
-            {application.dob ? <div className="details_wrapper2">
+            {application.name ? <div className="details_wrapper2">
               <div className="my_details">
                 <div className="detail_inner1">
                   <h4>Applicant Details</h4>
