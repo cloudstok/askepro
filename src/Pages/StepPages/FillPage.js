@@ -130,42 +130,42 @@ console.log(user);
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Address Line 1*</label>
-                                                <Input onChange={(event) =>  setLineOne(event.target.value)} name='lineOne' defaultValue={user.address.addressLineOne} placeholder='Enter address line 1' />
+                                                <Input onChange={(event) =>  setLineOne(event.target.value)} name='lineOne' defaultValue={user.address&&user.address.addressLineOne} placeholder='Enter address line 1' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Address Line 2*</label>
-                                                <Input onChange={(event) => setLineTwo(event.target.value)} name='lineTwo' defaultValue={user.address.addressLineTwo} placeholder='Enter address line 2' />
+                                                <Input onChange={(event) => setLineTwo(event.target.value)} name='lineTwo' defaultValue={user.address&&user.address.addressLineTwo} placeholder='Enter address line 2' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>City*</label>
-                                                <Input onChange={(event) => setCity(event.target.value)} name='city' defaultValue={user.address.city} placeholder='Select city' />
+                                                <Input onChange={(event) => setCity(event.target.value)} name='city' defaultValue={user.address&&user.address.city} placeholder='Select city' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>State*</label>
-                                                <Input onChange={(event) => setState(event.target.value)} name='state' defaultValue={user.address.state} placeholder='Select state' />
+                                                <Input onChange={(event) => setState(event.target.value)} name='state' defaultValue={user.address&&user.address.state} placeholder='Select state' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>PIN Code</label>
-                                                <Input onChange={(event) => setPincode(event.target.value)} name='pincode' defaultValue={user.address.pincode} placeholder='Enter PIN code' />
+                                                <Input onChange={(event) => setPincode(event.target.value)} name='pincode' defaultValue={user.address&&user.address.pincode} placeholder='Enter PIN code' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Country</label>
-                                                <Input onChange={(event) => setCountry(event.target.value)} name='country' defaultValue={user.address.country} placeholder='Select country' />
+                                                <Input onChange={(event) => setCountry(event.target.value)} name='country' defaultValue={user.address&&user.address.country} placeholder='Select country' />
                                             </Form.Field>
                                         </Grid.Column>
                                     </Grid.Row>
