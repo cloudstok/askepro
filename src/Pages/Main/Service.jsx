@@ -22,11 +22,10 @@ const Service = () => {
       <div className="service-banner">
         <img src={process.env.PUBLIC_URL + "/Assets/images/banner.png"} />
         <div className="banner-content">
-          <h1 className="headingOne">Our Services</h1>
+          <h1>Our Services</h1>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
-            nulla.
+          We provide all types services ranging from your tourist visa needs to forming a company in UAE. Consider us at every level to serve you the best.
           </p>
         </div>
       </div>

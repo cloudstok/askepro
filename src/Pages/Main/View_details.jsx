@@ -112,23 +112,23 @@ const View_details = () => {
               <Grid.Column width={4}>
                 <Step.Group vertical>
                   {application._id ? <Step completed>
-                    <Icon name="payment" />
+                 
                   
                     <Step.Content>
  
-                      <Step.Description>Service Chosen</Step.Description>
+                      <Step.Description>Appointment Booked</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
 
                   {application.name ? <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
 
-                      <Step.Description>Details Provided</Step.Description>
+                      <Step.Description>Appointment Date</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
                   {application.docs.length !== 0 ? <Step completed>
-                    <Icon name="payment" />
+                 
                     <Step.Content>
 
                       <Step.Description>Documents Uploaded</Step.Description>
@@ -137,19 +137,19 @@ const View_details = () => {
 
 
                   {application.appointment ? <Step completed>
-                    <Icon name="payment" />
+                    
                     <Step.Content>
 
-                      <Step.Description>Appointment Selected</Step.Description>
+                      <Step.Description>Details Provided</Step.Description>
 
                     </Step.Content>
 
                   </Step> : <div />}
 
                   {application.payment ? <Step completed>
-                    <Icon name="payment" />
+                   
                     <Step.Content>
-                      <Step.Description>Payment Done</Step.Description>
+                      <Step.Description>Severice Chosen</Step.Description>
 
                     </Step.Content>
                   </Step> : <div />}

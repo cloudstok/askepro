@@ -22,12 +22,11 @@ const Contact = () => {
           backgroundSize: "cover",
         }}
       >
-        <h1 class="headingOne">Contact</h1>
+        <h1>Contact</h1>
 
         <p>
           Experience success with UAE and take your business to new heights with
           Askepro.
-          <br />
           <br />
           Contact us, today!
         </p>

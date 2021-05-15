@@ -50,7 +50,7 @@ const Company = () => {
         }}
       >
         <Container>
-          <h1 class="headingOne">{service.name} </h1>
+          <h1>{service.name} </h1>
           <p>
             {service.description}
             {/* <br />
@@ -121,7 +121,7 @@ const Company = () => {
               </div>
               
               */}
-
+                
                 <h3>Documents Required</h3>
 
                 {service.reqDocs && service.reqDocs.map((d) =>

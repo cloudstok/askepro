@@ -36,6 +36,7 @@
   }
   h1 {
     padding-top: 52px;
+    
 
     &::after {
       @include center_after;
@@ -119,13 +120,16 @@
   h1 {
     color: #fff;
     padding-top: 82px;
+    @include banner_heading;
     &::after {
       @include center_after;
+      margin-bottom: 20px;
+      
     }
   }
   p {
     color: #fff;
-    padding: 20px 333px 62px 333px;
+    text-align: center;
     @include contact_p;
   }
 }
@@ -147,7 +151,6 @@
     box-shadow: 0 4px 20px -6px #e6e6e6;
     display: flex;
     align-items: center;
-    justify-content: center;
   }
   .contact-details-1 img {
     width: 48px;
@@ -192,24 +195,25 @@
   text-align: left;
   height: auto;
   padding: 82px 0;
-  .headingOne {
-    color: #ffffff;
+  h1 {
+    @include banner_heading;
     &::after {
       @include after;
       margin-top: 10px;
       height: 9px;
+    
     }
   }
 
   img {
     background-size: cover;
   }
-  h1 {
-    color: #fff;
-  }
+  
   p {
+    @include contact_p;
     color: #fff;
     margin-top: 20px;
+    width: 700px;
   }
 }
 
@@ -229,9 +233,13 @@
 .overview {
   margin: 40px 0 136px 0;
   width: 100%;
-  // .p{
-  //   white-space: pre-line;
-  // }
+  p{
+    font-size: 18px;
+    line-height: 1.33;
+    color: #9d9494;
+    font-family: Open Sans;
+    text-align: left;
+  }
   .testimonial {
     display: flex;
     align-items: center;
@@ -244,15 +252,13 @@
     margin-top: 0px;
   }
   .testimonial p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.33;
     color: #9d9494;
     font-family: Open Sans;
-    text-align: left;
-    line-height: 1.33;
   }
-  .testimonial h3 {
-    width: 105px;
+   h3 {
+   
     height: 29px;
     line-height: 1.21;
     margin: 46px 0 20px 0;

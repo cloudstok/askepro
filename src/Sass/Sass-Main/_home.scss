@@ -8,10 +8,9 @@
 body {
   max-width: 100%;
 }
- .wrapper_home {
+.wrapper_home {
   background-color: #fff;
-
-} 
+}
 
 .banner3 {
   display: flex;
@@ -205,13 +204,24 @@ body {
   margin: 5px;
   text-decoration: none;
   padding: 30px 0;
-  border: solid 1px #e6e6e6;
-  background-color: #ffffff;
+  outline: solid 1px #e6e6e6;
+  background-color: #ffffff !important;
   cursor: pointer;
   text-align: center;
   width: auto;
-  height: auto;
+  height: 176px;
   padding: 30px 0;
+  position: relative;
+  /*   border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent; */
+  &:hover::after {
+    @include hover_after;
+  }
+  &:hover::before {
+    @include hover_before;
+  }
 
   p {
     font-family: Open Sans;
@@ -220,19 +230,20 @@ body {
     margin-top: 20px;
   }
 }
-.service-card:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-  outline: 8px solid gold;
-}
+
 .service-card2 {
-  margin: 5px;
   display: flex;
+  height: 176px;
   padding: 55px 40px;
-  border: solid 1px #e6e6e6;
+  outline: solid 1px #e6e6e6;
   background-color: #ffffff;
-  &:hover {
-    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-    outline: 8px solid gold;
+  position: relative;
+  &:hover::after {
+    @include hover_after;
+  }
+
+  &:hover::before {
+    @include hover_before;
   }
   img {
     width: 62.9px;
@@ -257,9 +268,12 @@ body {
   border: solid 1px #ebebeb;
   border-radius: 5px;
   height: 226px;
-
-  .customer-card:hover {
-    outline: 8px solid gold;
+  position: relative;
+  &:hover::before {
+    @include hover_before;
+  }
+  &:hover::after {
+    @include hover_after;
   }
 
   .one {
@@ -380,6 +394,13 @@ body {
     border: solid 1px #e6e6e6;
     background: #fff;
     margin-bottom: 90px;
+    position: relative;
+    &:hover::after {
+      @include hover_after;
+    }
+    &:hover::before {
+      @include hover_before;
+    }
   }
 
   .tourist-border:hover {
@@ -521,7 +542,6 @@ body {
   width: 100%;
   color: #000000;
   height: 90vh;
-  
 
   .home-content {
     width: 40%;
@@ -606,20 +626,19 @@ body {
   }
 
   p {
-    font-size: 20px;
+    font-size: 16px;
     text-align: left;
+    line-height: 1.38;
     color: #fff;
     left: 0;
+    width: 592px;
   }
   h1 {
-    color: #ffff;
-    font-size: 44px;
-    line-height: 1.18;
-    font-weight: bold;
+    @include banner_heading;
     &::after {
       @include after;
       height: 9px;
-      margin: 10px;
+      margin: 10px 0;
     }
   }
 }
