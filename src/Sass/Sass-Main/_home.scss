@@ -8,10 +8,11 @@
 body {
   max-width: 100%;
 }
-
-.wrapper_home {
+ .wrapper_home {
   background-color: #fff;
-}
+
+} 
+
 .banner3 {
   display: flex;
   position: sticky;
@@ -57,7 +58,8 @@ body {
 }
 
 .service_heading {
-  margin: 129px 50px 0 50px;
+  padding: 129px 50px 0 50px;
+  background: #fff;
   h1 {
     &::after {
       @include after;
@@ -156,7 +158,7 @@ body {
   border: 1px solid #000;
   font-size: 15px;
   border-radius: 20px;
-  background-color: #fff;
+  background: #fff;
   cursor: pointer;
 }
 .same-btn:hover {
@@ -519,6 +521,8 @@ body {
   width: 100%;
   color: #000000;
   height: 90vh;
+  
+
   .home-content {
     width: 40%;
     padding: 0px 116px 0px 80px;

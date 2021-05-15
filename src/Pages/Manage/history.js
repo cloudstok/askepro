@@ -84,9 +84,9 @@ const History = ({ title, key }) => {
                   <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
                   <Table.Cell>Debit Card</Table.Cell>
                   <Table.Cell textAlign='right'>350.00</Table.Cell>
-                  <Table.Cell textAlign='center'><div><Button onClick={() => history.push(`/view/${ele._id}`)}>View Details</Button> <br/>
-                  <br/>
-                   <Button onClick={() => handleClick(ele.status,ele._id,ele.serviceCategory.slug)}>Resume</Button></div></Table.Cell>
+                  <Table.Cell className='view'style={{cursor:'pointer'}} textAlign='right' onClick={() => history.push(`/view/${ele._id}`)}>View Details</Table.Cell>
+                  <Table.Cell className='view'style={{cursor:'pointer'}} textAlign='right' onClick={() =>  handleClick(ele.status,ele._id,ele.serviceCategory.slug)}>Resume</Table.Cell>
+                  
                 </Table.Row>)}
               </Table.Body>
             </Table>
