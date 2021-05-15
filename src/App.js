@@ -38,7 +38,8 @@ import Admin_dashboard from './Pages/Main/Admin_dashboard';
 import View_details from './Pages/Main/View_details';
 import FAQ_modal from './Component/Main-Component/FAQ_modal';
 import Service_modal from './Component/Main-Component/Add_service_modal';
-import View_all from './Component/Main-Component/View_all';
+import View_all_client from './Component/Main-Component/View_all_client';
+import View_all_application from './Component/Main-Component/View_all_application';
 {/* import Username from './Component/Main-Component/Username'; */}
 
 function App() {
@@ -78,10 +79,8 @@ function App() {
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
                 <Route exact path='/admin/service'><ManageService title='Manage Service'/></Route>
                 <Route exact path='/add' component={Service_modal}/>
-                <Route exact path='/test'><View_all/></Route>
-
-
-                
+                <Route exact path='/client/:clientId'><View_all_client/></Route>
+                <Route exact path='/application/:applicationId'><View_all_application/></Route>
                 <Route exact path="/" component={Home} />
 
                 {/* <Route exact path="/user" component={Username} /> */}

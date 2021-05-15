@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { Container,Button, Icon, Step, Grid, Table, Segment } from "semantic-ui-react";
+import { Container, Button, Icon, Step, Grid, Table, Segment } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import '../../Sass/Sass-Main/_View_details.scss';
 import { useHistory } from 'react-router';
@@ -28,25 +28,25 @@ const View_details = () => {
     }
   }
 
-  const generateLink=async (key)=>{
-  
+  const generateLink = async (key) => {
+
     const jsonPostData = {
-      'key':  key
+      'key': key
     }
     const url = `${process.env.REACT_APP_BASE_URL}/users/download`
     console.log(url)
-    const resu =await( await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jsonPostData)
-      })).json();
-  
-      window.open(resu.data, "_blank");
+    const resu = await (await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonPostData)
+    })).json();
+
+    window.open(resu.data, "_blank");
   }
-  
+
   if (!application) {
     return (<div></div>);
   }
@@ -111,47 +111,47 @@ const View_details = () => {
 
               <Grid.Column width={3}>
                 <Step.Group vertical>
-                  <Step completed>
-                    <Icon name="truck" />
-                    <Step.Content>
-
-                      <Step.Description>Appointment Date</Step.Description>
-
-                    </Step.Content>
-
-                  </Step>
-
-                  <Step completed>
-                    <Icon name="payment" />
-                    <Step.Content>
-                      <Step.Description>Appointment Date</Step.Description>
-
-                    </Step.Content>
-                  </Step>
-
-                  <Step completed>
+                  {application._id ? <Step completed>
                     <Icon name="payment" />
                     <Step.Content>
 
-                      <Step.Description>Documents Uploaded</Step.Description>
+                      <Step.Description>Service Chosen</Step.Description>
                     </Step.Content>
-                  </Step>
+                  </Step> : <div />}
 
-                  <Step completed>
+                  {application.name ? <Step completed>
                     <Icon name="payment" />
                     <Step.Content>
 
                       <Step.Description>Details Provided</Step.Description>
                     </Step.Content>
-                  </Step>
-
-                  <Step completed>
+                  </Step> : <div />}
+                  {application.docs.length !== 0 ? <Step completed>
                     <Icon name="payment" />
                     <Step.Content>
 
-                      <Step.Description>Severice Chosen</Step.Description>
+                      <Step.Description>Documents Uploaded</Step.Description>
                     </Step.Content>
-                  </Step>
+                  </Step> : <div />}
+
+
+                  {application.appointment ? <Step completed>
+                    <Icon name="truck" />
+                    <Step.Content>
+
+                      <Step.Description>Appointment Selected</Step.Description>
+
+                    </Step.Content>
+
+                  </Step> : <div />}
+
+                  {application.payment ? <Step completed>
+                    <Icon name="payment" />
+                    <Step.Content>
+                      <Step.Description>Payment Done</Step.Description>
+
+                    </Step.Content>
+                  </Step> : <div />}
 
                   <Step active>
                     <Icon name="info" />
@@ -162,58 +162,10 @@ const View_details = () => {
                 </Step.Group>
 
               </Grid.Column>
+
               <Grid.Column width={9}>
                 <Grid.Row>
-                  <Grid.Column>
-
-
-                    <div className="vertical_step1">
-                      <Icon color="green" size='huge' link name='check square' />
-                      <p>
-                        Your payment was successful and we have also reserved the slot
-                        for your appointment. You can keep track of your application
-                        from your “History”.
-                </p>
-                    </div>
-
-
-                  </Grid.Column>
-                  <Grid.Column>
-
-
-                    <div className="appoint2">
-                      <div className="date">
-                        <span className="number">{application.appointment && application.appointment.appt_date}</span>
-                        <span className="jan">{application.appointment && application.appointment.appt_month} {application.appointment && application.appointment.appt_year}</span>
-                      </div>
-                      <div className="upcoming">
-                        <span className="done_info">{application.appointment && application.appointment.status}</span>
-                        <br />
-                        <p>{application.appointment && application.appointment.title}</p>
-                        <span className="minute">{application.appointment && application.appointment.time}</span>
-                      </div>
-                    </div>
-
-
-                  </Grid.Column>
-
-                  <Grid.Column>
-
-
-                    <div className="details_3_outer">
-                      {application.docs.map((ele) => <div className="details_3">
-                        <p>{ele.name}</p>
-                        <br/>
-                        <Button onClick={()=>generateLink(ele.key)} >
-                        DOWNLOAD
-                        </Button>
-                      </div>)}
-                    </div>
-
-
-                  </Grid.Column>
-
-                  <Grid.Column>
+                  {application.name ? <Grid.Column>
 
 
                     <div className="vertical_step4">
@@ -240,7 +192,54 @@ const View_details = () => {
                     </div>
 
 
-                  </Grid.Column>
+                  </Grid.Column> : <div />}
+                  {application.docs.length !== 0 ? <Grid.Column>
+
+
+                    <div className="details_3_outer">
+                      {application.docs.map((ele) => <div className="details_3">
+                        <p>{ele.name}</p>
+                        <br />
+                        <Button onClick={() => generateLink(ele.key)} >
+                          DOWNLOAD
+    </Button>
+                      </div>)}
+                    </div>
+
+
+                  </Grid.Column> : <div />}
+                  {application.appointment ? <Grid.Column>
+
+
+                    <div className="appoint2">
+                      <div className="date">
+                        <span className="number">{application.appointment && application.appointment.appt_date}</span>
+                        <span className="jan">{application.appointment && application.appointment.appt_month} {application.appointment && application.appointment.appt_year}</span>
+                      </div>
+                      <div className="upcoming">
+                        <span className="done_info">{application.appointment && application.appointment.status}</span>
+                        <br />
+                        <p>{application.appointment && application.appointment.title}</p>
+                        <span className="minute">{application.appointment && application.appointment.time}</span>
+                      </div>
+                    </div>
+
+
+                  </Grid.Column> : <div />}
+
+                  {application.payment ? <Grid.Column>
+
+
+                    <div className="vertical_step1">
+                      <Icon color="green" size='huge' link name='check square' />
+                      <p>
+                        Your payment was successful and we have also reserved the slot
+                        for your appointment. You can keep track of your application
+                        from your “History”.
+                </p>
+                    </div>
+                  </Grid.Column> : <div />}
+
 
                   <Grid.Column>
                     <div className="view_segment3">
@@ -255,8 +254,6 @@ const View_details = () => {
                               <h6>Date</h6>
                               <p>{dateFormat(application.createdAt)}</p>
                             </Table.Cell>
-
-
 
                             <Table.Cell>
                               <h6>Transaction Id</h6>

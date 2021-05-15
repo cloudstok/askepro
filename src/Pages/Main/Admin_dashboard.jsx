@@ -23,7 +23,7 @@ import {
 } from "recharts";
 import Verification from "../../Component/Main-Component/Verification";
 import { useHistory } from "react-router";
-
+import { Link, NavLink } from "react-router-dom";
 
 const Admin_dashboard = () => {
   const history = useHistory();
@@ -125,9 +125,9 @@ const Admin_dashboard = () => {
                       <p> Appointments for approval({data.pendingAppointmentCount})</p>
                     </Grid.Column>
                     <Grid.Column floated="right" width={3}>
-                      <a href={URL}>
-                      <p className="para9"> VIEW ALL</p>
-                      </a>
+                    <Link to="/admin/appointment"> 
+                     <p className="para9"> VIEW ALL</p> 
+                      </Link>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -165,11 +165,11 @@ const Admin_dashboard = () => {
                         <Grid.Column width={8}>
                           <p>Document Verification Request({data.pendingDcoumentCount})</p>
                         </Grid.Column>
-                        <Grid.Column floated="right" width={3}>
+                        {/* <Grid.Column floated="right" width={3}>
                           <a href={URL}>
                             <p className="para9"> VIEW ALL</p>
                           </a>
-                        </Grid.Column>
+                        </Grid.Column> */}
                       </Grid.Row>
                     </Grid>
                   </div>

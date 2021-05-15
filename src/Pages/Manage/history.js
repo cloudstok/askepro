@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label } from 'semantic-ui-react';
+import { Container, Icon, Pagination, Table, Label, Button } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import './manage.scss';
@@ -23,7 +23,18 @@ const History = ({ title, key }) => {
       setApplication(application || []);
     }
   }
-
+  const handleClick= async(status, id,slug)=>{
+    localStorage.setItem("applicationId", id);
+    localStorage.setItem("serviceSlug",slug);
+    if(status==="Details Pending")
+    history.push('/fill');
+    else if(status==="Upload Pending")
+    history.push('/upload');
+    else if(status==="Appointment Pending")
+    history.push('/book');
+    else
+    alert("Please apply for a new application")
+  };
   const pageClick = async (p) => {
     const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/service/application/${id}?page=${p}`, { method: "GET"})).json();
    
@@ -58,7 +69,8 @@ const History = ({ title, key }) => {
                   <Table.HeaderCell>Status</Table.HeaderCell>
                   <Table.HeaderCell>Mode</Table.HeaderCell>
                   <Table.HeaderCell textAlign='right'>Amount(AED)</Table.HeaderCell>
-                  <Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
+                  <Table.HeaderCell textAlign='center'>Actions</Table.HeaderCell>
+                  <Table.HeaderCell ></Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
@@ -72,7 +84,9 @@ const History = ({ title, key }) => {
                   <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
                   <Table.Cell>Debit Card</Table.Cell>
                   <Table.Cell textAlign='right'>350.00</Table.Cell>
-                  <Table.Cell className='view' textAlign='right' onClick={() => history.push(`/view/${ele._id}`)}>View Details</Table.Cell>
+                  <Table.Cell textAlign='center'><div><Button onClick={() => history.push(`/view/${ele._id}`)}>View Details</Button> <br/>
+                  <br/>
+                   <Button onClick={() => handleClick(ele.status,ele._id,ele.serviceCategory.slug)}>Resume</Button></div></Table.Cell>
                 </Table.Row>)}
               </Table.Body>
             </Table>

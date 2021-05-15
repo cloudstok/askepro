@@ -47,6 +47,7 @@ export function Nav() {
       })
     ).json();
     user = user.data;
+    console.log(user);
     if (user && user.isAdmin) {
       setisAdmin(true);
     }
@@ -73,7 +74,7 @@ export function Nav() {
         }
           {isAdmin ? <nav>
           <div className='nav-brand'>
-            <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
+            <a href="/admin"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
           </div> <div className="btn-group">
                 {/* <Icon name='bell outline' /> */}
                 <div class='dropdown-btn'>
@@ -91,7 +92,6 @@ export function Nav() {
             <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
           </div>
           <MenuBar />
-        
            { isLoggedIn ?
               <div className="btn-group">
                 {/* <Icon name='bell outline' /> */}

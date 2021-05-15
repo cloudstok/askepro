@@ -5,6 +5,7 @@ import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ManageApplication = ({title}) =>{
   const history = useHistory();
@@ -64,7 +65,7 @@ const ManageApplication = ({title}) =>{
         <Table.Cell><StatusChip value={ele.status}/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'>View Details</Table.Cell>
+       <Link to={`/application/${ele._id}`}> <Table.Cell className='view' textAlign='right'>View Details</Table.Cell></Link>
       </Table.Row>)}
       
     </Table.Body>

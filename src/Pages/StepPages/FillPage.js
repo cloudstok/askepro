@@ -58,10 +58,10 @@ console.log(user);
                 "alias": alias?alias:user.address.alias,
                 "addressLineOne": lineOne?lineOne:user.address.addressLineOne,
                 "addressLineTwo": lineTwo?lineTwo: user.address.addressLineTwo,
-                "state": state?state:user.state,
-                "city": city?city:user.city,
-                "pincode": pincode?pincode:user.pincode,
-                "country": country?country:user.country
+                "state": state?state:user.address.state,
+                "city": city?city:user.address.city,
+                "pincode": pincode?pincode:user.address.pincode,
+                "country": country?country:user.address.country
             }
         }
         console.log(jsonPostData);
