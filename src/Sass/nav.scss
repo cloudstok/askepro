@@ -300,14 +300,14 @@ header {
         }
       }
     }
-  }
+  } 
 }
 
 //Sidebar
 
 .sidebar {
   background-color: #fff !important;
-  height: 600px !important;
+  height: auto;
   width: 6.25em;
   display: flex;
   flex-direction: column;
