@@ -116,7 +116,7 @@ const View_details = () => {
                   
                     <Step.Content>
  
-                      <Step.Description>Appointment Booked</Step.Description>
+                      <Step.Description>Service Choosen</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
 
@@ -124,7 +124,7 @@ const View_details = () => {
                     
                     <Step.Content>
 
-                      <Step.Description>Appointment Date</Step.Description>
+                      <Step.Description>Applicant Details</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
                   {application.docs.length !== 0 ? <Step completed>
@@ -140,7 +140,7 @@ const View_details = () => {
                     
                     <Step.Content>
 
-                      <Step.Description>Details Provided</Step.Description>
+                      <Step.Description>Appointment Details</Step.Description>
 
                     </Step.Content>
 
@@ -149,7 +149,7 @@ const View_details = () => {
                   {application.payment ? <Step completed>
                    
                     <Step.Content>
-                      <Step.Description>Severice Chosen</Step.Description>
+                      <Step.Description>Paymnent Details</Step.Description>
 
                     </Step.Content>
                   </Step> : <div />}
