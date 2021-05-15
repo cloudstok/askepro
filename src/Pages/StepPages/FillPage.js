@@ -9,9 +9,31 @@ import Stepper from '../../Component/Stepper/stepper';
 import '../StepPages/stepPage.scss';
 
 function FillPage() {
+    const history = useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
+    const [user, setUser] = React.useState(null);
+    React.useEffect(() => {
+        getUser();
+    }, []);
+    const getUser = async () => {
+        const id=localStorage.getItem("id")
+        let user = await (
+            await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+                method: "GET",
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                },
+            })
+        ).json();
+console.log(user);
+        user = user.data;
+
+        setUser(user || []);
+    }
     const handleTypeChange = (event, { value }) => { setType(value) };
     const handleAliasChange = (event, { value }) => { setAlias(value) };
-    const history = useHistory();
+    
     const [name, setName] = React.useState(null);
     const [dob, setDob] = React.useState(null);
     const [type, setType] = React.useState(null);
@@ -22,25 +44,24 @@ function FillPage() {
     const [city, setCity] = React.useState(null);
     const [country, setCountry] = React.useState(null);
     const [pincode, setPincode] = React.useState(null);
-    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
-        history.push("/login");
+   
     const requestId = localStorage.getItem("applicationId");
     const url = `${process.env.REACT_APP_BASE_URL}/service/fill/${requestId}`
     const handleSubmitForm = async (event) => {
         event.preventDefault();
         const jsonPostData = {
-            "name": name,
+            "name": name?name:user.name,
             "dob": dob,
             "type": type,
             "address":
             {
-                "alias": alias,
-                "addressLineOne": lineOne,
-                "addressLineTwo": lineTwo,
-                "state": state,
-                "city": city,
-                "pincode": pincode,
-                "country": country
+                "alias": alias?alias:user.address.alias,
+                "addressLineOne": lineOne?lineOne:user.address.addressLineOne,
+                "addressLineTwo": lineTwo?lineTwo: user.address.addressLineTwo,
+                "state": state?state:user.address.state,
+                "city": city?city:user.address.city,
+                "pincode": pincode?pincode:user.address.pincode,
+                "country": country?country:user.address.country
             }
         }
         console.log(jsonPostData);
@@ -55,8 +76,9 @@ function FillPage() {
         console.log(result);
         history.push("/upload");
 
-
     }
+    if (!user) { return <div /> }
+ 
     return (
         <main>
             <div className='fill-section'>
@@ -87,7 +109,7 @@ function FillPage() {
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Name *</label>
-                                                <Input onChange={(event) => setName(event.target.value)} name='name' placeholder='Enter name' />
+                                                <Input onChange={(event) => setName(event.target.value)} name='name' defaultValue={user.name} placeholder='Enter name' />
                                             </Form.Field>
                                         </Grid.Column>
                                         <Grid.Column>
@@ -108,42 +130,42 @@ function FillPage() {
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Address Line 1*</label>
-                                                <Input onChange={(event) => setLineOne(event.target.value)} name='lineOne' placeholder='Enter address line 1' />
+                                                <Input onChange={(event) =>  setLineOne(event.target.value)} name='lineOne' defaultValue={user.address.addressLineOne} placeholder='Enter address line 1' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Address Line 2*</label>
-                                                <Input onChange={(event) => setLineTwo(event.target.value)} name='lineTwo' placeholder='Enter address line 2' />
+                                                <Input onChange={(event) => setLineTwo(event.target.value)} name='lineTwo' defaultValue={user.address.addressLineTwo} placeholder='Enter address line 2' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>City*</label>
-                                                <Input onChange={(event) => setCity(event.target.value)} name='city' placeholder='Select city' />
+                                                <Input onChange={(event) => setCity(event.target.value)} name='city' defaultValue={user.address.city} placeholder='Select city' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>State*</label>
-                                                <Input onChange={(event) => setState(event.target.value)} name='state' placeholder='Select state' />
+                                                <Input onChange={(event) => setState(event.target.value)} name='state' defaultValue={user.address.state} placeholder='Select state' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>PIN Code</label>
-                                                <Input onChange={(event) => setPincode(event.target.value)} name='pincode' placeholder='Enter PIN code' />
+                                                <Input onChange={(event) => setPincode(event.target.value)} name='pincode' defaultValue={user.address.pincode} placeholder='Enter PIN code' />
                                             </Form.Field>
                                         </Grid.Column>
 
                                         <Grid.Column>
                                             <Form.Field>
                                                 <label>Country</label>
-                                                <Input onChange={(event) => setCountry(event.target.value)} name='country' placeholder='Select country' />
+                                                <Input onChange={(event) => setCountry(event.target.value)} name='country' defaultValue={user.address.country} placeholder='Select country' />
                                             </Form.Field>
                                         </Grid.Column>
                                     </Grid.Row>

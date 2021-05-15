@@ -62,6 +62,7 @@ const handleReject= async (requestId,bool)=>{
 
   if(resu.status===1){
     alert(resu.msg);
+    window.location.reload(false);
   }
 }
 

@@ -4,10 +4,13 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ManageApplication = ({title}) =>{
-
-
+  const history = useHistory();
+    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+    history.push("/login");
   
   const [application, setApplication] = React.useState(null);
     React.useEffect(() => {
@@ -59,10 +62,10 @@ const ManageApplication = ({title}) =>{
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
         <Table.Cell>XMBC3457XNT0</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
+        <Table.Cell><StatusChip value={ele.status}/></Table.Cell>
         <Table.Cell>Debit Card</Table.Cell>
         <Table.Cell textAlign='right'>350.00</Table.Cell>
-        <Table.Cell className='view' textAlign='right'>View Details</Table.Cell>
+       <Link to={`/application/${ele._id}`}> <Table.Cell className='view' textAlign='right'>View Details</Table.Cell></Link>
       </Table.Row>)}
       
     </Table.Body>

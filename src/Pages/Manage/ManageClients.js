@@ -4,8 +4,13 @@ import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
 import './manage.scss';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Manageclient = ({title}) =>{
+  const history = useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
   const [client, setClient] = React.useState(null);
     React.useEffect(() => {
         getclient();
@@ -54,7 +59,7 @@ const Manageclient = ({title}) =>{
         <Table.Cell>{ele.email}</Table.Cell>
         <Table.Cell>{ele.phone}</Table.Cell>
         <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
-        <Table.Cell className='view'  ><a href="#">View Details</a></Table.Cell>
+        <Table.Cell className='view'  ><Link to={`/client/${ele._id}`}> View Details </Link></Table.Cell>
       </Table.Row>)}
     
     </Table.Body>

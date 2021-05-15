@@ -18,7 +18,7 @@
   text-align: center;
   @include verify_top;
 }
-.header {
+.modal .header {
   &::after {
     content: none;
   }

@@ -15,7 +15,7 @@ const options = [
           </div>
           <Input icon='search' placeholder='Search'/>
           <div className="btn-group">
-            <Icon name='bell outline'/>
+            {/* <Icon name='bell outline'/> */}
             <div class='dropdown-btn'>
               <Icon name='user outline'/>
                 <Dropdown text='William'>
