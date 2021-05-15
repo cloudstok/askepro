@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Checkbox, Form, Message } from "semantic-ui-react";
+import ReCAPTCHA from "react-google-recaptcha"
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
   const history = useHistory();
+  
+  const [gvalue, setGvalue] = React.useState(false);
 
   const url = `${process.env.REACT_APP_BASE_URL}/login`
   const [email, setEmail] = React.useState(null);
@@ -12,50 +15,72 @@ const Login1 = () => {
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
-
-    console.log(event.target);
     
-    const jsonPostData = {
-      'email': email,
-      'password': password
-    } 
+    if (gvalue === true) {
+      const jsonPostData = {
+        'email': email,
+        'password': password
+      } 
 
-    const res = await fetch(url, {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonPostData)
+      });
+
+      const data = await res.json();
+      if (data.status == 1 && data.token) {
+        localStorage.setItem('token', data.token);
+       
+        let idData = await (
+          await fetch(
+            `${process.env.REACT_APP_BASE_URL}/users`,
+            {
+              method: "GET",
+              headers: {
+                'x-access-token': localStorage.getItem('token'),
+              }
+            })).json();
+        idData = idData.data;
+        localStorage.setItem('id', idData._id);
+        localStorage.setItem('name', idData.name);
+        if (idData.isAdmin===false)
+        history.push("/");
+        else
+        history.push("/admin");
+      } else {
+        setMsg("Invalid Incorrect Email/Password ");
+      }
+
+      window.location.reload(false);  
+    }
+
+  };
+  
+  const gCaptchaChange = async (value) => {
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/g_server`;
+    const pData = {
+      humanKey: value
+    };
+    const gReq = await fetch(url, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(jsonPostData)
+      body: JSON.stringify(pData)
     });
-
-    const data = await res.json();
-    if (data.status == 1 && data.token) {
-      localStorage.setItem('token', data.token);
-     
-      let idData = await (
-        await fetch(
-          `${process.env.REACT_APP_BASE_URL}/users`,
-          {
-            method: "GET",
-            headers: {
-              'x-access-token': localStorage.getItem('token'),
-            }
-          })).json();
-      idData = idData.data;
-      localStorage.setItem('id', idData._id);
-      localStorage.setItem('name', idData.name);
-      if (idData.isAdmin===false)
-      history.push("/");
-      else
-      history.push("/admin");
-    } else {
-      setMsg("Invalid Incorrect Email/Password ");
+    
+    const jsonD = await gReq.json();
+    
+    if (jsonD.success === true) {
+      setGvalue(true);
     }
-
-    window.location.reload(false);
-
-  };
+  }
+  
   return (
     <>
       <div
@@ -81,9 +106,16 @@ const Login1 = () => {
             <label> Password</label>
             <input type="password" onChange={(event) => setPassword(event.target.value)} name="password" placeholder="Enter password" required={true} />
           </Form.Field>
+          
+          <Form.Field className="check">
+            <ReCAPTCHA sitekey={process.env.REACT_APP_GOOGLE_SITE_KEY} onChange={gCaptchaChange} />
+          </Form.Field>
+          
+          {/*
           <Form.Field className="check">
             <Checkbox label="I’m not a Robot" required={true} readOnly={false} />
           </Form.Field>
+          */}
           <span class="fgt1">
             <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
           </span>
