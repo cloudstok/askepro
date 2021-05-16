@@ -50,7 +50,7 @@ export default class Graph_div extends Component {
 <div className="filter">
     <Grid stackable columns>
         <Grid.Row>
-            <Grid.Column width={11}>
+            <Grid.Column width={10}>
     <Form>
 <Form.Group widths='equal'>
 <Form.Field label='Choose Service' control='select'>
