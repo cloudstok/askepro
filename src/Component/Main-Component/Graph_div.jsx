@@ -67,17 +67,23 @@ setData(graph.data);}console.log(graphData.graphData)
   return (
     <>
       <div className="revenue_data">
-
-        <Button.Group widths='3'>
+        
+         {/* <Button.Group widths='3'>
           <Button active={forData === "Application" ? true : false} onClick={() => setFor("Application")}>Application</Button>
           <Button active={forData === "Client" ? true : false} onClick={() => setFor("Client")}>Client</Button>
           <Button active={forData === "Revenue" ? true : false} onClick={() => setFor("Revenue")}>Revenue</Button>
-        </Button.Group>
-
+        </Button.Group>  */}
+ <div className="Revenue">
+ <Button.Group widths='3'>
+          <Button className="revenue_btn" active={forData === "Application" ? true : false} onClick={() => setFor("Application")}>Application</Button>
+          <Button className="revenue_btn" active={forData === "Client" ? true : false} onClick={() => setFor("Client")}>Client</Button>
+          <Button className="revenue_btn" active={forData === "Revenue" ? true : false} onClick={() => setFor("Revenue")}>Revenue</Button>
+        </Button.Group> 
+ </div>
         <div className="filter">
-          <Grid stackable columns>
+          <Grid stackable columns={2}>
             <Grid.Row>
-              <Grid.Column width={3}>
+              <Grid.Column width={5}>
                 <Form>
                   <Form.Group>
                     <Form.Field
@@ -94,20 +100,20 @@ setData(graph.data);}console.log(graphData.graphData)
                 </Form>
               </Grid.Column>
               <Grid.Column width={5}>
-                <div className="grey_btn">
-                  <Button.Group size="small" width={4}>
-                    <Button active={frequency === "Yearly" ? true : false} onClick={() => setfrequency("Yearly")}>Yearly</Button>
-                    <Button active={frequency === "Monthly" ? true : false} onClick={() => setfrequency("Monthly")}>Monthly</Button>
-                    <Button active={frequency === "Daily" ? true : false} onClick={() => setfrequency("Daily")}>Daily</Button>
+                
+                  <Button.Group>
+                    <Button className="grey_btn" active={frequency === "Yearly" ? true : false} onClick={() => setfrequency("Yearly")}>Yearly</Button>
+                    <Button className="grey_btn"active={frequency === "Monthly" ? true : false} onClick={() => setfrequency("Monthly")}>Monthly</Button>
+                    <Button className="grey_btn" active={frequency === "Daily" ? true : false} onClick={() => setfrequency("Daily")}>Daily</Button>
                   </Button.Group>
-                </div>
+                
               </Grid.Column>
-              <Grid.Column width={1}>
+              <Grid.Column width={5}>
                 <Form>
                   <Form.Group>
                     <Form.Field
                       label="Choose Year"
-                      className="select2"
+                      className="select"
                       control="select"
                       selection
                       onChange={(event) => setYear(event.target.value)}
@@ -117,7 +123,7 @@ setData(graph.data);}console.log(graphData.graphData)
                     </Form.Field>
                     <Form.Select
                       label="Choose Month"
-                      className="select2"
+                      className="select"
                       control="select"
                       selection
                       onChange={(event) => setForMonth(event.target.value)}
@@ -136,8 +142,8 @@ setData(graph.data);}console.log(graphData.graphData)
                       <option value="11">November</option>
                       <option value="12">December</option>
                     </Form.Select>
-                    <div className="grey_btn">
-                    <Button size="tiny" onClick={() => hamdleGo()}>GO</Button></div>
+                    
+                    <Button className="grey_btn" size="tiny" onClick={() => hamdleGo()}>GO</Button>
                   </Form.Group>
                 </Form>
 

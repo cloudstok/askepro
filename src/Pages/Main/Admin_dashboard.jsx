@@ -74,7 +74,7 @@ const Admin_dashboard = () => {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-              <Grid>
+              <Grid>  
                 <Grid.Column>
                   <Graph_div data={data.graphData} />
             {/*   <div className="overview5">
