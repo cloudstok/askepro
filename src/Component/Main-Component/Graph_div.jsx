@@ -150,7 +150,7 @@ return}
                 </Form>
 
               </Grid.Column>
-              {((frequency === "Daily")||(forService === "All Service"))? <ResponsiveContainer width="95%" height={400}>
+              {(frequency === "Daily")? <ResponsiveContainer width="95%" height={400}>
                 <BarChart
                   width={875}
                   height={500}
