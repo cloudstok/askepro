@@ -496,7 +496,7 @@
 .account_carousel {
   background: linear-gradient(0.95turn, #010101, #505050, #010101);
   width: auto;
-  height: 202px !important;
+  height: 238.5px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -513,6 +513,9 @@
     line-height: 1.19;
     font-weight: bold;
   }
+}
+.accept_bottom::after{
+  content: none;
 }
 
 .user_heading {

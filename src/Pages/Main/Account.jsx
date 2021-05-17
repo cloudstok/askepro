@@ -1,12 +1,22 @@
 import React from "react";
-import { Link, useHistory } from 'react-router-dom';
-import { Grid, Segment, Table, Menu, Dropdown, Icon, Button, Container, Input } from "semantic-ui-react";
+import { Link, useHistory } from "react-router-dom";
+import {
+  Grid,
+  Segment,
+  Table,
+  Menu,
+  Dropdown,
+  Icon,
+  Button,
+  Container,
+  Input,
+} from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import { getData } from "../../services/api";
 import "../../Sass/Sass-Main/_About.scss";
 import Edit_user from "../../Component/Main-Component/Edit_user";
-import { useRef } from 'react'
+import { useRef } from "react";
 const Account = () => {
   const history = useHistory();
   const fileref = useRef();
@@ -30,7 +40,7 @@ const Account = () => {
             method: "GET",
             headers: {
               "x-access-token": localStorage.getItem("token"),
-            }
+            },
           }
         )
       ).json();
@@ -42,7 +52,7 @@ const Account = () => {
             method: "GET",
             headers: {
               "x-access-token": localStorage.getItem("token"),
-            }
+            },
           }
         )
       ).json();
@@ -66,21 +76,21 @@ const Account = () => {
 
   function dateFormat(d) {
     const date = new Date(d);
-    return `${date.toLocaleString()}`
-  };
+    return `${date.toLocaleString()}`;
+  }
   const uploadWithFormData = async (event) => {
-    ;
     const formData = new FormData();
     formData.append("upload", event.target.files[0]);
     console.log(...formData);
-    const result = await (await fetch(`${process.env.REACT_APP_BASE_URL}/users/upload/${id}`, {
-      method: 'PUT',
-      body: formData
-    })).json();
+    const result = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/upload/${id}`, {
+        method: "PUT",
+        body: formData,
+      })
+    ).json();
     console.log(result);
-    if (result.status === 1)
-      window.location.reload(false);
-  }
+    if (result.status === 1) window.location.reload(false);
+  };
   if (!user || !appointment || !application) {
     return <div></div>;
   }
@@ -98,40 +108,56 @@ const Account = () => {
         <Container fluid>
           <div className="account">
             <h4>Account Overview </h4>
-     
           </div>
-         
-          <Grid stackable columns={2}>
+
+          <Grid doubling columns={2}>
             <Grid.Column width={11}>
               <Segment>
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <Grid.Column floated='right' width={1}>
-                      </Grid.Column>
+                      <Grid.Column floated="right" width={1}></Grid.Column>
                       <p>
                         <img
-                          src={user.profilePicture ? "data:image/png;base64," + user.profilePicture : process.env.PUBLIC_URL + "Assets/images/team.png"}
-                        /><br />
-                     
-        <div className="edit_profile">           
-      <Dropdown item icon='pen square' simple>
-        <Dropdown.Menu>
-          <Dropdown.Item  onClick={() => fileref.current.click()}>Edit Profile</Dropdown.Item>
-    
-          <Dropdown.Item><Edit_user id={user._id}
-                    name={user.name}
-                    phone={user.phone}
-                    addressLineOne={user.address && user.address.addressLineOne}
-                    addressLineTwo={user.address && user.address.addressLineTwo}
-                    city={user.address && user.address.city}
-                    state={user.address && user.address.state}
-                    pincode={user.address && user.address.pincode}
-                    country={user.address && user.address.country} /></Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      </div>
-      <Menu.Menu position='right'></Menu.Menu>
+                          src={
+                            user.profilePicture
+                              ? "data:image/png;base64," + user.profilePicture
+                              : process.env.PUBLIC_URL +
+                                "Assets/images/team.png"
+                          }
+                        />
+                        <br />
+
+                        <div className="edit_profile">
+                          <Dropdown item icon="pen square" simple>
+                            <Dropdown.Menu>
+                              <Dropdown.Item
+                                onClick={() => fileref.current.click()}
+                              >
+                                Edit Profile
+                              </Dropdown.Item>
+
+                              <Dropdown.Item>
+                                <Edit_user
+                                  id={user._id}
+                                  name={user.name}
+                                  phone={user.phone}
+                                  addressLineOne={
+                                    user.address && user.address.addressLineOne
+                                  }
+                                  addressLineTwo={
+                                    user.address && user.address.addressLineTwo
+                                  }
+                                  city={user.address && user.address.city}
+                                  state={user.address && user.address.state}
+                                  pincode={user.address && user.address.pincode}
+                                  country={user.address && user.address.country}
+                                />
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </div>
+                        <Menu.Menu position="right"></Menu.Menu>
                         <input
                           ref={fileref}
                           type="file"
@@ -151,14 +177,16 @@ const Account = () => {
                   <div className="user_inner3">
                     <h6>Email</h6>
                     <p>{user.email}</p>
-                  
+
                     <br />
                     <h6>Address</h6>
                     <p>
                       {user.address && user.address.addressLineOne} <br></br>
                       {user.address && user.address.addressLineTwo} <br></br>
-                      {user.address && user.address.city}<br></br>
-                      {user.address && user.address.state}{" "}{user.address && user.address.pincode} <br></br>
+                      {user.address && user.address.city}
+                      <br></br>
+                      {user.address && user.address.state}{" "}
+                      {user.address && user.address.pincode} <br></br>
                       {user.address && user.address.country}
                     </p>
                   </div>
@@ -176,7 +204,7 @@ const Account = () => {
             </Grid.Column>
           </Grid>
 
-          <Grid stackable columns={2}>
+          <Grid doubling columns={2}>
             <Grid.Column width={11}>
               <div className="user_heading">
                 <h4>Recent Applications </h4>
@@ -185,40 +213,35 @@ const Account = () => {
                 <Table striped>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>
-                        Date
-                      </Table.HeaderCell>
-                      <Table.HeaderCell>
-                        Service id
-                      </Table.HeaderCell>
-                      <Table.HeaderCell>
-                        Service Name
-                      </Table.HeaderCell>
-                      <Table.HeaderCell>
-                        Transaction Id
-                      </Table.HeaderCell>
-                      <Table.HeaderCell>
-                        Status
-                      </Table.HeaderCell>
-                      <Table.HeaderCell>
-                        Mode
-                      </Table.HeaderCell>
-                      <Table.HeaderCell textAlign='right'>
+                      <Table.HeaderCell>Date</Table.HeaderCell>
+                      <Table.HeaderCell>Service id</Table.HeaderCell>
+                      <Table.HeaderCell>Service Name</Table.HeaderCell>
+                      <Table.HeaderCell>Transaction Id</Table.HeaderCell>
+                      <Table.HeaderCell>Status</Table.HeaderCell>
+                      <Table.HeaderCell>Mode</Table.HeaderCell>
+                      <Table.HeaderCell textAlign="right">
                         Amount(AED)
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 
                   <Table.Body>
-                    {application.data && application.data.map((ele) => <Table.Row>
-                      <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
-                      <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
-                      <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-                      <Table.Cell>XMBC3457XNT0</Table.Cell>
-                      <Table.Cell><StatusChip value={ele.status} /></Table.Cell>
-                      <Table.Cell>Debit Card</Table.Cell>
-                      <Table.Cell textAlign='right'>350.00</Table.Cell>
-                    </Table.Row>)}
+                    {application.data &&
+                      application.data.map((ele) => (
+                        <Table.Row>
+                          <Table.Cell>
+                            {new Date(ele.createdAt).toLocaleString()}
+                          </Table.Cell>
+                          <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
+                          <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
+                          <Table.Cell>XMBC3457XNT0</Table.Cell>
+                          <Table.Cell>
+                            <StatusChip value={ele.status} />
+                          </Table.Cell>
+                          <Table.Cell>Debit Card</Table.Cell>
+                          <Table.Cell textAlign="right">350.00</Table.Cell>
+                        </Table.Row>
+                      ))}
                     {/*     <Table.Row>
                       <Table.Cell>22/01/2021</Table.Cell>
                       <Table.Cell>BJXCR34</Table.Cell>
@@ -258,9 +281,10 @@ const Account = () => {
                   </Table.Body>
                 </Table>
                 <div className="accept_bottom">
-                  <Link to="/history"><button className="same-btn">
-                    VIEW ALL
-            </button></Link> </div>
+                  <Link to="/history">
+                    <button className="same-btn">VIEW ALL</button>
+                  </Link>{" "}
+                </div>
               </div>
               {/* <div className="history">
                 <button type="button" className="account-btn">
