@@ -429,6 +429,7 @@
   padding: 20px;
 }
 .user_inner1 {
+  position: relative;
   img {
     background-image: linear-gradient(
       to bottom,
@@ -443,7 +444,22 @@
     width: 97px;
     height: 97px;
     border-radius: 50%;
+    
   }
+  
+}
+.edit_profile{
+  position: absolute;
+  top:44.65%;
+  right: 20.25%;
+ 
+  justify-content: center !important; 
+
+  & .icon{
+    font-size: 24px !important;   
+
+  }
+  
 }
 .user_inner2 {
   h6 {

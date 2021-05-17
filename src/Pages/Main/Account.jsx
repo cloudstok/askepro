@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from 'react-router-dom';
-import { Grid, Segment, Table, Button, Container, Input } from "semantic-ui-react";
+import { Grid, Segment, Table, Menu, Dropdown, Icon, Button, Container, Input } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import { getData } from "../../services/api";
@@ -97,15 +97,7 @@ const Account = () => {
       <div className="account_wrapper">
         <Container fluid>
           <div className="account">
-            <h4>Account Overview <Edit_user id={user._id}
-                    name={user.name}
-                    phone={user.phone}
-                    addressLineOne={user.address && user.address.addressLineOne}
-                    addressLineTwo={user.address && user.address.addressLineTwo}
-                    city={user.address && user.address.city}
-                    state={user.address && user.address.state}
-                    pincode={user.address && user.address.pincode}
-                    country={user.address && user.address.country} /></h4>
+            <h4>Account Overview </h4>
      
           </div>
          
@@ -121,12 +113,25 @@ const Account = () => {
                         <img
                           src={user.profilePicture ? "data:image/png;base64," + user.profilePicture : process.env.PUBLIC_URL + "Assets/images/team.png"}
                         /><br />
-                        <Button
-                          content="Choose File"
-                          labelPosition="left"
-                          icon="file"
-                          onClick={() => fileref.current.click()}
-                        />
+                     
+        <div className="edit_profile">           
+      <Dropdown item icon='pen square' simple>
+        <Dropdown.Menu>
+          <Dropdown.Item  onClick={() => fileref.current.click()}>Edit Profile</Dropdown.Item>
+    
+          <Dropdown.Item><Edit_user id={user._id}
+                    name={user.name}
+                    phone={user.phone}
+                    addressLineOne={user.address && user.address.addressLineOne}
+                    addressLineTwo={user.address && user.address.addressLineTwo}
+                    city={user.address && user.address.city}
+                    state={user.address && user.address.state}
+                    pincode={user.address && user.address.pincode}
+                    country={user.address && user.address.country} /></Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      </div>
+      <Menu.Menu position='right'></Menu.Menu>
                         <input
                           ref={fileref}
                           type="file"
