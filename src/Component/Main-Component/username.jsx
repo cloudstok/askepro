@@ -22,7 +22,7 @@ const Username = () => {
         .email('Invalid email address')
         .required('Required'),
       password: Yup.string()
-      .min(8, "Passwords must be at least 8 characters in length")
+      .min(4, "Passwords must be at least 8 characters in length")
       .required('Required'),
       checkbox: Yup.string()
         .required('Required')

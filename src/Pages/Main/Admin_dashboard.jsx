@@ -12,16 +12,6 @@ import { Container, Grid, Icon } from "semantic-ui-react";
 import Graph_div from '../../Component/Main-Component/Graph_div';
 import "../../Sass/Sass-Main/_Appointment_card.scss";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 import Verification from "../../Component/Main-Component/Verification";
 import { useHistory } from "react-router";
 import { Link, NavLink } from "react-router-dom";
@@ -86,7 +76,7 @@ const Admin_dashboard = () => {
               </Grid>
               <Grid>
                 <Grid.Column>
-                  <Graph_div />
+                  <Graph_div data={data.graphData} />
             {/*   <div className="overview5">
                     <p>Revenue Overview</p>
                   </div> */}
@@ -115,26 +105,7 @@ const Admin_dashboard = () => {
               </Grid>
 
                       </div> */}
-                  <ResponsiveContainer width="95%" height={400}>
-                    <BarChart
-                      width={875}
-                      height={500}
-                      data={data.graphData}
-                      margin={{
-                        top: 5,
-                        right: 0,
-                        left: 0,
-                        bottom: 5,
-                      }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="_id" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <Bar dataKey="count" fill="#9d9494" />
-                    </BarChart>
-                  </ResponsiveContainer>
+                  
                 </Grid.Column>
               </Grid>
             </Grid.Column>

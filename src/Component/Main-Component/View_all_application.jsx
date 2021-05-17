@@ -3,7 +3,10 @@ import { useParams } from "react-router";
 import { Container, Button } from "semantic-ui-react";
 import BreadCrumbs from "../Breadcrumb/breadcrumb";
 import SideBar from '../Nav/Sidebar'
-
+import Verification from "../../Component/Main-Component/Verification";
+import Reject from "../../Component/Main-Component/Reject";
+import Accept from "../../Component/Main-Component/Accept";
+import "../../Sass/Sass-Main/_Appointment_card.scss";
 const View_all = () => {
   let { applicationId } = useParams();
   const [application, setapplication] = React.useState(null);
@@ -98,6 +101,21 @@ const View_all = () => {
               <div className="my_details">
                 <div className="detail_inner1">
                   <h4>Document Details</h4>
+                  {application.isDocVerified===false?<Verification
+                                        serviceCategory={
+                                          application.serviceCategory.name
+                                        }
+                                        id={application._id}
+                                        username={application.name}
+                                        email={application.users.email}
+                                        phone={application.users.phone}
+                                        time={
+                                          new Date(
+                                            application.createdAt
+                                          ).toLocaleString()
+                                        }
+                                        docs={application.docs}
+                                      ></Verification>:<></>}
                 </div>
                 <div className="detail_inner2">
                   {application.docs.map((ele) =>
@@ -108,12 +126,22 @@ const View_all = () => {
                         </Button>
                     </p>)}
                 </div>
+             
               </div>
             </div> : <div />}
             {application.appointment ? <div className="details_wrapper2">
               <div className="my_details">
                 <div className="detail_inner1">
                   <h4>Appointment Details</h4>
+                  {application.appointment.status==="Pending"?
+                 <div className="action-icon">
+                 <Reject id={application.appointment._id} />
+                 <Accept
+                   id={application.appointment._id}
+                   name={application.name}
+                   userId={application.users._id}
+                 />
+               </div>:<></>}
                 </div>
                 <div className="detail_inner2">
 

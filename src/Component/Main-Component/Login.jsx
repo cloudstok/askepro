@@ -52,7 +52,7 @@ const Login1 = () => {
         else
         history.push("/admin");
       } else {
-        setMsg("Invalid Incorrect Email/Password ");
+        setMsg("Incorrect Email/Password ");
       }
 
       window.location.reload(false);  

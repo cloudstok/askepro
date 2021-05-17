@@ -1,17 +1,19 @@
 import React from "react";
-import {Link, useHistory} from 'react-router-dom';
-import { Grid, Segment, Table, Button, Container } from "semantic-ui-react";
+import { Link, useHistory } from 'react-router-dom';
+import { Grid, Segment, Table, Button, Container, Input } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import { getData } from "../../services/api";
 import "../../Sass/Sass-Main/_About.scss";
-
+import Edit_user from "../../Component/Main-Component/Edit_user";
+import { useRef } from 'react'
 const Account = () => {
   const history = useHistory();
-
+  const fileref = useRef();
   const [user, setUser] = React.useState(null);
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
+  const [file, setFile] = React.useState(null);
 
   React.useEffect(() => {
     getUser();
@@ -26,6 +28,9 @@ const Account = () => {
           `${process.env.REACT_APP_BASE_URL}/service/application/${id}?limit=5`,
           {
             method: "GET",
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            }
           }
         )
       ).json();
@@ -35,6 +40,9 @@ const Account = () => {
           `${process.env.REACT_APP_BASE_URL}/service/appointment/${id}`,
           {
             method: "GET",
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            }
           }
         )
       ).json();
@@ -55,16 +63,27 @@ const Account = () => {
       setAppointment(appointment || []);
     }
   };
-  if (!user || !appointment || !application) {
-    return <div></div>;
-  }
-  console.log(application);
-  
-  function dateFormat(d){
+
+  function dateFormat(d) {
     const date = new Date(d);
     return `${date.toLocaleString()}`
   };
-
+  const uploadWithFormData = async (event) => {
+    ;
+    const formData = new FormData();
+    formData.append("upload", event.target.files[0]);
+    console.log(...formData);
+    const result = await (await fetch(`${process.env.REACT_APP_BASE_URL}/users/upload/${id}`, {
+      method: 'PUT',
+      body: formData
+    })).json();
+    console.log(result);
+    if (result.status === 1)
+      window.location.reload(false);
+  }
+  if (!user || !appointment || !application) {
+    return <div></div>;
+  }
   return (
     <>
       <div className="account_breadcrumb">
@@ -78,19 +97,45 @@ const Account = () => {
       <div className="account_wrapper">
         <Container fluid>
           <div className="account">
-            <h4>Account Overview</h4>
+            <h4>Account Overview <Edit_user id={user._id}
+                    name={user.name}
+                    phone={user.phone}
+                    addressLineOne={user.address && user.address.addressLineOne}
+                    addressLineTwo={user.address && user.address.addressLineTwo}
+                    city={user.address && user.address.city}
+                    state={user.address && user.address.state}
+                    pincode={user.address && user.address.pincode}
+                    country={user.address && user.address.country} /></h4>
+     
           </div>
+         
           <Grid stackable columns={2}>
             <Grid.Column width={11}>
               <Segment>
                 <div className="my_user">
                   <div className="user_inner1">
                     <div className="round">
-                      <img
-                        src={process.env.PUBLIC_URL + "Assets/images/team.png"}
-                      />{" "}
+                      <Grid.Column floated='right' width={1}>
+                      </Grid.Column>
+                      <p>
+                        <img
+                          src={user.profilePicture ? "data:image/png;base64," + user.profilePicture : process.env.PUBLIC_URL + "Assets/images/team.png"}
+                        /><br />
+                        <Button
+                          content="Choose File"
+                          labelPosition="left"
+                          icon="file"
+                          onClick={() => fileref.current.click()}
+                        />
+                        <input
+                          ref={fileref}
+                          type="file"
+                          hidden
+                          onChange={(e) => uploadWithFormData(e)}
+                        />
+                      </p>
                     </div>
-                  </div>
+                  </div>{" "}
                   <div className="user_inner2">
                     <h6>Name</h6>
                     <p>{user.name}</p>
@@ -101,13 +146,14 @@ const Account = () => {
                   <div className="user_inner3">
                     <h6>Email</h6>
                     <p>{user.email}</p>
+                  
                     <br />
                     <h6>Address</h6>
                     <p>
                       {user.address && user.address.addressLineOne} <br></br>
                       {user.address && user.address.addressLineTwo} <br></br>
-                      {user.address && user.address.city}{" "}
-                      {user.address && user.address.state} <br></br>
+                      {user.address && user.address.city}<br></br>
+                      {user.address && user.address.state}{" "}{user.address && user.address.pincode} <br></br>
                       {user.address && user.address.country}
                     </p>
                   </div>
@@ -152,7 +198,7 @@ const Account = () => {
                       <Table.HeaderCell>
                         Mode
                       </Table.HeaderCell>
-                      <Table.HeaderCell  textAlign='right'>
+                      <Table.HeaderCell textAlign='right'>
                         Amount(AED)
                       </Table.HeaderCell>
                     </Table.Row>
@@ -206,9 +252,9 @@ const Account = () => {
                     </Table.Row>*/}
                   </Table.Body>
                 </Table>
-<div className="accept_bottom">
-                <Link to="/history"><button  className="same-btn">
-              VIEW ALL
+                <div className="accept_bottom">
+                  <Link to="/history"><button className="same-btn">
+                    VIEW ALL
             </button></Link> </div>
               </div>
               {/* <div className="history">

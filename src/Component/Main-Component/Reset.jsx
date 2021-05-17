@@ -4,7 +4,7 @@ import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 
 const Reset = () => {
-    const url = `${process.env.REACT_APP_BASE_URL}/users/forget/password`;
+    const url = `${process.env.REACT_APP_BASE_URL}/forget/password`;
 
     const history = useHistory();
     const [rePassword, setConfirmPassword] = React.useState(null);
@@ -30,22 +30,21 @@ const Reset = () => {
                     'confirm_password': rePassword,
                     'otp': parseInt(otp)
                 }
-            const res = await fetch(url, {
+            const res = await(await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(jsonPostData)
-            });
-
-            const data = await res.json();
-
-            if (data.status == 1 && res.status == 200) {
+            })).json();
+           
+            if (res.status == 1) {
                 localStorage.removeItem("email");
                 localStorage.removeItem("phone");
                 history.push('/login');
             }
+           
         } catch (error) {
             console.log(error)
         }

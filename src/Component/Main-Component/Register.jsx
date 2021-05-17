@@ -32,8 +32,6 @@ const Login2 = () => {
         .required("Required"),
     }),
     onSubmit: async (values) => {
-
-
       values.phone = parseInt(values.phone);
       const res = await fetch(url, {
         method: "POST",

@@ -17,7 +17,11 @@ const History = ({ title, key }) => {
         await fetch(
           `${process.env.REACT_APP_BASE_URL}/service/application/${id}`,
           {
-            method: "GET"
+            method: "GET",
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            }
+            
           })).json();
 
       setApplication(application || []);
@@ -36,7 +40,10 @@ const History = ({ title, key }) => {
     alert("Please apply for a new application")
   };
   const pageClick = async (p) => {
-    const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/service/application/${id}?page=${p}`, { method: "GET"})).json();
+    const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/service/application/${id}?page=${p}`, { method: "GET",
+    headers: {
+      "x-access-token": localStorage.getItem("token"),
+    }})).json();
    
     setApplication(application || []);
   };

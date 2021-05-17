@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 const Login3 = () => {
   const history = useHistory();
-  const url = `${process.env.REACT_APP_BASE_URL}/users/check`;
+  const url = `${process.env.REACT_APP_BASE_URL}/check`;
 
   const [val, setValue] = React.useState(null);
 
@@ -67,7 +67,7 @@ const Login3 = () => {
         <Form className="loginx_form3" onSubmit={checkUser}>
           <h3>Forgot Password</h3>
           <Form.Field>
-            <label>Username</label>
+            <label>Email/Phone</label>
             <input onChange={(event) => setValue(event.target.value)} placeholder="Enter your registered email/mobile" />
           </Form.Field>
 

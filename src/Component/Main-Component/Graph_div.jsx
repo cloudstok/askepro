@@ -1,94 +1,195 @@
 import React, { Component } from "react";
-import { Menu, Grid, Form, Button } from "semantic-ui-react";
+import { Menu, Grid, Form, Button, GridColumn, Dropdown } from "semantic-ui-react";
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+const Graph_div = (graph) => {
+  let date = []
+  const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
+  const [services, setServices] = React.useState(null);
+  const [forData, setFor] = React.useState(null);
+  const [forService, setForService] = React.useState("All Service");
+  const [forYear, setYear] = React.useState(2021);
+  const [forMonth, setForMonth] = React.useState(null);
+  const [frequency, setfrequency] = React.useState(null);
+  const [dates, setDate] = React.useState([]);
+  const [data, setData] = React.useState(graph.data);
+  console.log(service_url);
+  React.useEffect(() => {
+    getServices();
+  }, []);
 
-export default class Graph_div extends Component {
-  state = {};
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  const getServices = async () => {
+    const services = await (await fetch(service_url, { method: "GET" })).json();
+    const serviceData = services.data.map((e) => ({
+      name: e.name,
+    }));
 
-  render() {
-    const { activeItem } = this.state;
-    return (
+    const currYear = new Date().getFullYear()
+    for (let year = 2021; year <= currYear; year++) {
+      date.push(year);
+    }
+    setDate(date);
+    setServices(serviceData);
+  };
+  console.log(frequency, forService, forMonth, forYear, forData)
+
+  const hamdleGo = async () => {
+    let graphData
+    if (frequency === "Monthly")
+      if (forService!== "All Service")
+        graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?year=${forYear}&for=${forData}&service=${forService}&monthnum=${forMonth}`, { method: "GET" })).json();
+      else
+        graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?year=${forYear}&for=${forData}&monthnum=${forMonth}`, { method: "GET" })).json();
+    else if (frequency === "Yearly")
+      if (forService !== "All Service")
+        graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?year=${forYear}&for=${forData}&service=${forService}`, { method: "GET" })).json();
+      else
+        graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?year=${forYear}&for=${forData}`, { method: "GET" })).json();
+    else if (frequency === "Daily")
+      graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?&for=${forData}`, { method: "GET" })).json();
+else{
+alert(`Check Your filters again: Data For:${forData} Year: ${forYear} Month:${forMonth} Service: ${forService} Frquency:${frequency}`)
+setData(graph.data);}console.log(graphData.graphData)
+    setData(graphData.graphData);
+  }
+  if (!services)
+    return (<></>)
+  return (
+    <>
       <div className="revenue_data">
-        <Grid doubling columns={3}>
-          <Grid.Row>
-            <Grid.Column>
-              <div className="Revenue">
-                <Menu.Item
-                  name="Clients"
-                  active={activeItem === "clients"}
-                  onClick={this.handleItemClick}
-                >
-                  <h6>Clients Overview</h6>
-                </Menu.Item>
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="Revenue">
-                <Menu.Item
-                  name="applications"
-                  active={activeItem === "application"}
-                  onClick={this.handleItemClick}
-                >
-                  <h6>Applications Overview</h6>
-                </Menu.Item>
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="Revenue">
-                <Menu.Item
-                  name="revenue"
-                  active={activeItem === "revenue"}
-                  onClick={this.handleItemClick}
-                >
-                  <h6>Revenue Overview</h6>
-                </Menu.Item>
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+
+        <Button.Group widths='3'>
+          <Button active={forData === "Application" ? true : false} onClick={() => setFor("Application")}>Application</Button>
+          <Button active={forData === "Client" ? true : false} onClick={() => setFor("Client")}>Client</Button>
+          <Button active={forData === "Revenue" ? true : false} onClick={() => setFor("Revenue")}>Revenue</Button>
+        </Button.Group>
+
         <div className="filter">
           <Grid stackable columns>
             <Grid.Row>
-              <Grid.Column width={10}>
+              <Grid.Column width={3}>
                 <Form>
-                  <Form.Group widths="equal">
+                  <Form.Group>
                     <Form.Field
-                      label="Choose Service"
-                      className="select"
+                      className="select2"
+                      label="Service"
                       control="select"
-                    >
-                      <option value="service1">Service1</option>
-                      <option value="service2">Service2</option>
+                      labelside="left"
+                      selection
+                      onChange={(event) => setForService(event.target.value)}
+                    > <option value="All Service">All services</option>
+                      {services.map((e) => <option value={e.name}>{e.name}</option>)}
                     </Form.Field>
                   </Form.Group>
                 </Form>
               </Grid.Column>
-              <Grid.Column width={3}>
-                <Button.Group>
-                  <Button className="grey_btn">Year</Button>
-                  <Button className="grey_btn">Month</Button>
-                  {/*     <Button className="grey_btn">Week</Button> */}
-                </Button.Group>
+              <Grid.Column width={5}>
+                <div className="grey_btn">
+                  <Button.Group size="small" width={4}>
+                    <Button active={frequency === "Yearly" ? true : false} onClick={() => setfrequency("Yearly")}>Yearly</Button>
+                    <Button active={frequency === "Monthly" ? true : false} onClick={() => setfrequency("Monthly")}>Monthly</Button>
+                    <Button active={frequency === "Daily" ? true : false} onClick={() => setfrequency("Daily")}>Daily</Button>
+                  </Button.Group>
+                </div>
               </Grid.Column>
-              <Grid.Column width={2}>
+              <Grid.Column width={1}>
                 <Form>
                   <Form.Group>
                     <Form.Field
                       label="Choose Year"
                       className="select2"
                       control="select"
+                      selection
+                      onChange={(event) => setYear(event.target.value)}
                     >
-                      <option value="2019">2019</option>
-                      <option value="2020">2020</option>
-                      <option value="2021">2021</option>
+                      {dates.map((e) => <option value={e}>{e}</option>)}
+
                     </Form.Field>
+                    <Form.Select
+                      label="Choose Month"
+                      className="select2"
+                      control="select"
+                      selection
+                      onChange={(event) => setForMonth(event.target.value)}
+                    >
+
+                      <option value="1">January</option>
+                      <option value="2">Feburary</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </Form.Select>
+                    <div className="grey_btn">
+                    <Button size="tiny" onClick={() => hamdleGo()}>GO</Button></div>
                   </Form.Group>
                 </Form>
+
               </Grid.Column>
+              {frequency === "Daily" ? <ResponsiveContainer width="95%" height={400}>
+                <BarChart
+                  width={875}
+                  height={500}
+                  data={data}
+
+                  margin={{
+                    top: 5,
+                    right: 0,
+                    left: 0,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="count" fill="#9d9494" />
+                </BarChart>
+              </ResponsiveContainer> : <ResponsiveContainer width="95%" height={400}>
+                <LineChart
+                   width={875}
+                   height={500}
+                  data={data}
+                  margin={{
+                    top: 5,
+                    right: 0,
+                    left: 0,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="count" stroke="#9d9494" activeDot={{ r: 4 }} />
+
+                </LineChart>
+              </ResponsiveContainer>}
             </Grid.Row>
           </Grid>
         </div>
+
       </div>
-    );
-  }
-}
+    </>
+  );
+};
+
+export default Graph_div;

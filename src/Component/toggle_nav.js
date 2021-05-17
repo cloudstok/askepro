@@ -71,7 +71,11 @@ const ToggleNav = () => {
                 <div class='dropdown-btn'>
                   <Icon name='user outline' />
                   <Dropdown text={name}>
+                  {/* <Dropdown.Menu className='dropdown-menu'>
+                      <li className='item-name' onClick={history.push("/admin")}><Icon name='dashboard'></Icon>Dashboard</li>
+                    </Dropdown.Menu> */}
                     <Dropdown.Menu className='dropdown-menu'>
+                    <Link to={'/admin'}><li className='item-name' style={{ color: "#000" }}><Icon name='dashboard' />Dashboard</li></Link>
                       <li className='item-name' onClick={handleClick}><Icon name='history'></Icon>Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
