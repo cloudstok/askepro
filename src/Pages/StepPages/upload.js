@@ -50,6 +50,7 @@ const UploadDocuments = () => {
         console.log(...formData);
         const result = await (await fetch(url, {
             method: 'PUT',
+            headers:{  'x-access-token':localStorage.getItem("token")},
             body: formData
         })).json();
        
@@ -57,7 +58,7 @@ const UploadDocuments = () => {
         updateMyArray(oldArray => [...oldArray, fileName]);
     }
     const handleSubmitForm = (event) => {
-        
+        if(docsArray.length===services.reqDocs.length)
         history.push("/book");
 
 
@@ -108,7 +109,7 @@ const UploadDocuments = () => {
                                     </List>
                                 </div>
                                 <div className='document-list'>
-                                    <label>Documents Subitted</label>
+                                    <label>Documents Submitted</label>
                                     <List>
                                         {docsArray.map((ele) => <List.Item>
                                             <List.Icon name='square' />

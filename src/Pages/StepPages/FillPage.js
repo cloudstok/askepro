@@ -69,7 +69,8 @@ console.log(user);
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-access-token':localStorage.getItem("token")
             },
             body: JSON.stringify(jsonPostData)
         })).json();

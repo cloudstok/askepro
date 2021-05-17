@@ -16,11 +16,11 @@ const Graph_div = (graph) => {
   let date = []
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
   const [services, setServices] = React.useState(null);
-  const [forData, setFor] = React.useState(null);
+  const [forData, setFor] = React.useState("Application");
   const [forService, setForService] = React.useState("All Service");
   const [forYear, setYear] = React.useState(2021);
-  const [forMonth, setForMonth] = React.useState(null);
-  const [frequency, setfrequency] = React.useState(null);
+  const [forMonth, setForMonth] = React.useState("1");
+  const [frequency, setfrequency] = React.useState("Daily");
   const [dates, setDate] = React.useState([]);
   const [data, setData] = React.useState(graph.data);
   console.log(service_url);
@@ -59,11 +59,13 @@ const Graph_div = (graph) => {
       graphData = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/graphs?&for=${forData}`, { method: "GET" })).json();
 else{
 alert(`Check Your filters again: Data For:${forData} Year: ${forYear} Month:${forMonth} Service: ${forService} Frquency:${frequency}`)
-setData(graph.data);}console.log(graphData.graphData)
+setData(graph.data);
+return}
     setData(graphData.graphData);
   }
   if (!services)
     return (<></>)
+    console.log((frequency === "Daily")&&(forData==="Application")&&(forService==="All Service") );
   return (
     <>
       <div className="revenue_data">
@@ -148,11 +150,11 @@ setData(graph.data);}console.log(graphData.graphData)
                 </Form>
 
               </Grid.Column>
-              {frequency === "Daily" ? <ResponsiveContainer width="95%" height={400}>
+              {((frequency === "Daily")||(forService === "All Service"))? <ResponsiveContainer width="95%" height={400}>
                 <BarChart
                   width={875}
                   height={500}
-                  data={data}
+                  data={data||graph.data}
 
                   margin={{
                     top: 5,
