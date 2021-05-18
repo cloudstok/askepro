@@ -46,7 +46,7 @@ const Admin_dashboard = () => {
           section={[{ key: "dash", content: "Dashboard", link: true }]}
         />
 
-        <div className="admin_wrapper2">
+        <div className="admin_wrapper2">  
           <Grid stackable columns={2}>
             <Grid.Column width={11}>
               <div className="overview5">
