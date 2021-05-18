@@ -134,7 +134,7 @@ const Account = () => {
                               <Dropdown.Item
                                 onClick={() => fileref.current.click()}
                               >
-                                Edit Profile
+                                Upload Profile Picture
                               </Dropdown.Item>
 
                               <Dropdown.Item>

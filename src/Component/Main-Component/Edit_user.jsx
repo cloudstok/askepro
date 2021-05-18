@@ -70,10 +70,8 @@ const User_Modal_Edit = (user) => {
     return (
         <>
 
-            <img
-                src={
-                    process.env.PUBLIC_URL + "/Assets/images/edit.png"
-                } className="btn-upload" onClick={() => dispatch({ type: "open", size: "small" })} />
+            
+             <p onClick={() => dispatch({ type: "open", size: "small" })}>Edit Profile</p>
 
             <Modal
                 size={size}
