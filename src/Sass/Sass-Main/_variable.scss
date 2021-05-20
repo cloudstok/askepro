@@ -72,8 +72,8 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   background-image: #fff;
   height: 79px;
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-  border-bottom: 9px solid goldenrod;
-  border-right: 9px solid goldenrod;
+  border-bottom: 9px solid #d4bf18;
+  border-right: 9px solid #d4bf18;
   clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 100% 100%);
 }
 
@@ -86,8 +86,8 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   width: 79px;
   height: 79px;
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-  border-left: 9px solid goldenrod;
-  border-top: 9px solid goldenrod;
+  border-left: 9px solid #d4bf18;  
+  border-top: 9px solid #d4bf18;
   clip-path: polygon(0% 0, 100% 0%, 50% 50%, 0% 100%);
 }
 @mixin center_after {
