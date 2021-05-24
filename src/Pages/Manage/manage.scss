@@ -58,6 +58,7 @@
 
         }
     }
+
     th{
         font-family: 'Lato' !important;
         color:$disabled-color !important;
@@ -69,6 +70,9 @@
         padding: 20px !important;
         font-weight: 500;
         border: none !important;
+        & img{
+            cursor: pointer;
+        }
     }
     .action{
         display: flex;
@@ -77,8 +81,8 @@
              }
         .check, .close{
             border: 1px solid black;
-            width: 26px;
-            height: 26px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;   
             margin: 10px 15px 10px 0;
             display: flex;

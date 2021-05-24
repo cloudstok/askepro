@@ -203,7 +203,6 @@ body {
 .service-card {
   margin: 5px;
   text-decoration: none;
-  padding: 30px 0;
   outline: solid 1px #e6e6e6;
   background-color: #ffffff !important;
   cursor: pointer;
@@ -212,6 +211,7 @@ body {
   height: 176px;
   padding: 30px 0;
   position: relative;
+  
   /*   border-top: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 5px solid transparent;
@@ -222,12 +222,13 @@ body {
   &:hover::before {
     @include hover_before;
   }
-
+  
   p {
     font-family: Open Sans;
     font-size: 18px;
     line-height: 1.33;
     margin-top: 20px;
+    z-index: 5;
   }
 }
 
