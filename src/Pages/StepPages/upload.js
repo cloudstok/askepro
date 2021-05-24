@@ -9,14 +9,11 @@ import '../StepPages/stepPage.scss';
 import { useHistory } from 'react-router';
 
 const UploadDocuments = () => {
+    const history = useHistory();
 
     const [fileName, setfilename] = React.useState("");
     const [file, setFile] = React.useState(null);
     const [docsArray, updateMyArray] = React.useState([]);
-    const history = useHistory();
-    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
-        history.push("/login");
-
     const [services, setService] = React.useState(null);
     const slug = localStorage.getItem("serviceSlug");
     const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
