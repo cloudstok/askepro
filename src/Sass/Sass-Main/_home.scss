@@ -9,7 +9,7 @@ body {
   max-width: 100%;
 }
 .wrapper_home {
-  background-color: #fff;
+ background: #fff;
 }
 
 .banner3 {
@@ -393,6 +393,10 @@ body {
     background: #fff;
     margin-bottom: 90px;
     position: relative;
+    &:hover {
+      /* outline: ; */
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    }
     &:hover::after {
       @include hover_after;
     }
@@ -401,10 +405,7 @@ body {
     }
   }
 
-  .tourist-border:hover {
-    /* outline: ; */
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  }
+
 
   .rectangle11 {
     display: flex;
