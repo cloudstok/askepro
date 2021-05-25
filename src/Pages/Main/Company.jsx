@@ -36,7 +36,7 @@ const Company = () => {
     setService(serviceData);
   };
 
-  console.log(service);
+
 
   return (
     <>
