@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "./variable";
+@import "../variables.scss";
 
 .about {
   padding-bottom: 52px;
@@ -268,10 +269,10 @@
   text-decoration: none;
   position: absolute;
   top: 72px;
-  left: 61px;
+  left: 3.5%;
   color: #fff;
-
   z-index: 1;
+
   a {
     font-family: Open Sans;
     font-size: 12px;
@@ -289,6 +290,7 @@
   .icon {
     color: #fff !important;
   }
+ 
 }
 .about_crumb .crumb {
   .icon {
