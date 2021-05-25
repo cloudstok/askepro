@@ -42,12 +42,9 @@ const UploadDocuments = () => {
     const uploadWithFormData = async (event) => {
         event.preventDefault();
 
-        console.log(file, fileName);
-
         const formData = new FormData();
         formData.append("file", file);
         formData.append("name", fileName);
-        console.log(...formData);
         const result = await (await fetch(url, {
             method: 'PUT',
             headers:{  'x-access-token':localStorage.getItem("token")},

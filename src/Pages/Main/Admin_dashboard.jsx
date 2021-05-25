@@ -36,7 +36,7 @@ const Admin_dashboard = () => {
   if (!data) {
     return <div />;
   }
-  console.log(data);
+
   return (
     <main className="manage-main">
       <SideBar value="dashboard" active="active" />
