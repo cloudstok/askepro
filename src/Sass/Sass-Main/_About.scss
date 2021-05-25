@@ -79,7 +79,7 @@
     padding: 30px;
     border: solid 1px #e6e6e6;
     background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     margin: 74px 0 136px 0;
     width: 528px;
     height: 214px;
@@ -148,7 +148,7 @@
     border: solid 1px #e6e6e6;
     margin-bottom: 20px;
     padding: 30px;
-    box-shadow: 0 4px 20px -6px #e6e6e6;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
   }
@@ -165,7 +165,7 @@
     border: solid 1px #e6e6e6;
     margin-bottom: 20px;
     padding: 30px;
-    box-shadow: 0 4px 20px -6px #e6e6e6;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: start;
@@ -218,9 +218,7 @@
 }
 
 .company_plans{
-   .tourist-border{
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  }
+ 
   .hours-total{
     border-bottom: solid 1px #e6e6e6;
   }
