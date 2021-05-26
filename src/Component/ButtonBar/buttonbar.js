@@ -10,7 +10,7 @@ const ButtonBar = () => {
     const arr = ["/apply", "/fill", "/upload", "/book", "/payment", "/"]
 
     React.useEffect(() => {
-        console.log(location)
+
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] === location.pathname) {
                 setPrevPath(arr[i - 1]);

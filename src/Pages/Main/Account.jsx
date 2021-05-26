@@ -82,14 +82,14 @@ const Account = () => {
   const uploadWithFormData = async (event) => {
     const formData = new FormData();
     formData.append("upload", event.target.files[0]);
-    console.log(...formData);
+
     const result = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/users/upload/${id}`, {
         method: "PUT",
         body: formData,
       })
     ).json();
-    console.log(result);
+
     if (result.status === 1) window.location.reload(false);
   };
   if (!user || !appointment || !application) {

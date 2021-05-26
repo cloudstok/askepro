@@ -36,7 +36,7 @@ const Company = () => {
     setService(serviceData);
   };
 
-  console.log(service);
+
 
   return (
     <>
@@ -64,7 +64,7 @@ const Company = () => {
 
 
         <div className="overview">
-          <Grid stackable column={2}>
+          <Grid doubling column={2}>
             <Grid.Column width={11}>
               <div>
                 <h3>Overview</h3>
