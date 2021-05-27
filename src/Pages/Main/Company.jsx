@@ -63,15 +63,15 @@ const Company = () => {
         <Container>
 
 
-        <div className="overview">
-          <Grid doubling column={2}>
-            <Grid.Column width={11}>
-              <div>
-                <h3>Overview</h3>
-                <p>
-                  {service.overview}
-                </p>
-                <h3>How to Apply</h3>
+          <div className="overview">
+            <Grid doubling column={2}>
+              <Grid.Column width={11}>
+                <div>
+                  <h3>Overview</h3>
+                  <p>
+                    {service.overview}
+                  </p>
+                  <h3>How to Apply</h3>
 
                   {service.serviceHowToApply && service.serviceHowToApply.map((d) =>
                     <div className="testimonial">
