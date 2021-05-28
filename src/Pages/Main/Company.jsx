@@ -186,7 +186,7 @@ const Company = () => {
                                 <div className="total-right">{service.price} AED</div>
                               </div>
                             </div>
-                            <Link to="apply"> <button className="form-btn" type="submit">APPLY NOW</button></Link>
+                            <Link to="/apply"> <button className="form-btn" type="submit">APPLY NOW</button></Link>
                           </div>
                         </Grid.Column>
                       </Grid.Row>
