@@ -7,7 +7,7 @@ const ButtonBar = () => {
     const history = useHistory();
     const [prevPath, setPrevPath] = React.useState(null);
     const [nextPath, setNextPath] = React.useState(null);
-    const arr = ["/", "/apply", "/fill", "/upload", "/book", "/payment", "/"]
+    const arr = ["/apply", "/fill", "/upload", "/book", "/payment", "/"]
 
     React.useEffect(() => {
 

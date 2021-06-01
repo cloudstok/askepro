@@ -17,6 +17,7 @@ import { getData } from "../../services/api";
 import "../../Sass/Sass-Main/_About.scss";
 import Edit_user from "../../Component/Main-Component/Edit_user";
 import { useRef } from "react";
+
 const Account = () => {
   const history = useHistory();
   const fileref = useRef();

@@ -9,14 +9,11 @@ import '../StepPages/stepPage.scss';
 import { useHistory } from 'react-router';
 
 const UploadDocuments = () => {
+    const history = useHistory();
 
     const [fileName, setfilename] = React.useState("");
     const [file, setFile] = React.useState(null);
     const [docsArray, updateMyArray] = React.useState([]);
-    const history = useHistory();
-    if (!localStorage.getItem("token") && !localStorage.getItem("id"))
-        history.push("/login");
-
     const [services, setService] = React.useState(null);
     const slug = localStorage.getItem("serviceSlug");
     const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
@@ -42,9 +39,12 @@ const UploadDocuments = () => {
     const uploadWithFormData = async (event) => {
         event.preventDefault();
 
+        console.log(file, fileName);
+
         const formData = new FormData();
         formData.append("file", file);
         formData.append("name", fileName);
+        console.log(...formData);
         const result = await (await fetch(url, {
             method: 'PUT',
             headers:{  'x-access-token':localStorage.getItem("token")},
@@ -55,10 +55,8 @@ const UploadDocuments = () => {
         updateMyArray(oldArray => [...oldArray, fileName]);
     }
     const handleSubmitForm = (event) => {
-        if(docsArray.length===services.reqDocs.length)
-        history.push("/book");
-
-
+            if(docsArray.length===services.reqDocs.length)
+            history.push("/book");
     }
     return (
         <main>
