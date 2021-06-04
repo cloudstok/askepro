@@ -20,6 +20,15 @@ const ManagePayments = ({ title }) => {
 
     setpayment(payment);
   }
+  const pageClick = async (p) => {
+    const payment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment?page=${p}`, {
+      method: "GET", headers: {
+        'x-access-token': localStorage.getItem('token'),
+      }
+    })).json();
+
+    setpayment(payment);
+  };
 if(!payment){
   return(<></>)
 }
@@ -49,29 +58,30 @@ console.log(payment)
                 </Table.Row>
               </Table.Header>
                <Table.Body>
-      <Table.Row>
-        <Table.Cell>22 June 2020, 12:00</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>BJXCR34</Table.Cell>
-        <Table.Cell>Emirates ID</Table.Cell>
-        <Table.Cell>Vikas Singh</Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell>350.00</Table.Cell>
-        <Table.Cell><StatusChip value="Success"/></Table.Cell>
-      </Table.Row>
+      {payment.data && payment.data.map((ele) => (<Table.Row>
+        <Table.Cell>{new Date(ele.transaction.createdAt).toLocaleString()}</Table.Cell>
+        <Table.Cell>{ele.transaction._id}</Table.Cell>
+        <Table.Cell>{ele.serviceCategory._id}</Table.Cell>
+        <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
+        <Table.Cell>{ele.name}</Table.Cell>
+        <Table.Cell>{ele.transaction.ptype}</Table.Cell>
+        <Table.Cell>{ele.transaction.amount}</Table.Cell>
+        <Table.Cell><StatusChip value={ele.transaction.status}/></Table.Cell>
+      </Table.Row>))}
       </Table.Body>
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing 9 of 5</label>
+            <label className='page-name'>Showing  {payment.currentPage} of  {payment.totalPages}</label>
             <Pagination
               size='small'
-              defaultActivePage={1}
+              defaultActivePage={payment.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className='next'>NEXT</label> }}
-              nextItem={{ content: <label className='prev'>PREV</label> }}
-              totalPages={5}
+              prevItem={{ content: <label className='next'>PREV</label> }}
+              nextItem={{ content: <label className='prev'>NEXT</label> }}
+              totalPages={payment.totalPages}
+              onClick={e => pageClick(parseInt(e.target.outerText))}
             />
           </div>
 
