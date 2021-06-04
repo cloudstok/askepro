@@ -40,9 +40,12 @@ const Reset = () => {
             })).json();
            
             if (res.status == 1) {
+                alert(res.msg);
                 localStorage.removeItem("email");
                 localStorage.removeItem("phone");
                 history.push('/login');
+            }else{
+                alert(res.msg);
             }
            
         } catch (error) {

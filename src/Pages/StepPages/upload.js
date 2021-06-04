@@ -123,7 +123,7 @@ const UploadDocuments = () => {
                     </Grid.Column>
                 </Grid>
             </div>
-            <ButtonBar />
+            {/* <ButtonBar /> */}
         </main>
     );
 }
