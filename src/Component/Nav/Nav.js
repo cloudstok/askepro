@@ -16,7 +16,7 @@ export function Nav() {
   const [name, setName] = useState(false);
   let fullname;
 
-  useEffect(() => {
+useEffect(() => {
     
     if (token) {
       let name = localStorage.getItem("name");

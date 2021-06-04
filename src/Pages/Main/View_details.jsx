@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { Container, Button, Icon, Step, Grid, Table, Segment } from "semantic-ui-react";
+import { Container, Button, Icon, Step, Grid, Table } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import '../../Sass/Sass-Main/_View_details.scss';
 import { useHistory } from 'react-router';
@@ -85,17 +85,17 @@ const View_details = () => {
 
               <Table.Cell>
                 <h6>Transaction Id</h6>
-                <p>XMBC3457XNT0</p>
+                <p>{application.transaction&&application.transaction._id}</p>
               </Table.Cell>
 
               <Table.Cell>
                 <h6>Mode</h6>
-                <p>Debit Card</p>
+                <p>{application.transaction&&application.transaction.ptype}</p>
               </Table.Cell>
 
               <Table.Cell>
                 <h6>Amount (AED)</h6>
-                <p>350.00</p>
+                <p>{application.transaction&&application.transaction.amount}</p>
               </Table.Cell>
 
               <Table.Cell>
@@ -112,14 +112,13 @@ const View_details = () => {
 
               <Grid.Column width={4}>
                 <Step.Group vertical>
-                  {application._id ? <Step completed>
-                 
-                  
-                    <Step.Content>
- 
-                      <Step.Description>Service Choosen</Step.Description>
-                    </Step.Content>
-                  </Step> : <div />}
+                {application.transaction ? <Step completed>
+                   
+                   <Step.Content>
+                     <Step.Description>Paymnent Details</Step.Description>
+
+                   </Step.Content>
+                 </Step> : <div />}
 
                   {application.name ? <Step completed>
                     
@@ -129,13 +128,21 @@ const View_details = () => {
                     </Step.Content>
                   </Step> : <div />}
                   {application.docs.length !== 0 ? <Step completed>
-                 
                     <Step.Content>
 
+                    </Step.Content>
+                    <Step.Content>
+                    
                       <Step.Description>Documents Uploaded</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
+                  {application.appointment ? <Step completed>
+                    
+                    <Step.Content>
 
+                    </Step.Content>
+
+                  </Step> : <div />}
 
                   {application.appointment ? <Step completed>
                     
@@ -146,15 +153,6 @@ const View_details = () => {
                     </Step.Content>
 
                   </Step> : <div />}
-
-                  {application.payment ? <Step completed>
-                   
-                    <Step.Content>
-                      <Step.Description>Paymnent Details</Step.Description>
-
-                    </Step.Content>
-                  </Step> : <div />}
-
 
                 </Step.Group>
 
@@ -179,22 +177,22 @@ const View_details = () => {
 
                             <Table.Cell>
                               <h6>Transaction Id</h6>
-                              <p>XMBC3457XNT0</p>
+                              <p>{application.transaction&&application.transaction._id}</p>
                             </Table.Cell>
 
                             <Table.Cell>
                               <h6>Mode</h6>
-                              <p>Debit Card</p>
+                              <p>{application.transaction&&application.transaction.ptype}</p>
                             </Table.Cell>
 
                             <Table.Cell>
                               <h6>Amount (AED)</h6>
-                              <p>350.00</p>
+                              <p>{application.transaction&&application.transaction.amount}</p>
                             </Table.Cell>
 
                             <Table.Cell>
-                              <p className="total_amoint_1">Status</p>
-                              <p className="total_amoint_2">{application.status}</p>
+                            <h6>Status</h6>
+                              <p className="total_amoint_2">{application.transaction&&application.transaction.status}</p>
                             </Table.Cell>
                           </Table.Row>
                         </Table>

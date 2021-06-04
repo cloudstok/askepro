@@ -36,6 +36,8 @@ const History = ({ title, key }) => {
     history.push('/upload');
     else if(status==="Appointment Pending")
     history.push('/book');
+    else if(status==="Payment Pending")
+    history.push('/payment');
     else
     alert("Please apply for a new application")
   };
