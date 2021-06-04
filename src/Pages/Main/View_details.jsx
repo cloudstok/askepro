@@ -33,14 +33,13 @@ const View_details = () => {
     const jsonPostData = {
       'key': key
     }
-    const url = `${process.env.REACT_APP_BASE_URL}/download`
+    const url = `${process.env.REACT_APP_BASE_URL}/users/download`
 
     const resu = await (await fetch(url, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        "x-access-token": localStorage.getItem("token"),
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(jsonPostData)
     })).json();

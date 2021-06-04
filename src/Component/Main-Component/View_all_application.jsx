@@ -31,7 +31,7 @@ const View_all = () => {
     const jsonPostData = {
       'key': key
     }
-    const url = `${process.env.REACT_APP_BASE_URL}/download`
+    const url = `${process.env.REACT_APP_BASE_URL}/users/download`
 
     const resu = await (await fetch(url, {
       method: 'PUT',
