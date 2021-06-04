@@ -41,6 +41,7 @@ const Login3 = () => {
       const data = await result.json()
 
       if (data.status == 1) {
+        
         if (phone)
           localStorage.setItem('phone', data.phone);
         if (email)

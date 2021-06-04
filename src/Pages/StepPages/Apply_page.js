@@ -99,7 +99,7 @@ function ApplyStepper() {
           </div>
         </Container>
       </div>
-      <ButtonBar />
+      {/* <ButtonBar /> */}
     </main>
   );
 }

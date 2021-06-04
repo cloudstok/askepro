@@ -48,7 +48,7 @@ const Account = () => {
 
       let appointment = await (
         await fetch(
-          `${process.env.REACT_APP_BASE_URL}/service/appointment/${id}`,
+          `${process.env.REACT_APP_BASE_URL}/service/appointment/${id}?limit=5`,
           {
             method: "GET",
             headers: {
@@ -74,7 +74,7 @@ const Account = () => {
       setAppointment(appointment || []);
     }
   };
-
+console.log(application);
   function dateFormat(d) {
     const date = new Date(d);
     return `${date.toLocaleString()}`;
@@ -235,12 +235,12 @@ const Account = () => {
                           </Table.Cell>
                           <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
                           <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-                          <Table.Cell>XMBC3457XNT0</Table.Cell>
+                          <Table.Cell>{ele.transaction&&ele.transaction._id }</Table.Cell>
                           <Table.Cell>
                             <StatusChip value={ele.status} />
                           </Table.Cell>
-                          <Table.Cell>Debit Card</Table.Cell>
-                          <Table.Cell textAlign="right">350.00</Table.Cell>
+                          <Table.Cell>{ele.transaction&&ele.transaction.ptype}</Table.Cell>
+                          <Table.Cell textAlign="right">{ele.transaction&&ele.transaction.amount}</Table.Cell>
                         </Table.Row>
                       ))}
                     {/*     <Table.Row>
@@ -310,7 +310,7 @@ const Account = () => {
                       <span className="done_info">{ele.status}</span>
                       <br />
                       <p>{ele.title}</p>
-                      <span className="minute">11:00 - 12:00</span>
+                      <span className="minute">{ele.time}</span>
                     </div>
                   </div>
                 ))}
