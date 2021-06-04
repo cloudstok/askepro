@@ -62,7 +62,11 @@ const Payment = () => {
   
   
    const handleSubmit=async(state)=>{
-
+    if(state==="Failed")
+    {
+      alert("There has been issue with your payment, please craete a new Application");
+      history.push("/apply");
+    }
    const jsonData = {
       "price": services.price + adFess,
       "type": method,
@@ -80,11 +84,7 @@ const Payment = () => {
       })).json();
       if (result.status === 1)
       history.push("/Success")
-      else
-      {
-        alert("There has been issue with your payment, please craete a new Application");
-        history.push("/apply");
-      }
+    
     
   }
 
@@ -177,7 +177,7 @@ const Payment = () => {
             </label>
             <div className="button-group">
             <Button size='big' onClick={() => {handleSubmit("Complete")}}>YES</Button>
-            <Button size='big' onClick={() => {handleSubmit("Fialed")}}>NO</Button>
+            <Button size='big' onClick={() => {handleSubmit("Failed")}}>NO</Button>
           </div>
           </div>
           
