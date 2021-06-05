@@ -9,7 +9,8 @@ body {
   max-width: 100%;
 }
 .wrapper_home {
- background: #fff;
+  background: #fff;
+  padding-top: 40px;
 }
 
 .banner3 {
@@ -19,7 +20,8 @@ body {
   max-width: 894px;
   margin: 0 auto;
   background-color: #fff;
-  bottom: 0rem;
+  bottom: 0 !important;
+  z-index: 10;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
   .pop_content {
     padding: 5px 0;
@@ -47,6 +49,9 @@ body {
     display: block;
     cursor: pointer;
   }
+  a {
+    color: #000 !important;
+  }
 }
 .banner4 {
   position: absolute;
@@ -60,10 +65,11 @@ body {
   padding: 129px 50px 0 50px;
   background: #fff;
   h1 {
+    background: #fff !important;
     &::after {
       @include after;
       height: 9px;
-      margin: 10px 0px 40px 0;
+      margin: 10px 0px 0px 0;
     }
   }
 }
@@ -239,13 +245,10 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  img {
-    width: 62.9px;
-    height: 63px;
-  }
+
   p {
     font-family: Open Sans;
-    font-size: clamp(24px);
+    font-size: 24px;
     font-weight: normal;
     padding-left: 1rem;
     line-height: 1.38;
@@ -263,6 +266,9 @@ body {
   border-radius: 5px;
   height: 226px;
   position: relative;
+@media only screen and (max-width: 7700px) {
+    padding: 15px;
+  }
   &:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     border: solid 1px var(--white);
@@ -393,6 +399,7 @@ body {
     background: #fff;
     margin-bottom: 90px;
     position: relative;
+
     &:hover {
       /* outline: ; */
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
@@ -404,8 +411,6 @@ body {
       @include hover_before;
     }
   }
-
-
 
   .rectangle11 {
     display: flex;
@@ -632,7 +637,7 @@ body {
     line-height: 1.38;
     color: #fff;
     left: 0;
-    width: 592px;
+    width: 60%;
   }
   h1 {
     @include banner_heading;
@@ -656,7 +661,7 @@ body {
     }
   }
   p {
-    width: 50rem;
+    width: 70%;
     margin: 0 auto;
     text-align: left;
     font-family: Open Sans;

@@ -9,9 +9,23 @@ import { useHistory } from 'react-router';
 
 const Success = () =>{
     const history=useHistory();
+    const [data, setData]=React.useState(null);
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
+    const requestId=localStorage.getItem("applicationId");
+    React.useEffect(() => {
+        getServices();
+      }, []);
+      const service_url = `${process.env.REACT_APP_BASE_URL}/service/${requestId}`;
+      const getServices = async () => {
+        const service = await (await fetch(service_url, { method: "GET" })).json();
+        setData(service);
+      };
 
+      if(!data){
+          return(<></>)
+      }
+      console.log(data);
             return(
             <main>
              <div className='success-main'>
@@ -39,38 +53,36 @@ const Success = () =>{
                 <Grid columns='2' stackable='mobile' >
                 <Grid.Row>
                 <Grid.Column>
-                <h3>Company Formation Services</h3>
+                <h3>{data.serviceCategory.name}</h3>
                 </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                 <Grid.Column>
-                <Grid columns='3' fluid stackable='tablet'>
+                <Grid columns='6' fluid stackable='tablet'>
                     <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column width={7}>
                         <label className='heading'>Date</label>
-                        <label className='value'>15 Jan 2021</label>
+                        <label className='value'>{new Date(data.transaction.createdAt).toLocaleString()}</label>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column width={7}>
                         <label className='heading'>Service Id</label>
-                        <label className='value'>BJXCR34</label>
+                        <label className='value'>{data.serviceCategory._id}</label>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column width={7}>
                         <label className='heading'>Transaction Id</label>
-                        <label className='value'>XMBC3457XNT0</label>
+                        <label className='value'>{data.transaction._id}</label>
                         </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column  width={7}>
                         <label className='heading'>Mode of Payment</label>
-                        <label className='value'>Debit Card</label>
+                        <label className='value'>{data.transaction.ptype}</label>
                         </Grid.Column>
-                        <Grid.Column>
-                        <label className='paid-label'>Amount Paid</label>
-                        <label className='total-label'>350 AED</label>
+                        <Grid.Column  width={7}>
+                        <label className='heading'>Amount Paid</label>
+                        <label className='total-label'>{data.transaction.amount}</label>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column width={7} >
                         <label  className='heading'>Status</label>
-                        <Label className='status' as='a'>In-Progress</Label>
+                        <Label className='status' as='a'>{data.transaction.status}</Label>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
@@ -78,13 +90,13 @@ const Success = () =>{
                 <Grid.Column>
                 <div className='event-card'>
                  <div className='calender'>
-                    <label className='date'>23</label>
-                    <label className='month'>JAN 21</label>
+                    <label className='date'>{data.appointment.appt_date}</label>
+                    <label className='month'>{data.appointment.appt_month} {data.appointment.appt_year}</label>
                  </div>
                  <div className='event-info'>
-                 <Label as='a' className='upcoming'>Upcoming</Label>
-                 <p>Appointment with AMER executive in Dubai Media City</p>
-                 <label className='time'>11:00 - 12:00</label>
+                 <Label as='a' className='upcoming'>{data.appointment.status}</Label>
+                 <p>{data.appointment.title}</p>
+                 <label className='time'>{data.appointment.time||""}</label>
                  </div>
                 </div>
                 </Grid.Column>
@@ -92,8 +104,8 @@ const Success = () =>{
                 </Grid>
                 </div>
                 <div className='bottom-btn'>
-                 <Button className='btn download'>Download Reciept</Button>
-                 <Button className='btn home'>Go To Home</Button>
+                 {/* <Button className='btn download'>Download Reciept</Button> */}
+                 <Button className='btn home' onClick={()=>history.push("/")}>Go To Home</Button>
                 </div>
                 </Container>     
             </div>

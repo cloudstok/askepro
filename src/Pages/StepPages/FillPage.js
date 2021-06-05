@@ -182,7 +182,7 @@ function FillPage() {
                     </Grid.Column>
                 </Grid>
             </div>
-            <ButtonBar />
+            {/* <ButtonBar /> */}
         </main>
     )
 }

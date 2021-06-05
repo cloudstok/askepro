@@ -80,7 +80,7 @@ const BookAppointment = () => {
                     </Grid.Column>
                 </Grid>
             </div>
-            <ButtonBar />
+            {/* <ButtonBar /> */}
         </main>
     )
 }

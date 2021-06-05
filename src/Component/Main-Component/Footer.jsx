@@ -91,14 +91,15 @@ const Footer = () => {
       <footer className="footer">
         <Container fluid>
           <Grid stackable columns={2}>
-            <Grid.Column>
+            <Grid.Column width={9}>
               <div className="footer-part-1">
+                <a href="#">
                 <img
                   className="footer_image"
                   src={
                     process.env.PUBLIC_URL + "/Assets/images/Epro Logo_Web.png"
                   }
-                />
+                /></a>
 
                 <img
                   className="footer_image1"
@@ -112,9 +113,9 @@ const Footer = () => {
               </div>
             </Grid.Column>
 
-            <Grid.Column>
+            <Grid.Column width={7}>
               <div className="footer-part-2">
-                <p>copyright @ 2020 AskePro</p>
+                <p>copyright © 2020 AskePro</p>
                 <div className="bottom-button">
                   <a href="#" style={{ borderLeft: "none" }}>
                     Site Map

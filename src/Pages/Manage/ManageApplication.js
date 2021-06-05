@@ -61,10 +61,10 @@ const ManageApplication = ({title}) =>{
         <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
-        <Table.Cell>XMBC3457XNT0</Table.Cell>
+        <Table.Cell>{ele.transaction&&ele.transaction._id}</Table.Cell>
         <Table.Cell><StatusChip value={ele.status}/></Table.Cell>
-        <Table.Cell>Debit Card</Table.Cell>
-        <Table.Cell textAlign='right'>350.00</Table.Cell>
+        <Table.Cell>{ele.transaction&&ele.transaction.ptype}</Table.Cell>
+        <Table.Cell textAlign='right'>{ele.transaction&&ele.transaction.amount}</Table.Cell>
        <Link to={`/application/${ele._id}`}> <Table.Cell className='view' textAlign='right'>View Details</Table.Cell></Link>
       </Table.Row>)}
       

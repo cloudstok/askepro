@@ -20,8 +20,26 @@
      color: #d1a426 !important;
      background-color: rgba(#d1a426, 0.15) !important;
 }
-
-
+.Complete{
+    color: #0cbe0c !important; 
+    background-color: rgba(#0cbe0c, 0.15) !important;
+}
+.Completed{
+    color: #0cbe0c !important; 
+    background-color: rgba(#0cbe0c, 0.15) !important;
+}
+.Failed{
+    color: red !important;
+    background-color: rgba(red, 0.15) !important;
+}
+.Rejected{
+    color: red !important;
+    background-color: rgba(red, 0.15) !important;
+}
+.Accepted{
+    color: #0cbe0c !important; 
+    background-color: rgba(#0cbe0c, 0.15) !important;
+}
 //Card 
 .company-card{
     background-color: #fff;

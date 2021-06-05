@@ -6,7 +6,9 @@ import {
   Divider,
   Grid,
   Radio,
+  Button,
   Form,
+  Select
 } from "semantic-ui-react";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import Heading from "../../Component/Heading/heading";
@@ -14,7 +16,17 @@ import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
 const Payment = () => {
+  const countryOptions = [
+    { key: 'normal', value: 0, text: 'Normal' },
+    { key: 'urgent', value: 50, text: 'Urgent' },
+  ]
+  
+  const [method, setMethod] = React.useState(null);
+  const [adFess, setFees] = React.useState(0);
+  const [status, setStatus] = React.useState(null);
   const history = useHistory();
+  const requestId=localStorage.getItem("applicationId");
+  const url = `${process.env.REACT_APP_BASE_URL}/service/payment/${requestId}`
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
 
@@ -47,6 +59,36 @@ const Payment = () => {
     };
     setService(serviceData);
   };
+  
+  
+   const handleSubmit=async(state)=>{
+    if(state==="Failed")
+    {
+      alert("There has been issue with your payment, please craete a new Application");
+      history.push("/apply");
+    }
+   const jsonData = {
+      "price": services.price + adFess,
+      "type": method,
+      "status": state,
+    }
+    
+      const result = await (await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'x-access-token': localStorage.getItem("token")
+        },
+        body: JSON.stringify(jsonData)
+      })).json();
+      if (result.status === 1)
+      history.push("/Success")
+    
+    
+  }
+
+
 
   if (!services) {
     return <div />;
@@ -90,7 +132,7 @@ const Payment = () => {
                   </Grid.Column>
                   <Grid.Column>
                     <label className="heading fees">Fees</label>
-                    <label className="value total">{services.price} AED</label>
+                    <label className="value total">{parseInt(services.price+ adFess) } AED</label>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
@@ -103,6 +145,7 @@ const Payment = () => {
                     label="Pay via Debit Card"
                     name="paymentGroup"
                     id="dc"
+                    onClick={() => { setMethod('Debit Card') }}
                   />
                 </Grid.Column>
                 <Grid.Column>
@@ -110,6 +153,7 @@ const Payment = () => {
                     label="Pay via Credit Card"
                     name="paymentGroup"
                     id="cc"
+                    onClick={() => { setMethod('Credit Card') }}
                   />
                 </Grid.Column>
                 <Grid.Column>
@@ -117,24 +161,26 @@ const Payment = () => {
                     label="Pay via Net Banking"
                     name="paymentGroup"
                     id="upi"
+                    onClick={() => { setMethod('Net Banking') }}
                   />
                 </Grid.Column>
                 <Grid.Column>
-                  <label className="payment-header2">
-                    Choose payment method
-                  </label>
-                  <Form.Field control="select">
-                    <option value="Normal">Normal</option>
-                    <option value="urgent">Urgent</option>
-                  </Form.Field>
+                <label className="payment-header">Priortiy</label>
+                   <Select placeholder='Priority' options={countryOptions} onChange={(e,{value})=>setFees(value)} />
                 </Grid.Column>
+                
               </Grid.Row>
             </Grid>
             <label className="notice">
               Final price mentioned in the summary will be deducted from the
               account provided
             </label>
+            <div className="button-group">
+            <Button size='big' onClick={() => {handleSubmit("Complete")}}>YES</Button>
+            <Button size='big' onClick={() => {handleSubmit("Failed")}}>NO</Button>
           </div>
+          </div>
+          
         </Container>
       </div>
     </main>

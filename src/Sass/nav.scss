@@ -353,6 +353,10 @@ header {
 
 //toggleble Navigation Bar
 header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 101;
   @include tablet {
     width: 100%;
     height: 70px;
