@@ -93,12 +93,13 @@ const Footer = () => {
           <Grid stackable columns={2}>
             <Grid.Column width={9}>
               <div className="footer-part-1">
+                <a href="#">
                 <img
                   className="footer_image"
                   src={
                     process.env.PUBLIC_URL + "/Assets/images/Epro Logo_Web.png"
                   }
-                />
+                /></a>
 
                 <img
                   className="footer_image1"

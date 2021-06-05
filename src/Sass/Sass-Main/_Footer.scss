@@ -52,20 +52,26 @@
   text-align: left;
 
   .footer_image {
-    width: 60px;
-    height: 59px;
+    width: 65px;
+    height: 64px;
     margin: 19px 30px 19px 0;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
   }
 
   .footer_image1 {
     width: 94px;
     height: 28px;
     margin: 34px 10px 34px 0;
+    cursor: pointer;
   }
   .footer_image2 {
     width: 91px;
     height: 27px;
     margin: 35px 0 34px 0;
+    cursor: pointer;
   }
 }
 .bottom-button a {
