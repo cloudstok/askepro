@@ -50,7 +50,7 @@ function FillPage() {
     const handleSubmitForm = async (event) => {
         event.preventDefault();
         const jsonPostData = {
-            "name": name?name:user.name,
+            "name": name ? name:user.name,
             "dob": dob,
             "type": type,
             "address":
