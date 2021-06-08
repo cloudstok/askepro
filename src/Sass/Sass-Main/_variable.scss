@@ -231,16 +231,23 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
 
   .team {
     width: 100%;
+    padding: 1rem 0 8rem 0;
     team-name {
       text-align: right;
+    }
+    .about-card{
+      margin: 50px 0 15px 0!important;
     }
   }
   /* //about section// */
   .about {
-    height: 115vh;
+    margin: 0 !important;
+    height: 60rem;
     .about-content {
       text-align: center;
       left: 0%;
+      height: 90vh;
+
     }
   }
   .contact p {
@@ -410,13 +417,24 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
     }
   }
 
-  .about {
-    height: 135vh;
+  .about  {
+    height: 79rem !important;
+   
+    .about-content {
+      margin: 0 !important;
+    
+   
+      height: auto !important;
+     
+    }
   }
-  .team .about-card {
+  .team{ 
+    padding: 5rem 0 5rem 0;
+  .about-card {
     width: auto;
     height: auto;
   }
+}
 
   .loginx {
     padding: 15px;

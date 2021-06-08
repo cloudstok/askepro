@@ -125,7 +125,7 @@ const About = () => {
                   </div>
                 </div>
               </Grid.Column>
-              <Grid.Column></Grid.Column>
+     
             </Grid>
           </div>
         </Container>
