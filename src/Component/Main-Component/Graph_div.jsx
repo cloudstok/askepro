@@ -82,7 +82,7 @@ return}
         </Button.Group> 
  </div>
         <div className="filter">
-          <Grid stackable columns={2}>
+          <Grid doubling columns={2}>
             <Grid.Row>
               <Grid.Column width={5}>
                 <Form>

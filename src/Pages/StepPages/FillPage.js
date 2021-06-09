@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { Grid, Divider, Form, Message, Container, Select, Input, CardDescription, Radio } from 'semantic-ui-react';
+import { Grid, Divider, Form, Message, Container, Select, Input, Label, CardDescription, Radio } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import DataCard from '../../Component/Card/card';
@@ -44,11 +44,22 @@ function FillPage() {
     const [city, setCity] = React.useState(null);
     const [country, setCountry] = React.useState(null);
     const [pincode, setPincode] = React.useState(null);
-   
+    const [msg, setmsg] = React.useState(null);
     const requestId = localStorage.getItem("applicationId");
     const url = `${process.env.REACT_APP_BASE_URL}/service/fill/${requestId}`
     const handleSubmitForm = async (event) => {
+       
         event.preventDefault();
+        console.log(!(name&&user.name)||!dob||!type||!alias||!(lineOne&&user.address.addressLineOne)||!(lineTwo&&user.address.addressLineTwo)||!(state&&user.address.state)||!(city&&user.address.city)||!(pincode&&user.address.pincode)||!(country&&user.address.country))
+        if(!(name&&user.name)||!dob||!type||!alias||!(lineOne&&user.address.addressLineOne)||!(lineTwo&&user.address.addressLineTwo)||!(state&&user.address.state)||!(city&&user.address.city)||!(pincode&&user.address.pincode)||!(country&&user.address.country)){
+            setmsg('Please fill all the details')
+            return ;
+        }
+        else{
+            setmsg(null)
+        }
+
+            
         const jsonPostData = {
             "name": name ? name:user.name,
             "dob": dob,
@@ -172,6 +183,7 @@ function FillPage() {
                                     </Grid.Row>
                                 </Grid>
                             </div>
+                            {msg?<Label as='a' className="Failed">{msg}</Label>:<div></div>}
                             <div className="upload_save" style={{ textAlign: 'center' }}>
                                 <button className="same-btn" onClick={handleSubmitForm} value="submit">Save</button>
                             </div>

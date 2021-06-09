@@ -62,11 +62,7 @@ const Payment = () => {
   
   
    const handleSubmit=async(state)=>{
-    if(state==="Failed")
-    {
-      alert("There has been issue with your payment, please craete a new Application");
-      history.push("/apply");
-    }
+  
    const jsonData = {
       "price": services.price + adFess,
       "type": method,
@@ -82,10 +78,15 @@ const Payment = () => {
         },
         body: JSON.stringify(jsonData)
       })).json();
-      if (result.status === 1)
-      history.push("/Success")
-    
-    
+  
+ if(state==="Failed"){
+
+      alert("There has been issue with your payment, please craete a new Application");
+      history.push("/apply");
+
+    }       
+    else  if (result.status === 1)
+    history.push("/Success")
   }
 
 

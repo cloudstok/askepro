@@ -59,9 +59,9 @@ const Visa = () => {
         <div className="tourist">
           <h1 className="headingOne">Tourist Visa Services</h1>
 
-          <p>
+       {/*    <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer 
-          </p>
+          </p> */}
 
           <Grid stackable columns={4}>
             <Grid.Row>

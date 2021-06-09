@@ -163,7 +163,7 @@ const Admin_dashboard = () => {
                   </div>
                 </Grid.Column>
               </Grid>
-
+                          
               <Grid columns>
                 <Grid.Column>
                   <div className="appointment_heading3">
@@ -185,6 +185,8 @@ const Admin_dashboard = () => {
                   </div>
                   {data.pendingDcoument &&
                     data.pendingDcoument.map((ele) => (
+                 
+                  
                       <div className="Request_bg">
                         <Grid columns>
                           {ele.appointment ? (
@@ -216,7 +218,7 @@ const Admin_dashboard = () => {
                                           ).toLocaleString()
                                         }
                                         docs={ele && ele.docs}
-                                      ></Verification>
+                                      />
                                     </Grid.Column>
                                   </Grid.Row>
                                 </Grid>
@@ -227,6 +229,7 @@ const Admin_dashboard = () => {
                           )}
                         </Grid>
                       </div>
+                    
                     ))}
                 </Grid.Column>
               </Grid>

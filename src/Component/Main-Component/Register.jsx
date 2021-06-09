@@ -23,9 +23,7 @@ const Login2 = () => {
       name: Yup.string()
         .max(50, "Must be 50 characters or less")
         .required("Required"),
-      phone: Yup.string()
-        .max(15, "Must be 15 characters or less")
-        .required("Required"),
+      phone: Yup.string().trim().matches(/^[0-9]{8,10}$/,"Please Provide a valid phone number").required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
         .min(6, "Password must be greater than 6 characters")
