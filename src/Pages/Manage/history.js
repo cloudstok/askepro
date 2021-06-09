@@ -54,7 +54,7 @@ const History = ({ title, key }) => {
   if (!application) {
     return (<div></div>);
   }
-
+  console.log(application);
   function dateFormat(d) {
     const date = new Date(d);
     return `${date.toLocaleString()}`
@@ -103,7 +103,7 @@ const History = ({ title, key }) => {
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing {application.currentPage} of  {application.totalPages}</label>
+            <label className='page-name'>Showing {(application.currentPage * application.data.length % 10 === 0 && application.currentPage * application.data.length % 100 !== 0? application.currentPage * application.data.length : (application.currentPage - 1) * 10 + application.data.length)} of  {application.count}</label>
             <Pagination
               size='small'
               defaultActivePage={application.currentPage}

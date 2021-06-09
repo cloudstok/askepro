@@ -72,7 +72,7 @@ const ManageApplication = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing {application.currentPage} of  {application.totalPages}</label>
+<label className='page-name'>Showing {(application.currentPage * application.data.length % 10 === 0 && application.currentPage * application.data.length % 100 !== 0? application.currentPage * application.data.length : (application.currentPage - 1) * 10 + application.data.length)} of  {application.count}</label>
 <Pagination
     size='small'
     defaultActivePage={application.currentPage}
