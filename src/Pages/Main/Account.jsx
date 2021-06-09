@@ -17,6 +17,7 @@ import { getData } from "../../services/api";
 import "../../Sass/Sass-Main/_About.scss";
 import Edit_user from "../../Component/Main-Component/Edit_user";
 import { useRef } from "react";
+import Updated from "../../Component/popup/updated";
 
 const Account = () => {
   const history = useHistory();
@@ -25,6 +26,7 @@ const Account = () => {
   const [appointment, setAppointment] = React.useState(null);
   const [application, setApplication] = React.useState(null);
   const [file, setFile] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     getUser();
@@ -90,13 +92,15 @@ console.log(application);
       })
     ).json();
 
-    if (result.status === 1) window.location.reload(false);
+    if (result.status === 1) getUser();
   };
   if (!user || !appointment || !application) {
     return <div></div>;
   }
+  console.log(open)
   return (
     <>
+
       <div className="account_breadcrumb">
         <BreadCrumbs
           section={[
@@ -139,7 +143,7 @@ console.log(application);
                               </Dropdown.Item>
 
                               <Dropdown.Item>
-                                <Edit_user
+                                <Edit_user 
                                   id={user._id}
                                   name={user.name}
                                   phone={user.phone}
@@ -153,6 +157,8 @@ console.log(application);
                                   state={user.address && user.address.state}
                                   pincode={user.address && user.address.pincode}
                                   country={user.address && user.address.country}
+                                  doRefresh={()=>setOpen(true)}
+                            
                                 />
                               </Dropdown.Item>
                             </Dropdown.Menu>
@@ -351,6 +357,7 @@ console.log(application);
             </Grid.Column>
           </Grid>
         </Container>
+        <Updated open={open} msg="data updated" onClose={()=>{getUser();setOpen(false)}}/>
       </div>
     </>
   );

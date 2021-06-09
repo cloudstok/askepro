@@ -56,9 +56,11 @@ const User_Modal_Edit = (user) => {
         ).json();
 
 
-        alert(result.msg);
-        if (result.status === 1)
-            window.location.reload(false);
+        /* alert(result.msg); */
+        if (result.status === 1){
+            user.doRefresh()
+           
+        }
     };
 
     const [state, dispatch] = React.useReducer(exampleVerify, {
