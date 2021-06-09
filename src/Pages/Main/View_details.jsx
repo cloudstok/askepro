@@ -5,8 +5,7 @@ import StatusChip from "../../Component/Main-Component/StatusChip";
 import '../../Sass/Sass-Main/_View_details.scss';
 import { useHistory } from 'react-router';
 const View_details = () => {
-  const history = useHistory();
-
+const history = useHistory();
 
 
   const [application, setApplication] = React.useState(null);
@@ -132,7 +131,7 @@ const View_details = () => {
                     </Step.Content>
                     <Step.Content>
                     
-                      <Step.Description>Documents Uploaded</Step.Description>
+                      <Step.Description style={{marginTop:'3.5  rem'}}>Documents Uploaded</Step.Description>
                     </Step.Content>
                   </Step> : <div />}
                   {application.appointment ? <Step completed>
@@ -235,9 +234,9 @@ const View_details = () => {
 
                     <div className="details_3_outer">
                       {application.docs.map((ele) => <div className="details_3">
-                        <p>{ele.name}      <Button onClick={() => generateLink(ele.key)} >
+                        <p>{ele.name}  <button className="same-btn" onClick={() => generateLink(ele.key)} >
                           DOWNLOAD
-    </Button></p>
+    </button></p>
                         
                    
                       </div>)}

@@ -1,14 +1,15 @@
 import React from "react";
 import { Grid, Segment, Container, Form } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Footer.scss";
-
+import Updated from "../../Component/popup/updated";
 const Footer = () => {
   const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
 
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
   const [query, setQuery] = React.useState(null);
-
+  const [open,setOpen] = React.useState(false);
+  const [msg,setMsg] = React.useState(false);
   const createContact = async (event) => {
     try {
       event.preventDefault();
@@ -31,7 +32,8 @@ const Footer = () => {
       const data = await result.json();
 
       if (data && result.status == 200) {
-        alert(data.msg);
+        setMsg(data.msg)
+        setOpen(true)
       }
     } catch (error) {
       console.log(error);
@@ -129,6 +131,7 @@ const Footer = () => {
             </Grid.Column>
           </Grid>
         </Container>
+        <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
       </footer>
     </>
   );

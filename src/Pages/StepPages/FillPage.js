@@ -302,7 +302,7 @@ function FillPage() {
                 </Grid>
               </div>
               {msg ? (
-                <Label as="a" className="Failed">
+                <Label as="a" className="Rejected">
                   {msg}
                 </Label>
               ) : (

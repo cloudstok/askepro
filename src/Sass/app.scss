@@ -31,14 +31,15 @@
 .Failed{
     color: red !important;
     background-color: rgba(red, 0.15) !important;
-    position: relative;
-    width: 100%;
-    text-align: center;
-   
 }
 .Rejected{
     color: red !important;
     background-color: rgba(red, 0.15) !important;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 1rem !important;
+ 
 }
 .Accepted{
     color: #0cbe0c !important; 

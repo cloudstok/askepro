@@ -34,16 +34,14 @@ const Updated = (props) => {
     <>
       <Icon
         name="check"
-        onClick={() => dispatch({ type: "open", size: "tiny" })}
+        onClick={() => dispatch({ type: "open", size: "large" })}
       ></Icon>
       <Modal
         size={size}
         open={props.open}
         onClose={() =>props.onClose()}
       >
-        <Modal.Header>
-          <div className="accept_heading">Accept Appointment</div>
-        </Modal.Header>
+    
         <Modal.Content image>
           <div className="modal_img">
             <Icon className="icon1" name="check" color="green" size="big" />
