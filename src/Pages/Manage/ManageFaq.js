@@ -131,9 +131,7 @@ const ManageFaq = ({ title }) => {
             </Table>
           </Container>
           <div className="pagination-container">
-            <label className="page-name">
-              Showing {faqs.currentPage} of {faqs.totalPages}
-            </label>
+          <label className='page-name'>Showing {(faqs.currentPage * faqs.data.length % 10 === 0 && faqs.currentPage * faqs.data.length % 100 !== 0? faqs.currentPage * faqs.data.length : (faqs.currentPage - 1) * 10 + faqs.data.length)} of  {faqs.count}</label>
             <Pagination
               size="small"
               defaultActivePage={faqs.currentPage}

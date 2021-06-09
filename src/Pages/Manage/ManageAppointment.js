@@ -73,7 +73,7 @@ const ManageAppointments = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing { appointment.currentPage || 1 }  of { appointment.totalPages }</label>
+<label className='page-name'>Showing {(appointment.currentPage * appointment.data.length % 10 === 0 && appointment.currentPage * appointment.data.length % 100 !== 0? appointment.currentPage * appointment.data.length : (appointment.currentPage - 1) * 10 + appointment.data.length)} of  {appointment.count}</label>
 <Pagination
     size='small'
     defaultActivePage={appointment.currentPage}

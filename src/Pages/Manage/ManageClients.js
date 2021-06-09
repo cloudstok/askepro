@@ -66,7 +66,7 @@ const Manageclient = ({title}) =>{
  </Table>
 </Container>
 <div className='pagination-container'>
-<label className='page-name'>Showing { client.currentPage || 1 } of { client.totalPages } </label>
+<label className='page-name'>Showing {(client.currentPage * client.data.length % 10 === 0 && client.currentPage * client.data.length % 100 !== 0? client.currentPage * client.data.length : (client.currentPage - 1) * 10 + client.data.length)} of  {client.count}</label>
 <Pagination
     size='small'
     defaultActivePage={client.currentPage}

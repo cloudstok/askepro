@@ -72,7 +72,7 @@ console.log(payment)
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing  {payment.currentPage} of  {payment.totalPages}</label>
+          <label className='page-name'>Showing {(payment.currentPage * payment.data.length % 10 === 0 && payment.currentPage * payment.data.length % 100 !== 0? payment.currentPage * payment.data.length : (payment.currentPage - 1) * 10 + payment.data.length)} of  {payment.count}</label>
             <Pagination
               size='small'
               defaultActivePage={payment.currentPage}

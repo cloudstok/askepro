@@ -29,7 +29,7 @@ const ManageQuery = ({ title }) => {
   }
 
   const pageClick = async (p) => {
-    const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}`, {
+    const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}?status=${status}`, {
       method: "GET", headers: {
         'x-access-token': localStorage.getItem('token'),
       }
@@ -73,7 +73,7 @@ const ManageQuery = ({ title }) => {
                   <Table.HeaderCell>Email</Table.HeaderCell>
                   <Table.HeaderCell>Query</Table.HeaderCell>
                   <Table.HeaderCell>
-                    <Dropdown text='Services' scrolling='true'>
+                    <Dropdown text='querys' scrolling='true'>
                       <Dropdown.Menu >
                         <Dropdown.Item text='Open' onClick={() => { getquery('Open'); setStatus("Open") }} />
                         <Dropdown.Item text='Resolved' onClick={() => { getquery('Resolved'); setStatus("Resolved") }} />
@@ -98,14 +98,14 @@ const ManageQuery = ({ title }) => {
 
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing  {query.currentPage} of  {query.totalPages}</label>
+          <label className='page-name'>Showing {(query.currentPage * query.data.length % 10 === 0 && query.currentPage * query.data.length % 100 !== 0? query.currentPage * query.data.length : (query.currentPage - 1) * 10 + query.data.length)} of  {query.count}</label>
             <Pagination
               size='small'
               defaultActivePage={query.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className='next'>PREV</label> }}
-              nextItem={{ content: <label className='prev'>NEXT</label> }}
+              prevItem={{ content: <label className='next' onClick={() => pageClick(--query.currentPage)}>PREV</label> }}
+              nextItem={{ content: <label className='prev' onClick={() => pageClick(++query.currentPage)}>NEXT</label> }}
               totalPages={query.totalPages}
               onClick={e => pageClick(parseInt(e.target.outerText))}
             />

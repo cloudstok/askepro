@@ -113,7 +113,7 @@ const ManageService = ({ title }) => {
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing{service.currentPage}  of {service.totalPages}</label>
+          <label className='page-name'>Showing {(service.currentPage * service.data.length % 10 === 0 && service.currentPage * service.data.length % 100 !== 0? service.currentPage * service.data.length : (service.currentPage - 1) * 10 + service.data.length)} of  {service.count}</label>
             <Pagination
               size='small'
               defaultActivePage={service.currentPage}
