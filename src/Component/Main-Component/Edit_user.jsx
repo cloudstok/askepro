@@ -70,9 +70,7 @@ const User_Modal_Edit = (user) => {
     const { open, size } = state;
 
     return (
-        <>
-
-            
+        <>  
              <p onClick={() => dispatch({ type: "open", size: "small" })}>Edit Profile</p>
 
             <Modal

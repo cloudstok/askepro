@@ -65,28 +65,28 @@ function FillPage() {
   const handleSubmitForm = async (event) => {
     event.preventDefault();
     console.log(
-      !(name && user.name) ||
+      !(name || user.name) ||
         !dob ||
         !type ||
         !alias ||
-        !(lineOne && user.address.addressLineOne) ||
-        !(lineTwo && user.address.addressLineTwo) ||
-        !(state && user.address.state) ||
-        !(city && user.address.city) ||
-        !(pincode && user.address.pincode) ||
-        !(country && user.address.country)
+        !(lineOne || user.address.addressLineOne) ||
+        !(lineTwo || user.address.addressLineTwo) ||
+        !(state || user.address.state) ||
+        !(city || user.address.city) ||
+        !(pincode || user.address.pincode) ||
+        !(country || user.address.country)
     );
     if (
-      !(name && user.name) ||
+      !(name || user.name) ||
       !dob ||
       !type ||
       !alias ||
-      !(lineOne && user.address.addressLineOne) ||
-      !(lineTwo && user.address.addressLineTwo) ||
-      !(state && user.address.state) ||
-      !(city && user.address.city) ||
-      !(pincode && user.address.pincode) ||
-      !(country && user.address.country)
+      !(lineOne || user.address.addressLineOne) ||
+      !(lineTwo || user.address.addressLineTwo) ||
+      !(state || user.address.state) ||
+      !(city || user.address.city) ||
+      !(pincode || user.address.pincode) ||
+      !(country || user.address.country)
     ) {
       setmsg("Please fill all the details");
       return;
