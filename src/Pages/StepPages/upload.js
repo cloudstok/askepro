@@ -37,7 +37,7 @@ const UploadDocuments = () => {
   }, []);
   window.history.pushState(null, document.title, window.location.href);
   window.addEventListener('popstate', function (event) {
-    window.history.pushState(null, document.title, window.location.href);
+  window.history.pushState(null, document.title, window.location.href);
   });
   const getServices = async () => {
     const service = await (await fetch(service_url, { method: "GET" })).json();
