@@ -12,6 +12,7 @@ import {
 } from "semantic-ui-react";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import Heading from "../../Component/Heading/heading";
+import Updated from "../../Component/popup/updated";
 import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
@@ -31,9 +32,14 @@ const Payment = () => {
     history.push("/login");
 
   const [services, setService] = React.useState(null);
+  const[msg,setMsg]= React.useState(null);
+const [open,setOpen]= React.useState(null);
   const slug = localStorage.getItem("serviceSlug");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
-
+  window.history.pushState(null, document.title, window.location.href);
+  window.addEventListener('popstate', function (event){
+      window.history.pushState(null, document.title,  window.location.href);
+  });
   React.useEffect(() => {
     getServices();
   }, []);
@@ -80,9 +86,10 @@ const Payment = () => {
       })).json();
   
  if(state==="Failed"){
-
-      alert("There has been issue with your payment, please craete a new Application");
-      history.push("/apply");
+  setOpen(true)
+  setMsg("There has been issue with your payment, please craete a new Application")
+      
+     
 
     }       
     else  if (result.status === 1)
@@ -181,7 +188,7 @@ const Payment = () => {
             <Button size='big' onClick={() => {handleSubmit("Failed")}}>NO</Button>
           </div>
           </div>
-          
+          <Updated open={open} wrong={open} msg={msg} onClose={()=>{setOpen(false);  history.push("/apply");}}/>
         </Container>
       </div>
     </main>

@@ -43,8 +43,8 @@ const Updated = (props) => {
       >
     
         <Modal.Content image>
-          <div className="modal_img">
-            <Icon className="icon1" name="check" color="green" size="big" />
+          <div className={props.wrong?"modal_img2":"modal_img"}>
+            <Icon className="icon1" name={props.wrong?"close":"check"} color={props.wrong?"red":"green"}  size="big" />
           </div>
         </Modal.Content>
         <Modal.Description>

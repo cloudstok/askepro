@@ -20,7 +20,12 @@ import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
 function FillPage() {
+  
   const history = useHistory();
+  window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', function (event){
+        window.history.pushState(null, document.title,  window.location.href);
+    });
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
   const [user, setUser] = React.useState(null);

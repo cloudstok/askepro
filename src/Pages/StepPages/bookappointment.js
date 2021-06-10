@@ -19,6 +19,10 @@ const BookAppointment = () => {
     const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
         history.push("/login");
+        window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', function (event){
+        window.history.pushState(null, document.title,  window.location.href);
+    });
     const [date, setDate] = React.useState(new Date());
     let jsonData;
     const requestId=localStorage.getItem("applicationId");

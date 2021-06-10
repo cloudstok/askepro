@@ -9,6 +9,10 @@ import { useHistory } from 'react-router';
 
 const Success = () =>{
     const history=useHistory();
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', function (event){
+        window.history.pushState(null, document.title,  window.location.href);
+    });
     const [data, setData]=React.useState(null);
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");

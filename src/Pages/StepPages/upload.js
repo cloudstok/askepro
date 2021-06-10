@@ -27,15 +27,18 @@ const UploadDocuments = () => {
   const [file, setFile] = React.useState(null);
   const [docsArray, updateMyArray] = React.useState([]);
   const [services, setService] = React.useState(null);
-  const [open, setOpen] =React.useState(false);
-  const [msg, setMsg] =React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const [msg, setMsg] = React.useState(null);
   const slug = localStorage.getItem("serviceSlug");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
 
   React.useEffect(() => {
     getServices();
   }, []);
-
+  window.history.pushState(null, document.title, window.location.href);
+  window.addEventListener('popstate', function (event) {
+    window.history.pushState(null, document.title, window.location.href);
+  });
   const getServices = async () => {
     const service = await (await fetch(service_url, { method: "GET" })).json();
     const serviceData = {
@@ -50,9 +53,9 @@ const UploadDocuments = () => {
   const url = `${process.env.REACT_APP_BASE_URL}/service/upload/${requestId}`;
   const uploadWithFormData = async (event) => {
     event.preventDefault();
-if(!fileName){
-     throw("Select a file first");
-}
+    if (!fileName) {
+      throw ("Select a file first");
+    }
     console.log(file, fileName);
 
     const formData = new FormData();
@@ -66,17 +69,16 @@ if(!fileName){
         body: formData,
       })
     ).json();
-
-    if (result.status === 1){
+    if (result.status === 1) {
       setOpen(true);
-      setMsg(fileName+" saved ");
+      setMsg(fileName + " saved ");
       updateMyArray((oldArray) => [...oldArray, fileName]);
-  }
-};
+    }
+  };
   const handleSubmitForm = (event) => {
     if (docsArray.length === services.reqDocs.length) history.push("/book");
   };
-console.log(open);
+  console.log(open);
   return (
     <main>
       <div className="apply-section">
@@ -118,11 +120,11 @@ console.log(open);
                           hidden
                           onChange={(e) => uploadWithFormData(e)}
                         />
-                         <div className="file">
+                        <div className="file">
                           <label onClick={() => fileref.current.click()} for="file-btn">
                             Upload file from your computer
                           </label>
-                        </div> 
+                        </div>
                       </Form.Field>
                     </Grid.Column>
                     <Grid.Column width={3}>
@@ -170,8 +172,8 @@ console.log(open);
         </Grid>
       </div>
       {/* <ButtonBar /> */}
-      <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
-      
+      <Updated open={open} msg={msg} onClose={() => setOpen(false)} />
+
     </main>
   );
 };
