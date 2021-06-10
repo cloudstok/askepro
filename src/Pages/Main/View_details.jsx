@@ -268,6 +268,7 @@ const history = useHistory();
 
                     <div className="vertical_step1">
                       <Icon color="green" size='huge' link name='check square' />
+                  
                       <p>
                         Your payment was {application.transaction.status} and we have also reserved the slot
                         for your appointment. You can keep track of your application

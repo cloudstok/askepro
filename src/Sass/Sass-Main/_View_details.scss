@@ -91,8 +91,8 @@
 }
 .vertical_step1 {
   display: flex;
-  width: 720px;
-  height: 126px;
+  width: auto;
+  height: auto;
   padding: 30px;
   border: solid 1px #e6e6e6;
   margin-bottom: 60px;
@@ -156,9 +156,9 @@
 
 .details_3_outer {
   margin-bottom: 60px;
-  width: 720px;
+  width: auto;
   padding: 20px 0 22px 31.4px;
-  border: solid 1px #d5d5d5;
+  border: solid 1px #e6e6e6;
   & a {
     text-decoration: underline;
     margin-left: 30px;
@@ -186,15 +186,22 @@
     height: 14.1px;
     margin-top: 5px;
   }
-  .same-btn{
-    margin-left: 35rem;
+  .details_3{
+
+    height: 3rem;
   }
+  .same-btn{
+    height: 32px;
+    position: absolute;
+    right: 5em;
+  }
+
 }
 
 .vertical_step4 {
-  width: 720px;
-  height: 152px;
-  border: solid 1px #d5d5d5;
+  width: auto;
+  height: auto;
+  border: solid 1px #e6e6e6;
   padding: 20px 30px;
   margin-bottom: 60px;
 }
@@ -232,9 +239,9 @@
 }
 
 .view_segment3 {
-  width: 720px;
+  min-width: 520px;
   height: 122px;
-  border: solid 1px #d5d5d5;
+  border: solid 1px #e6e6e6;
   padding: 20px 30px;
 }
 .company_formation1 {
