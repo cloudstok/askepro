@@ -1,6 +1,6 @@
 import React, { applicationeducer } from "react";
 import { useParams } from "react-router";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Table } from "semantic-ui-react";
 import BreadCrumbs from "../Breadcrumb/breadcrumb";
 import SideBar from '../Nav/Sidebar'
 import Verification from "../../Component/Main-Component/Verification";
@@ -25,7 +25,10 @@ const View_all = () => {
     application = application.data[0];
     setapplication(application || []);
   }
-
+  function dateFormat(d) {
+    const date = new Date(d);
+    return `${date.toLocaleString()}`
+  };
   const generateLink = async (key) => {
 
     const jsonPostData = {
@@ -160,6 +163,25 @@ const View_all = () => {
                 </div>
               </div>
             </div> : <div />}
+            {application.transaction ? <div className="details_wrapper">
+              <div className="my_details">
+                <div className="detail_inner1">
+                  <h4>Transaction Details</h4>
+                  <p>Transaction Id</p>
+                  <p>Mode</p>
+                  <p>Amount (AED)</p>
+                  <p>Status</p>
+                </div>
+                <div className="detail_inner2">
+                  <h4>deactivate</h4>
+                  <p>{application.transaction._id}</p>
+                  <p>{application.transaction.ptype}</p>
+                  <p>{application.transaction.amount}</p>
+                  <p>{application.transaction.status}</p>
+                </div>
+              </div>
+            </div>
+           : <div />}
           </Container>
         </div>
 

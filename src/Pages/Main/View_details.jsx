@@ -263,13 +263,13 @@ const history = useHistory();
 
                   </Grid.Column> : <div />}
 
-                  {application.payment ? <Grid.Column>
+                  {application.transaction ? <Grid.Column>
 
 
                     <div className="vertical_step1">
                       <Icon color="green" size='huge' link name='check square' />
                       <p>
-                        Your payment was successful and we have also reserved the slot
+                        Your payment was {application.transaction.status} and we have also reserved the slot
                         for your appointment. You can keep track of your application
                         from your “History”.
                 </p>

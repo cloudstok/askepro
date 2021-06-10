@@ -29,7 +29,7 @@ const ManageQuery = ({ title }) => {
   }
 
   const pageClick = async (p) => {
-    const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}?status=${status}`, {
+    const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}&status=${status}`, {
       method: "GET", headers: {
         'x-access-token': localStorage.getItem('token'),
       }
