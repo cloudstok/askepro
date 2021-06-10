@@ -18,6 +18,7 @@ import ButtonBar from "../../Component/ButtonBar/buttonbar";
 import "../StepPages/stepPage.scss";
 import { useHistory } from "react-router";
 import { useRef } from "react";
+import Updated from "../../Component/popup/updated";
 
 const UploadDocuments = () => {
   const history = useHistory();
@@ -26,6 +27,8 @@ const UploadDocuments = () => {
   const [file, setFile] = React.useState(null);
   const [docsArray, updateMyArray] = React.useState([]);
   const [services, setService] = React.useState(null);
+  const [open, setOpen] =React.useState(false);
+  const [msg, setMsg] =React.useState(null);
   const slug = localStorage.getItem("serviceSlug");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
 
@@ -64,12 +67,16 @@ if(!fileName){
       })
     ).json();
 
-    if (result.status === 1)
+    if (result.status === 1){
+      setOpen(true);
+      setMsg(fileName+" saved ");
       updateMyArray((oldArray) => [...oldArray, fileName]);
-  };
+  }
+};
   const handleSubmitForm = (event) => {
     if (docsArray.length === services.reqDocs.length) history.push("/book");
   };
+console.log(open);
   return (
     <main>
       <div className="apply-section">
@@ -163,6 +170,8 @@ if(!fileName){
         </Grid>
       </div>
       {/* <ButtonBar /> */}
+      <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
+      
     </main>
   );
 };

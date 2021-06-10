@@ -13,7 +13,7 @@ function exampleReducer(state, action) {
   }
 }
 
-const Accepted = (id) => {
+const Accepted = (props) => {
 
   const [state, dispatch] = useReducer(exampleReducer, {
     open: false,
@@ -29,20 +29,19 @@ const Accepted = (id) => {
      window.location.reload(false);
    
   }
+  console.log(props)
   return (
     <>
       <Icon
         name="check"
-        onClick={() => dispatch({ type: "open", size: "tiny" })}
+        onClick={() => dispatch({ type: "open", size: "large" })}
       ></Icon>
       <Modal
         size={size}
-        open={open}
-        onClose={() => dispatch({ type: "close" })}
+        open={props.open}
+        onClose={() =>props.onClose()}
       >
-        <Modal.Header>
-          <div className="accept_heading">Accept Appointment</div>
-        </Modal.Header>
+    
         <Modal.Content image>
           <div className="modal_img">
             <Icon className="icon1" name="check" color="green" size="big" />
@@ -50,16 +49,23 @@ const Accepted = (id) => {
         </Modal.Content>
         <Modal.Description>
           <p className="modal_p">
-          The re has been acceted
+          {props.msg}
           </p>
 
           <div className="accept_bottom">
             <button
               color="black"
               className="same-btn"
-              onClick={() =>handleAccept(id.id) }
+              onClick={() => props.onClose()}
             >
-              CLOSE
+              REJECT
+            </button>
+            <button
+              color="black"
+              className="same-btn"
+              onClick={() => props.onSubmit()}
+            >
+              ACCEPT
             </button>
           </div>
         </Modal.Description>

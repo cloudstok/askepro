@@ -8,8 +8,14 @@ import DataCard from '../../Component/Card/card';
 import ButtonBar from '../../Component/ButtonBar/buttonbar';
 import '../StepPages/stepPage.scss';
 import { useHistory } from 'react-router';
+import Updated from '../../Component/popup/updated';
+import Accepted from '../../Component/popup/accepted';
 
 const BookAppointment = () => {
+    const [msg,setMsg] =React.useState(null);
+    const [open, setOpen] =React.useState(false);
+    const [success,setSuccess] =React.useState(false);
+    const [data, setData] = React.useState(null);
     const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
         history.push("/login");
@@ -20,31 +26,41 @@ const BookAppointment = () => {
     const onDateChange =async date => {
         let dates = date.toString();
         dates = dates.split(" ")
+        setOpen(true)
+        setMsg(`Are you sure you want to select ${dates[1]} ${dates[2]},${dates[3]} as your appointment`)
 
-        if (window.confirm(`Are you sure you want to select ${dates[1]} ${dates[2]},${dates[3]} as your appointment`)) {
-
+                
             jsonData = {
                 "day": dates[0],
                 "date": dates[2],
                 "month": dates[1],
                 "year": dates[3]
             }
-            const result = await(await fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'x-access-token':localStorage.getItem("token")
-                },
-                body: JSON.stringify(jsonData)
-            })).json();
+            setData(jsonData)
 
-            history.push("/payment");
-        } 
+            
+       
         
     }
 
-   
+    const submitForm= async()=>{
+        const result = await(await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'x-access-token':localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })).json();
+        if(result.status===1){
+            setMsg("Your appointment date has been booked")
+            setSuccess(true)
+            history.push("/payment");
+         
+        }
+        
+    }
 
     return (
         <main>
@@ -81,6 +97,8 @@ const BookAppointment = () => {
                 </Grid>
             </div>
             {/* <ButtonBar /> */}
+            <Updated open={success} msg={msg} onClose={()=>setOpen(false)}/>
+            <Accepted open={open} msg={msg} onClose={()=>setOpen(false)} onSubmit={()=>submitForm()}/>
         </main>
     )
 }
