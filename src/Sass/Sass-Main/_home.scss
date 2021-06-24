@@ -364,6 +364,12 @@ body {
     border-bottom: solid 1px #e6e6e6;
     width: 100%;
     padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .same-btn{
+
+    }
   }
   .hours-total {
     border-top: solid 1px #e6e6e6;

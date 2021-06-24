@@ -246,6 +246,23 @@
     align-items: center;
     margin: 20px 0;
   }
+  .dropdown{
+    width: 400px;
+    height: 56px;
+    padding: 15px 30px 17px 20px;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin: 41px 0;
+    & .icon{
+      box-shadow: none !important;
+      float: right !important;
+      display: flex;
+      align-items: center;
+    }
+    & .menu{
+      width: 400px;
+    }
+  }
   .testimonial img {
     width: 17px;
     height: 17px;

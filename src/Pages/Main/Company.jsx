@@ -1,10 +1,17 @@
 import React from "react";
-import { Container, Grid } from "semantic-ui-react";
+import { Container, Dropdown, Table, Grid } from "semantic-ui-react";
 import Footer from '../../Component/Main-Component/Footer';
 import Header from '../../Component/Main-Component/Header';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import Crumb from '../../Component/Main-Component/Crumb';
 import '../../Sass/Sass-Main/_About.scss';
+const options=[
+  { key: 1, text: 'Choice 1', value: 1 },
+  { key: 2, text: 'Choice 2', value: 2 },
+  { key: 3, text: 'Choice 3', value: 3 },
+]
+
+
 const Company = () => {
   const history = useHistory();
   const [service, setService] = React.useState({});
@@ -65,62 +72,78 @@ const Company = () => {
 
           <div className="overview">
             <Grid stackable column={2}>
-              <Grid.Column width={11}>
-                <div>
+              <Grid.Column>
+                <div className="Service_overview">
                   <h3>Overview</h3>
                   <p>
                     {service.overview}
                   </p>
-                  <h3>How to Apply</h3>
-
-                  {service.serviceHowToApply && service.serviceHowToApply.map((d) =>
-                    <div className="testimonial">
-
-                      <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
-
-                      <p>
-                        {d}
-                      </p>
-
-                    </div>
-
-                  )}
-
-                  {/*
-              <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard.{" "}
-                </p>
-              </div>
-              <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />;
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard.{" "}
-                </p>
-              </div>
-              <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard.{" "}
-                </p>
-              </div>
-              <div className="testimonial">
-                <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard.{" "}
-                </p>
-              </div>
+                  <Dropdown className="golu" text = "Service Type" options={options}/>
+               
               
-              */}
+              <Grid.Column>
+                <div className="company_plans">
+                  <div className="tourist" style={{ margin: '0' }}>
+                    <Grid>
+                      <Grid.Row>
+                        <Grid.Column>
+                          <div className="tourist-border">
+                            <div className="hours">
+                              <h3>{service.name}</h3>
+                              <Link to="/apply"> <button className="same-btn" type="submit">APPLY NOW</button></Link>
+                            </div>
+                       {/*      <div className="hours-content">
+                              <div className="rectangle11">
+                                <div className="days-dull">Processing Time:</div>
+                                <div className="days">Upto {service.processT} Days</div>
+                              </div>
+                              <div className="rectangle11">
+                                <div className="days-dull">Stay Period:</div>
+                                <div className="days">{service.stayPeriod} Days</div>
+                              </div>
+                              <div className="rectangle11">
+                                <div className="days-dull">Validity</div>
+                                <div className="days">{service.validity} Days</div>
+                              </div>
+                              <div className="rectangle11">
+                                <div className="days-dull">Entry:</div>
+                                <div className="days">{service.entry}</div>
+                              </div>
+                            </div > */}
+<Table>
+    
+    <Table.Row >
+        <Table.Cell>Processing Time</Table.Cell>
+        <Table.Cell>Stay Period</Table.Cell>
+        <Table.Cell>Validity</Table.Cell>
+        <Table.Cell>Entry</Table.Cell>
+        <Table.Cell>Fees</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Upto {service.processT} Days</Table.Cell>
+        <Table.Cell>{service.stayPeriod} Days</Table.Cell>
+        <Table.Cell>{service.validity} Days</Table.Cell>
+        <Table.Cell>{service.entry}</Table.Cell>
+        <Table.Cell>{service.price} AED</Table.Cell>
+      </Table.Row>
+     
+   
+    
+    </Table>
+                            <div className="hours-total">
+                              <div className="fees">
+                                <div className="total-left">Fees</div>
+                                <div className="total-right">{service.price} AED</div>
+                              </div>
+                            </div>
+                           
+                          </div>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </div>
+                </div>
+              </Grid.Column>
 
                   <h3>Documents Required</h3>
 
@@ -152,48 +175,6 @@ const Company = () => {
                 </div>
               </Grid.Column>
 
-              <Grid.Column width={5}>
-                <div className="company_plans">
-                  <div className="tourist" style={{ margin: '0' }}>
-                    <Grid>
-                      <Grid.Row>
-                        <Grid.Column>
-                          <div className="tourist-border">
-                            <div className="hours">
-                              <h3>{service.name}</h3>
-                            </div>
-                            <div className="hours-content">
-                              <div className="rectangle11">
-                                <div className="days-dull">Processing Time:</div>
-                                <div className="days">Upto {service.processT} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Stay Period:</div>
-                                <div className="days">{service.stayPeriod} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Validity</div>
-                                <div className="days">{service.validity} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Entry:</div>
-                                <div className="days">{service.entry}</div>
-                              </div>
-                            </div>
-                            <div className="hours-total">
-                              <div className="fees">
-                                <div className="total-left">Fees</div>
-                                <div className="total-right">{service.price} AED</div>
-                              </div>
-                            </div>
-                            <Link to="/apply"> <button className="form-btn" type="submit">APPLY NOW</button></Link>
-                          </div>
-                        </Grid.Column>
-                      </Grid.Row>
-                    </Grid>
-                  </div>
-                </div>
-              </Grid.Column>
             </Grid>
           </div>
 
