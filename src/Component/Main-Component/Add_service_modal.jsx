@@ -12,7 +12,7 @@ import {
   TextArea
 } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
-
+import AdminAccordion from "./Accordion/AdminAccordion";
 function exampleService(state, action) {
   switch (action.type) {
     case "close":
@@ -32,6 +32,8 @@ const Service_modal = () => {
   const [stayPeriod, setStayPeriod] = React.useState(null);
   const [validity, setValidity] = React.useState(null);
   const [entry, setEntry] = React.useState(null);
+  const [subject, setSubject] = React.useState(false);
+  const [comp, setComp] = React.useState([]);
   const [price, setPrice] = React.useState(null);
   const [serviceHowToApply, setHta] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
@@ -68,7 +70,10 @@ const Service_modal = () => {
     if (result.status === 1)
       window.location.reload(false);
   }
-
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    setComp([...comp, <Form.Input id="var" label='Enter Var' onChange={(e) => setSubject(subject + "~" + e.target.value)} ></Form.Input>]);
+  }
 
   return (
     <>
@@ -108,26 +113,16 @@ const Service_modal = () => {
                 </Form.Field>
                 </div>
                 <div>
-                <Form.Field>
+                <Button action={{ onClick: (e) => handleAdd(e), icon: 'plus square icon' }} id="var" onChange={(e) => setSubject(e.target.value)}>
                 <label>+ ADD NEW</label>
-                </Form.Field>
+                </Button>
                 </div>
               </div>
                 
-              <div className="application_types">
-                <div>
-                  <Form.Field>
-                <label>Add Application Type(s)</label>
-                </Form.Field>
-                </div>
-                <div>
-                <Form.Field>
-                <label>+ ADD NEW</label>
-                </Form.Field>
-                </div>
-              </div>
+             
+              <AdminAccordion />
 
-                <Form.Field
+                {/* <Form.Field
                   control={Input}
                   label='Total Fees (AED)'
                   placeholder='Enter total fees'
@@ -169,7 +164,7 @@ const Service_modal = () => {
 
               </Form.Group>
              
-             {/* <Form.Field
+            //// <Form.Field
                 control={TextArea}
                 label='Description'
                 placeholder='Write your text here'
@@ -180,14 +175,14 @@ const Service_modal = () => {
                 label='How to Apply (step1,step2....)'
                 placeholder='Write your text here'
                 onChange={(event) => setHta(event.target.value)}
-              /> */}
+              /> ///
               <Form.Field
                 control={TextArea}
                 label='Documents Required (Document1,Document2,.....)'
                 placeholder='Write your text here'
                 onChange={(event) => setDocs(event.target.value)}
 
-              />
+              /> */}
             </Form>
           </div>
         </Modal.Content>

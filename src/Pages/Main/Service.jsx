@@ -4,7 +4,7 @@ import Header from "../../Component/Main-Component/Header";
 import Footer from "../../Component/Main-Component/Footer";
 import Notification from "../../Component/Main-Component/Notification";
 import Visa from "../../Component/Main-Component/Visa";
-import Accordion from "../../Component/Main-Component/Accordion";
+import Accordion from "../../Component/Main-Component/Accordion/Accordion";
 import "../../Sass/Sass-Main/_home.scss";
 import Crumb from "../../Component/Main-Component/Crumb";
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {getData} from '../../services/api';
+import {getData} from '../../../services/api';
 import {Link} from 'react-router-dom';
 import { Accordion, Grid, Icon, Container } from "semantic-ui-react";
 export default class AccordionExampleFluid extends Component {

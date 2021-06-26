@@ -208,7 +208,7 @@
   }
 
   .select2 select {
-    height: 30px;
+    height: auto;
     width: 230px !important;
     border: solid 1px #e9e9e9 !important;
   }
@@ -246,4 +246,18 @@
 .application_types {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  .button{
+    background-color: #fff !important;
+    border: none;
+    
+  
+  }
+  
+}
+
+.admin_accordion{
+  label{
+    text-align: left;
+  }
 }
