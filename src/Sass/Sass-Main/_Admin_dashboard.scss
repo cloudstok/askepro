@@ -57,42 +57,40 @@
   border: solid 1px #e6e6e6;
   background: #ffffff;
   width: 100% !important;
-  
-   .revenue_btn {
-   font-size: 14px !important;
+
+  .revenue_btn {
+    font-size: 14px !important;
     color: #b2b2b2 !important;
     line-height: 1.21 !important;
     font-weight: normal !important;
     background: #ffffff !important;
     position: relative !important;
     border: solid 1px #e9e9e9 !important;
-   /*   &:hover {
+    /*   &:hover {
       font-weight: bold;
       color: #000;
     } */
   }
-  .revenue_btn.active{
+  .revenue_btn.active {
     font-weight: bold !important;
-      color: #000 !important;
-      &::after {
-        position: absolute !important;
-        content: "" !important;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%) rotate(45deg);
-        width: 0.5rem;
-        height: 0.5rem;
-        z-index: -1;
-        background: #e7ec32 !important;
-      }
-      &::before {
-        @include admin_after;
-        margin: 0 !important;
-        width: 100% !important;
-      }
+    color: #000 !important;
+    &::after {
+      position: absolute !important;
+      content: "" !important;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      width: 0.5rem;
+      height: 0.5rem;
+      z-index: -1;
+      background: #e7ec32 !important;
+    }
+    &::before {
+      @include admin_after;
+      margin: 0 !important;
+      width: 100% !important;
+    }
   }
- 
-  
 }
 
 .appointment_heading2 {
@@ -226,24 +224,26 @@
   }
   .grey_btn {
     background: #fff !important;
-    
-    
+
     height: 37px !important;
     border: solid 1px #e9e9e9 !important;
     margin-top: 43.25px !important;
     border: solid 1px #e9e9e9;
     @include form_para;
-    color: #b2b2b2 !important;  
-    &:hover{
+    color: #b2b2b2 !important;
+    &:hover {
       color: #000 !important;
     }
-    
   }
-  .grey_btn.active{
-       &.active{
+  .grey_btn.active {
+    &.active {
       font-weight: bold !important;
       color: #000 !important;
     }
-
   }
+}
+/* ///Add service//// */
+.application_types {
+  display: flex;
+  justify-content: space-between;
 }

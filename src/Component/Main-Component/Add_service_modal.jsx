@@ -11,7 +11,7 @@ import {
   Input,
   TextArea
 } from "semantic-ui-react";
-
+import "../../Sass/Sass-Main/_Admin_dashboard.scss";
 
 function exampleService(state, action) {
   switch (action.type) {
@@ -88,13 +88,45 @@ const Service_modal = () => {
         <Modal.Content>
           <div className="services_form">
             <Form>
-              <Form.Group widths='equal'>
+              
                 <Form.Field
                   control={Input}
-                  label='Enter service name'
+                  label='Service name'
                   placeholder='First name'
                   onChange={(event) => setName(event.target.value)}
                 />
+                 <Form.Field
+                control={TextArea}
+                label='Overview'
+                placeholder='Write your text here'
+                onChange={(event) => setOverview(event.target.value)}
+              />
+              <div className="application_types">
+                <div>
+                  <Form.Field>
+                <label>Add Application Type(s)</label>
+                </Form.Field>
+                </div>
+                <div>
+                <Form.Field>
+                <label>+ ADD NEW</label>
+                </Form.Field>
+                </div>
+              </div>
+                
+              <div className="application_types">
+                <div>
+                  <Form.Field>
+                <label>Add Application Type(s)</label>
+                </Form.Field>
+                </div>
+                <div>
+                <Form.Field>
+                <label>+ ADD NEW</label>
+                </Form.Field>
+                </div>
+              </div>
+
                 <Form.Field
                   control={Input}
                   label='Total Fees (AED)'
@@ -108,7 +140,7 @@ const Service_modal = () => {
                     <label for='file-btn'>Click to select file  </label>
                   </p>
                 </Form.Field>
-              </Form.Group>
+              
               <Form.Group widths='equal'>
                 <Form.Field
                   control={Input}
@@ -136,24 +168,19 @@ const Service_modal = () => {
                 />
 
               </Form.Group>
-              <Form.Field
-                control={TextArea}
-                label='Overview'
-                placeholder='Write your text here'
-                onChange={(event) => setOverview(event.target.value)}
-              />
-              <Form.Field
+             
+             {/* <Form.Field
                 control={TextArea}
                 label='Description'
                 placeholder='Write your text here'
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <Form.Field
+               <Form.Field
                 control={TextArea}
                 label='How to Apply (step1,step2....)'
                 placeholder='Write your text here'
                 onChange={(event) => setHta(event.target.value)}
-              />
+              /> */}
               <Form.Field
                 control={TextArea}
                 label='Documents Required (Document1,Document2,.....)'
