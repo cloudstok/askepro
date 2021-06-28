@@ -28,30 +28,18 @@ export default class AdminAccordion extends Component {
                 </div>
                 <div>
                 <Form.Field>
-                <Button className="cancel_btn"
-            active={activeIndex === 0}
-            index={0}
-            onClick={this.handleClick}
-          >
-              <img src={process.env.PUBLIC_URL + "/Assets/images/cancel.png"} />
-           <label> Cancel</label>
+                <Button className="cancel_btn">
+              <Icon name="trash alternate outline" />
+           <label> Delete</label>
           </Button>
                 <Button
-            active={activeIndex === 0}
-            index={0}
-            onClick={this.handleClick}
+          
           >
-              <img src={process.env.PUBLIC_URL + "/Assets/images/save.png"} />
+              
+              <Icon name="save outline" />
            <label> Save</label>
           </Button>
-                <Button
-            active={activeIndex === 0}
-            index={0}
-            onClick={this.handleClick}
-          >
-              <img src={process.env.PUBLIC_URL + "/Assets/images/edit.png"} />
-           <label> Edit</label>
-          </Button>
+          
                 </Form.Field>
                 </div>
               </div>
@@ -70,7 +58,7 @@ export default class AdminAccordion extends Component {
           <Form.Input fluid label='Validity' placeholder='Enter validity' />
           <Form.Input fluid label='Entry' placeholder='Enter headcount' />
         </Form.Group>
-        <Form.TextArea label='About' placeholder='Tell us more about you...' />
+        
         </Form>
         </div>
         </Accordion.Content>

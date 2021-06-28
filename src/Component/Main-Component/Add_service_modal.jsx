@@ -106,7 +106,14 @@ const Service_modal = () => {
                 placeholder='Write your text here'
                 onChange={(event) => setOverview(event.target.value)}
               />
-              <div className="application_types">
+                <Form.Field>
+                  <label>Image(JPEG/PNG)</label>
+                  <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
+                  <p className='file'>
+                    <label for='file-btn'>Click to select file  </label>
+                  </p>
+                </Form.Field>
+      {/*         <div className="application_types">
                 <div>
                   <Form.Field>
                 <label>Add Application Type(s)</label>
@@ -117,7 +124,8 @@ const Service_modal = () => {
                 <label>+ ADD NEW</label>
                 </Button>
                 </div>
-              </div>
+              </div> */}
+              
                 
              
               <AdminAccordion />
