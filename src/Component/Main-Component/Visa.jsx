@@ -20,8 +20,8 @@ const Visa = () => {
       tv_type: e.tv_type,
       scode: e.scode,
       slug: e.slug,
-      serviceDetail: e.serviceDetail,
-      image:e.serviceDetail.image
+      // serviceDetail: e.serviceDetail,
+      image:e.image
     }));
 
     setServices(serviceData);
@@ -56,12 +56,8 @@ const Visa = () => {
           </Grid.Column>
         </Grid>
 
-        <div className="tourist">
+        {/* <div className="tourist">
           <h1 className="headingOne">Tourist Visa Services</h1>
-
-       {/*    <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer 
-          </p> */}
 
           <Grid stackable columns={4}>
             <Grid.Row>
@@ -109,7 +105,7 @@ const Visa = () => {
               
             </Grid.Row>
           </Grid>
-        </div>
+        </div> */}
       </div>
     </>
   );

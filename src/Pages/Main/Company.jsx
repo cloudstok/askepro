@@ -5,19 +5,15 @@ import Header from "../../Component/Main-Component/Header";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Crumb from "../../Component/Main-Component/Crumb";
 import "../../Sass/Sass-Main/_About.scss";
-const options = [
-  { key: 1, text: "Choice 1", value: 1 },
-  { key: 2, text: "Choice 2", value: 2 },
-  { key: 3, text: "Choice 3", value: 3 },
-];
+
 
 const Company = () => {
   const history = useHistory();
   const [service, setService] = React.useState({});
-
+  const [serviceType, setServiceType] = React.useState({});
+  const [options, setOptions] = React.useState([]);
   const { slug } = useParams();
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
-
   React.useEffect(() => {
     getServiceSlugDetail();
   }, []);
@@ -29,19 +25,32 @@ const Company = () => {
       _id: services.data._id,
       name: services.data.name,
       scode: services.data.scode,
+      overview: services.data.overview,
       description: services.data.description,
-      slug: services.data.slug,
-      serviceHowToApply: services.data.serviceDetail.serviceHowToApply,
-      reqDocs: services.data.serviceDetail.reqDocs,
-      overview: services.data.serviceDetail.overview,
-      processT: services.data.serviceDetail.processT,
-      stayPeriod: services.data.serviceDetail.stayPeriod,
-      validity: services.data.serviceDetail.validity,
-      entry: services.data.serviceDetail.entry,
-      price: services.data.serviceDetail.price,
+      slug: services.data.slug
     };
+    let serviceOptions = services.data.serviceDetail.map(e => ({
+      text: e.name,
+      value: e._id,
+      key: e._id,
+    }));
+    setOptions(serviceOptions);
     setService(serviceData);
   };
+  const getserviceType = async (val) => {
+    const type = await (await fetch(`${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${val}`, { method: "GET" })).json();
+    let subCat={
+      name: type.data.name,
+      reqDocs: type.data.reqDocs,
+    overview: type.data.overview,
+    processT: type.data.processT,
+    stayPeriod: type.data.stayPeriod,
+    validity: type.data.validity,
+    entry: type.data.entry,
+    price: type.data.price}
+    setServiceType(subCat);
+  }
+
 
   if (!service) return <div></div>;
   return (
@@ -51,9 +60,8 @@ const Company = () => {
         <div
           class="company"
           style={{
-            background: `url(${
-              process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
-            })`,
+            background: `url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
+              })`,
             backgroundSize: "cover",
           }}
         >
@@ -77,9 +85,13 @@ const Company = () => {
                   <p>{service.overview}</p>
                   <Dropdown
                     className="golu"
-                    text="Service Type"
+                    placeholder="Service Type"
                     options={options}
-                    icon="angle down"  
+                    icon="angle down"
+                    onChange={(e, i) => {
+                      const val = i.value;
+                      getserviceType(val);
+                    }}
                   />
 
                   <Grid.Column>
@@ -90,7 +102,7 @@ const Company = () => {
                             <Grid.Column>
                               <div className="tourist-border">
                                 <div className="hours">
-                                  <h3>{service.name}</h3>
+                                  <h3>{serviceType.name}</h3>
                                   <Link to="/apply">
                                     {" "}
                                     <button className="same-btn" type="submit">
@@ -126,16 +138,16 @@ const Company = () => {
                                   </Table.Row>
                                   <Table.Row>
                                     <Table.Cell>
-                                      Upto {service.processT} Days
+                                      Upto {serviceType.processT} Days
                                     </Table.Cell>
                                     <Table.Cell>
-                                      {service.stayPeriod} Days
+                                      {serviceType.stayPeriod} Days
                                     </Table.Cell>
                                     <Table.Cell>
-                                      {service.validity} Days
+                                      {serviceType.validity} Days
                                     </Table.Cell>
-                                    <Table.Cell>{service.entry}</Table.Cell>
-                                    <Table.Cell><span className="total-right">{service.price} AED</span></Table.Cell>
+                                    <Table.Cell>{serviceType.entry}</Table.Cell>
+                                    <Table.Cell><span className="total-right">{serviceType.price} AED</span></Table.Cell>
                                   </Table.Row>
                                 </Table>
                               </div>
@@ -148,8 +160,8 @@ const Company = () => {
 
                   <h3>Documents Required</h3>
 
-                  {service.reqDocs &&
-                    service.reqDocs.map((d) => (
+                  {serviceType.reqDocs &&
+                    serviceType.reqDocs.map((d) => (
                       <div className="testimonial">
                         <img
                           src={

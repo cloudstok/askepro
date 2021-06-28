@@ -8,8 +8,8 @@ import '../../Sass/app.scss';
 const Stepper = () => {
     const location = useLocation();
     const [result, setResult] = React.useState(null);
-    const arr = ["/apply", "/fill", "/upload", "/book", "/payment"];
-    const titleArr = ["Choose Service", "Fill Details", "Upload Documents", "Book an appointment", "Payment"];
+    const arr = ["/apply","/type", "/fill", "/upload", "/book", "/payment"];
+    const titleArr = ["Choose Service","Choose Type", "Fill Details", "Upload Documents", "Book an appointment", "Payment"];
     React.useEffect(() => {
         let final = [];
         for (let i = 0; i < arr.length; i++) {

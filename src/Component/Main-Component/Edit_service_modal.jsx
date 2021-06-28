@@ -34,7 +34,7 @@ const Service_modal = (service) => {
   const [validity, setValidity] = React.useState(service.validity);
   const [entry, setEntry] = React.useState(service.entry);
   const [price, setPrice] = React.useState(service.price);
-  const [serviceHowToApply, setHta] = React.useState(service.hta);
+  // const [serviceHowToApply, setHta] = React.useState(service.hta);
   const [reqDocs, setDocs] = React.useState(service.docs);
   const [file, setFile] = React.useState(null);
 
@@ -53,7 +53,7 @@ const Service_modal = (service) => {
     formData.append("entry", entry);
     formData.append("price", price);
     formData.append("reqDocs", reqDocs);
-    formData.append("serviceHowToApply", serviceHowToApply);
+    // formData.append("serviceHowToApply", serviceHowToApply);
 
 
     const result = await (await fetch(url, {
@@ -158,13 +158,13 @@ const Service_modal = (service) => {
                 onChange={(event) => setDescription(event.target.value)}
                 defaultValue={service.description}
               />
-              <Form.Field
+              {/* <Form.Field
                 control={TextArea}
                 label='How to Apply (step1,step2....)'
                 placeholder='Write your text here'
                 onChange={(event) => setHta(event.target.value)}
                 defaultValue={service.hta.join()}
-              />
+              /> */}
               <Form.Field
                 control={TextArea}
                 label='Documents Required (Document1,Document2,.....)'

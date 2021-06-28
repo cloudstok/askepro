@@ -5,8 +5,8 @@ import { useHistory } from "react-router";
 
 const DataCard = () => {
     const [services, setService] = React.useState(null);
-    const slug= localStorage.getItem("serviceSlug");
-    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
+    const subCatId= localStorage.getItem("subCatId");
+    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${subCatId}`;
    
   
     React.useEffect(() => {
@@ -16,21 +16,14 @@ const DataCard = () => {
     const getServices = async () => {
         const service = await (await fetch(service_url, { method: "GET" })).json();
         const serviceData = {
-          deleted: service.data.deleted,
-          _id: service.data._id,
-          name: service.data.name,
-          scode: service.data.scode,
-          description: service.data.description,
-          slug: service.data.slug,
-          serviceHowToApply: service.data.serviceDetail.serviceHowToApply,
-          image: service.data.serviceDetail.image[0],
-          reqDocs: service.data.serviceDetail.reqDocs,
-          overview: service.data.serviceDetail.overview,
-          processT: service.data.serviceDetail.processT,
-          stayPeriod: service.data.serviceDetail.stayPeriod,
-          validity: service.data.serviceDetail.validity,
-          entry: service.data.serviceDetail.entry,
-          price: service.data.serviceDetail.price
+            name: service.data.name,
+          reqDocs: service.data.reqDocs,
+          overview: service.data.overview,
+          processT: service.data.processT,
+          stayPeriod: service.data.stayPeriod,
+          validity: service.data.validity,
+          entry: service.data.entry,
+          price: service.data.price
         };
         setService(serviceData);
 

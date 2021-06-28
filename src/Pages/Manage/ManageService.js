@@ -72,10 +72,10 @@ const ManageService = ({ title }) => {
                   <Table.HeaderCell>Date Created</Table.HeaderCell>
                   <Table.HeaderCell>Service Id</Table.HeaderCell>
                   <Table.HeaderCell>Service name</Table.HeaderCell>
-                  <Table.HeaderCell>Total Fees</Table.HeaderCell>
+                  {/* <Table.HeaderCell>Total Fees</Table.HeaderCell>
                   <Table.HeaderCell>Processing Time</Table.HeaderCell>
                   <Table.HeaderCell>Stay Period</Table.HeaderCell>
-                  <Table.HeaderCell >Validity</Table.HeaderCell>
+                  <Table.HeaderCell >Validity</Table.HeaderCell> */}
                   <Table.HeaderCell>Actions</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
@@ -84,12 +84,12 @@ const ManageService = ({ title }) => {
                   <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
                   <Table.Cell>{ele.scode}</Table.Cell>
                   <Table.Cell>{ele.name}</Table.Cell>
-                  <Table.Cell>{ele.serviceDetail.price}</Table.Cell>
+                  {/* <Table.Cell>{ele.serviceDetail.price}</Table.Cell>
                   <Table.Cell>{ele.serviceDetail.processT} Days</Table.Cell>
                   <Table.Cell>{ele.serviceDetail.stayPeriod} Days</Table.Cell>
-                  <Table.Cell>{ele.serviceDetail.validity} Days </Table.Cell>
+                  <Table.Cell>{ele.serviceDetail.validity} Days </Table.Cell> */}
                   <Table.Cell>
-                    <Edit_Modal id ={ele._id }
+                    {/* <Edit_Modal id ={ele._id }
                     name={ele.name}  description ={ele.description}  price={ele.serviceDetail.price}
                      process={ele.serviceDetail.processT} 
                      stay={ele.serviceDetail.stayPeriod} 
@@ -97,7 +97,7 @@ const ManageService = ({ title }) => {
                      validity={ele.serviceDetail.validity} 
                     overview={ele.serviceDetail.overview}
                      hta={ele.serviceDetail.serviceHowToApply} 
-                     docs={ele.serviceDetail.reqDocs}/>
+                     docs={ele.serviceDetail.reqDocs}/> */}
                     <img
                       src={
                         process.env.PUBLIC_URL + "/Assets/images/trash.png"

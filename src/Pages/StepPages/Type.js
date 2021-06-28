@@ -14,38 +14,38 @@ import Heading from "../../Component/Heading/heading";
 import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
-function ApplyStepper() {
-  const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
+function Type() {
+  const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${localStorage.getItem("serviceSlug") }`;
   const [services, setServices] = React.useState(null);
   const history = useHistory();
-
+  const requestId = localStorage.getItem("applicationId");
+ 
 
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
   React.useEffect(() => {
-    getServices();
+    getSubServices();
   }, []);
 
-  const getServices = async () => {
+  const getSubServices = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
-    const serviceData = services.data.map((e) => ({
+    console.log(services);
+    const serviceData = services.data.serviceDetail.map((e) => ({
       _id: e._id,
       name: e.name,
-      scode: e.scode,
-      slug: e.slug,
     }));
     setServices(serviceData);
   };
 
-  const handleSubmit = async (name,slug) => {
-    localStorage.setItem("serviceSlug",slug);
+  const handleSubmit = async (subCatId) => {
+    localStorage.setItem("subCatId",subCatId);
     const jsonPostData={
-      "serviceName": name
+      "subCat": subCatId
     }
-    let userId= localStorage.getItem('id')
-    const url=`${process.env.REACT_APP_BASE_URL}/service/${userId}`
+   
+    const url = `${process.env.REACT_APP_BASE_URL}/type/${requestId}`;
     const result = await(await fetch(url, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -54,7 +54,6 @@ function ApplyStepper() {
       body: JSON.stringify(jsonPostData)
     })).json();
     
-    localStorage.setItem("applicationId", result.data._id);
     history.push(`/fill`);
   }
 
@@ -86,7 +85,7 @@ function ApplyStepper() {
                     <Grid.Column >
 
                       <div class="checkbox p-default p-round pretty">
-                        <input type="radio" name="service_radio" onClick={() =>handleSubmit(service.name,service.slug)}/>
+                        <input type="radio" name="service_radio" onClick={() =>handleSubmit(service._id)}/>
                         <span class="state">
                           <label>{service.name}</label>
                         </span>
@@ -103,4 +102,4 @@ function ApplyStepper() {
     </main>
   );
 }
-export default ApplyStepper;
+export default Type;

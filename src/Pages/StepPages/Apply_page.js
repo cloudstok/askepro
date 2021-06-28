@@ -55,7 +55,7 @@ function ApplyStepper() {
     })).json();
     
     localStorage.setItem("applicationId", result.data._id);
-    history.push(`/fill`);
+    history.push(`/type`);
   }
 
   // const formik =useFormik({

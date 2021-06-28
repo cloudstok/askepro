@@ -30,7 +30,9 @@ const History = ({ title, key }) => {
   const handleClick = async (status, id, slug) => {
     localStorage.setItem("applicationId", id);
     localStorage.setItem("serviceSlug", slug);
-    if (status === "Details Pending")
+    if (status === "Type Pending")
+      history.push('/type');
+    else if (status === "Details Pending")
       history.push('/fill');
     else if (status === "Upload Pending")
       history.push('/upload');
