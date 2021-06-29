@@ -43,7 +43,7 @@ function Type() {
       "subCat": subCatId
     }
    
-    const url = `${process.env.REACT_APP_BASE_URL}/type/${requestId}`;
+    const url = `${process.env.REACT_APP_BASE_URL}/service/type/${requestId}`;
     const result = await(await fetch(url, {
       method: 'PUT',
       headers: {
