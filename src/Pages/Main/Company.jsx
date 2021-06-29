@@ -12,7 +12,8 @@ const Company = () => {
   const [service, setService] = React.useState({});
   const [serviceType, setServiceType] = React.useState({});
   const [options, setOptions] = React.useState([]);
-  const { slug } = useParams();
+  const [show, setShow]=React.useState(false);
+    const { slug } = useParams();
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
   React.useEffect(() => {
     getServiceSlugDetail();
@@ -26,9 +27,11 @@ const Company = () => {
       name: services.data.name,
       scode: services.data.scode,
       overview: services.data.overview,
+      serviceDetail:services.data.serviceDetail,
       description: services.data.description,
       slug: services.data.slug
     };
+    console.log(services);
     let serviceOptions = services.data.serviceDetail.map(e => ({
       text: e.name,
       value: e._id,
@@ -38,17 +41,9 @@ const Company = () => {
     setService(serviceData);
   };
   const getserviceType = async (val) => {
-    const type = await (await fetch(`${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${val}`, { method: "GET" })).json();
-    let subCat={
-      name: type.data.name,
-      reqDocs: type.data.reqDocs,
-    overview: type.data.overview,
-    processT: type.data.processT,
-    stayPeriod: type.data.stayPeriod,
-    validity: type.data.validity,
-    entry: type.data.entry,
-    price: type.data.price}
-    setServiceType(subCat);
+    let sub=service.serviceDetail.find(o => o._id === val);
+    setShow(true);
+    setServiceType(sub);
   }
 
 
@@ -94,7 +89,7 @@ const Company = () => {
                     }}
                   />
 
-                  <Grid.Column>
+{show?      <Grid.Column>
                     <div className="company_plans">
                       <div className="tourist" style={{ margin: "0" }}>
                         <Grid>
@@ -156,9 +151,7 @@ const Company = () => {
                         </Grid>
                       </div>
                     </div>
-                  </Grid.Column>
-
-                  <h3>Documents Required</h3>
+                    <h3>Documents Required</h3>
 
                   {serviceType.reqDocs &&
                     serviceType.reqDocs.map((d) => (
@@ -172,7 +165,10 @@ const Company = () => {
                         <p>{d}</p>
                       </div>
                     ))}
+                  </Grid.Column>:<></>}
 
+                  
+                    
                   {/*
               <div className="testimonial">
               <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />

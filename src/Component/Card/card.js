@@ -6,7 +6,8 @@ import { useHistory } from "react-router";
 const DataCard = () => {
     const [services, setService] = React.useState(null);
     const subCatId= localStorage.getItem("subCatId");
-    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${subCatId}`;
+    const service= localStorage.getItem("serviceSlug");
+    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${service}/${subCatId}`;
    
   
     React.useEffect(() => {
@@ -15,6 +16,7 @@ const DataCard = () => {
 
     const getServices = async () => {
         const service = await (await fetch(service_url, { method: "GET" })).json();
+        console.log(service);
         const serviceData = {
             name: service.data.name,
           reqDocs: service.data.reqDocs,

@@ -31,9 +31,11 @@ const Service_modal = () => {
   const [processT, setProcessT]= React.useState(null);
   const [stayPeriod, setStayPeriod] = React.useState(null);
   const [validity, setValidity] = React.useState(null);
+  const [type, setType] = React.useState(null);
   const [entry, setEntry] = React.useState(null);
   const [subject, setSubject] = React.useState(false);
   const [comp, setComp] = React.useState([]);
+  const [serviceDetail, setServiceDetail] = React.useState([]);
   const [price, setPrice] = React.useState(null);
   const [serviceHowToApply, setHta] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
@@ -74,6 +76,18 @@ const Service_modal = () => {
     e.preventDefault();
     setComp([...comp, <Form.Input id="var" label='Enter Var' onChange={(e) => setSubject(subject + "~" + e.target.value)} ></Form.Input>]);
   }
+  const handleSave=async(e)=>{
+
+setServiceDetail([...serviceDetail,{
+  type:type, 
+  price:price,
+  processT:processT,
+  stayPeriod:stayPeriod,
+  validity:validity, 
+  entry:entry}]);
+  
+  }
+  console.log(serviceDetail);
 
   return (
     <>
@@ -108,6 +122,12 @@ const Service_modal = () => {
                   </p>
                 </Form.Field>
                 </Form.Group>
+                <Form.Field
+                control={TextArea}
+                label='Description'
+                placeholder='Write your text here'
+                onChange={(event) => setDescription(event.target.value)}
+              />
                  <Form.Field
                 control={TextArea}
                 label='Overview'
@@ -135,11 +155,7 @@ const Service_modal = () => {
             </div>
             <div>
               <Form.Field>
-                <Button className="cancel_btn">   
-                  <Icon name="trash alternate outline" />
-                  <label> Delete</label>
-                </Button>
-                <Button>
+                <Button onClick={(e)=>handleSave(e)}>
                   <Icon name="save outline" />
                   <label> Save</label>
                 </Button>
@@ -153,95 +169,42 @@ const Service_modal = () => {
                 <Form.Input
                   fluid
                   label="Application Type"
-                  placeholder="First name"
+                  placeholder="Enter Application Type"
+                  onChange={(event) => setType(event.target.value)}
                 />
                 <Form.Input
                   fluid
                   label="Enter total fees"
-                  placeholder="Enter time"
+                  placeholder="Enter total fees"
+                  onChange={(event) => setPrice(event.target.value)}
                 />
               </Form.Group>
               <Form.Group widths="equal">
                 <Form.Input
                   fluid
                   label="Processing time"
-                  placeholder="Enter total fees"
+                  placeholder="Enter Processing Time"
+                  onChange={(event) => setProcessT(event.target.value)}
                 />
                 <Form.Input
                   fluid
                   label="Stay Period"
                   placeholder="Enter duration"
+                  onChange={(event) => setStayPeriod(event.target.value)}
                 />
                 <Form.Input
                   fluid
                   label="Validity"
                   placeholder="Enter validity"
+                  onChange={(event) => setValidity(event.target.value)}
                 />
-                <Form.Input fluid label="Entry" placeholder="Enter headcount" />
+                <Form.Input fluid label="Entry" 
+                placeholder="Enter Entry"
+                onChange={(event) => setEntry(event.target.value)} />
               </Form.Group>
             </Form>
               </div>
-                {/* <Form.Field
-                  control={Input}
-                  label='Total Fees (AED)'
-                  placeholder='Enter total fees'
-                  onChange={(event) => setPrice(event.target.value)}
-                />
-                <Form.Field>
-                  <label>Image(JPEG/PNG)</label>
-                  <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
-                  <p className='file'>
-                    <label for='file-btn'>Click to select file  </label>
-                  </p>
-                </Form.Field>
-              
-              <Form.Group widths='equal'>
-                <Form.Field
-                  control={Input}
-                  label='Processing Time (Days)'
-                  placeholder='Enter time'
-                  onChange={(event) => setProcessT(event.target.value)}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Stay Period (Days)'
-                  placeholder='Enter duration'
-                  onChange={(event) => setStayPeriod(event.target.value)}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Validity (Days)'
-                  placeholder='Enter validity'
-                  onChange={(event) => setValidity(event.target.value)}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Entry (Single/Multi)'
-                  placeholder='Enter headcount'
-                  onChange={(event) => setEntry(event.target.value)}
-                />
-
-              </Form.Group>
-             
-            //// <Form.Field
-                control={TextArea}
-                label='Description'
-                placeholder='Write your text here'
-                onChange={(event) => setDescription(event.target.value)}
-              />
-               <Form.Field
-                control={TextArea}
-                label='How to Apply (step1,step2....)'
-                placeholder='Write your text here'
-                onChange={(event) => setHta(event.target.value)}
-              /> ///
-              <Form.Field
-                control={TextArea}
-                label='Documents Required (Document1,Document2,.....)'
-                placeholder='Write your text here'
-                onChange={(event) => setDocs(event.target.value)}
-
-              /> */}
+                
             </Form>
           </div>
         </Modal.Content>
