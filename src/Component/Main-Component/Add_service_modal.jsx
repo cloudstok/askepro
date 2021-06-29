@@ -87,7 +87,7 @@ setServiceDetail([...serviceDetail,{
   entry:entry}]);
   
   }
-  console.log(serviceDetail);
+
 
   return (
     <>
