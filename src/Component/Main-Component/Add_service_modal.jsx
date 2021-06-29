@@ -93,26 +93,28 @@ const Service_modal = () => {
         <Modal.Content>
           <div className="services_form">
             <Form>
-              
+            <Form.Group widths='equal'> 
                 <Form.Field
                   control={Input}
                   label='Service name'
                   placeholder='First name'
                   onChange={(event) => setName(event.target.value)}
                 />
-                 <Form.Field
-                control={TextArea}
-                label='Overview'
-                placeholder='Write your text here'
-                onChange={(event) => setOverview(event.target.value)}
-              />
-                <Form.Field>
+                  <Form.Field>
                   <label>Image(JPEG/PNG)</label>
                   <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
                   <p className='file'>
                     <label for='file-btn'>Click to select file  </label>
                   </p>
                 </Form.Field>
+                </Form.Group>
+                 <Form.Field
+                control={TextArea}
+                label='Overview'
+                placeholder='Write your text here'
+                onChange={(event) => setOverview(event.target.value)}
+              />
+              
       {/*         <div className="application_types">
                 <div>
                   <Form.Field>
@@ -133,7 +135,7 @@ const Service_modal = () => {
             </div>
             <div>
               <Form.Field>
-                <Button className="cancel_btn">
+                <Button className="cancel_btn">   
                   <Icon name="trash alternate outline" />
                   <label> Delete</label>
                 </Button>
