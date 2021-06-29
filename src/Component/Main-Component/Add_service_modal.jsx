@@ -125,11 +125,60 @@ const Service_modal = () => {
                 </Button>
                 </div>
               </div> */}
-              
+               <div className="application_types">
+            <div>
+              <Form.Field>
+                <label>Add Application Type(s)</label>
+              </Form.Field>
+            </div>
+            <div>
+              <Form.Field>
+                <Button className="cancel_btn">
+                  <Icon name="trash alternate outline" />
+                  <label> Delete</label>
+                </Button>
+                <Button>
+                  <Icon name="save outline" />
+                  <label> Save</label>
+                </Button>
+              </Form.Field>
+            </div>
+          </div>
                 
-             
-              <AdminAccordion />
-
+              <div className="admin_accordion">
+              <Form>
+              <Form.Group widths="equal">
+                <Form.Input
+                  fluid
+                  label="Application Type"
+                  placeholder="First name"
+                />
+                <Form.Input
+                  fluid
+                  label="Enter total fees"
+                  placeholder="Enter time"
+                />
+              </Form.Group>
+              <Form.Group widths="equal">
+                <Form.Input
+                  fluid
+                  label="Processing time"
+                  placeholder="Enter total fees"
+                />
+                <Form.Input
+                  fluid
+                  label="Stay Period"
+                  placeholder="Enter duration"
+                />
+                <Form.Input
+                  fluid
+                  label="Validity"
+                  placeholder="Enter validity"
+                />
+                <Form.Input fluid label="Entry" placeholder="Enter headcount" />
+              </Form.Group>
+            </Form>
+              </div>
                 {/* <Form.Field
                   control={Input}
                   label='Total Fees (AED)'
