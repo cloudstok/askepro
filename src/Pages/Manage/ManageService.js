@@ -89,15 +89,8 @@ const ManageService = ({ title }) => {
                   <Table.Cell>{ele.serviceDetail.stayPeriod} Days</Table.Cell>
                   <Table.Cell>{ele.serviceDetail.validity} Days </Table.Cell> */}
                   <Table.Cell>
-                    {/* <Edit_Modal id ={ele._id }
-                    name={ele.name}  description ={ele.description}  price={ele.serviceDetail.price}
-                     process={ele.serviceDetail.processT} 
-                     stay={ele.serviceDetail.stayPeriod} 
-                     entry={ele.serviceDetail.entry} 
-                     validity={ele.serviceDetail.validity} 
-                    overview={ele.serviceDetail.overview}
-                     hta={ele.serviceDetail.serviceHowToApply} 
-                     docs={ele.serviceDetail.reqDocs}/> */}
+                    <Edit_Modal id ={(ele._id )}
+                    />
                     <img
                       src={
                         process.env.PUBLIC_URL + "/Assets/images/trash.png"

@@ -69,18 +69,7 @@ function FillPage() {
   const url = `${process.env.REACT_APP_BASE_URL}/service/fill/${requestId}`;
   const handleSubmitForm = async (event) => {
     event.preventDefault();
-    console.log(
-      !(name || user.name) ||
-        !dob ||
-        !type ||
-        !alias ||
-        !(lineOne || user.address.addressLineOne) ||
-        !(lineTwo || user.address.addressLineTwo) ||
-        !(state || user.address.state) ||
-        !(city || user.address.city) ||
-        !(pincode || user.address.pincode) ||
-        !(country || user.address.country)
-    );
+   
     if (
       !(name || user.name) ||
       !dob ||

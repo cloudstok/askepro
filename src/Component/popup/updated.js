@@ -32,10 +32,10 @@ const Updated = (props) => {
   console.log(props)
   return (
     <>
-      <Icon
+      {/* <Icon
         name="check"
         onClick={() => dispatch({ type: "open", size: "large" })}
-      ></Icon>
+      ></Icon> */}
       <Modal
         size={size}
         open={props.open}

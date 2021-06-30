@@ -8,11 +8,12 @@ import {
   Modal,
   Form,
   Table,
+  Accordion,
   Input,
   TextArea
 } from "semantic-ui-react";
 
-
+import Updated from "../../Component/popup/updated";
 function exampleService(state, action) {
   switch (action.type) {
     case "close":
@@ -24,64 +25,141 @@ function exampleService(state, action) {
   }
 }
 
-const Service_modal = (service) => {
- 
-  const [name, setName] = React.useState(service.name);
-  const [description, setDescription] = React.useState(service.description);
-  const [overview, setOverview] = React.useState(service.overview);
-  const [processT, setProcessT] = React.useState(service.process);
-  const [stayPeriod, setStayPeriod] = React.useState(service.stay);
-  const [validity, setValidity] = React.useState(service.validity);
-  const [entry, setEntry] = React.useState(service.entry);
-  const [price, setPrice] = React.useState(service.price);
-  // const [serviceHowToApply, setHta] = React.useState(service.hta);
-  const [reqDocs, setDocs] = React.useState(service.docs);
+const Service_modal = (props) => {
+  const [openPop, setOpen] = React.useState(false);
+  const [edit, setEdit] = React.useState(null);
+  const [openPopErr, setOpenErr] = React.useState(false);
+  const [msg, setMsg] = React.useState(false);
+  const [services, setService] = React.useState(null);
+  const [name, setName] = React.useState(null);
+  const [description, setDescription] = React.useState(null);
+  const [overview, setOverview] = React.useState(null);
+  const [serviceDetail, setServiceDetail] = React.useState(null);
   const [file, setFile] = React.useState(null);
+  const [addAction, setAdd] = React.useState(false);
 
-  const uploadWithFormData = async (event,id) => {
-    dispatch({ type: "close" });
+  React.useEffect(() => {
+    getservice();
+  }, []);
+
+  const getservice = async () => {
+    const service = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/services/${props.id}`, { method: "GET" })).json();
+    setServiceDetail(service.data.serviceDetail)
+    setService(service);
+  }
+
+  const [processT, setProcessT] = React.useState(null);
+  const [stayPeriod, setStayPeriod] = React.useState(null);
+  const [validity, setValidity] = React.useState(null);
+  const [entry, setEntry] = React.useState(null);
+  const [price, setPrice] = React.useState(null);
+  const [reqDocs, setDocs] = React.useState(null);
+  const [type, setType] = React.useState(null);
+
+  const uploadWithFormData = async (event, id) => {
+    // dispatch({ type: "close" });
     const url = `${process.env.REACT_APP_BASE_URL}/admin/services/${id}`
     event.preventDefault();
     const formData = new FormData();
-    formData.append("upload", file);
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("overview", overview);
-    formData.append("processT", processT);
-    formData.append("stayPeriod", stayPeriod);
-    formData.append("validity", validity);
-    formData.append("entry", entry);
-    formData.append("price", price);
-    formData.append("reqDocs", reqDocs);
+    formData.append("upload", file ? file : services.data.images);
+    formData.append("name", name ? name : services.data.name);
+    formData.append("description", description ? description : services.data.description);
+    formData.append("overview", overview ? overview : services.data.overview);
+    formData.append("serviceDetail", JSON.stringify(serviceDetail));
     // formData.append("serviceHowToApply", serviceHowToApply);
-
 
     const result = await (await fetch(url, {
       method: 'PUT',
       body: formData
     })).json();
 
-    if (result.status === 1)
+    if (result.status === 1) {
+      setMsg("Service Updated Successfully")
+      setOpen(true);
+      getservice();
+      window.location.reload(false);
+    } else {
+      setMsg("There has been an error")
+      setOpenErr(true);
+      getservice();
+    }
 
-    window.location.reload(false);
   }
   const [state, dispatch] = React.useReducer(exampleService, {
     open: false,
     size: undefined,
   });
-  const { open, size } = state;
+  const handleDelete = async (event, id) => {
+    let details = serviceDetail;
+    let deletedDetails = details.find(ele => ele._id === id);
+    const index = details.indexOf(deletedDetails);
+    if (index > -1) {
+      details.splice(index, 1);
+    }
+    setServiceDetail(details);
+    setMsg("Application Type has been deleted")
+    setOpen(true)
+  }
+  const handleSave = async (event, id) => {
+    let details = serviceDetail;
+    let EditedDetails = details.find(ele => ele._id === id);
+    console.log(EditedDetails);
+    const index = details.indexOf(EditedDetails);
+    if (index > -1) {
+      details[index] = {
+        name: type ? type : EditedDetails.name,
+        price: price ? price : EditedDetails.price,
+        processT: processT ? processT : EditedDetails.processT,
+        stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
+        validity: validity ? validity : EditedDetails.validity,
+        entry: entry ? entry : EditedDetails.entry,
+        reqDocs: reqDocs ? reqDocs.split(",") : EditedDetails.reqDocs
+      }
+    }
+    setServiceDetail(details);
+    setMsg("Application Type has been updated")
+    setOpen(true)
+  }
+  const handleNew = async (e) => {
+    if (!type || !price || !processT || !stayPeriod || !validity || !entry || !reqDocs) {
+      setMsg("Please Fill out all the details")
+      setOpenErr(true);
+      return;
+    }
 
+    if (serviceDetail.find(o => o.name === type)) {
+      setMsg("Please Use a Different name")
+      setOpenErr(true);
+      return;
+    }
+    setServiceDetail([...serviceDetail, {
+      name: type,
+      price: price,
+      processT: processT,
+      stayPeriod: stayPeriod,
+      validity: validity,
+      entry: entry,
+      reqDocs: reqDocs.split(",")
+    }]);
+    setMsg("Application Type has been added")
+    setOpen(true)
+  }
+  const { open, size } = state;
+  if (!services) {
+    return (<></>)
+  }
+  console.log(services);
   return (
     <>
 
       <img
         src={
           process.env.PUBLIC_URL + "/Assets/images/edit.png"
-        } className="btn-upload" onClick={() => dispatch({ type: "open", size: "huge" })} />
+        } className="btn-upload" onClick={() => dispatch({ type: "open", size: "large" })} />
       <Modal
         size={size}
         open={open}
-        onClose={() => dispatch({ type: "close" })}
+        onClose={() => { getservice(); dispatch({ type: "close" }) }}
       >
 
         <Modal.Header>
@@ -93,17 +171,10 @@ const Service_modal = (service) => {
               <Form.Group widths='equal'>
                 <Form.Field
                   control={Input}
-                  label='Enter service name'
-                  placeholder='First name'
-                  onChange={(event) => setName(event.target.value)}
-                  defaultValue={service.name}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Total Fees (AED)'
-                  placeholder='Enter total fees'
-                  onChange={(event) => setPrice(event.target.value)}
-                  defaultValue={service.price}
+                  label='Service name'
+                  defaultValue={services.data.name}
+                  placeholder='Enter Service name'
+                  onChange={(event) => { setName(event.target.value) }}
                 />
                 <Form.Field>
                   <label>Image(JPEG/PNG)</label>
@@ -113,65 +184,207 @@ const Service_modal = (service) => {
                   </p>
                 </Form.Field>
               </Form.Group>
-              <Form.Group widths='equal'>
-                <Form.Field
-                  control={Input}
-                  label='Processing Time (Days)'
-                  placeholder='Enter time'
-                  onChange={(event) => setProcessT(event.target.value)}
-                  defaultValue={service.process}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Stay Period (Days)'
-                  placeholder='Enter duration'
-                  onChange={(event) => setStayPeriod(event.target.value)}
-                  defaultValue={service.stay}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Validity (Days)'
-                  placeholder='Enter validity'
-                  onChange={(event) => setValidity(event.target.value)}
-                  defaultValue={service.validity}
-                />
-                <Form.Field
-                  control={Input}
-                  label='Entry (Single/Multi)'
-                  placeholder='Enter headcount'
-                  onChange={(event) => setEntry(event.target.value)}
-                  defaultValue={service.entry}
-                />
-
-              </Form.Group>
               <Form.Field
                 control={TextArea}
-                label='Overview'
-                placeholder='Write your text here'
-                onChange={(event) => setOverview(event.target.value)}
-                defaultValue={service.overview}
-              />
-              <Form.Field
-                control={TextArea}
+                defaultValue={services.data.description}
                 label='Description'
                 placeholder='Write your text here'
                 onChange={(event) => setDescription(event.target.value)}
-                defaultValue={service.description}
               />
-              {/* <Form.Field
-                control={TextArea}
-                label='How to Apply (step1,step2....)'
-                placeholder='Write your text here'
-                onChange={(event) => setHta(event.target.value)}
-                defaultValue={service.hta.join()}
-              /> */}
               <Form.Field
                 control={TextArea}
-                label='Documents Required (Document1,Document2,.....)'
+                defaultValue={services.data.overview}
+                label='Overview'
                 placeholder='Write your text here'
-                onChange={(event) => setDocs(event.target.value)}
-defaultValue={service.docs.join()}
+                onChange={(event) => setOverview(event.target.value)}
               />
+
+
+              <h4>Types of Application :</h4>
+
+              {
+                serviceDetail.map((d) => (
+                  <Accordion fluid styled>
+                    <Accordion.Title>
+                      <div className="application_types">
+
+                        <div>
+
+                          <label>{d.name}</label>
+
+                        </div>
+                        <div>
+                          <Button onClick={(e) => handleDelete(e, d._id)} className="cancel_btn">
+                            <Icon name="trash alternate outline" />
+                            <label > Delete</label>
+                          </Button>
+                          <Button onClick={(e) => setEdit(d._id)}>
+                            <Icon name="edit outline" />
+                            <label> Edit</label>
+                          </Button>
+
+                        </div>
+
+                      </div>
+                    </Accordion.Title>
+
+                    <Accordion.Content active={edit === d._id}>
+
+                      <div className="admin_accordion">
+                        <Form>
+                          <Form.Group widths="equal">
+                            <Form.Input
+                              fluid
+                              label="Application Type"
+                              defaultValue={d.name}
+                              placeholder="Enter Application Type"
+                              onChange={(event) => setType(event.target.value)}
+                            />
+                            <Form.Input
+                              fluid
+                              defaultValue={d.price}
+                              label="Enter total fees"
+                              placeholder="Enter total fees"
+                              onChange={(event) => setPrice(event.target.value)}
+                            />
+                          </Form.Group>
+                          <Form.Group widths="equal">
+                            <Form.Input
+                              fluid
+                              defaultValue={d.processT}
+                              type="number"
+                              label="Processing Time(Days)"
+                              placeholder="Enter Processing Time"
+                              onChange={(event) => setProcessT(event.target.value)}
+                            />
+                            <Form.Input
+                              fluid
+                              defaultValue={d.stayPeriod}
+                              type="number"
+                              label="Stay Period(Days)"
+                              placeholder="Enter duration"
+                              onChange={(event) => setStayPeriod(event.target.value)}
+                            />
+                            <Form.Input
+                              fluid
+                              defaultValue={d.validity}
+                              type="number"
+                              label="Validity(Days)"
+                              placeholder="Enter validity"
+                              onChange={(event) => setValidity(event.target.value)}
+                            />
+                            <Form.Input fluid label="Entry"
+                              placeholder="Enter Entry(single/Multi)"
+                              defaultValue={d.entry}
+                              onChange={(event) => setEntry(event.target.value)}
+                            />
+                          </Form.Group>
+                          <Form.Input
+                            control={TextArea}
+                            label="Required Documents(Doc1,Doc2,Doc3)"
+                            onChange={(event) => setDocs(event.target.value)}
+                            defaultValue={d.reqDocs.join()}
+                            placeholder="Enter all the document required"
+                          />
+                        </Form>
+                        <br />
+                        <div>
+                          <Button onClick={(e) => setEdit(null)} className="cancel_btn">
+                            <Icon name="cross" />
+                            <label > Cancel</label>
+                          </Button>
+                          <Button onClick={(e) => handleSave(e, d._id)}>
+                            <Icon name="save outline" />
+                            <label> Save</label>
+                          </Button>
+
+                        </div>
+                      </div>
+
+
+                    </Accordion.Content>
+                  </Accordion>
+                ))}
+
+              <div className="application_types">
+                <div>
+                  <Form.Field>
+                    <label>Add Application Type(s)</label>
+                  </Form.Field>
+                </div>
+                <div>
+                  <Form.Field>
+                    <Button onClick={(e) => { setAdd(true); }}>
+                      <Icon name="plus" />
+                      <label> Add</label>
+                    </Button>
+                    <Button onClick={(e) => { handleNew(); }}>
+                      <Icon name="save outline" />
+                      <label> Save</label>
+                    </Button>
+                    <Button onClick={(e) => { setAdd(false); }}>
+                      <Icon name="close" />
+                      <label> Cancel</label>
+                    </Button>
+                  </Form.Field>
+                </div>
+              </div>
+              {addAction?<div className="admin_accordion">
+                <Form>
+                  <Form.Group widths="equal">
+                    <Form.Input
+                      fluid
+                      label="Application Type"
+                      value={type}
+                      placeholder="Enter Application Type"
+                      onChange={(event) => setType(event.target.value)}
+                    />
+                    <Form.Input
+                      fluid
+                      value={price}
+                      label="Enter total fees"
+                      placeholder="Enter total fees"
+                      onChange={(event) => setPrice(event.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group widths="equal">
+                    <Form.Input
+                      fluid
+                      value={processT}
+                      type="number"
+                      label="Processing Time(Days)"
+                      placeholder="Enter Processing Time"
+                      onChange={(event) => setProcessT(event.target.value)}
+                    />
+                    <Form.Input
+                      fluid
+                      value={stayPeriod}
+                      type="number"
+                      label="Stay Period(Days)"
+                      placeholder="Enter duration"
+                      onChange={(event) => setStayPeriod(event.target.value)}
+                    />
+                    <Form.Input
+                      fluid
+                      value={validity}
+                      type="number"
+                      label="Validity(Days)"
+                      placeholder="Enter validity"
+                      onChange={(event) => setValidity(event.target.value)}
+                    />
+                    <Form.Input fluid label="Entry"
+                      placeholder="Enter Entry(single/Multi)"
+                      value={entry}
+                      onChange={(event) => setEntry(event.target.value)} />
+                  </Form.Group>
+                  <Form.Input
+                    control={TextArea}
+                    label="Required Documents(Doc1,Doc2,Doc3)"
+                    value={reqDocs}
+                    placeholder="Enter all the document required("
+                    onChange={(event) => setDocs(event.target.value)} />
+                </Form>
+              </div>:<></>}
             </Form>
           </div>
         </Modal.Content>
@@ -180,14 +393,14 @@ defaultValue={service.docs.join()}
             <button
               color="black"
               className="same-btn"
-              onClick={() => dispatch({ type: "close" })}
+              onClick={() => { getservice(); dispatch({ type: "close" }) }}
             >
               CANCEL
             </button>
             <button
               color="black"
               className="same-btn"
-              onClick={(event) => uploadWithFormData(event,service.id)}
+              onClick={(event) => uploadWithFormData(event, props.id)}
             >
               SAVE
             </button>
@@ -195,6 +408,8 @@ defaultValue={service.docs.join()}
             <br />
           </div>
         </Modal.Description>
+        <Updated open={openPop} msg={msg} onClose={() => setOpen(false)} />
+        <Updated open={openPopErr} wrong={openPopErr} msg={msg} onClose={() => setOpenErr(false)} />
       </Modal>
 
     </>

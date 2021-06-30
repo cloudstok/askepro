@@ -45,25 +45,19 @@ const [open,setOpen]= React.useState(null);
   }, []);
 
   const getServices = async () => {
-    const service = await (await fetch(service_url, { method: "GET" })).json();
+    const services = await (await fetch(service_url, { method: "GET" })).json();
     const serviceData = {
-      deleted: service.data.deleted,
-      _id: service.data._id,
-      name: service.data.name,
-      scode: service.data.scode,
-      description: service.data.description,
-      slug: service.data.slug,
-      serviceHowToApply: service.data.serviceDetail.serviceHowToApply,
-      image: service.data.serviceDetail.image[0],
-      reqDocs: service.data.serviceDetail.reqDocs,
-      overview: service.data.serviceDetail.overview,
-      processT: service.data.serviceDetail.processT,
-      stayPeriod: service.data.serviceDetail.stayPeriod,
-      validity: service.data.serviceDetail.validity,
-      entry: service.data.serviceDetail.entry,
-      price: service.data.serviceDetail.price,
+      deleted: services.data.deleted,
+      _id: services.data._id,
+      name: services.data.name,
+      scode: services.data.scode,
+      overview: services.data.overview,
+      serviceDetail:services.data.serviceDetail,
+      description: services.data.description,
+      slug: services.data.slug
     };
-    setService(serviceData);
+    let sub=serviceData.serviceDetail.find(e=>e._id=== localStorage.getItem("subCatId"));
+    setService(sub);
   };
   
   

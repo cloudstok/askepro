@@ -41,8 +41,9 @@ const UploadDocuments = () => {
   });
   const getServices = async () => {
     const service = await (await fetch(service_url, { method: "GET" })).json();
+    let subCatdata=service.data.serviceDetail.find(e=>e._id=== localStorage.getItem("subCatId"));
     const serviceData = {
-      reqDocs: service.data.serviceDetail.reqDocs,
+      reqDocs: subCatdata.reqDocs
     };
     setService(serviceData);
   };
@@ -78,7 +79,7 @@ const UploadDocuments = () => {
   const handleSubmitForm = (event) => {
     if (docsArray.length === services.reqDocs.length) history.push("/book");
   };
-  console.log(open);
+  console.log(services);
   return (
     <main>
       <div className="apply-section">
