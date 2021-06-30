@@ -262,8 +262,8 @@
     margin: 20px 0;
   }
   .dropdown {
-    width: 28.55rem;
-    height: 56px;
+    min-width: 22% !important; 
+    min-height: 56px;
     padding: 15px 30px 17px 20px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
@@ -272,6 +272,7 @@
       box-shadow: none !important;
       float: right !important;
       display: flex;
+      margin-left: 1rem !important;
       align-items: flex-start !important;
     }
     & .menu {
