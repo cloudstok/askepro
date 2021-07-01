@@ -29,7 +29,6 @@ function Type() {
 
   const getSubServices = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
-    console.log(services);
     const serviceData = services.data.serviceDetail.map((e) => ({
       _id: e._id,
       name: e.name,
@@ -37,10 +36,10 @@ function Type() {
     setServices(serviceData);
   };
 
-  const handleSubmit = async (subCatId) => {
+  const handleSubmit = async (subCatId, Name) => {
     localStorage.setItem("subCatId",subCatId);
     const jsonPostData={
-      "subCat": subCatId
+      "subCat": Name
     }
    
     const url = `${process.env.REACT_APP_BASE_URL}/service/type/${requestId}`;
@@ -85,7 +84,7 @@ function Type() {
                     <Grid.Column >
 
                       <div class="checkbox p-default p-round pretty">
-                        <input type="radio" name="service_radio" onClick={() =>handleSubmit(service._id)}/>
+                        <input type="radio" name="service_radio" onClick={() =>handleSubmit(service._id,service.name)}/>
                         <span class="state">
                           <label>{service.name}</label>
                         </span>

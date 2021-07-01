@@ -49,7 +49,7 @@ const history = useHistory();
   if (!application) {
     return (<div></div>);
   }
-
+console.log(application);
   function dateFormat(d) {
     const date = new Date(d);
     return `${date.toLocaleString()}`
@@ -164,6 +164,9 @@ const history = useHistory();
 
                       <div className="company_formation1">
                         <h5>{application.serviceCategory.name}</h5>
+                      </div>
+                      <div className="company_formation1">
+                        <h6>{application.serviceDetail}</h6>
                       </div>
                       <div className="company_formation2">
                         <Table basic='very'>
