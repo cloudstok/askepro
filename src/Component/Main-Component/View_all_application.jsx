@@ -68,12 +68,14 @@ const View_all = () => {
                 <div className="detail_inner1">
                   <h4>Application Detail</h4>
                   <p>Service</p>
+                  <p>Sub Category</p>
                   <p>Status</p>
                   <p>CreatedBy</p>
                 </div>
                 <div className="detail_inner2">
                   <h4>deactivate</h4>
                   <p>{application.serviceCategory.name}</p>
+                  <p>{application.serviceDetail}</p>
                   <p>{application.status}</p>
                   <p>{application.users.name}<br /> {application.users.email}<br /> {application.users.phone}</p>
                 </div>
