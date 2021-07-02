@@ -40,7 +40,7 @@ main{
     .checkbox{
         background-color:$white;
         border: 1px solid #f4f4f4;
-        height: 60px;
+        min-height: 60px;
         padding:20px;   
         display: flex !important;
         margin:20px;
