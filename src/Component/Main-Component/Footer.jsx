@@ -119,13 +119,13 @@ const Footer = () => {
               <div className="footer-part-2">
                 <p>copyright © 2020 AskePro</p>
                 <div className="bottom-button">
-                  <a href="#" style={{ borderLeft: "none" }}>
+                  {/*<a href="#" style={{ borderLeft: "none" }}>
                     Site Map
                   </a>
-                  <a href="#">Legal Notice</a>
+                   <a href="#">Legal Notice</a>
                   <a href="#">Data Policy</a>
                   <a href="#">Terms and Conditions</a>
-                  <a href="#">Privacy Policy</a>
+                  <a href="#">Privacy Policy</a> */}
                 </div>
               </div>
             </Grid.Column>

@@ -74,7 +74,7 @@ const Apply = () => {
         </Container>
       </section>
       <Container fluid>
-      <section className="customer">
+      {/* <section className="customer">
         
           <h1 className="headingOne">Customer Reviews</h1>
 
@@ -181,7 +181,7 @@ const Apply = () => {
             <Icon name="chevron right"></Icon>
           </div>
         
-      </section>
+      </section> */}
       </Container>
     </>
   );

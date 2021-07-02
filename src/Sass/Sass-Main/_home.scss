@@ -132,6 +132,7 @@ body {
   text-align: center;
   margin: 30px 0 126px 0;
   font-size: 1.75rem;
+  visibility: hidden;
   .chevron {
     border-radius: 50%;
     border: 1px solid #000;
@@ -165,6 +166,7 @@ body {
   border-radius: 20px;
   background: #fff;
   cursor: pointer;
+  color: #000 !important;
 }
 .same-btn:hover {
   background: rgb(199, 160, 6);
@@ -464,7 +466,7 @@ body {
 }
 
 .step {
-  padding: 50px 0;
+  padding: 15vh 0 30vh 0;
   position: relative;
   h1 {
     &:after {
