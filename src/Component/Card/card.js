@@ -40,7 +40,7 @@ const DataCard = () => {
                 <h5>{services.name}</h5>
             </div>
             <div className='card-content'>
-                <table>
+                {/* <table>
                     <tr>
                         <td>Processing Time:</td>
                         <td><label>{services.processT}</label></td>
@@ -57,10 +57,10 @@ const DataCard = () => {
                         <td>Entry:</td>
                         <td><label>{services.entry}</label></td>
                     </tr>
-                </table>
-                <Divider />
+                </table> 
+                <Divider />*/}
                 <div className='total'>
-                    <label className='fees'>Fees</label> <label>{services.price}</label>
+                    <label className='fees'>Fees</label> <label>{services.price} AED</label>
                 </div>
             </div>
         </div>

@@ -109,10 +109,10 @@ const Service_modal = (props) => {
       details[index] = {
         name: type ? type : EditedDetails.name,
         price: price ? price : EditedDetails.price,
-        processT: processT ? processT : EditedDetails.processT,
-        stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
-        validity: validity ? validity : EditedDetails.validity,
-        entry: entry ? entry : EditedDetails.entry,
+        // processT: processT ? processT : EditedDetails.processT,
+        // stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
+        // validity: validity ? validity : EditedDetails.validity,
+        // entry: entry ? entry : EditedDetails.entry,
         reqDocs: reqDocs ? reqDocs.split(",") : EditedDetails.reqDocs
       }
     }
@@ -121,7 +121,7 @@ const Service_modal = (props) => {
     setOpen(true)
   }
   const handleNew = async (e) => {
-    if (!type || !price || !processT || !stayPeriod || !validity || !entry || !reqDocs) {
+    if (!type || !price || !reqDocs) {
       setMsg("Please Fill out all the details")
       setOpenErr(true);
       return;
@@ -135,10 +135,10 @@ const Service_modal = (props) => {
     setServiceDetail([...serviceDetail, {
       name: type,
       price: price,
-      processT: processT,
-      stayPeriod: stayPeriod,
-      validity: validity,
-      entry: entry,
+      // processT: processT,
+      // stayPeriod: stayPeriod,
+      // validity: validity,
+      // entry: entry,
       reqDocs: reqDocs.split(",")
     }]);
     setMsg("Application Type has been added")
@@ -248,7 +248,7 @@ const Service_modal = (props) => {
                               onChange={(event) => setPrice(event.target.value)}
                             />
                           </Form.Group>
-                          <Form.Group widths="equal">
+                          {/* <Form.Group widths="equal">
                             <Form.Input
                               fluid
                               defaultValue={d.processT}
@@ -278,7 +278,7 @@ const Service_modal = (props) => {
                               defaultValue={d.entry}
                               onChange={(event) => setEntry(event.target.value)}
                             />
-                          </Form.Group>
+                          </Form.Group> */}
                           <Form.Input
                             control={TextArea}
                             label="Required Documents(Doc1,Doc2,Doc3)"
@@ -347,7 +347,7 @@ const Service_modal = (props) => {
                       onChange={(event) => setPrice(event.target.value)}
                     />
                   </Form.Group>
-                  <Form.Group widths="equal">
+                  {/* <Form.Group widths="equal">
                     <Form.Input
                       fluid
                       value={processT}
@@ -376,7 +376,7 @@ const Service_modal = (props) => {
                       placeholder="Enter Entry(single/Multi)"
                       value={entry}
                       onChange={(event) => setEntry(event.target.value)} />
-                  </Form.Group>
+                  </Form.Group> */}
                   <Form.Input
                     control={TextArea}
                     label="Required Documents(Doc1,Doc2,Doc3)"

@@ -218,10 +218,16 @@ console.log(application);
                           <p>{application.dob}</p>
                         </div>
                         <div>
-                          <h6>{application.otherAddress && application.otherAddress.alias} Address</h6>
+                          <h6>Email</h6>
+                          <p>{application.email}</p>
+                        </div>
+                        <div>
+                          <h6>Mobile</h6>
+                          <p>{application.mobile}</p>
+                        </div>
+                        <div>
+                          <h6>Address</h6>
                           <p>
-                            {application.otherAddress && application.otherAddress.addressLineOne} <br></br>
-                            {application.otherAddress && application.otherAddress.addressLineTwo} <br></br>
                             {application.otherAddress && application.otherAddress.city} {application.otherAddress && application.otherAddress.state} <br></br>
                             {application.otherAddress && application.otherAddress.country}
                           </p>

@@ -17,6 +17,10 @@ import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
 const Payment = () => {
+  window.history.pushState(null, document.title, window.location.href);
+  window.addEventListener('popstate', function (event){
+      window.history.pushState(null, document.title,  window.location.href);
+  });
   const countryOptions = [
     { key: 'normal', value: 0, text: 'Normal' },
     { key: 'urgent', value: 50, text: 'Urgent' },
@@ -25,6 +29,7 @@ const Payment = () => {
   const [method, setMethod] = React.useState(null);
   const [adFess, setFees] = React.useState(0);
   const [status, setStatus] = React.useState(null);
+  const [name, setName] = React.useState(null);
   const history = useHistory();
   const requestId=localStorage.getItem("applicationId");
   const url = `${process.env.REACT_APP_BASE_URL}/service/payment/${requestId}`
@@ -34,17 +39,20 @@ const Payment = () => {
   const [services, setService] = React.useState(null);
   const[msg,setMsg]= React.useState(null);
 const [open,setOpen]= React.useState(null);
+React.useEffect(() => {
+  getServices();
+}, []);
+
   const slug = localStorage.getItem("serviceSlug");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
-  window.history.pushState(null, document.title, window.location.href);
-  window.addEventListener('popstate', function (event){
-      window.history.pushState(null, document.title,  window.location.href);
-  });
-  React.useEffect(() => {
-    getServices();
-  }, []);
 
   const getServices = async () => {
+    let application = await (
+        await fetch(
+          `${process.env.REACT_APP_BASE_URL}/service/${requestId}`,
+          {
+            method: "GET"
+          })).json();
     const services = await (await fetch(service_url, { method: "GET" })).json();
     const serviceData = {
       deleted: services.data.deleted,
@@ -56,8 +64,11 @@ const [open,setOpen]= React.useState(null);
       description: services.data.description,
       slug: services.data.slug
     };
-    let sub=serviceData.serviceDetail.find(e=>e._id=== localStorage.getItem("subCatId"));
+    setName(serviceData.name)
+    let sub=serviceData.serviceDetail.find(e=>e.name===application.serviceDetail?application.serviceDetail:localStorage.getItem('subCatId'));
     setService(sub);
+    localStorage.setItem("subCatId",sub._id);
+   
   };
   
   
@@ -91,7 +102,6 @@ const [open,setOpen]= React.useState(null);
   }
 
 
-
   if (!services) {
     return <div />;
   }
@@ -111,10 +121,11 @@ const [open,setOpen]= React.useState(null);
           <div className="form">
             <label className="payment-header">Summary</label>
             <div className="payment-container">
+            <h2>{name}</h2>
               <h3>{services.name}</h3>
               <Grid columns="5" fluid stackable="tablet">
                 <Grid.Row>
-                  <Grid.Column>
+                  {/* <Grid.Column>
                     <label className="heading">Processing Time</label>
                     <label className="value">
                       Upto {services.processT} days
@@ -131,7 +142,7 @@ const [open,setOpen]= React.useState(null);
                   <Grid.Column>
                     <label className="heading">Entry</label>
                     <label className="value">{services.entry}</label>
-                  </Grid.Column>
+                  </Grid.Column> */}
                   <Grid.Column>
                     <label className="heading fees">Fees</label>
                     <label className="value total">{parseInt(services.price+ adFess) } AED</label>

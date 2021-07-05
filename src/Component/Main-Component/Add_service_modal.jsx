@@ -95,7 +95,7 @@ const Service_modal = (props) => {
     setComp([...comp, <Form.Input id="var" label='Enter Var' onChange={(e) => setSubject(subject + "~" + e.target.value)} ></Form.Input>]);
   }
   const handleSave = async (e) => {
-    if (!type || !price || !processT || !stayPeriod || !validity || !entry || !reqDocs) {
+    if (!type || !price || !reqDocs) {
       setMsg("Please Fill out all the details")
       setOpenErr(true);
       return;
@@ -109,10 +109,10 @@ const Service_modal = (props) => {
     setServiceDetail([...serviceDetail, {
       name: type,
       price: price,
-      processT: processT,
-      stayPeriod: stayPeriod,
-      validity: validity,
-      entry: entry,
+      // processT: processT,
+      // stayPeriod: stayPeriod,
+      // validity: validity,
+      // entry: entry,
       reqDocs: reqDocs.split(",")
     }]);
     setMsg("Application Type has been added")
@@ -226,7 +226,7 @@ const Service_modal = (props) => {
                       onChange={(event) => setPrice(event.target.value)}
                     />
                   </Form.Group>
-                  <Form.Group widths="equal">
+                  {/* <Form.Group widths="equal">
                     <Form.Input
                       fluid
                       value={processT}
@@ -255,7 +255,7 @@ const Service_modal = (props) => {
                       placeholder="Enter Entry(single/Multi)"
                       value={entry}
                       onChange={(event) => setEntry(event.target.value)} />
-                  </Form.Group>
+                  </Form.Group> */}
                   <Form.Input
                     control={TextArea}
                     label="Required Documents(Doc1,Doc2,Doc3)"

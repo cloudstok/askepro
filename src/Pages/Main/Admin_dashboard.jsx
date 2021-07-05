@@ -36,7 +36,7 @@ const Admin_dashboard = () => {
   if (!data) {
     return <div />;
   }
-
+console.log(data);
   return (
     <main className="manage-main">
       <SideBar value="dashboard" active="active" />
@@ -207,10 +207,14 @@ const Admin_dashboard = () => {
                                         serviceCategory={
                                           ele && ele.serviceCategory.name
                                         }
+                                        serviceDetail={
+                                          ele && ele.serviceDetail
+                                        }
+                                        price={ele && ele.transaction.amount}
                                         id={ele && ele._id}
                                         username={ele && ele.users.name}
-                                        email={ele && ele.users.email}
-                                        phone={ele && ele.users.phone}
+                                        email={ele && ele.email}
+                                        phone={ele && ele.mobile}
                                         time={
                                           ele &&
                                           new Date(

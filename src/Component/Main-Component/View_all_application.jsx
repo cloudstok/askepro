@@ -87,15 +87,19 @@ const View_all = () => {
                   <h4>Applicant Details</h4>
                   <p>Name</p>
                   <p>Date of Birth</p>
-                  <p>{application.otherAddress && application.otherAddress.alias} Address</p>
+                  <p>Email</p>
+                  <p>Mobile</p>
+                  <p>P.O. Box</p>
+                  <p>Address</p>
                 </div>
                 <div className="detail_inner2">
                   <h4>deactivate</h4>
                   <p>{application.name}</p>
                   <p>{application.dob}</p>
+                  <p>{application.email}</p>
+                  <p>{application.mobile}</p>
+                  <p>{application.otherAddress && application.otherAddress.pincode}</p>
                   <p>
-                    {application.otherAddress && application.otherAddress.addressLineOne} <br></br>
-                    {application.otherAddress && application.otherAddress.addressLineTwo} <br></br>
                     {application.otherAddress && application.otherAddress.city} {application.otherAddress && application.otherAddress.state} <br></br>
                     {application.otherAddress && application.otherAddress.country}
                   </p>

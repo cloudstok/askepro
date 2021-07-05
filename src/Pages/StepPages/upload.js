@@ -31,7 +31,8 @@ const UploadDocuments = () => {
   const [msg, setMsg] = React.useState(null);
   const slug = localStorage.getItem("serviceSlug");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
-
+  const requestId = localStorage.getItem("applicationId");
+  const url = `${process.env.REACT_APP_BASE_URL}/service/upload/${requestId}`;
   React.useEffect(() => {
     getServices();
   }, []);
@@ -41,17 +42,23 @@ const UploadDocuments = () => {
   });
   const getServices = async () => {
     const service = await (await fetch(service_url, { method: "GET" })).json();
-    let subCatdata=service.data.serviceDetail.find(e=>e._id=== localStorage.getItem("subCatId"));
+    let application = await (
+      await fetch(
+        `${process.env.REACT_APP_BASE_URL}/service/${requestId}`,
+        {
+          method: "GET"
+        })).json();
+
+    let subCatdata=service.data.serviceDetail.find(e=>e.name===application.serviceDetail?application.serviceDetail:localStorage.getItem('subCatId'));
     const serviceData = {
       reqDocs: subCatdata.reqDocs
     };
     setService(serviceData);
+    localStorage.setItem("subCatId",subCatdata._id);
   };
   if (!services) {
     return <div />;
   }
-  const requestId = localStorage.getItem("applicationId");
-  const url = `${process.env.REACT_APP_BASE_URL}/service/upload/${requestId}`;
   const uploadWithFormData = async (event) => {
     event.preventDefault();
     if (!fileName) {

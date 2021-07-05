@@ -97,6 +97,7 @@ const handleReject= async (requestId,bool)=>{
               <div className="verify">
                 <h6>Service name</h6>
                 <p>{request.serviceCategory}</p>
+                <p>({request.serviceDetail})</p>
               </div>
             </Grid.Column>
             <Grid.Column> 
@@ -126,7 +127,7 @@ const handleReject= async (requestId,bool)=>{
             <Grid.Column>
               <div className="verify">
                 <h6>Amount</h6>
-                <p>1,500.00 AED</p>
+                <p>{request.price}</p>
               </div>
             </Grid.Column>
           </Grid>

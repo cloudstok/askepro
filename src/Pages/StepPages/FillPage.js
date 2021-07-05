@@ -29,6 +29,18 @@ function FillPage() {
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
   const [user, setUser] = React.useState(null);
+  const [name, setName] = React.useState(null);
+  const [dob, setDob] = React.useState(null);
+  const [type, setType] = React.useState(null);
+  const [alias, setAlias] = React.useState(null);
+  const [email, setEmail] = React.useState(null);
+  const [mobile, setMobile] = React.useState(null);
+  const [state, setState] = React.useState(null);
+  const [city, setCity] = React.useState(null);
+  const [country, setCountry] = React.useState(null);
+  const [pincode, setPincode] = React.useState(null);
+  const [msg, setmsg] = React.useState(null);
+  
   React.useEffect(() => {
     getUser();
   }, []);
@@ -54,17 +66,6 @@ function FillPage() {
     setAlias(value);
   };
 
-  const [name, setName] = React.useState(null);
-  const [dob, setDob] = React.useState(null);
-  const [type, setType] = React.useState(null);
-  const [alias, setAlias] = React.useState(null);
-  const [lineOne, setLineOne] = React.useState(null);
-  const [lineTwo, setLineTwo] = React.useState(null);
-  const [state, setState] = React.useState(null);
-  const [city, setCity] = React.useState(null);
-  const [country, setCountry] = React.useState(null);
-  const [pincode, setPincode] = React.useState(null);
-  const [msg, setmsg] = React.useState(null);
   const requestId = localStorage.getItem("applicationId");
   const url = `${process.env.REACT_APP_BASE_URL}/service/fill/${requestId}`;
   const handleSubmitForm = async (event) => {
@@ -75,8 +76,8 @@ function FillPage() {
       !dob ||
       !type ||
       !alias ||
-      !(lineOne || user.address.addressLineOne) ||
-      !(lineTwo || user.address.addressLineTwo) ||
+      !(email || user.email) ||
+      !(mobile || user.phone) ||
       !(state || user.address.state) ||
       !(city || user.address.city) ||
       !(pincode || user.address.pincode) ||
@@ -92,10 +93,12 @@ function FillPage() {
       name: name ? name : user.name,
       dob: dob,
       type: type,
+      email: email? email : user.email,
+      mobile: mobile? email : user.phone,
       address: {
         alias: alias ? alias : user.address.alias,
-        addressLineOne: lineOne ? lineOne : user.address.addressLineOne,
-        addressLineTwo: lineTwo ? lineTwo : user.address.addressLineTwo,
+        // addressLineOne: lineOne ? lineOne : user.address.addressLineOne,
+        // addressLineTwo: lineTwo ? lineTwo : user.address.addressLineTwo,
         state: state ? state : user.address.state,
         city: city ? city : user.address.city,
         pincode: pincode ? pincode : user.address.pincode,
@@ -178,7 +181,7 @@ function FillPage() {
                         <Input
                           onChange={(event) => setName(event.target.value)}
                           name="name"
-                          defaultValue={user.name}
+                          defaultValue={name || user.name}
                           placeholder="Enter name"
                         />
                       </Form.Field>
@@ -219,28 +222,28 @@ function FillPage() {
                     </Grid.Column>
                     <Grid.Column>
                       <Form.Field>
-                        <label>Address Line 1*</label>
+                        <label>Email*</label>
                         <Input
-                          onChange={(event) => setLineOne(event.target.value)}
-                          name="lineOne"
+                          onChange={(event) => setEmail(event.target.value)}
+                          name="email"
                           defaultValue={
-                            user.address && user.address.addressLineOne
+                            email || user&& user.email
                           }
-                          placeholder="Enter address line 1"
+                          placeholder="Enter Email*"
                         />
                       </Form.Field>
                     </Grid.Column>
 
                     <Grid.Column>
                       <Form.Field>
-                        <label>Address Line 2*</label>
+                        <label>Mobile*</label>
                         <Input
-                          onChange={(event) => setLineTwo(event.target.value)}
-                          name="lineTwo"
+                          onChange={(event) => setMobile(event.target.value)}
+                          name="mobile"
                           defaultValue={
-                            user.address && user.address.addressLineTwo
+                            mobile || user&& user.phone
                           }
-                          placeholder="Enter address line 2"
+                          placeholder="Enter Mobile*"
                         />
                       </Form.Field>
                     </Grid.Column>
@@ -271,12 +274,12 @@ function FillPage() {
 
                     <Grid.Column>
                       <Form.Field>
-                        <label>PIN Code</label>
+                        <label>P. O. Box</label>
                         <Input
                           onChange={(event) => setPincode(event.target.value)}
                           name="pincode"
                           defaultValue={user.address && user.address.pincode}
-                          placeholder="Enter PIN code"
+                          placeholder="Enter P.O. Box"
                         />
                       </Form.Field>
                     </Grid.Column>

@@ -125,14 +125,14 @@ const Company = () => {
                             </div > */}
                                 <Table fixed>
                                   <Table.Row>
-                                    <Table.HeaderCell>Processing Time</Table.HeaderCell>
+                                    {/* <Table.HeaderCell>Processing Time</Table.HeaderCell>
                                     <Table.HeaderCell>Stay Period</Table.HeaderCell>
                                     <Table.HeaderCell>Validity</Table.HeaderCell>
-                                    <Table.HeaderCell>Entry</Table.HeaderCell>
+                                    <Table.HeaderCell>Entry</Table.HeaderCell> */}
                                     <Table.HeaderCell>Fees</Table.HeaderCell>
                                   </Table.Row>
                                   <Table.Row>
-                                    <Table.Cell>
+                                    {/* <Table.Cell>
                                       Upto {serviceType.processT} Days
                                     </Table.Cell>
                                     <Table.Cell>
@@ -141,7 +141,7 @@ const Company = () => {
                                     <Table.Cell>
                                       {serviceType.validity} Days
                                     </Table.Cell>
-                                    <Table.Cell>{serviceType.entry}</Table.Cell>
+                                    <Table.Cell>{serviceType.entry}</Table.Cell> */}
                                     <Table.Cell><span className="total-right">{serviceType.price} AED</span></Table.Cell>
                                   </Table.Row>
                                 </Table>

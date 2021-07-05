@@ -15,6 +15,11 @@ import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
 function Type() {
+  window.history.pushState(null, document.title, window.location.href);
+  window.addEventListener('popstate', function (event){
+      window.history.pushState(null, document.title,  window.location.href);
+  });
+
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${localStorage.getItem("serviceSlug") }`;
   const [services, setServices] = React.useState(null);
   const history = useHistory();
