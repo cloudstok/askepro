@@ -181,7 +181,9 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   }
   .footer {
     padding: 50px;
-
+.footer-part-1{
+  width: 100%;
+}
     .footer-part-2 {
       float: left;
       & a {
@@ -466,5 +468,10 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   }
   .footer{
     padding: 15px;
+    .footer-part-1 img{
+    display: block;
+    }
   }
+
 }
+

@@ -65,7 +65,7 @@ const About = () => {
 
       <div className="team">
         <Container>
-          <div className="about_container">
+          {/* <div className="about_container">
             <h1 className="headingOne">Our Team</h1>
 
             <Grid doubling columns={2}>
@@ -127,7 +127,7 @@ const About = () => {
               </Grid.Column>
      
             </Grid>
-          </div>
+          </div> */}
         </Container>
       </div>
 

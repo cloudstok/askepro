@@ -82,7 +82,7 @@ function Type() {
           <Stepper />
           <Divider />
           <div className="form">
-            <Grid columns="3" stackable="mobile">
+            <Grid columns="2" stackable="mobile">
               <Grid.Row>
                 {services &&
                   services.map((service) =>
