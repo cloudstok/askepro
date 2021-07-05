@@ -74,7 +74,6 @@ function FillPage() {
     if (
       !(name || user.name) ||
       !dob ||
-      !type ||
       !alias ||
       !(email || user.email) ||
       !(mobile || user.phone) ||
@@ -92,7 +91,7 @@ function FillPage() {
     const jsonPostData = {
       name: name ? name : user.name,
       dob: dob,
-      type: type,
+      // type: type,
       email: email? email : user.email,
       mobile: mobile? email : user.phone,
       address: {
@@ -151,7 +150,7 @@ function FillPage() {
                 </Message>
                 <Grid columns="2" stackable="tablet">
                   <Grid.Row>
-                    <Grid.Column width={2} className="radio-group">
+                    {/* <Grid.Column width={2} className="radio-group">
                       <Radio
                         label="Self"
                         name="type"
@@ -174,7 +173,7 @@ function FillPage() {
                         className="radio-item"
                         name="choice"
                       />
-                    </Grid.Column>
+                    </Grid.Column> */}
                     <Grid.Column>
                       <Form.Field>
                         <label>Name *</label>
