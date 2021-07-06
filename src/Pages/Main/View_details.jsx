@@ -173,7 +173,7 @@ const View_details = () => {
                         </div>
                         <div className="company_formation2">
                           <Table basic="very">
-                            <Table.Row style={{boxShadow:'none'}}>
+                            <Table.Row style={{ boxShadow: "none" }}>
                               <Table.Cell>
                                 <h6>Date</h6>
                                 <p>{dateFormat(application.createdAt)}</p>
@@ -234,18 +234,16 @@ const View_details = () => {
                               <p>{application.dob}</p>
                             </div>
                             <div>
-                              <h6>
-                                {application.otherAddress &&
-                                  application.otherAddress.alias}{" "}
-                                Address
-                              </h6>
+                              <h6>Email</h6>
+                              <p>{application.email}</p>
+                            </div>
+                            <div>
+                              <h6>Mobile</h6>
+                              <p>{application.mobile}</p>
+                            </div>
+                            <div>
+                              <h6>Address</h6>
                               <p>
-                                {application.otherAddress &&
-                                  application.otherAddress.addressLineOne}{" "}
-                                <br></br>
-                                {application.otherAddress &&
-                                  application.otherAddress.addressLineTwo}{" "}
-                                <br></br>
                                 {application.otherAddress &&
                                   application.otherAddress.city}{" "}
                                 {application.otherAddress &&
@@ -281,21 +279,6 @@ const View_details = () => {
                             </div>
                           ))}
                         </div>
-                        <div>
-                          <h6>Email</h6>
-                          <p>{application.email}</p>
-                        </div>
-                        <div>
-                          <h6>Mobile</h6>
-                          <p>{application.mobile}</p>
-                        </div>
-                        <div>
-                          <h6>Address</h6>
-                          <p>
-                            {application.otherAddress && application.otherAddress.city} {application.otherAddress && application.otherAddress.state} <br></br>
-                            {application.otherAddress && application.otherAddress.country}
-                          </p>
-                        </div>
                       </div>
                     </Grid.Column>
                   ) : (
@@ -305,7 +288,7 @@ const View_details = () => {
                   {application.transaction ? (
                     <Grid.Column>
                       <div className="outer_view">
-                        <div className="outerStep">Documents Uploaded</div>
+                        <div className="outerStep">Payment Status</div>
                         <div className="vertical_step1">
                           <Icon
                             color="green"
