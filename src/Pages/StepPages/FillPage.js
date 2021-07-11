@@ -117,7 +117,7 @@ function FillPage() {
       })
     ).json();
 
-    history.push("/upload");
+    history.push("/mode");
   };
   if (!user) {
     return <div />;

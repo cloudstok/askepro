@@ -41,6 +41,7 @@ import Service_modal from './Component/Main-Component/Add_service_modal';
 import View_all_client from './Component/Main-Component/View_all_client';
 import View_all_application from './Component/Main-Component/View_all_application';
 import Type from './Pages/StepPages/Type';
+import Mode from './Pages/StepPages/ChooseMode';
   {/* import Username from './Component/Main-Component/Username'; */}
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
                 <Route exact path='/admin' component={Admin_dashboard}/>
                 <Route exact path='/apply' component={ApplyStepper}/>
                 <Route exact path='/type' component={Type}/>
+                <Route exact path='/mode' component={Mode}/>
                 <Route exact path='/fill' component={FillPage}/>
                 <Route exact path='/upload' component={UploadDocuments}/>
                 <Route exact path='/book' component={BookAppointment}/>

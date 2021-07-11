@@ -32,6 +32,8 @@ const History = ({ title, key }) => {
     localStorage.setItem("serviceSlug", slug);
     if (status === "Type Pending")
       history.push('/type');
+    else if (status === "Mode Pending")
+      history.push('/mode');
     else if (status === "Details Pending")
       history.push('/fill');
     else if (status === "Upload Pending")
@@ -105,7 +107,7 @@ const History = ({ title, key }) => {
             </Table>
           </Container>
           <div className='pagination-container'>
-            <label className='page-name'>Showing {(application.currentPage * application.data.length % 10 === 0 && application.currentPage * application.data.length % 100 !== 0? application.currentPage * application.data.length : (application.currentPage - 1) * 10 + application.data.length)} of  {application.count}</label>
+            <label className='page-name'>Showing {(application.currentPage * application.data.length % 10 === 0 && application.currentPage * application.data.length % 100 !== 0 ? application.currentPage * application.data.length : (application.currentPage - 1) * 10 + application.data.length)} of  {application.count}</label>
             <Pagination
               size='small'
               defaultActivePage={application.currentPage}

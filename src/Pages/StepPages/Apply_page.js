@@ -15,6 +15,7 @@ import Stepper from "../../Component/Stepper/stepper";
 import "../StepPages/stepPage.scss";
 
 function ApplyStepper() {
+  localStorage.removeItem("mode");
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory`;
   const [services, setServices] = React.useState(null);
   const history = useHistory();
