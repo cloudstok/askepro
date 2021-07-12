@@ -6,9 +6,38 @@ import Apply from "../../Component/Main-Component/Apply";
 import Footer from "../../Component/Main-Component/Footer";
 import Notification from "../../Component/Main-Component/Notification";
 import "../../Sass/Sass-Main/_home.scss";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Home = () => {
+  const history= useHistory();
+  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
+  history.push("/login");
+React.useEffect(() => {
+  getUser();
+}, []);
+
+const [user, setUser]= React.useState(null);
+  const getUser = async () => {
+    const id = localStorage.getItem("id");
+    let user = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+    user = user.data;
+setUser(user);
+    if (user && user.isAdmin) {
+      history.push('/admin')
+    }
+
+  }
+
+  if(!user){
+    return(<></>)
+  }
   return (
     <>
       <div className="cover">
