@@ -102,7 +102,7 @@ function Mode() {
                 />
                 <Heading />
                 <Grid columns='2' stackable='tablet' className='data'>
-                    <Grid.Column width={11}></Grid.Column>
+                    <Grid.Column width={11}>
                     <Container className="stepper-container">
                         <Stepper />
                         <Divider />
@@ -133,6 +133,7 @@ function Mode() {
 
                         </div>
                     </Container>
+                    </Grid.Column>
                     <Grid.Column width={5}>
                         <DataCard />
                     </Grid.Column>
