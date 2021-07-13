@@ -26,9 +26,12 @@ const [user, setUser]= React.useState(null);
       })
     ).json();
     user = user.data;
-setUser(user);
+
     if (user && user.isAdmin) {
       history.push('/admin')
+    }
+    else{
+      setUser(1); 
     }
 
   }
