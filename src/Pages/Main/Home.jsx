@@ -9,9 +9,7 @@ import "../../Sass/Sass-Main/_home.scss";
 import { Link, useHistory } from "react-router-dom";
 
 const Home = () => {
-  const history= useHistory();
-  if (!localStorage.getItem("token") && !localStorage.getItem("id"))
-  history.push("/login");
+const history= useHistory();
 React.useEffect(() => {
   getUser();
 }, []);
