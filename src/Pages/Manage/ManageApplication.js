@@ -18,6 +18,20 @@ const ManageApplication = ({title}) =>{
     }, []);
 
     const getapplication = async () => {
+      let id = localStorage.getItem("id");
+      let user = await (
+        await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+          method: "GET",
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        })
+      ).json();
+      user = user.data;
+  
+      if (!user.isAdmin) {
+        history.push('/')
+      }
         const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/application`, { method: "GET"})).json();
        
         setApplication(application);
@@ -81,7 +95,7 @@ const ManageApplication = ({title}) =>{
     prevItem={{ content: <label className='next' onClick={() => pageClick(--application.currentPage)}>PREV</label>}}
     nextItem={{ content: <label className='prev' onClick={() => pageClick(++application.currentPage)}>NEXT</label>}}
     totalPages={application.totalPages}
-    onClick={e => pageClick(parseInt(e.target.outerText))}
+    onClick={e => pageClick(parseInt(e.target.innerText))}
   />
  </div>
  </div>

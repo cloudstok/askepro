@@ -17,6 +17,20 @@ const Manageclient = ({title}) =>{
     }, []);
 
     const getclient = async () => {
+      let id = localStorage.getItem("id");
+      let user = await (
+        await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+          method: "GET",
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        })
+      ).json();
+      user = user.data;
+  
+      if (!user.isAdmin) {
+        history.push('/')
+      }
         const client = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/client`, { method: "GET"})).json();
        
         setClient(client);
@@ -75,7 +89,7 @@ const Manageclient = ({title}) =>{
     prevItem={{ content: <label className='next' onClick={() => pageClick(--client.currentPage)}>PREV</label>}}
     nextItem={{ content: <label className='prev' onClick={() => pageClick(++client.currentPage)}>NEXT</label>}}
     totalPages={client.totalPages}
-    onClick={e => pageClick(parseInt(e.target.outerText))}
+    onClick={e => pageClick(parseInt(e.target.innerText))}
   />
  </div>
 

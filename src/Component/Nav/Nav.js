@@ -137,24 +137,26 @@ export default class MenuBar extends Component {
     return (
       <div>
         <Menu pointing secondary>
-          <Link to='/'>
+          <Link to='/'
+            style={{margin:"0 25px"}}
+          >
             <Menu.Item
               name='home'
               active={homeIndex === "" && (activeItem === undefined || !activeItem)}
               onClick={this.handleItemClick}
             /></Link>
-          <Link to="/service"><Menu.Item
+          <Link to="/service" style={{margin:"0 25px"}}><Menu.Item
             name='services'
             active={activeItem === 'service'}
             onClick={this.handleItemClick}
           /></Link>
-          <Link to="/about"><Menu.Item
+          <Link to="/about" style={{margin:"0 25px"}}><Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
           />
           </Link>
-          <Link to="/contact"><Menu.Item
+          <Link to="/contact" style={{margin:"0 25px"}}><Menu.Item
             name='contact'
             active={activeItem === 'contact'}
             onClick={this.handleItemClick}

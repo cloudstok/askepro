@@ -16,6 +16,20 @@ const ManagePayments = ({ title }) => {
   }, []);
 
   const getpayment = async () => {
+    let id = localStorage.getItem("id");
+    let user = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+    user = user.data;
+
+    if (!user.isAdmin) {
+      history.push('/')
+    }
     const payment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment`, { method: "GET" })).json();
 
     setpayment(payment);
@@ -81,7 +95,7 @@ console.log(payment)
               prevItem={{ content: <label className='next'>PREV</label> }}
               nextItem={{ content: <label className='prev'>NEXT</label> }}
               totalPages={payment.totalPages}
-              onClick={e => pageClick(parseInt(e.target.outerText))}
+              onClick={e => pageClick(parseInt(e.target.innerText))}
             />
           </div>
 

@@ -18,6 +18,20 @@ const ManageAppointments = ({title}) =>{
     }, []);
 
     const getappointment = async () => {
+      let id = localStorage.getItem("id");
+      let user = await (
+        await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+          method: "GET",
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          },
+        })
+      ).json();
+      user = user.data;
+  
+      if (!user.isAdmin) {
+        history.push('/')
+      }
         const appointment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/appointment`, { method: "GET"})).json();
        
         setAppointment(appointment);
@@ -82,7 +96,7 @@ const ManageAppointments = ({title}) =>{
     prevItem={{ content: <label className='next' onClick={() => pageClick(--appointment.currentPage)}>PREV</label>}}
     nextItem={{ content: <label className='prev' onClick={() => pageClick(++appointment.currentPage)}>NEXT</label>}}
     totalPages={appointment.totalPages}
-    onClick={e => pageClick(parseInt(e.target.outerText))}
+    onClick={e => pageClick(parseInt(e.target.innerText))}
   />
  </div>
 
