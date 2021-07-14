@@ -9,7 +9,7 @@ import Payment from './Pages/StepPages/payment';
 import {Nav} from './Component/Nav/Nav';
 import ManageNav from '../src/Component/Nav/manageNav';
 import Success from './Pages/StepPages/SuccessPage';
-
+import ScrollToTop from './Component/scrollToTop';
 import History from './Pages/Manage/history';
 import ManageClients from './Pages/Manage/ManageClients';
 import ManagePayments from './Pages/Manage/ManagePayment';
@@ -52,7 +52,10 @@ function App() {
   return (
     <>
     <Router>
+      
+
             <Nav/>
+            <ScrollToTop></ScrollToTop>
             <Switch>
                 <Route exact path='/service' component={Service} />
                 <Route exact path='/about' component={About} />

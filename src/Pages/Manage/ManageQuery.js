@@ -17,6 +17,20 @@ const ManageQuery = ({ title }) => {
   }, []);
 
   const getquery = async (status) => {
+    let id = localStorage.getItem("id");
+    let user = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+    user = user.data;
+
+    if (!user.isAdmin) {
+      history.push('/')
+    }
     if (!status) {
       status = "Open";
     }
@@ -107,7 +121,7 @@ const ManageQuery = ({ title }) => {
               prevItem={{ content: <label className='next' onClick={() => pageClick(--query.currentPage)}>PREV</label> }}
               nextItem={{ content: <label className='prev' onClick={() => pageClick(++query.currentPage)}>NEXT</label> }}
               totalPages={query.totalPages}
-              onClick={e => pageClick(parseInt(e.target.outerText))}
+              onClick={e => pageClick(parseInt(e.target.innerText))}
             />
           </div>
         </div>

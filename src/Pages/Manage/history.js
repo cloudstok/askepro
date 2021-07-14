@@ -46,6 +46,7 @@ const History = ({ title, key }) => {
       alert("Please apply for a new application")
   };
   const pageClick = async (p) => {
+    console.log(p)
     const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/service/application/${id}?page=${p}`, {
       method: "GET",
       headers: {
@@ -111,12 +112,12 @@ const History = ({ title, key }) => {
             <Pagination
               size='small'
               defaultActivePage={application.currentPage}
-              firstItem={null}
-              lastItem={null}
-              prevItem={{ content: <label className='next' onClick={() => pageClick(--application.currentPage)}>PREV</label> }}
-              nextItem={{ content: <label className='prev' onClick={() => pageClick(++application.currentPage)}>NEXT</label> }}
+              // firstItem={null}
+              // lastItem={null}
+              prevItem={{ content: <label className='next' onClick={e=>pageClick(--application.currentPage)}>PREV</label> }}
+              nextItem={{ content: <label className='prev' onClick={e=>pageClick(++application.currentPage)}>NEXT</label> }}
               totalPages={application.totalPages}
-              onClick={e => pageClick(parseInt(e.target.outerText))}
+              onClick={e => pageClick(parseInt(e.target.innerText))}
             />
           </div>
 
