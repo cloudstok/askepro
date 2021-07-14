@@ -1,23 +1,32 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
+import { Container, Breadcrumb } from "semantic-ui-react";
 import Header from "../../Component/Main-Component/Header";
 import Footer from "../../Component/Main-Component/Footer";
 import Notification from "../../Component/Main-Component/Notification";
 import Visa from "../../Component/Main-Component/Visa";
 import Accordion from "../../Component/Main-Component/Accordion/Accordion";
 import "../../Sass/Sass-Main/_home.scss";
+import "../../Sass/Sass-Main/_About.scss";
+
 import Crumb from "../../Component/Main-Component/Crumb";
 
 const Service = () => {
   return (
     <>
-      <div>
-        <Crumb
+      <div className="crumb">
+       {/*  <Crumb
           section={[
             { key: "home", content: "Home", link: true },
             { key: "apply", content: "Service", active: true },
           ]}
-        />
+        /> */}
+          <Breadcrumb>
+                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+                  Service
+                </Breadcrumb.Section>
+              </Breadcrumb>
       </div>
       <div className="service-banner">
         <img src={process.env.PUBLIC_URL + "/Assets/images/banner.png"} />

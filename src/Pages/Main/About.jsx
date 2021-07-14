@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid } from "semantic-ui-react";
+import { Container, Breadcrumb } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
 import Crumb from "../../Component/Main-Component/Crumb";
 import Notification from "../../Component/Main-Component/Notification";
@@ -9,12 +9,21 @@ const About = () => {
   return (
     <>
       <div className="about_crumb">
-        <Crumb
+    {/*     <Crumb
           section={[
             { key: "home", content: "Home", link: true },
             { key: "apply", content: "About", active: true },
           ]}
-        />
+        /> */}
+         <Breadcrumb>
+                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+                  About
+                </Breadcrumb.Section>
+              </Breadcrumb>
+    
+
       </div>
       <div className="about">
         <img

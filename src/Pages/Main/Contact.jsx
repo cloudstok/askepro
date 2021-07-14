@@ -1,18 +1,27 @@
 import React from "react";
-import { Grid, Container } from "semantic-ui-react";
+import { Grid, Container, Breadcrumb } from "semantic-ui-react";
 import Notification from "../../Component/Main-Component/Notification";
 import Footer from "../../Component/Main-Component/Footer";
-
+import "../../Sass/Sass-Main/_About.scss";
 import Crumb from "../../Component/Main-Component/Crumb";
 const Contact = () => {
   return (
     <>
-      <Crumb
+    <div className="crumb">
+      {/* <Crumb
         section={[
           { key: "home", content: "Home", link: true },
           { key: "apply", content: "Contact", active: true },
         ]}
-      />
+      /> */}
+            <Breadcrumb>
+                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+                  Contact
+                </Breadcrumb.Section>
+              </Breadcrumb>
+              </div>
       <div
         class="contact"
         style={{
