@@ -351,8 +351,8 @@
 /* login pages sass */
 .loginx {
   position: relative;
-  background: red;
-  height: 88.70vh !important;;
+  width: 100%;
+  height: 88.6vh !important;
   .ui.form .field > label {
     @include form_para;
   }
