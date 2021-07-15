@@ -1,6 +1,6 @@
 import React, { applicationeducer } from "react";
 import { useParams } from "react-router";
-import { Container, Button, Table } from "semantic-ui-react";
+import { Container, Button, Table, Breadcrumb } from "semantic-ui-react";
 import BreadCrumbs from "../Breadcrumb/breadcrumb";
 import SideBar from '../Nav/Sidebar'
 import Verification from "../../Component/Main-Component/Verification";
@@ -55,11 +55,15 @@ const View_all = () => {
       <main className='manage-main'>
         <SideBar value='client' active='active' />
         <div className='table-container'>
-          <BreadCrumbs section={[
-            { key: 'dash', content: 'Dashboard', link: true },
-            { key: 'client', content: 'Manage Application', active: true },
-            { key: 'client', content: applicationId, active: true }
-          ]} />
+        <Breadcrumb>
+              <Breadcrumb.Section href="/admin">Dashboard</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section href="/admin/application"> Manage applications</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section active>
+             Application Details
+              </Breadcrumb.Section>
+            </Breadcrumb> 
 
 
           <Container>

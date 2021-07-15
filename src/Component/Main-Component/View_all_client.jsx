@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { useParams } from "react-router";
-import { Container } from "semantic-ui-react";
+import { Container, Breadcrumb } from "semantic-ui-react";
 import BreadCrumbs from "../Breadcrumb/breadcrumb";
 import SideBar from '../Nav/Sidebar'
 const View_all = () => {
@@ -31,11 +31,15 @@ const View_all = () => {
       <main className='manage-main'>
         <SideBar value='client' active='active' />
         <div className='table-container'>
-          <BreadCrumbs section={[
-            { key: 'dash', content: 'Dashboard', link: true },
-            { key: 'client', content: 'Manage Client', active: true },
-            { key: 'client', content: clientId, active: true }
-          ]} />
+        <Breadcrumb>
+              <Breadcrumb.Section href="/admin">Dashboard</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section href="/admin/clients"> Manage Clients</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section active>
+             Client Details
+              </Breadcrumb.Section>
+            </Breadcrumb> 
 
 
           <Container>
