@@ -74,7 +74,7 @@ const Login3 = () => {
 
           <button className="form-btn" type="submit">Submit</button>
           <span class="fgt2">
-            <a href="#">New to Epro? Sign Up here  </a>
+            <a href="javascript:void(0);" onClick={() => history.push('/register')} href="#">New to Epro? Sign Up here  </a>
           </span>
         </Form>
       </div>

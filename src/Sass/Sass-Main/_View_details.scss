@@ -91,7 +91,7 @@
 }
 .vertical_step1 {
   display: flex;
-  width: auto;
+  width: 100%;
   height: auto;
   padding: 30px;
   border: solid 1px #e6e6e6;
@@ -103,7 +103,7 @@
     text-align: left;
     font-weight: 500;
     margin-left: 29.6px;
-    width: 440px;
+    width: auto;
   }
   img {
     width: 40.1px;

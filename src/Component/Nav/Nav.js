@@ -3,6 +3,7 @@ import React, { useState, useEffect, Component } from "react";
 import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import '../../Sass/nav.scss';
+import Accepted from "../popup/accepted";
 import ToggleNav from "../toggle_nav";
 let newLocation;
 export function Nav() {
@@ -14,6 +15,7 @@ export function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem("token")
   const [name, setName] = useState(false);
+  const [pop, setPop] = useState(false);
   let fullname;
 
 useEffect(() => {
@@ -54,12 +56,12 @@ useEffect(() => {
 
   }
   const handleClick = () => {
+    setPop(false);
     localStorage.clear();
-    alert("You have been logged out");
     history.push("/");
-    window.location.reload(false);
-  }
 
+  }
+  const msg="Are you sure want to logout"
   return (
     <>
       <header>
@@ -102,7 +104,7 @@ useEffect(() => {
                     <Dropdown.Menu className='dropdown-menu'>
                       <Link to={'/account'}><li className='item-name' style={{ color: "#000" }}><Icon name='user outline' />My Account</li></Link>
                       <Link to={'/history'}><li className='item-name' style={{ color: "#000" }}><Icon name='history' />History</li></Link>
-                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large" />Logout</li>
+                      <li className='item-name' onClick={()=>setPop(true)}><Icon name='logout' size="large" />Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -112,8 +114,10 @@ useEffect(() => {
                 <Link to="/login"><button className="same-btn" style={{ marginRight: '30px' }}>LOGIN</button></Link>
                 <Link to="/apply"><button className='same-btn'>APPLY NOW</button></Link>
               </div>
+              
           }
         </nav>}
+        <Accepted open={pop} check={true} msg={msg} onClose={()=>setPop(false)} onSubmit={()=>handleClick()}/>
       </header>
     </>
   );
@@ -158,7 +162,7 @@ export default class MenuBar extends Component {
           </Link>
           <Link to="/contact" style={{margin:"0 25px"}}><Menu.Item
             name='contact'
-            active={activeItem === 'contact'}
+            active={activeItem === 'contact'} 
             onClick={this.handleItemClick}
           /></Link>
         </Menu>

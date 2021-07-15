@@ -32,10 +32,10 @@ const Accepted = (props) => {
   console.log(props)
   return (
     <>
-      <Icon
+      {props.check?<></>:<Icon  
         name="check"
         onClick={() => dispatch({ type: "open", size: "large" })}
-      ></Icon>
+      ></Icon>}
       <Modal
         size={size}
         open={props.open}
@@ -43,9 +43,9 @@ const Accepted = (props) => {
       >
     
         <Modal.Content image>
-          <div className="modal_img">
+         {props.check?<></>: <div className="modal_img">
             <Icon className="icon1" name="check" color="green" size="big" />
-          </div>
+          </div>}
         </Modal.Content>
         <Modal.Description>
           <p className="modal_p">
@@ -58,14 +58,14 @@ const Accepted = (props) => {
               className="same-btn"
               onClick={() => props.onClose()}
             >
-              REJECT
+             { props.check?"Cancel":"REJECT"}
             </button>
             <button
               color="black"
               className="same-btn"
               onClick={() => props.onSubmit()}
             >
-              ACCEPT
+              {props.check?"Okay":"ACCEPT"}
             </button>
           </div>
         </Modal.Description>

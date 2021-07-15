@@ -1,86 +1,82 @@
 import React from "react";
-import { Button, Checkbox, Form, Message } from "semantic-ui-react";
-import ReCAPTCHA from "react-google-recaptcha"
+import { Button, Checkbox, Label, Form, Message } from "semantic-ui-react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from "react-router-dom";
 
 const Login1 = () => {
   const history = useHistory();
-  
+
   const [gvalue, setGvalue] = React.useState(false);
 
-  const url = `${process.env.REACT_APP_BASE_URL}/login`
+  const url = `${process.env.REACT_APP_BASE_URL}/login`;
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
-    
+
     if (gvalue === true) {
       const jsonPostData = {
-        'email': email,
-        'password': password
-      } 
-
+        email: email,
+        password: password,
+      };
+          if(!email.toString().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))
+      setMsg("Invalid Email")
       const res = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(jsonPostData)
+        body: JSON.stringify(jsonPostData),
       });
 
       const data = await res.json();
       if (data.status == 1 && data.token) {
-        localStorage.setItem('token', data.token);
-       
+        localStorage.setItem("token", data.token);
+
         let idData = await (
-          await fetch(
-            `${process.env.REACT_APP_BASE_URL}/users`,
-            {
-              method: "GET",
-              headers: {
-                'x-access-token': localStorage.getItem('token'),
-              }
-            })).json();
+          await fetch(`${process.env.REACT_APP_BASE_URL}/users`, {
+            method: "GET",
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            },
+          })
+        ).json();
         idData = idData.data;
-        localStorage.setItem('id', idData._id);
-        localStorage.setItem('name', idData.name);
-        if (idData.isAdmin===false)
-        history.push("/");
-        else
-        history.push("/admin");
-      } else {
-        setMsg("Incorrect Email/Password ");
+        localStorage.setItem("id", idData._id);
+        localStorage.setItem("name", idData.name);
+        if (idData.isAdmin === false) history.push("/");
+        else history.push("/admin");
       }
-
-      window.location.reload(false);  
+      else{
+        setMsg("Invalid Email/Password")
+      }
     }
-
   };
-  
+
   const gCaptchaChange = async (value) => {
     const url = `${process.env.REACT_APP_BASE_URL}/admin/g_server`;
     const pData = {
-      humanKey: value
+      humanKey: value,
     };
     const gReq = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(pData)
+      body: JSON.stringify(pData),
     });
-    
+
     const jsonD = await gReq.json();
-    
+
     if (jsonD.success === true) {
       setGvalue(true);
     }
-  }
-  
+  };
+
   return (
     <>
       <div
@@ -91,40 +87,74 @@ const Login1 = () => {
           backgroundSize: "cover",
         }}
       >
-
-        {msg && <Message negative>
-          <Message.Header>{msg}</Message.Header>
-        </Message>
-        }
         <Form className="loginx_form" onSubmit={handleSubmitForm}>
           <h3>Login into your account</h3>
           <Form.Field>
             <label>Email</label>
-            <input type="text" onChange={(event) => setEmail(event.target.value)} name="Email" placeholder="Enter Email" required={true} />
+            <input
+              type="text"
+              onChange={(event) => {setEmail(event.target.value); setMsg(null)}}
+              name="Email"
+              placeholder="Enter Email"
+              required={true}
+            />
+          
           </Form.Field>
           <Form.Field>
             <label> Password</label>
-            <input type="password" onChange={(event) => setPassword(event.target.value)} name="password" placeholder="Enter password" required={true} />
-          </Form.Field>
+            <input
+              type="password"
+              onChange={(event) => {setPassword(event.target.value); setMsg(null)}}
+              name="password"
+              placeholder="Enter password"
+              required={true}
+            />
           
+          </Form.Field>
+
           <Form.Field className="check">
-            <ReCAPTCHA sitekey={process.env.REACT_APP_GOOGLE_SITE_KEY} onChange={gCaptchaChange} />
+            <ReCAPTCHA
+              sitekey={process.env.REACT_APP_GOOGLE_SITE_KEY}
+              onChange={gCaptchaChange}
+            />
           </Form.Field>
-          
+
           {/*
           <Form.Field className="check">
             <Checkbox label="I’m not a Robot" required={true} readOnly={false} />
           </Form.Field>
           */}
           <span class="fgt1">
-            <a href="javascript:void(0);" onClick={() => history.push('/fgpasswd')}>Forgot password?</a>
+            <a
+              href="javascript:void(0);"
+              onClick={() => history.push("/forgot")}
+            >
+              Forgot password?
+            </a>
           </span>
 
-          <button className="form-btn" type="submit">Submit</button>
+          <button className="form-btn" type="submit">
+            Submit
+          </button>
           <span class="fgt2">
-            <a href="javascript:void(0);" onClick={() => history.push('/register')}>New to Epro? Sign Up here</a>
+            <a
+              href="javascript:void(0);"
+              onClick={() => history.push("/register")}
+            >
+              New to Epro? Sign Up here
+            </a>
+            <br/>
+            <br/>
+            {msg ? (
+          <Label as="a" className="Rejected">
+            {msg}
+          </Label>
+        ) : (
+          <div></div>
+        )}
           </span>
         </Form>
+       
       </div>
     </>
   );

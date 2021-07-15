@@ -64,7 +64,7 @@ function App() {
                 <Route exact path='/view/:requestId' component={View_details}/>
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/register' component={Register} />
-                <Route exact path='/fgpasswd' component={Fgpasswd} />
+                <Route exact path='/forgot' component={Fgpasswd} />
                 <Route exact path='/reset' component={Reset} />
                 <Route exact path='/account' component={Account} />  
                 <Route exact path='/admin' component={Admin_dashboard}/>
