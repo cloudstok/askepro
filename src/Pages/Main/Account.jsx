@@ -10,6 +10,7 @@ import {
   Button,
   Container,
   Input,
+  Breadcrumb
 } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
@@ -102,12 +103,13 @@ console.log(application);
     <>
 
       <div className="account_breadcrumb">
-        <BreadCrumbs
-          section={[
-            { key: "home", content: "Home", link: true },
-            { key: "apply", content: "My Account", active: true },
-          ]}
-        />
+      <Breadcrumb>
+                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+               My Account
+                </Breadcrumb.Section>
+              </Breadcrumb> 
       </div>
       <div className="account_wrapper">
         <Container fluid>

@@ -26,19 +26,19 @@ const Admin_dashboard = () => {
   }, []);
   let id = localStorage.getItem("id");
   const getData = async () => {
-    // let user = await (
-    //   await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
-    //     method: "GET",
-    //     headers: {
-    //       "x-access-token": localStorage.getItem("token"),
-    //     },
-    //   })
-    // ).json();
-    // user = user.data;
+    let user = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+    user = user.data;
 
-    // if (!user.isAdmin) {
-    //   history.push('/')
-    // }
+    if (!user.isAdmin) {
+      history.push('/')
+    }
     let result = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/admin/dashboard`, {
         method: "GET",

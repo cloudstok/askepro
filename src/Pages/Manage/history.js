@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label, Button } from 'semantic-ui-react';
+import { Container, Icon, Pagination, Table, Label, Button, Breadcrumb } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import './manage.scss';
@@ -68,10 +68,13 @@ const History = ({ title, key }) => {
   return (
     <main className='manage-main'>
       <div className='history-main'>
-        <BreadCrumbs section={[
-          { key: 'home', content: 'Home', link: true },
-          { key: 'history', content: 'History', active: true }
-        ]} />
+      <Breadcrumb>
+                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+               Application History
+                </Breadcrumb.Section>
+              </Breadcrumb> 
         <div className='manage-container'>
           <h2>{title}</h2>
           <Container fluid>

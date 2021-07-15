@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { Container, Button, Icon, Step, Grid, Table } from "semantic-ui-react";
+import { Container, Button, Icon, Step, Grid, Table, Breadcrumb } from "semantic-ui-react";
 import StatusChip from "../../Component/Main-Component/StatusChip";
 import "../../Sass/Sass-Main/_View_details.scss";
 import { useHistory } from "react-router";
@@ -58,7 +58,17 @@ const View_details = () => {
   }
 
   return (
-    <>
+    <><div className="account_breadcrumb">
+    <Breadcrumb>
+              <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section href="/history">Application History</Breadcrumb.Section>
+              <Breadcrumb.Divider icon="right chevron" />
+              <Breadcrumb.Section active>
+             Application Details
+              </Breadcrumb.Section>
+            </Breadcrumb> 
+    </div>
       <div className="view_detail_wrapper">
         <Container>
           <h2>Application Details</h2>
