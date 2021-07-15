@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label, Grid, Sidebar } from 'semantic-ui-react';
+import { Container, Pagination, Table, Grid, Breadcrumb} from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -62,10 +62,13 @@ const ManageService = ({ title }) => {
     <main className='manage-main'>
       <SideBar value='service' active='active' />
       <div className='table-container'>
-        <BreadCrumbs section={[
-          { key: 'dash', content: 'Dashboard', link: true },
-          { key: 'history', content: 'Manage service', active: true }
-        ]} />
+       <Breadcrumb>
+                <Breadcrumb.Section href="/admin">Dashboard</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+                Manage Service
+                </Breadcrumb.Section>
+              </Breadcrumb> 
         <div className='manage-container'>
           <div className="manage_heading">
             <Grid>

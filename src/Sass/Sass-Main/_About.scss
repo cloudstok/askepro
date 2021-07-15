@@ -302,7 +302,7 @@
 
 .crumb {
   text-decoration: none;
-  position: fixed;
+  position: absolute;
   left: 50px;
   color: #fff;
   z-index: 1;
@@ -331,7 +331,7 @@
 }
 .about_crumb .breadcrumb {
   text-decoration: none;
-  position: fixed;
+  position: absolute;
   left: 50px;
   color: #fff;
   z-index: 1;

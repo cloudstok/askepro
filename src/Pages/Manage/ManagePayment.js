@@ -1,10 +1,10 @@
-import React from 'react';
-import { Container, Icon, Pagination, Table, Label } from 'semantic-ui-react';
-import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
-import StatusChip from '../../Component/StatusChip/StatusChip';
-import SideBar from '../../Component/Nav/Sidebar';
-import './manage.scss';
-import { useHistory } from 'react-router';
+import React from "react";
+import { Container, Pagination, Table, Breadcrumb } from "semantic-ui-react";
+import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
+import StatusChip from "../../Component/StatusChip/StatusChip";
+import SideBar from "../../Component/Nav/Sidebar";
+import "./manage.scss";
+import { useHistory } from "react-router";
 
 const ManagePayments = ({ title }) => {
   const history = useHistory();
@@ -28,37 +28,45 @@ const ManagePayments = ({ title }) => {
     user = user.data;
 
     if (!user.isAdmin) {
-      history.push('/')
+      history.push("/");
     }
-    const payment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment`, { method: "GET" })).json();
-
-    setpayment(payment);
-  }
-  const pageClick = async (p) => {
-    const payment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment?page=${p}`, {
-      method: "GET", headers: {
-        'x-access-token': localStorage.getItem('token'),
-      }
-    })).json();
+    const payment = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment`, {
+        method: "GET",
+      })
+    ).json();
 
     setpayment(payment);
   };
-if(!payment){
-  return(<></>)
-}
-console.log(payment)
+  const pageClick = async (p) => {
+    const payment = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment?page=${p}`, {
+        method: "GET",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+    ).json();
+
+    setpayment(payment);
+  };
+  if (!payment) {
+    return <></>;
+  }
+  console.log(payment);
   return (
-    <main className='manage-main'>
-      <SideBar value='payment' active='active' />
-      <div className='table-container'>
-        <BreadCrumbs section={[
-          { key: 'dash', content: 'Dashboard', link: true },
-          { key: 'payment', content: 'Manage Payment', active: true }
-        ]} />
-        <div className='manage-container'>
+    <main className="manage-main">
+      <SideBar value="payment" active="active" />
+      <div className="table-container">
+        <Breadcrumb>
+          <Breadcrumb.Section href="/admin">Dashboard</Breadcrumb.Section>
+          <Breadcrumb.Divider icon="right chevron" />
+          <Breadcrumb.Section active>Manage Payment</Breadcrumb.Section>
+        </Breadcrumb>
+        <div className="manage-container">
           <h2>{title}</h2>
           <Container fluid>
-            <Table striped stackable='tablet'>
+            <Table striped stackable="tablet">
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Date</Table.HeaderCell>
@@ -71,38 +79,51 @@ console.log(payment)
                   <Table.HeaderCell>Status</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
-               <Table.Body>
-      {payment.data && payment.data.map((ele) => (<Table.Row>
-        <Table.Cell>{new Date(ele.transaction.createdAt).toLocaleString()}</Table.Cell>
-        <Table.Cell>{ele.transaction._id}</Table.Cell>
-        <Table.Cell>{ele.serviceCategory._id}</Table.Cell>
-        <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
-        <Table.Cell>{ele.name}</Table.Cell>
-        <Table.Cell>{ele.transaction.ptype}</Table.Cell>
-        <Table.Cell>{ele.transaction.amount}</Table.Cell>
-        <Table.Cell><StatusChip value={ele.transaction.status}/></Table.Cell>
-      </Table.Row>))}
-      </Table.Body>
+              <Table.Body>
+                {payment.data &&
+                  payment.data.map((ele) => (
+                    <Table.Row>
+                      <Table.Cell>
+                        {new Date(ele.transaction.createdAt).toLocaleString()}
+                      </Table.Cell>
+                      <Table.Cell>{ele.transaction._id}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory._id}</Table.Cell>
+                      <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
+                      <Table.Cell>{ele.name}</Table.Cell>
+                      <Table.Cell>{ele.transaction.ptype}</Table.Cell>
+                      <Table.Cell>{ele.transaction.amount}</Table.Cell>
+                      <Table.Cell>
+                        <StatusChip value={ele.transaction.status} />
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+              </Table.Body>
             </Table>
           </Container>
-          <div className='pagination-container'>
-          <label className='page-name'>Showing {(payment.currentPage * payment.data.length % 10 === 0 && payment.currentPage * payment.data.length % 100 !== 0? payment.currentPage * payment.data.length : (payment.currentPage - 1) * 10 + payment.data.length)} of  {payment.count}</label>
+          <div className="pagination-container">
+            <label className="page-name">
+              Showing{" "}
+              {(payment.currentPage * payment.data.length) % 10 === 0 &&
+              (payment.currentPage * payment.data.length) % 100 !== 0
+                ? payment.currentPage * payment.data.length
+                : (payment.currentPage - 1) * 10 + payment.data.length}{" "}
+              of {payment.count}
+            </label>
             <Pagination
-              size='small'
+              size="small"
               defaultActivePage={payment.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className='next'>PREV</label> }}
-              nextItem={{ content: <label className='prev'>NEXT</label> }}
+              prevItem={{ content: <label className="next">PREV</label> }}
+              nextItem={{ content: <label className="prev">NEXT</label> }}
               totalPages={payment.totalPages}
-              onClick={e => pageClick(parseInt(e.target.innerText))}
+              onClick={(e) => pageClick(parseInt(e.target.innerText))}
             />
           </div>
-
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default ManagePayments;

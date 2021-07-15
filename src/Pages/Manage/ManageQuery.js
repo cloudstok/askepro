@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Dropdown, Pagination, Table, Label, Sidebar, Button } from 'semantic-ui-react';
+import { Container, Icon, Dropdown, Breadcrumb, Pagination, Table, Label, Sidebar, Button } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -72,10 +72,13 @@ const ManageQuery = ({ title }) => {
     <main className='manage-main'>
       <SideBar value='query' active='active' />
       <div className='table-container'>
-        <BreadCrumbs section={[
-          { key: 'dash', content: 'Dashboard', link: true },
-          { key: 'history', content: 'Manage Query', active: true }
-        ]} />
+      <Breadcrumb>
+                <Breadcrumb.Section href="/admin">Dashboard</Breadcrumb.Section>
+                <Breadcrumb.Divider icon="right chevron" />
+                <Breadcrumb.Section active>
+                Manage Query
+                </Breadcrumb.Section>
+              </Breadcrumb> 
         <div className='manage-container'>
           <h2>{title}</h2>
           <Container fluid>
@@ -87,7 +90,7 @@ const ManageQuery = ({ title }) => {
                   <Table.HeaderCell>Email</Table.HeaderCell>
                   <Table.HeaderCell>Query</Table.HeaderCell>
                   <Table.HeaderCell>
-                    <Dropdown text='querys' scrolling='true'>
+                    <Dropdown text='Status' scrolling='true'>
                       <Dropdown.Menu >
                         <Dropdown.Item text='Open' onClick={() => { getquery('Open'); setStatus("Open") }} />
                         <Dropdown.Item text='Resolved' onClick={() => { getquery('Resolved'); setStatus("Resolved") }} />
