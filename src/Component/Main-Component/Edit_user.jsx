@@ -3,7 +3,8 @@ import {
     Grid,
     Form,
     Input,
-    Modal
+    Modal,
+    Label
 } from "semantic-ui-react";
 import '../../Pages/StepPages/stepPage.scss';
 
@@ -27,8 +28,12 @@ const User_Modal_Edit = (user) => {
     const [city, setCity] = React.useState(null);
     const [country, setCountry] = React.useState(null);
     const [pincode, setPincode] = React.useState(null);
+    const[msg, setMsg]=React.useState(null);
     const submitUser = async (id) => {
-        dispatch({ type: "close" });
+        if(!(phone ? phone : user.phone).toString().match(/^[0-9]{8,10}$/)){
+            setMsg("Invalid Phone");
+            return;
+        }
         const url = `${process.env.REACT_APP_BASE_URL}/users/${id}`;
         const jsonPostData = {
             "name": name ? name : user.name,
@@ -59,7 +64,11 @@ const User_Modal_Edit = (user) => {
         /* alert(result.msg); */
         if (result.status === 1){
             user.doRefresh()
-           
+            dispatch({ type: "close" });
+            setMsg(null);
+        }
+        else{
+            setMsg(result.msg)
         }
     };
 
@@ -76,10 +85,10 @@ const User_Modal_Edit = (user) => {
             <Modal
                 size={size}
                 open={open}
-                onClose={() => dispatch({ type: "close" })}
+                onClose={() => {dispatch({ type: "close" }); setMsg(null)}}
             >
                 <Modal.Header>
-                    <div className="accept_heading">Add New FAQ</div>
+                    <div className="accept_heading">Edit Profile</div>
                 </Modal.Header>
                 <Modal.Content>
                     <div className="faq_content">
@@ -95,7 +104,7 @@ const User_Modal_Edit = (user) => {
                                 <Form.Field
                                     control={Input}
                                     label='Number'
-                                    onChange={(event) => setPhone(event.target.value)} name='name'
+                                    onChange={(event) => setPhone(event.target.value)} name='phone'
                                     defaultValue={user.phone}
 
                                 />
@@ -153,7 +162,7 @@ const User_Modal_Edit = (user) => {
                         <button
                             color="black"
                             className="same-btn"
-                            onClick={() => dispatch({ type: "close" })}
+                            onClick={() =>{ dispatch({ type: "close" });setMsg(null)}}
                         >
                             CANCEL
             </button>
@@ -167,6 +176,13 @@ const User_Modal_Edit = (user) => {
                         <br />
                         <br />
                     </div>
+                    {msg ? (
+                <Label as="a" className="Rejected">
+                  {msg}
+                </Label>
+              ) : (
+                <div></div>
+              )}
                 </Modal.Description>
             </Modal>
 
