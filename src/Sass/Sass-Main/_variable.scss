@@ -347,15 +347,19 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
       height: 100%;
     }
   }
-  .crumb {
+  .crumb{
     left: 0px !important;
+    margin-left: 0px !important;
+  }
+  .breadcrumb{
+    left: 0 !important;
   }
 }
 
 @media (max-width: 480px) {
   .contact {
     p {
-      padding: 20px 0;
+      padding: 0px 7px !important;
     }
   }
 
@@ -471,6 +475,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
     display: block;
     }
   }
+  
 
 }
 
