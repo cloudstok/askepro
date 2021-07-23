@@ -98,7 +98,8 @@ React.useEffect(() => {
 
     }       
     else  if (result.status === 1)
-    history.push("/Success")
+    history.push();
+    window.location.href = result.url;
   }
 
 
