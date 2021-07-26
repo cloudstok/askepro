@@ -61,9 +61,9 @@ function Mode() {
             slug: services.data.slug
         };
         setName(serviceData.name)
-        let sub = serviceData.serviceDetail.find(e => e.name === application.serviceDetail ? application.serviceDetail : localStorage.getItem('subCatId'));
+        let sub = serviceData.serviceDetail.find(e => e.name=== application.serviceDetail);
         setService(sub);
-        localStorage.setItem("subCatId", sub._id);
+        // localStorage.setItem("subCatId", sub._id);
 
     };
 
