@@ -1,10 +1,13 @@
 import React from "react";
-import { Grid, Container, Icon, Button } from "semantic-ui-react";
+import { Grid, Segment, Container, Icon, Button } from "semantic-ui-react";
 
 
 const Apply = () => {
   return (
     <>
+  <div style={{textAlign:'center', margin:'8rem 0', letterSpacing:'8px'}}>
+    <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
+  </div>
       <section className="step">
         <div className="apply">
           <h1 className="headingOne">How to apply</h1>

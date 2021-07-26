@@ -14,7 +14,7 @@ const Visa = () => {
   const getServices = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
  
-    const serviceData = services.data.map((e) => ({
+    let serviceData = services.data.map((e) => ({
       _id: e._id,
       name: e.name,
       tv_type: e.tv_type,
@@ -23,7 +23,7 @@ const Visa = () => {
       // serviceDetail: e.serviceDetail,
       image:e.image
     }));
-
+    serviceData=serviceData.reverse(); 
     setServices(serviceData);
   };
 
