@@ -5,9 +5,8 @@ import { useHistory } from "react-router";
 
 const DataCard = () => {
     const [services, setService] = React.useState(null);
-    const subCatId= localStorage.getItem("subCatId");
-    const service= localStorage.getItem("serviceSlug");
-    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${service}/${subCatId}`;
+    const subCatId= localStorage.getItem("applicationId");
+    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${subCatId}`;
    
   
     React.useEffect(() => {
@@ -39,7 +38,7 @@ const DataCard = () => {
             <div className='card-heading'>
                 <h5>{services.name}</h5>
             </div>
-            <div className='card-content'>
+            { services?       <div className='card-content'>
                 {/* <table>
                     <tr>
                         <td>Processing Time:</td>
@@ -59,10 +58,11 @@ const DataCard = () => {
                     </tr>
                 </table> 
                 <Divider />*/}
-                <div className='total'>
+     <div className='total'>
                     <label className='fees'>Fees</label> <label>{services.price} AED</label>
                 </div>
-            </div>
+                            </div>:<></>}
+
         </div>
     )
 }
