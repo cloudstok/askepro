@@ -48,7 +48,7 @@
 
 .team {
   background-color: #fff;
-  padding-top: 15vh;
+  padding-top: 18%;
   h1 {
     &::after {
       @include after;
@@ -132,8 +132,11 @@
   
   & h1 {
     color: #fff;
-    padding-top: 82px;
+    margin-top: 10rem;
+      
+    font-family: "Montserrat", sans-serif;
     @include banner_heading;
+    font-size: 8vh;
     &::after {
       @include center_after;
       margin-bottom: 20px;

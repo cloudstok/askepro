@@ -1,13 +1,9 @@
 import React from "react";
 import { Grid, Segment, Container, Icon, Button } from "semantic-ui-react";
 
-
 const Apply = () => {
   return (
     <>
-  <div style={{textAlign:'center', margin:'8rem 0', letterSpacing:'8px'}}>
-    <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
-  </div>
       <section className="step">
         <div className="apply">
           <h1 className="headingOne">How to apply</h1>
@@ -22,12 +18,16 @@ const Apply = () => {
           <Grid stackable columns={3}>
             <Grid.Row>
               <Grid.Column>
-                <div className="outer_circle">
-                <div className="circle">
-                  <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step1.png"}
-                  />
-                </div>
+                <div
+                  className="outer_circle"
+                  data-aos="zoom-out-right"
+                  data-aos-anchor-placement="top-bottom"
+                >
+                  <div className="circle">
+                    <img
+                      src={process.env.PUBLIC_URL + "/Assets/images/step1.png"}
+                    />
+                  </div>
                 </div>
                 <div className="step_heading">
                   <h6>Step 1</h6>
@@ -39,12 +39,16 @@ const Apply = () => {
                 </div>
               </Grid.Column>
               <Grid.Column>
-              <div className="outer_circle">
-                <div className="circle">
-                <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step2.png"}
-                  />
-                </div>
+                <div className="outer_circle">
+                  <div
+                    className="circle"
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom"
+                  >
+                    <img
+                      src={process.env.PUBLIC_URL + "/Assets/images/step2.png"}
+                    />
+                  </div>
                 </div>
                 <div className="step_heading">
                   <h6>Step 2</h6>
@@ -56,12 +60,16 @@ const Apply = () => {
                 </div>
               </Grid.Column>
               <Grid.Column>
-              <div className="outer_circle">
-                <div className="circle">
-                <img
-                    src={process.env.PUBLIC_URL + "/Assets/images/step3.png"}
-                  />
-                </div>
+                <div
+                  className="outer_circle"
+                  data-aos="zoom-out-left"
+                  data-aos-anchor-placement="top-bottom"
+                >
+                  <div className="circle">
+                    <img
+                      src={process.env.PUBLIC_URL + "/Assets/images/step3.png"}
+                    />
+                  </div>
                 </div>
                 <div className="step_heading">
                   <h6>Step 3</h6>
@@ -77,7 +85,18 @@ const Apply = () => {
         </Container>
       </section>
       <Container fluid>
-      {/* <section className="customer">
+        <div
+          style={{
+            textAlign: "center",
+            margin: "8rem 0",
+            letterSpacing: "8px",
+          }}
+          data-aos="zoom-out-down"
+          data-aos-anchor-placement="top-bottom"
+        >
+          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
+        </div>
+        {/* <section className="customer">
         
           <h1 className="headingOne">Customer Reviews</h1>
 

@@ -41,6 +41,7 @@ const Footer = () => {
   };
   return (
     <>
+     
       <div className="reach">
         <Container fluid>
           <h2>Reach Out To Us</h2>
@@ -133,6 +134,7 @@ const Footer = () => {
         </Container>
         <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
       </footer>
+      
     </>
   );
 };

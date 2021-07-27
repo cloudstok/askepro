@@ -21,6 +21,7 @@ const Home = () => {
     infinite: true,
     autoplay:true,
     speed: 500,
+    autoplaySpeed: 7000,
     slidesToShow: 1,
     slidesToScroll: 1
   };
@@ -28,7 +29,10 @@ const Home = () => {
   const [user, setUser] = React.useState(null);
   const getUser = async () => {
     AOS.init({
-      duration: 1000,
+      offset: 100,
+      duration: 600,  
+      easing: 'ease-in-sine',
+      delay: 100, 
     });
     const id = localStorage.getItem("id");
     let user = await (
@@ -65,7 +69,7 @@ const Home = () => {
             </video>
             <Slider {...sliderSettings} className="video_content">
             <div >
-              <h1>Leading Immigration Consultants in Dubai</h1>
+              <h1>LEADING IMMIGRATION CONSULTANTS IN DUBAI</h1>
               <p>Our business is to make your business easier in the UAE.</p>
               <Link to="apply">
                 <button type="button" className="same-btn">

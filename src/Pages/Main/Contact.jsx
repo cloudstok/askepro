@@ -28,14 +28,14 @@ const Contact = () => {
       >
           <img src={process.env.PUBLIC_URL + "/Assets/images/LETS.jpg"} />
           <div className="contact_content">
-        <h1>Contact</h1>
+        <h1><i>Let's have a talk </i></h1>
 
-        <h2>
+       {/*  <h2>
           Experience success with UAE and take your business to new heights with
           Askepro.
           <br />
           Contact us, today!
-        </h2>
+        </h2> */}
         </div>
       </div>
       <Container>
