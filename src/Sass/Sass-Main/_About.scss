@@ -115,11 +115,22 @@
 
 .contact {
   text-align: center;
-  height: 283px;
+  height: 50vh;
+
+  position: relative;
   img {
-    background-size: cover;
+    object-fit: cover;
+    height: 50vh;
+    width: 100%;
+    filter: brightness(50%);
   }
-  h1 {
+  .contact_content{
+    position: absolute;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+  
+  & h1 {
     color: #fff;
     padding-top: 82px;
     @include banner_heading;
@@ -128,11 +139,12 @@
       margin-bottom: 20px;
     }
   }
-  p {
+ & p {
     color: #fff;
     text-align: center;
     @include contact_p;
   }
+}
 }
 
 .address {

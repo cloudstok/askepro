@@ -24,13 +24,10 @@ const Contact = () => {
               </div>
       <div
         class="contact"
-        style={{
-          background: `url(${
-            process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
-          })`,
-          backgroundSize: "cover",
-        }}
+     
       >
+          <img src={process.env.PUBLIC_URL + "/Assets/images/LETS.jpg"} />
+          <div className="contact_content">
         <h1>Contact</h1>
 
         <p>
@@ -39,6 +36,7 @@ const Contact = () => {
           <br />
           Contact us, today!
         </p>
+        </div>
       </div>
       <Container>
         <div class="address">

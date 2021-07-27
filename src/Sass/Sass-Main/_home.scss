@@ -1,4 +1,7 @@
 @import "./variable";
+@import "../../../node_modules/slick-carousel/slick/slick.scss"; 
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss"; 
+
 * {
   margin: 0;
   padding: 0;
@@ -633,7 +636,7 @@ body {
   img {
     object-fit: cover;
     height: 471px;
-    filter: brightness(70%);
+    filter: brightness(50%);
     width: 100%;
   }
   .banner-content {
@@ -725,7 +728,7 @@ body {
    width: 100%;
   & h1 {
     cursor: pointer;
-    font-size: 7vh;
+    font-size: 5.5vh;
     font-family: Lato;
     line-height: 1.18;
     
@@ -750,4 +753,11 @@ body {
   margin: 0%;
 }
 
+}
+.slick-dots{
+  left: 0;
+ 
+}
+.slick-dots li button:before{
+  color: #fff !important;
 }

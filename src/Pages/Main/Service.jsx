@@ -29,7 +29,7 @@ const Service = () => {
               </Breadcrumb>
       </div>
       <div className="service-banner">
-        <img src={process.env.PUBLIC_URL + "/Assets/images/banner.png"} />
+        <img src={process.env.PUBLIC_URL + "/Assets/images/step2.jpg"} />
         <div className="banner-content">
           <h1>Our Services</h1>
 
