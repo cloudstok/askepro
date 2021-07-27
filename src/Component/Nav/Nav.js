@@ -139,7 +139,7 @@ export default class MenuBar extends Component {
     const { activeItem, homeIndex } = this.state
 
     return (
-      <div>
+      <div className="nav_buttons">
         <Menu pointing secondary>
           <Link to='/'
             style={{margin:"0 25px"}}
