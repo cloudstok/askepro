@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Breadcrumb } from "semantic-ui-react";
+import { Container, Grid, Breadcrumb } from "semantic-ui-react";
 import Footer from "../../Component/Main-Component/Footer";
 import Crumb from "../../Component/Main-Component/Crumb";
 import Notification from "../../Component/Main-Component/Notification";
 import "../../Sass/Sass-Main/_About.scss";
+import { MyJourney } from "../../Component/Main-Component/MyJourney";
 
 const About = () => {
   return (
@@ -40,7 +41,14 @@ const About = () => {
 
           <p>
             <Container text>
-              <p>
+              <h2>WHY WE ARE DIFFRENT ?</h2>
+              <p>Our core values are trust, integrity and confidentiality. We strive to deliver a cost-effective, professional and speedy service in line with customer requirements. We have a dedicated team of professionals and experienced hands with in-depth knowledge of the laws and procedures relating to governmental transactions. We provide advice which works and ensure that an assignment achieves timely completion. We believe in long term relationships and hence are committed to providing the best services to our Clients</p>
+              <h2>WE ARE AIMING TO</h2>
+              <p>Our goal is to be the PRO concierge service of choice for businesses and individuals across the UAE. Navigating the UAE’s complex landscape of administrative and regulatory obligations can be time-consuming and overwhelming, whether you’re an individual, a start-up, SME or large-scale corporate</p>
+              <h2>MISSION</h2>
+              <p>Our mission is to take the hassle out of business by consistently providing superior services designed to put our clients at ease. And with unparalleled depth of both functional and industrial expertise, we not only help clients enter the UAE market with condense and poise but also build their capabilities for the future. Our knowledge, expertise, local insight and passion allow us to address governmental challenges that no one else can.</p>
+              
+              {/* <p>
                 With an objective of successfully set-up businesses in UAE,
                 Askepro was established in 2014, in Dubai. With a streamlined
                 approach, we ensure that all our experienced consultants help
@@ -66,7 +74,7 @@ const About = () => {
                 <br />
                 <br />
                 Contact us, today!
-              </p>
+              </p> */}
             </Container>
           </p>
         </div>
@@ -74,8 +82,8 @@ const About = () => {
 
       <div className="team">
         <Container>
-          {/* <div className="about_container">
-            <h1 className="headingOne">Our Team</h1>
+        <div className="about_container">
+            <h1 className="headingOne">Meet Our Management Team </h1>
 
             <Grid doubling columns={2}>
               <Grid.Column>
@@ -83,8 +91,8 @@ const About = () => {
                   <div className="about-card">
                     <div className="column">
                       <div className="team-name">
-                        <h5>Agent Name</h5>
-                        <p>Chief Executive Office, EPro</p>
+                        <h5>Ahmed Bin Sulayem</h5>
+                        <p>Executive Chairman and Chief Executive Officer, askEPro</p>
                       </div>
                       <div className="team-content">
                         <p>
@@ -112,7 +120,7 @@ const About = () => {
                     <div className="column">
                       <div className="team-name">
                         <h5>Agent Name</h5>
-                        <p>Chief Executive Office, EPro</p>
+                        <p>Chief Operating Officer, askEPro</p>
                       </div>
                       <div className="team-content">
                         <p>
@@ -136,9 +144,10 @@ const About = () => {
               </Grid.Column>
      
             </Grid>
-          </div> */}
+          </div> 
         </Container>
       </div>
+    <MyJourney />
 
       <Footer />
       <Notification />

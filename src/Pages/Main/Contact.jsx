@@ -30,12 +30,12 @@ const Contact = () => {
           <div className="contact_content">
         <h1>Contact</h1>
 
-        <p>
+        <h2>
           Experience success with UAE and take your business to new heights with
           Askepro.
           <br />
           Contact us, today!
-        </p>
+        </h2>
         </div>
       </div>
       <Container>

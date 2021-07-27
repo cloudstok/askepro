@@ -48,7 +48,7 @@
 
 .team {
   background-color: #fff;
-  padding-top: 52px;
+  padding-top: 15vh;
   h1 {
     &::after {
       @include after;
@@ -122,7 +122,7 @@
     object-fit: cover;
     height: 50vh;
     width: 100%;
-    filter: brightness(50%);
+    filter: brightness(45%);
   }
   .contact_content{
     position: absolute;
@@ -138,6 +138,10 @@
       @include center_after;
       margin-bottom: 20px;
     }
+  }
+  & h2{
+    color: #fff;
+    font-weight: 500;
   }
  & p {
     color: #fff;
@@ -734,4 +738,16 @@
 }
 .account_breadcrumb {
   margin: 0 50px;
+}
+/* //my journey/// */
+.content_list{
+
+}
+.content_list_item{
+  width: 7.75em;
+  height: 7.75em;
+  background-color: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
