@@ -205,7 +205,11 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   .admin_wrapper2{
     padding: 0 1rem;
   }
+.team{
+  padding-top: 0;
 }
+}
+
 
 @media (max-width: 780px) {
   .video_wrapper{
@@ -245,7 +249,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
 
   .team {
     width: 100%;
-    padding: 1rem 0 8rem 0;
+    padding: 10rem 0 8rem 0;
     team-name {
       text-align: right;
     }
@@ -365,7 +369,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   }
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
   .contact {
     p {
       padding: 0px 7px !important;
@@ -455,6 +459,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   }
   .team{ 
     padding: 5rem 0 5rem 0;
+    margin-top: 20rem;
   .about-card {
     width: auto;
     height: auto;
@@ -494,4 +499,9 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   
 
 }
-
+@media only screen and (max-width: 380px) {
+.team{
+  padding: 0 !important;
+  margin-top: 88vh !important;
+ }
+}

@@ -11,7 +11,7 @@ export const MyJourney = () => {
               <Year number='2002'/>
               <Year number='2003'/>
               <Year number='2004'/>
-              <Year number='200 5'/>
+              <Year number='2005'/>
               <Year />
               <Year />
               <Year />

@@ -25,15 +25,15 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1
   };
-
+  AOS.init({
+    offset: 100,
+    duration: 600,  
+    easing: 'ease-in-sine',
+    delay: 100, 
+  });
   const [user, setUser] = React.useState(null);
   const getUser = async () => {
-    AOS.init({
-      offset: 100,
-      duration: 600,  
-      easing: 'ease-in-sine',
-      delay: 100, 
-    });
+   
     const id = localStorage.getItem("id");
     let user = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/users/${id}`, {

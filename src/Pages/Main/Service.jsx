@@ -7,10 +7,16 @@ import Visa from "../../Component/Main-Component/Visa";
 import Accordion from "../../Component/Main-Component/Accordion/Accordion";
 import "../../Sass/Sass-Main/_home.scss";
 import "../../Sass/Sass-Main/_About.scss";
-
+import AOS from "aos";
 import Crumb from "../../Component/Main-Component/Crumb";
 
 const Service = () => {
+  AOS.init({
+    offset: 100,
+    duration: 600,  
+    easing: 'ease-in-sine',
+    delay: 100, 
+  });
   return (
     <>
       <div className="crumb">

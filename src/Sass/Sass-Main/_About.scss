@@ -6,8 +6,7 @@
   padding-bottom: 52px;
   position: relative;
   background-color: #fff;
-  height: 115vh;
-
+  min-height: 90vh;
   .about_bg {
     width: 100%;
     height: auto;
@@ -49,6 +48,8 @@
 .team {
   background-color: #fff;
   padding-top: 18%;
+
+  
   h1 {
     &::after {
       @include after;
@@ -58,14 +59,21 @@
   }
 
   .team-name {
-    text-align: center;
+   
     h5 {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 3rem;
+      font-weight: 900;
       font-family: Lato;
       line-height: 1.22;
       text-align: left;
-      margin: 0 0 0 7.27rem;
+      margin: 0 !important;
+      
+    }
+    h6{
+      font-size: 1.5rem;
+width: 50%;
+font-weight: 600;
+color: #9d9494;
     }
     p {
       font-family: Open Sans;
@@ -73,26 +81,63 @@
       line-height: 1.36;
       font-size: 14px;
       text-align: left;
-      margin: 5px 0 20px 7.27rem;
+    /*   margin: 5px 0 20px 7.27rem; */
+    text-align: right;
     }
   }
   .about-card {
     position: relative;
-    padding: 30px;
+ 
     border: solid 1px #e6e6e6;
     background-color: #ffffff;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-    margin: 74px 0 136px 0;
-    width: 528px;
-    height: 214px;
+    width: auto;
+    max-height: 50vh;
   }
+  .team_text{
 
+    text-align: left !important;
+padding: 2rem;
+height: auto;
+@media only screen and (max-width: 600px) {
+padding: 10px;
+ h5{
+   font-size: 20px;
+ }
+ h6{
+   font-size: 16px;
+   width: 100%;
+ }
+ p{
+   font-size: 14px !important;
+   margin-top: 15px !important;
+ }
+
+}
+  }
+  .team_column{
+    display: inline-flex;
+    height: auto;
+  }
+.team_image{
+  width: auto !important;
+
+  height: 50vh;
+  img{
+    object-fit: cover;
+    width: 28.2vw;
+    height: 50vh;
+    overflow: hidden !important;
+
+  }
+}
   .space1 {
-    margin-right: 0px;
-    margin-left: 15px;
+   height: auto;
+    margin-top: 6rem;
   }
   .space2 {
-    margin-left: 15px;
+    margin-bottom: 5rem; 
+    height: auto;
   }
   .team-image {
     position: absolute;
@@ -106,10 +151,10 @@
   }
 
   .team-content p {
-    color: #9d9494;
     font-family: Open Sans;
     font-size: 16px;
     line-height: 1.38;
+    margin-top: 2rem;
   }
 }
 
@@ -118,9 +163,12 @@
   height: 50vh;
 
   position: relative;
+  .information{
+  background-color: red !important;
+  }
   img {
     object-fit: cover;
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     filter: brightness(45%);
   }
@@ -133,8 +181,7 @@
   & h1 {
     color: #fff;
     margin-top: 10rem;
-      
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Charmonman', cursive;
     @include banner_heading;
     font-size: 8vh;
     &::after {
@@ -156,10 +203,17 @@
 
 .address {
   margin: 76px 0 116px 0;
+  padding: 0 5rem;
   iframe {
     width: 100%;
     border: transparent;
     height: 349px;
+  }
+  .information{
+   height: 346px;
+    position: static;
+    width: 100%;
+    
   }
   .contact-details-1 {
     display: inline-flex;

@@ -46,7 +46,7 @@ const Visa = () => {
             ))}
 
           <Grid.Column width={8}><Link to="/contact">
-            <div className="service-card2" data-aos="fade-up" data-aos-anchor-placement="top-bottom ">
+            <div className="service-card2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
               <img src={process.env.PUBLIC_URL+"/Assets/images/stamp.png"} />
               <p>
                 Didn't find what you were looking for? Contact us we will help
