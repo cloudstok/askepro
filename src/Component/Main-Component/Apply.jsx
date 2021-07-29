@@ -1,7 +1,17 @@
 import React from "react";
 import { Grid, Segment, Container, Icon, Button } from "semantic-ui-react";
+import Slider from "react-slick";
 
 const Apply = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 2000,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+  };
   return (
     <>
       <section className="step">
@@ -84,19 +94,37 @@ const Apply = () => {
           </Grid>
         </Container>
       </section>
-      <Container fluid>
-        <div
-          style={{
-            textAlign: "center",
-            margin: "8rem 0",
-            letterSpacing: "8px",
-          }}
-          data-aos="zoom-out-down"
-          data-aos-anchor-placement="top-bottom"
-        >
-          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
-        </div>
-        {/* <section className="customer">
+
+      <div
+        className="bottom_slider"
+        data-aos="zoom-out-down"
+        data-aos-anchor-placement="top-bottom"
+      >
+     {/*    <img src={process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"} /> */}
+        <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
+        <Slider {...settings}>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service2.png"} />
+          </div>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service1.png"} />
+          </div>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service2.png"} />
+          </div>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service1.png"} />
+          </div>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service2.png"} />
+          </div>
+          <div className="slider_img">
+            <img src={process.env.PUBLIC_URL + "/Assets/images/service1.png"} />
+          </div>
+        </Slider>
+      </div>
+
+      {/* <section className="customer">
         
           <h1 className="headingOne">Customer Reviews</h1>
 
@@ -204,7 +232,6 @@ const Apply = () => {
           </div>
         
       </section> */}
-      </Container>
     </>
   );
 };

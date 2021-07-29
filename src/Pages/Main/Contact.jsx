@@ -5,6 +5,7 @@ import Footer from "../../Component/Main-Component/Footer";
 import "../../Sass/Sass-Main/_About.scss";
 import Crumb from "../../Component/Main-Component/Crumb";
 import AOS from "aos";
+import Updated from "../../Component/popup/updated";
 
 const Contact = () => {
     const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
@@ -154,7 +155,51 @@ const Contact = () => {
           </Grid>
         </div>
    
-      <Footer />
+       
+      <footer className="footer">
+        <Container fluid>
+          <Grid stackable columns={2}>
+            <Grid.Column width={9}>
+              <div className="footer-part-1">
+                <a href="#">
+                <img
+                  className="footer_image"
+                  src={
+                    process.env.PUBLIC_URL + "/Assets/images/Epro Logo_Web.png"
+                  }
+                /></a>
+
+                <img
+                  className="footer_image1"
+                  src={process.env.PUBLIC_URL + "/Assets/images/playstore.png"}
+                />
+
+                <img
+                  className="footer_image2"
+                  src={process.env.PUBLIC_URL + "/Assets/images/ios.png"}
+                />
+              </div>
+            </Grid.Column>
+
+            <Grid.Column width={7}>
+              <div className="footer-part-2">
+                <p>copyright © 2020 AskePro</p>
+                <div className="bottom-button">
+                  {/*<a href="#" style={{ borderLeft: "none" }}>
+                    Site Map
+                  </a>
+                   <a href="#">Legal Notice</a>
+                  <a href="#">Data Policy</a>
+                  <a href="#">Terms and Conditions</a>
+                  <a href="#">Privacy Policy</a> */}
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid>
+        </Container>
+        <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
+      </footer>
+      
       <Notification />
     </>
   );
