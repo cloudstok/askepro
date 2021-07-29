@@ -248,7 +248,20 @@ const About = () => {
           </div>
         </Container>
       </div>
-      {/*   <MyJourney /> */}
+       <MyJourney />
+      {/* <div className="our_journey">
+        <h1 className="headingOne">Our Journey</h1>
+        <p>Follow our history from humble beginnings to a world-class trade center.</p>
+        <div className="flow_chart">
+          <ul className="content_list">
+            <li><p>2002</p></li>
+            <li><p>2003</p></li>
+            <li><p>2004</p></li>
+            <li><p>2005</p></li>
+            <li><p>2008</p></li>
+          </ul>
+        </div>
+      </div> */}
 
       <Footer />
       <Notification />

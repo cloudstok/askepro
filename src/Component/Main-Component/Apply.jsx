@@ -94,7 +94,7 @@ const Apply = () => {
           data-aos="zoom-out-down"
           data-aos-anchor-placement="top-bottom"
         >
-          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNEMNT DEPARTMENTS</h2>
+          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNMENT DEPARTMENTS</h2>
         </div>
         {/* <section className="customer">
         

@@ -796,15 +796,91 @@ padding: 10px;
 .account_breadcrumb {
   margin: 0 50px;
 }
+
+
+
 /* //my journey/// */
-.content_list{
+
+
+
+.my_journey {
+
+  // height: 100vh !important; 
+    // .journey_list {
+    //   width: 6em !important;
+    //   height: 6em !important;
+    //   border-radius: 50% !important;
+    //   border: 1px solid #c7a006 !important;
+    //   // text-align: center;
+    //   display: block !important;
+// }
+    
+
+  .content_list_item{
+    width: 7.75em;
+    height: 7.75em;
+    background: rgb(199, 160, 6);
+    background: linear-gradient(
+    90deg,
+    rgba(199, 160, 6, 1) 11%,
+    rgba(231, 237, 50, 1) 51%,
+    rgba(199, 160, 6, 1) 92%) !important;
+    border-radius: 50%;
+    display: grid;
+    place-items: center
+  }
+  .odd_year::after {
+    position: absolute;
+    display: inline;
+    
+
+  }
 
 }
-.content_list_item{
-  width: 7.75em;
-  height: 7.75em;
-  background-color: 0;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-}
+
+
+
+
+
+
+/* //my journey/// */
+// .flow_chart{
+
+
+//   // h1 {
+//     // &::after {
+//     //   @include after;
+//     //   height: 9px;
+//     //   margin-top: 10px;
+//     // }
+
+//   // .content_list_item{
+//     // width: 7.75em;
+//     // height: 7.75em;
+//     // background-color: 0;
+//     // border-radius: 50%;
+//     // display: grid;
+//     // place-items: center
+//   // }
+//     ul.content_list {
+//       list-style-type: none;
+//     }
+//     li {
+//       width: 6em;
+//       height: 6em;
+//       border-radius: 50%;
+//       border: 1px solid #c7a006;
+//       text-align: center;
+//       display: block;
+//       // line-height: 2em;
+//       // place-content: center;
+//       margin: 2em 0;
+//     );
+
+//       p {
+//         color: white;
+//         font-weight: 600;
+//         font-size: 1.4em;
+//       }
+//     }
+// }
