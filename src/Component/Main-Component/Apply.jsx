@@ -9,7 +9,7 @@ const Apply = () => {
     autoplay: true,
     speed: 500,
     autoplaySpeed: 2000,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
   };
   return (
@@ -100,40 +100,84 @@ const Apply = () => {
         data-aos="zoom-out-down"
         data-aos-anchor-placement="top-bottom"
       >
-     {/*    <img src={process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"} /> */}
-        <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNMENT DEPARTMENTS</h2>
-        <Slider {...settings}>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/Dubai-Health-Authority-Jobs.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/Dubai-Municipality-2048x1063.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/images.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/kissclipart-trakhees-logo-clipart-logo-trakhees-environment-1c20dac0f2e57ace.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/kisspng-tasheel-abu-dhabi-business-service-company-dubai-5acc8fa6463572.2931354715233555582876.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/logo_ded.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/ministry-of-interior.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/new-amer.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/pngegg.png"} />
-          </div>
-          <div className="slider_img">
-            <img src={process.env.PUBLIC_URL + "/Assets/images/1200px-UAE_MOH_brandmark_Vertical_RGB_AE.png"} />
-          </div>
-        </Slider>
+        <div className="slider_image_section">
+          <img src={process.env.PUBLIC_URL + "/Assets/images/brands.jpg"} />
+        </div>
+        <div className="slider_content">
+          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNMENT DEPARTMENTS</h2>
+          <Container>
+            <Slider {...settings}>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/Dubai-Health-Authority-Jobs.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/Dubai-Municipality-2048x1063.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={process.env.PUBLIC_URL + "/Assets/images/images.png"}
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/kissclipart-trakhees-logo-clipart-logo-trakhees-environment-1c20dac0f2e57ace.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/kisspng-tasheel-abu-dhabi-business-service-company-dubai-5acc8fa6463572.2931354715233555582876.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/1200px-UAE_MOH_brandmark_Vertical_RGB_AE.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/Assets/images/ministry-of-interior.png"
+                  }
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={process.env.PUBLIC_URL + "/Assets/images/new-amer.png"}
+                />
+              </div>
+              <div className="slider_glide">
+                <img
+                  src={process.env.PUBLIC_URL + "/Assets/images/pngegg.png"}
+                />
+              </div>
+              <div className="slider_glide" id="glide_box">
+                <img
+                  src={process.env.PUBLIC_URL + "/Assets/images/logo_ded.png"}
+                />
+              </div>
+            </Slider>
+          </Container>
+        </div>
       </div>
 
       {/* <section className="customer">
