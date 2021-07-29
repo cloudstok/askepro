@@ -804,6 +804,13 @@ padding: 10px;
 
 
 .my_journey {
+  .journey_list {
+    // align-content: center !important;
+  // display: flex !important;
+  // flex-direction: column !important;
+  // justify-content: center !important;
+  }
+
 
   // height: 100vh !important; 
     // .journey_list {
@@ -827,22 +834,45 @@ padding: 10px;
     rgba(199, 160, 6, 1) 92%) !important;
     border-radius: 50%;
     display: grid;
-    place-items: center
-  }
-  .odd_year::after {
-    position: absolute;
-    display: inline;
-    
+    margin: 50px 0px;
+    place-items: center;
 
+    &::after {
+      content: "";
+      border: 2px solid black;
+      width: 2px;
+      height: 40px;
+         }
   }
+  
+
 
 }
 
+// .odd_year{
+//   display: block !important;
+//   .img {
+//     position: relative !important;
+//     left: 15% !important;
+//     top: -10%
+//   }
+
+// }
+
+// .odd_year::after {
+//   position: relative !important;
+//   // top: -35px;
+//   // left: 107px;
+//   // left: 15px !important;
+//   display: block !important;
+//   content: "";
+//   border: 1px solid black !important;
+//   width: 100px !important;
+// }
 
 
 
-
-
+// content_list_item
 /* //my journey/// */
 // .flow_chart{
 
@@ -884,3 +914,16 @@ padding: 10px;
 //       }
 //     }
 // }
+
+.my_journey {
+  width:100%;
+  height: 100vh !important;
+  // display: inline;
+
+  .journey_tree {
+
+  position: relative;
+  left: 50%;
+
+  }
+}

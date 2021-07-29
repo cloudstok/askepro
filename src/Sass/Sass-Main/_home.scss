@@ -783,20 +783,24 @@ body {
   } */
   h2{
     color: #000 !important;
-margin-bottom: 5rem !important;
+    margin-bottom: 5rem !important;
     z-index: 5;
     margin: 0;
   }
   
   .slider_img{
-position: relative;
-left: 10rem;
-img{
-  background-image: red !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    position: relative;
+    left: 10rem;
+    img{
+      background-image: red !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 140px;
+      padding-bottom: 40px;
+      // margin-bottom: 30px;
+    }
   }
   .slick-dots li button:before {
     color: #000 !important;
