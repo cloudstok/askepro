@@ -7,8 +7,8 @@ const Apply = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    speed: 500,
-    autoplaySpeed: 2000,
+    speed: 600,
+    autoplaySpeed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
   };
@@ -104,15 +104,15 @@ const Apply = () => {
           <img src={process.env.PUBLIC_URL + "/Assets/images/brands.jpg"} />
         </div>
         <div className="slider_content">
-          <h2>WE ARE CLOSELY WORKING WITH ALL GOVERNMENT DEPARTMENTS</h2>
+          <h2>We Are Closely Working With All <br/>Government Departments</h2>
           <Container>
             <Slider {...settings}>
               <div className="slider_glide">
-                <img
+                <img  id="xl_glide"
                   src={
                     process.env.PUBLIC_URL +
                     "/Assets/images/Dubai-Health-Authority-Jobs.png"
-                  }
+                  } width="135px"
                 />
               </div>
               <div className="slider_glide">
@@ -125,7 +125,7 @@ const Apply = () => {
               </div>
               <div className="slider_glide">
                 <img
-                  src={process.env.PUBLIC_URL + "/Assets/images/images.png"}
+                  src={process.env.PUBLIC_URL + "/Assets/images/images.png"} width='125px'
                 />
               </div>
               <div className="slider_glide">
@@ -168,7 +168,7 @@ const Apply = () => {
               <div className="slider_glide">
                 <img
                   src={process.env.PUBLIC_URL + "/Assets/images/pngegg.png"}
-                />
+                width='100px' />
               </div>
               <div className="slider_glide" id="glide_box">
                 <img
