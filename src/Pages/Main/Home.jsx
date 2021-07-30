@@ -69,8 +69,8 @@ const Home = () => {
             </video>
             <Slider {...sliderSettings} className="video_content">
             <div >
-              <h1>LEADING IMMIGRATION CONSULTANTS IN DUBAI</h1>
-              <p>Our business is to make your business easier in the UAE.</p>
+              <h1>Our business is to make your business<br/> easier in the UAE. </h1>
+             {/*  <p>LEADING IMMIGRATION CONSULTANTS IN DUBAI</p> */}
               <Link to="apply">
                 <button type="button" className="same-btn">
                   APPLY NOW
@@ -81,7 +81,7 @@ const Home = () => {
                       <div className="one"></div>
 
                       <div className="two">
-                        <h1>SET UP YOUR BUSINESS IN THE WORLDS #1 BUSINESS HUB</h1>
+                        <h1>Set up your business in the WORLDS<br/> #1 BUSINESS HUB</h1>
                         <p></p>
                       </div>
                       <button
@@ -95,7 +95,7 @@ const Home = () => {
                       <div className="one"></div>
 
                       <div className="two">
-                       <h1> GET LICENSE UNDER 100% OWNERSHIP IN UAE</h1> 
+                       <h1> GET LICENSE UNDER 100%<br/> OWNERSHIP IN UAE</h1> 
                        <p></p>
                       </div>
                       <button
