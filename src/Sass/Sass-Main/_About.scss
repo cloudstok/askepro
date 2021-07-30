@@ -799,67 +799,88 @@ padding: 10px;
 
 
 
-/* //my journey/// */
+/* my journey */
 
 
 
 .my_journey {
-  .journey_list {
-    // align-content: center !important;
-  // display: flex !important;
-  // flex-direction: column !important;
-  // justify-content: center !important;
-  }
 
-
-  // height: 100vh !important; 
-    // .journey_list {
-    //   width: 6em !important;
-    //   height: 6em !important;
-    //   border-radius: 50% !important;
-    //   border: 1px solid #c7a006 !important;
-    //   // text-align: center;
-    //   display: block !important;
-// }
-    
-
-  .content_list_item{
+  .content_list_item {
     width: 7.75em;
     height: 7.75em;
-    background: rgb(199, 160, 6);
-    background: linear-gradient(
-    90deg,
-    rgba(199, 160, 6, 1) 11%,
-    rgba(231, 237, 50, 1) 51%,
-    rgba(199, 160, 6, 1) 92%) !important;
+    background: black;
     border-radius: 50%;
     display: grid;
     margin: 50px 0px;
     place-items: center;
+    color: white;
+    // display: inline;
 
     &::after {
       content: "";
       border: 2px solid black;
       width: 2px;
-      height: 50px;
-      position: relative;
-      top: 87%;
-         }
+      height: 80%;
+      position: absolute;
+      // top: 87%;
+      left: 2.8%;
+      top: 10%;
+      z-index: -1;
+    }
   }
   
-
+}
+.odd_child, .even_child {
+  display: flex;
 
 }
+.odd_child_content {
+  display: flex;
+  align-items: center;
+  // margin-left: 10%;
 
-// .odd_year{
-//   display: block !important;
-//   .img {
-//     position: relative !important;
-//     left: 15% !important;
-//     top: -10%
-//   }
+  &::before {
+    content: "";
+      border: 2px solid black;
+      width: 50%;
+      height: 2px;
+  }
+}
 
-// }
+.even_child_content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -30%;
+  &::after {
+    content: "";
+      border: 2px solid black;
+      width: 50%;
+      height: 2px;
+  }
+}
+
+.flex_content {
+  // margin-left: 1%;
+  margin: 10px;
+}
+
+
+.my_journey {
+  width:100%;
+  height: 150vh !important;
+  .journey_tree {
+    position: relative;
+    left: 50%;
+    img {
+      border-radius: 50% !important;
+      width: 160px;
+      height: 160px;
+    }
+  }
+}
+
+
 
 // .odd_year::after {
 //   position: relative !important;
@@ -917,15 +938,3 @@ padding: 10px;
 //     }
 // }
 
-.my_journey {
-  width:100%;
-  height: 100vh !important;
-  // display: inline;
-
-  .journey_tree {
-
-  position: relative;
-  left: 50%;
-
-  }
-}
