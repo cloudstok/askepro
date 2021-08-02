@@ -97,13 +97,13 @@ const Apply = () => {
 
       <div
         className="bottom_slider"
-        data-aos="zoom-out-down"
+        data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
       >
         <div className="slider_image_section">
           <img src={process.env.PUBLIC_URL + "/Assets/images/brands.jpg"} />
         </div>
-        <div className="slider_content">
+        <div className="slider_content" >
           <h2>We Are Closely Working With All <br/>Government Departments</h2>
           <Container>
             <Slider {...settings}>
