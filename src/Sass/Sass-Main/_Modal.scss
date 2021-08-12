@@ -18,6 +18,17 @@
   text-align: center;
   @include verify_top;
 }
+
+.modal{
+  width: 400px !important;
+  padding: 8px !important;
+  height: 150px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
 .modal .header {
   &::after {
     content: none;

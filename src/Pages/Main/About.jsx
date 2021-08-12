@@ -10,7 +10,7 @@ import AOS from "aos";
 const About = () => {
   AOS.init({
     offset: 100,
-    duration: 600,  
+    duration: 1300,  
     easing: 'ease-in-sine',
     delay: 100, 
   });
@@ -61,6 +61,7 @@ const About = () => {
               </div>
               <br />
               <br />
+              <br />
               <div data-aos="fade-left">
                 <h2>WE ARE AIMING TO</h2>
                 <p>
@@ -71,6 +72,7 @@ const About = () => {
                   you’re an individual, a start-up, SME or large-scale corporate
                 </p>
               </div>
+              <br />
               <br />
               <br />
               <div data-aos="fade-right" data-aos-anchor-placement="top-bottom">
@@ -86,33 +88,7 @@ const About = () => {
                   challenges that no one else can.
                 </p>
               </div>
-              {/* <p>
-                With an objective of successfully set-up businesses in UAE,
-                Askepro was established in 2014, in Dubai. With a streamlined
-                approach, we ensure that all our experienced consultants help
-                you navigate through all the processes that are needed to
-                relocate, establish or start a venture from scratch.
-                Cost-effectiveness and transparent communication are constantly
-                emphasised on because our business’s success lies in yours.
-                <br />
-                <br />
-                With an expert advisory and experience in dealing with clients
-                from various industries, our experience is reflected on our
-                approach towards your requirements and the quick turn-around
-                time also ensures that you do not miss an opportunity in
-                succeeding.
-                <br />
-                <br />
-                Get in-touch for all business requirements and relocation
-                queries and we’ll contact you with the best way forward.
-                <br />
-                <br />
-                Experience success with UAE and take your business to new
-                heights with Askepro.
-                <br />
-                <br />
-                Contact us, today!
-              </p> */}
+           
             </Container>
         
         </div>

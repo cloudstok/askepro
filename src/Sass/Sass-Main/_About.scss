@@ -46,7 +46,7 @@
 
 .team {
   background-color: #fff;
-  padding-top: 18%;
+  padding-top: 40%;
 
   h1 {
     &::after {
@@ -314,6 +314,9 @@
     font-size: 14px;
     line-height: 1.36 !important;
   }
+  .year{
+    display: block;
+  }
 }
 .overview {
   margin: 40px 0 136px 0;
@@ -334,7 +337,7 @@
     min-width: 22% !important;
     min-height: 56px;
     padding: 15px 30px 17px 20px;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     margin: 41px 0;
     & .icon {
@@ -346,6 +349,13 @@
     }
     & .menu {
       width: 400px;
+    }
+    .item, .text{
+      font-size: 16px !important;
+      font-weight: 600;
+    }
+    &:hover{
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
     }
   }
   .testimonial img {

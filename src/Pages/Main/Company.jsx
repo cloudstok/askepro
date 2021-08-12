@@ -6,14 +6,13 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import Crumb from "../../Component/Main-Component/Crumb";
 import "../../Sass/Sass-Main/_About.scss";
 
-
 const Company = () => {
   const history = useHistory();
   const [service, setService] = React.useState({});
   const [serviceType, setServiceType] = React.useState({});
   const [options, setOptions] = React.useState([]);
-  const [show, setShow]=React.useState(false);
-    const { slug } = useParams();
+  const [show, setShow] = React.useState(false);
+  const { slug } = useParams();
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
   React.useEffect(() => {
     getServiceSlugDetail();
@@ -27,12 +26,12 @@ const Company = () => {
       name: services.data.name,
       scode: services.data.scode,
       overview: services.data.overview,
-      serviceDetail:services.data.serviceDetail,
+      serviceDetail: services.data.serviceDetail,
       description: services.data.description,
-      slug: services.data.slug
+      slug: services.data.slug,
     };
     console.log(services);
-    let serviceOptions = services.data.serviceDetail.map(e => ({
+    let serviceOptions = services.data.serviceDetail.map((e) => ({
       text: e.name,
       value: e._id,
       key: e._id,
@@ -41,11 +40,10 @@ const Company = () => {
     setService(serviceData);
   };
   const getserviceType = async (val) => {
-    let sub=service.serviceDetail.find(o => o._id === val);
+    let sub = service.serviceDetail.find((o) => o._id === val);
     setShow(true);
     setServiceType(sub);
-  }
-
+  };
 
   if (!service) return <div></div>;
   return (
@@ -55,8 +53,9 @@ const Company = () => {
         <div
           class="company"
           style={{
-            background: `url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
-              })`,
+            background: `url(${
+              process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
+            })`,
             backgroundSize: "cover",
           }}
         >
@@ -89,86 +88,77 @@ const Company = () => {
                     }}
                   />
 
-{show?      <Grid.Column>
-                    <div className="company_plans">
-                      <div className="tourist" style={{ margin: "0" }}>
-                        <Grid>
-                          <Grid.Row>
-                            <Grid.Column>
-                              <div className="tourist-border">
-                                <div className="hours">
-                                  <h3>{serviceType.name}</h3>
-                                  <Link to="/apply">
-                                    {" "}
-                                    <button className="same-btn" type="submit">
-                                      APPLY NOW
-                                    </button>
-                                  </Link>
+                  {show ? (
+                    <Grid.Column>
+                      <div className="company_plans">
+                        <div className="tourist" style={{ margin: "0" }}>
+                          <Grid>
+                            <Grid.Row>
+                              <Grid.Column>
+                                <div className="tourist-border">
+                                  <div className="hours">
+                                    <h3>{serviceType.name}</h3>
+                                    <Link to="/apply">
+                                      {" "}
+                                      <button
+                                        className="same-btn"
+                                        type="submit"
+                                      >
+                                        APPLY NOW
+                                      </button>
+                                    </Link>
+                                  </div>
+
+                                  <Table fixed>
+                                    <Table.Row></Table.Row>
+                                    <Table.Row>
+                                      <Table.HeaderCell>Fees</Table.HeaderCell>
+
+                                      <Table.Cell>
+                                        <div className="total-right">
+                                        <span className="year"> 1 YEAR</span>
+                                          {serviceType.price} AED
+                                        </div>
+                                      </Table.Cell>
+                                      <Table.Cell>
+                                        <div className="total-right">
+                                        <span className="year"> 2 YEAR</span>
+                                          {serviceType.price} AED
+                                        </div>
+                                      </Table.Cell>
+                                      <Table.Cell>
+                                        <div className="total-right">
+                                        <span className="year"> 3 YEAR</span>
+                                          {serviceType.price} AED
+                                        </div>
+                                      </Table.Cell>
+                                    </Table.Row>
+                                  </Table>
                                 </div>
-                                {/*      <div className="hours-content">
-                              <div className="rectangle11">
-                                <div className="days-dull">Processing Time:</div>
-                                <div className="days">Upto {service.processT} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Stay Period:</div>
-                                <div className="days">{service.stayPeriod} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Validity</div>
-                                <div className="days">{service.validity} Days</div>
-                              </div>
-                              <div className="rectangle11">
-                                <div className="days-dull">Entry:</div>
-                                <div className="days">{service.entry}</div>
-                              </div>
-                            </div > */}
-                                <Table fixed>
-                                  <Table.Row>
-                                    {/* <Table.HeaderCell>Processing Time</Table.HeaderCell>
-                                    <Table.HeaderCell>Stay Period</Table.HeaderCell>
-                                    <Table.HeaderCell>Validity</Table.HeaderCell>
-                                    <Table.HeaderCell>Entry</Table.HeaderCell> */}
-                                    <Table.HeaderCell>Fees</Table.HeaderCell>
-                                  </Table.Row>
-                                  <Table.Row>
-                                    {/* <Table.Cell>
-                                      Upto {serviceType.processT} Days
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                      {serviceType.stayPeriod} Days
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                      {serviceType.validity} Days
-                                    </Table.Cell>
-                                    <Table.Cell>{serviceType.entry}</Table.Cell> */}
-                                    <Table.Cell><span className="total-right">{serviceType.price} AED</span></Table.Cell>
-                                  </Table.Row>
-                                </Table>
-                              </div>
-                            </Grid.Column>
-                          </Grid.Row>
-                        </Grid>
+                              </Grid.Column>
+                            </Grid.Row>
+                          </Grid>
+                        </div>
                       </div>
-                    </div>
-                    <h3>Documents Required</h3>
+                      <h3>Documents Required</h3>
 
-                  {serviceType.reqDocs &&
-                    serviceType.reqDocs.map((d) => (
-                      <div className="testimonial">
-                        <img
-                          src={
-                            process.env.PUBLIC_URL +
-                            "/Assets/images/pinpoint.png"
-                          }
-                        />
-                        <p>{d}</p>
-                      </div>
-                    ))}
-                  </Grid.Column>:<></>}
+                      {serviceType.reqDocs &&
+                        serviceType.reqDocs.map((d) => (
+                          <div className="testimonial">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/Assets/images/pinpoint.png"
+                              }
+                            />
+                            <p>{d}</p>
+                          </div>
+                        ))}
+                    </Grid.Column>
+                  ) : (
+                    <></>
+                  )}
 
-                  
-                    
                   {/*
               <div className="testimonial">
               <img src={process.env.PUBLIC_URL + '/Assets/images/pinpoint.png'} />

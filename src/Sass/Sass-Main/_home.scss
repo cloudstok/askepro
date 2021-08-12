@@ -457,13 +457,26 @@ body {
     width: 50%;
   }
   .total-right {
-    width: 50%;
     line-height: 1.2;
     font-size: 20px;
     font-weight: bold;
     color: #000000;
     font-family: Lato;
     text-align: right;
+    display: inline-block;
+    text-align: center;
+    border: solid 1px #000;
+    padding: 0.75rem;
+    left: 0;
+    border-radius: 30px;
+    font-size: 1.20rem;
+    width: 50%;
+   
+    &:hover{
+      background: $primary-color;
+      background: $gradient;
+
+    }
   }
 }
 
@@ -767,19 +780,19 @@ body {
 .bottom_slider {
   text-align: center;
   position: relative;
-  
+
   height: 75vh !important;
 
   .slider_image_section {
     object-fit: cover;
-    
+
     min-width: 100%;
     position: relative;
     z-index: -1;
     min-width: 100%;
     min-height: 100%;
-    
-    img { 
+
+    img {
       background-size: cover !important;
       height: 75vh !important;
       filter: grayscale(50%) brightness(35%);
@@ -815,7 +828,6 @@ body {
       filter: grayscale(1) invert(1);
       max-width: 250px;
       max-height: 130px;
-   
 
       // margin-bottom: 30px;
     }
