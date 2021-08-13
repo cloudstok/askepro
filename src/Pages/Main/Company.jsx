@@ -12,6 +12,11 @@ const Company = () => {
   const [serviceType, setServiceType] = React.useState({});
   const [options, setOptions] = React.useState([]);
   const [show, setShow] = React.useState(false);
+  const [slugName, setSlug]=React.useState([]);
+  const [name, setName]=React.useState([]);
+  const [subCatId, setSubCat]=React.useState([]);
+  const [subCatName, setSubCatName]=React.useState([]);
+ 
   const { slug } = useParams();
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
   React.useEffect(() => {
@@ -30,7 +35,6 @@ const Company = () => {
       description: services.data.description,
       slug: services.data.slug,
     };
-    console.log(services);
     let serviceOptions = services.data.serviceDetail.map((e) => ({
       text: e.name,
       value: e._id,
@@ -42,8 +46,46 @@ const Company = () => {
   const getserviceType = async (val) => {
     let sub = service.serviceDetail.find((o) => o._id === val);
     setShow(true);
+    console.log(sub);
     setServiceType(sub);
   };
+
+  const handleSubmit=async (slug, name, subCatId, subCatName)=>{
+    localStorage.setItem("serviceSlug",slug);
+    let jsonPostData={
+      "serviceName": name
+    }
+    let userId= localStorage.getItem('id')
+    let url=`${process.env.REACT_APP_BASE_URL}/service/${userId}`
+    const result = await(await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-access-token':localStorage.getItem("token")
+      },
+      body: JSON.stringify(jsonPostData)
+    })).json();
+    
+    localStorage.setItem("applicationId", result.data._id);
+    localStorage.setItem("subCatId",subCatId);
+    jsonPostData={
+      "subCat": subCatName
+    }
+   
+   url = `${process.env.REACT_APP_BASE_URL}/service/type/${result.data._id}`;
+    await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-access-token':localStorage.getItem("token")
+      },
+      body: JSON.stringify(jsonPostData)
+    })
+    
+    history.push(`/fill`);
+  }
 
   if (!service) return <div></div>;
   return (
@@ -75,8 +117,8 @@ const Company = () => {
             <Grid stackable column={2}>
               <Grid.Column>
                 <div className="Service_overview">
-                  <h3>Overview</h3>
-                  <p>{service.overview}</p>
+               {/*    <h3>Overview</h3>
+                  <p>{service.overview}</p> */}
                   <Dropdown
                     className="golu"
                     placeholder="Service Type"
@@ -103,37 +145,34 @@ const Company = () => {
                                       <button
                                         className="same-btn"
                                         type="submit"
+                                        onClick={()=>handleSubmit(service.slug,service.name,serviceType._id,serviceType.name)}
                                       >
                                         APPLY NOW
                                       </button>
                                     </Link>
                                   </div>
-
                                   <Table fixed>
-                                    <Table.Row></Table.Row>
-                                    <Table.Row>
-                                      <Table.HeaderCell>Fees</Table.HeaderCell>
-
-                                      <Table.Cell>
-                                        <div className="total-right">
-                                        <span className="year"> 1 YEAR</span>
-                                          {serviceType.price} AED
-                                        </div>
-                                      </Table.Cell>
-                                      <Table.Cell>
-                                        <div className="total-right">
-                                        <span className="year"> 2 YEAR</span>
-                                          {serviceType.price} AED
-                                        </div>
-                                      </Table.Cell>
-                                      <Table.Cell>
-                                        <div className="total-right">
-                                        <span className="year"> 3 YEAR</span>
-                                          {serviceType.price} AED
-                                        </div>
-                                      </Table.Cell>
-                                    </Table.Row>
-                                  </Table>
+                                  <Table.Row>
+                                    {/* <Table.HeaderCell>Processing Time</Table.HeaderCell>
+                                    <Table.HeaderCell>Stay Period</Table.HeaderCell>
+                                    <Table.HeaderCell>Validity</Table.HeaderCell>
+                                    <Table.HeaderCell>Entry</Table.HeaderCell> */}
+                                    <Table.HeaderCell>Fees</Table.HeaderCell>
+                                  </Table.Row>
+                                  <Table.Row>
+                                    {/* <Table.Cell>
+                                      Upto {serviceType.processT} Days
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                      {serviceType.stayPeriod} Days
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                      {serviceType.validity} Days
+                                    </Table.Cell>
+                                    <Table.Cell>{serviceType.entry}</Table.Cell> */}
+                                    <Table.Cell><span className="total-right">{serviceType.price} AED</span></Table.Cell>
+                                  </Table.Row>
+                                </Table>
                                 </div>
                               </Grid.Column>
                             </Grid.Row>

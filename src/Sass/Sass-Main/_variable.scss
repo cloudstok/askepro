@@ -249,7 +249,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
 
   .team {
     width: 100%;
-    padding: 10rem 0 8rem 0;
+    padding: 20vh 0 8rem 0;
     team-name {
       text-align: right;
     }
@@ -458,7 +458,7 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
     }
   }
   .team{ 
-    padding: 5rem 0 5rem 0;
+    padding: 10rem 0 5rem 0;
     margin-top: 20rem;
   .about-card {
     width: auto;
@@ -504,4 +504,15 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   padding: 0 !important;
   margin-top: 88vh !important;
  }
+ 
+ 
 }
+@media only screen and (max-width: 330px) {
+  .team{
+    padding: 0 !important;
+    margin-top: 150vh !important;
+   }
+   
+   
+  }
+  
