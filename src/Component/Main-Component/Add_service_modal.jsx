@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Icon,
-  Grid,
-  Header,
-  Image,
-  Modal,
-  Form,
-  Table,
-  Input,
-  TextArea
-} from "semantic-ui-react";
+import { Button, Icon, Modal, Form, Input, TextArea } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
 import AdminAccordion from "./Accordion/AdminAccordion";
 import Updated from "../../Component/popup/updated";
@@ -52,13 +41,13 @@ const Service_modal = (props) => {
 
   const uploadWithFormData = async (event) => {
     if (!name || !overview || !description || !file) {
-      setMsg("Please Fill out all the details")
+      setMsg("Please Fill out all the details");
       setOpenErr(true);
       return;
     }
     dispatch({ type: "close" });
 
-    const url = `${process.env.REACT_APP_BASE_URL}/admin/services`
+    const url = `${process.env.REACT_APP_BASE_URL}/admin/services`;
     event.preventDefault();
     const formData = new FormData();
     formData.append("upload", file);
@@ -73,51 +62,62 @@ const Service_modal = (props) => {
     // formData.append("price",price );
     // formData.append("reqDocs", reqDocs);
 
-
-    const result = await (await fetch(url, {
-      method: 'POST',
-      body: formData
-    })).json();
+    const result = await (
+      await fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+    ).json();
 
     if (result.status === 1) {
-      setMsg("Service Added Successfully")
-      setOpen(true)
+      setMsg("Service Added Successfully");
+      setOpen(true);
       setServiceDetail([]);
       window.location.reload(false);
     } else {
-      setMsg("There has been an error")
+      setMsg("There has been an error");
       setServiceDetail([]);
-      setOpenErr(true)
+      setOpenErr(true);
     }
-  }
+  };
   const handleAdd = async (e) => {
     e.preventDefault();
-    setComp([...comp, <Form.Input id="var" label='Enter Var' onChange={(e) => setSubject(subject + "~" + e.target.value)} ></Form.Input>]);
-  }
+    setComp([
+      ...comp,
+      <Form.Input
+        id="var"
+        label="Enter Var"
+        onChange={(e) => setSubject(subject + "~" + e.target.value)}
+      ></Form.Input>,
+    ]);
+  };
   const handleSave = async (e) => {
     if (!type || !price || !reqDocs) {
-      setMsg("Please Fill out all the details")
+      setMsg("Please Fill out all the details");
       setOpenErr(true);
       return;
     }
 
-    if (serviceDetail.find(o => o.name === type)) {
-      setMsg("Please Use a Different name")
+    if (serviceDetail.find((o) => o.name === type)) {
+      setMsg("Please Use a Different name");
       setOpenErr(true);
       return;
     }
-    setServiceDetail([...serviceDetail, {
-      name: type,
-      price: price,
-      // processT: processT,
-      // stayPeriod: stayPeriod,
-      // validity: validity,
-      // entry: entry,
-      reqDocs: reqDocs.split(",")
-    }]);
-    setMsg("Application Type has been added")
-    setOpen(true)
-  }
+    setServiceDetail([
+      ...serviceDetail,
+      {
+        name: type,
+        price: price,
+        // processT: processT,
+        // stayPeriod: stayPeriod,
+        // validity: validity,
+        // entry: entry,
+        reqDocs: reqDocs.split(","),
+      },
+    ]);
+    setMsg("Application Type has been added");
+    setOpen(true);
+  };
   const resetFields = async (e) => {
     e.preventDefault();
     setEntry("");
@@ -129,54 +129,66 @@ const Service_modal = (props) => {
     setEntry("");
     setDocs("");
     setProcessT("");
-  }
+  };
   console.log(serviceDetail);
   return (
     <>
-
-      <button className="same-btn" /* onClick={submitFaq} */ onClick={() => dispatch({ type: "open", size: "huge" })}>
+      <button
+        className="same-btn"
+        /* onClick={submitFaq} */ onClick={() =>
+          dispatch({ type: "open", size: "large" })
+        }
+      >
         + ADD SERVICE
       </button>
       <Modal
         size={size}
         open={open}
-        onClose={() => { setServiceDetail([]); dispatch({ type: "close" }) }}
+        onClose={() => {
+          setServiceDetail([]);
+          dispatch({ type: "close" });
+        }}
       >
-
         <Modal.Header>
           <div className="accept_heading">Add New Service</div>
         </Modal.Header>
         <Modal.Content>
           <div className="services_form">
             <Form>
-              <Form.Group widths='equal'>
+              <Form.Group widths="equal">
                 <Form.Field
                   control={Input}
-                  label='Service name'
+                  label="Service name"
                   value={name}
-                  placeholder='Enter Service name'
+                  placeholder="Enter Service name"
                   onChange={(event) => setName(event.target.value)}
                 />
                 <Form.Field>
                   <label>Image(JPEG/PNG)</label>
-                  <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
-                  <p className='file'>
-                    <label for='file-btn'>Click to select file  </label>
+                  <Input
+                    type="file"
+                    name="file"
+                    id="file-btn"
+                    onChange={(event) => setFile(event.target.files[0])}
+                    style={{ display: "none" }}
+                  />
+                  <p className="file">
+                    <label for="file-btn">Click to select file </label>
                   </p>
                 </Form.Field>
               </Form.Group>
               <Form.Field
                 control={TextArea}
                 value={description}
-                label='Description'
-                placeholder='Write your text here'
+                label="Description"
+                placeholder="Write your text here"
                 onChange={(event) => setDescription(event.target.value)}
               />
               <Form.Field
                 control={TextArea}
                 value={overview}
-                label='Overview'
-                placeholder='Write your text here'
+                label="Overview"
+                placeholder="Write your text here"
                 onChange={(event) => setOverview(event.target.value)}
               />
 
@@ -200,7 +212,14 @@ const Service_modal = (props) => {
                 </div>
                 <div>
                   <Form.Field>
-                    <Button onClick={(e) => { handleSave(e); dispatch({ type: "close" }); resetFields(e); dispatch({ type: "open" }) }}>
+                    <Button
+                      onClick={(e) => {
+                        handleSave(e);
+                        dispatch({ type: "close" });
+                        resetFields(e);
+                        dispatch({ type: "open" });
+                      }}
+                    >
                       <Icon name="save outline" />
                       <label> Save</label>
                     </Button>
@@ -261,17 +280,17 @@ const Service_modal = (props) => {
                     label="Required Documents(Doc1,Doc2,Doc3)"
                     value={reqDocs}
                     placeholder="Enter all the document required("
-                    onChange={(event) => setDocs(event.target.value)} />
+                    onChange={(event) => setDocs(event.target.value)}
+                  />
                 </Form>
               </div>
               <h4>Types of Application Added:</h4>
 
-              {
-                serviceDetail.map((d) => (
-                  <div className="testimonial">
-                    <p>{d.name}</p>
-                  </div>
-                ))}
+              {serviceDetail.map((d) => (
+                <div className="testimonial">
+                  <p>{d.name}</p>
+                </div>
+              ))}
             </Form>
           </div>
         </Modal.Content>
@@ -280,7 +299,10 @@ const Service_modal = (props) => {
             <button
               color="black"
               className="same-btn"
-              onClick={() => { setServiceDetail([]); dispatch({ type: "close" }) }}
+              onClick={() => {
+                setServiceDetail([]);
+                dispatch({ type: "close" });
+              }}
             >
               CANCEL
             </button>
@@ -297,7 +319,12 @@ const Service_modal = (props) => {
         </Modal.Description>
       </Modal>
       <Updated open={openPop} msg={msg} onClose={() => setOpen(false)} />
-      <Updated open={openPopErr} wrong={openPopErr} msg={msg} onClose={() => setOpenErr(false)} />
+      <Updated
+        open={openPopErr}
+        wrong={openPopErr}
+        msg={msg}
+        onClose={() => setOpenErr(false)}
+      />
     </>
   );
 };

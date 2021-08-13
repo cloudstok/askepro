@@ -58,7 +58,7 @@ useEffect(() => {
   const handleClick = () => {
     setPop(false);
     localStorage.clear();
-    history.push("/");
+    history.push("/login");
 
   }
   const msg="Are you sure want to logout"

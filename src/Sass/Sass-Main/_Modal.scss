@@ -20,13 +20,14 @@
 }
 
 .modal{
-  width: 400px !important;
   padding: 8px !important;
-  height: 150px;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+ left: auto;
+ right: auto;
+ top: auto;
+ bottom: auto;
+  height: auto;
+  
 }
 
 .modal .header {
