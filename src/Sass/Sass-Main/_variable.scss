@@ -395,9 +395,18 @@ max-width: 100%;
   .breadcrumb{
     left: 0 !important;
   }
- .my_journey{
-   height: 100vh !important;
- }
+  .content_list_item{
+    width: 4.5rem !important;
+    height: 3.5rem !important;
+   
+  }
+  .journey_tree{
+    img{
+      width: 60px !important;
+      height: 50px !important;
+    }
+  }
+
 }
 
 
@@ -529,7 +538,7 @@ max-width: 100%;
     }
   }
   .my_journey{
-    height: 130vh !important;
+    height: 120vh !important;
 max-width: 100% !important;
     .journey_tree {
       position: relative;
@@ -543,10 +552,11 @@ max-width: 100% !important;
 @media only screen and (max-width: 380px) {
 .team{
   padding: 0 !important;
-  margin-top: 88vh !important;
+  padding-top: 38vh !important;
  }
  .my_journey{
-  height: 140vh !important;
+  
+  max-width: 100% !important;
 }
 team_column {
   background-color: red !important;
