@@ -22,10 +22,7 @@ const Updated = (props) => {
   const { open, size } = state;
   const handleAccept = () => {
 
-    dispatch({ type: "close" })
-
-  
-   
+    dispatch({ type: "close" })   
      window.location.reload(false);
    
   }

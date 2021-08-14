@@ -359,7 +359,7 @@ console.log(application);
             </Grid.Column>
           </Grid>
         </Container>
-        <Updated open={open} msg="User Data Updated" onClose={()=>{getUser();setOpen(false)}}/>
+          
       </div>
     </>
   );

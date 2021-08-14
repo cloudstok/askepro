@@ -207,6 +207,34 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   }
 .team{
   padding-top: 0;
+} .my_journey{
+height: 75vh !important;
+max-width: 100%;
+  .journey_tree{
+    transform: translateX(0%);
+    padding-left: 5rem;
+    img {
+      border-radius: 0% !important;
+      width: 100px;
+      height: 100px;
+      background-color: red !important;
+    }
+  }
+  
+  
+  .even_child_content{
+    left: 2%;
+    &::after{
+      content: none;
+    }
+  }
+  .odd_child_content{
+  margin-left: 2rem;
+  &::before{
+    content: none;
+  }}
+  
+  
 }
 }
 
@@ -367,7 +395,11 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   .breadcrumb{
     left: 0 !important;
   }
+ .my_journey{
+   height: 100vh !important;
+ }
 }
+
 
 @media only screen and (max-width: 480px) {
   .contact {
@@ -496,7 +528,16 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
     display: block;
     }
   }
-  
+  .my_journey{
+    height: 130vh !important;
+max-width: 100% !important;
+    .journey_tree {
+      position: relative;
+  margin: 0;
+  padding: 0 1rem;
+      transform: translateX(0);
+    }
+  }
 
 }
 @media only screen and (max-width: 380px) {
@@ -504,15 +545,20 @@ $gradient: linear-gradient(251deg, #c7a006, #e7ed32, #c7a006) !important;
   padding: 0 !important;
   margin-top: 88vh !important;
  }
- 
- 
+ .my_journey{
+  height: 140vh !important;
+}
+team_column {
+  background-color: red !important;
+  
+}
 }
 @media only screen and (max-width: 330px) {
   .team{
     padding: 0 !important;
     margin-top: 150vh !important;
    }
-   
-   
+  
+  
   }
   
