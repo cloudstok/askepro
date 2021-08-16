@@ -773,6 +773,9 @@ body {
   position: relative;
 
   height: 75vh !important;
+  @media (max-width: 1045px) {
+    display: none;
+  }
 
   .slider_image_section {
     object-fit: cover;
