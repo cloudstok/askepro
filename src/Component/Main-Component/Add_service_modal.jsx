@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, Icon, Modal, Form, Input, TextArea, Label } from "semantic-ui-react";
+import { Button, Icon, Modal, Form, Input, TextArea, Label, Checkbox } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
 // import AdminAccordion from "./Accordion/AdminAccordion";
 import Updated from "../../Component/popup/updated";
@@ -20,7 +20,7 @@ const Service_modal = (props) => {
   const [msg, setMsg] = React.useState(false);
   const [name, setName] = React.useState(null);
   const [description, setDescription] = React.useState(null);
-  const [overview, setOverview] = React.useState(null);
+  const [showCat, setShowCat] = React.useState(false);
   const [processT, setProcessT] = React.useState(null);
   const [stayPeriod, setStayPeriod] = React.useState(null);
   const [validity, setValidity] = React.useState(null);
@@ -122,7 +122,7 @@ const Service_modal = (props) => {
         price: price,
         // processT: processT,
         // stayPeriod: stayPeriod,
-        validity: validity,
+        // validity: validity,
         type: appType,
         reqDocs: reqDocs.split(","),
       },
@@ -189,7 +189,9 @@ const Service_modal = (props) => {
                     <label for="file-btn">Click to select file </label>
                   </p>
                 </Form.Field>
-              </Form.Group>
+                <Form.Field>
+                <Checkbox label='Category'  onClick={(evt, data)=>setShowCat(data.checked)} />
+                </Form.Field></Form.Group>
               <Form.Field
                 control={TextArea}
                 value={description}
@@ -197,7 +199,8 @@ const Service_modal = (props) => {
                 placeholder="Write your text here"
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <div>
+              
+             {showCat?<> <div>
                 <Form.Group>
                   <Form.Input
                     onChange={(e) => { setCat(e.target.value) }}
@@ -223,7 +226,7 @@ const Service_modal = (props) => {
                     </Label>
                   </div>
                 ))}
-              </div>
+              </div></>:<></>}
               {/* <Form.Field
                 control={TextArea}
                 value={overview}
@@ -303,21 +306,21 @@ const Service_modal = (props) => {
                       onChange={(event) => setStayPeriod(event.target.value)}
                     />*/}
               
-                    <Form.Input
+                    {/* <Form.Input
                       fluid
                       value={validity}
                       type="number"
                       label="Validity(Days)"
                       placeholder="Enter validity"
                       onChange={(event) => setValidity(event.target.value)}
-                    />
-                    <Form.Select
+                    /> */}
+                  { showCat? <Form.Select
                       label='Type'
                       options={catArr}
                       placeholder='Type'
                       onChange={(event,{value}) => setAppType(value)}
-                    />
-                
+                    />:<></>
+                }
                   {/* <Form.Input fluid label="Entry"
                       placeholder="Enter Entry(single/Multi)"
                       value={entry}

@@ -11,7 +11,8 @@ import {
   Accordion,
   Input,
   TextArea,
-  Label
+  Label,
+  Checkbox
 } from "semantic-ui-react";
 
 import Updated from "../../Component/popup/updated";
@@ -48,12 +49,13 @@ const Service_modal = (props) => {
     setServiceDetail(service.data.serviceDetail)
     setService(service);
     setcatArr(service.data.category.map(x=>({ key: x, text: x, value: x })))
-
+if(service.data.category.length>0){
+  setShowCat(true)
+}
   }
 
-  const [processT, setProcessT] = React.useState(null);
-  const [stayPeriod, setStayPeriod] = React.useState(null);
-  const [validity, setValidity] = React.useState(null);
+  // const [stayPeriod, setStayPeriod] = React.useState(false);
+  const [showCat, setShowCat] = React.useState(false);
   const [entry, setEntry] = React.useState(null);
   const [price, setPrice] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
@@ -136,7 +138,7 @@ const Service_modal = (props) => {
         price: price ? price : EditedDetails.price,
         // processT: processT ? processT : EditedDetails.processT,
         // stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
-        validity: validity ? validity : EditedDetails.validity,
+        // validity: validity ? validity : EditedDetails.validity,
         type: appType ? appType : EditedDetails.type,
         reqDocs: reqDocs ? reqDocs.split(",") : EditedDetails.reqDocs
       }
@@ -162,7 +164,7 @@ const Service_modal = (props) => {
       price: price,
       // processT: processT,
       // stayPeriod: stayPeriod,
-      validity: validity,
+      // validity: validity,
       type: appType,
       reqDocs: reqDocs.split(",")
     }]);
@@ -208,6 +210,9 @@ const Service_modal = (props) => {
                     <label for='file-btn'>Click to select file  </label>
                   </p>
                 </Form.Field>
+                <Form.Field>
+                <Checkbox label='Category'  onClick={(evt, data)=>setShowCat(data.checked)} defaultChecked={services.data.category.length>0?true:false} />
+                </Form.Field>
               </Form.Group>
               <Form.Field
                 control={TextArea}
@@ -224,7 +229,7 @@ const Service_modal = (props) => {
                 onChange={(event) => setOverview(event.target.value)}
               /> */}
 
-<div>
+{showCat?<><div>
                 <Form.Group>
                   <Form.Input
                     onChange={(e) => { setCat(e.target.value) }}
@@ -250,7 +255,7 @@ const Service_modal = (props) => {
                     </Label>
                   </div>
                 ))}
-              </div>
+              </div></>:<></>}
               <h4>Types of Application :</h4>
 
               {
@@ -299,21 +304,21 @@ const Service_modal = (props) => {
                               onChange={(event) => setPrice(event.target.value)}
                             />
                           </Form.Group>
-                          <Form.Input
+                          {/* <Form.Input
                       fluid
                       defaultValue={d.validity}
                       type="number"
                       label="Validity(Days)"
                       placeholder="Enter validity"
                       onChange={(event) => setValidity(event.target.value)}
-                    />
-                    <Form.Select
+                    /> */}
+                    {showCat?<Form.Select
                       label='Type'
                       options={catArr}
                       placeholder='Type'
                       defaultValue={d.type}
                       onChange={(event,{value}) => setAppType(value)}
-                    />
+                    />:<></>}
                           {/* <Form.Group widths="equal">
                             <Form.Input
                               fluid
@@ -413,20 +418,20 @@ const Service_modal = (props) => {
                       onChange={(event) => setPrice(event.target.value)}
                     />
                   </Form.Group>
-                  <Form.Input
+                  {/* <Form.Input
                       fluid
                       value={validity}
                       type="number"
                       label="Validity(Days)"
                       placeholder="Enter validity"
                       onChange={(event) => setValidity(event.target.value)}
-                    />
-                    <Form.Select
+                    /> */}
+                    {showCat?<Form.Select
                       label='Type'
                       options={catArr}
                       placeholder='Type'
                       onChange={(event,{value}) => setAppType(value)}
-                    />
+                    />:<></>}
                   {/* <Form.Group widths="equal">
                     <Form.Input
                       fluid

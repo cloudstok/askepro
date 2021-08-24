@@ -88,8 +88,12 @@ const handleSub = async (ele) => {
           <div className="form">
             <Grid columns="2" stackable="mobile">
               <Grid.Row>
+              <Grid.Column >
+                {sub?<h4>Category</h4>:<></>}
+</Grid.Column>
                {sub&&
                   sub.category.map((service) =>
+                  
                     <Grid.Column >
 
                       <div class="checkbox p-default p-round pretty">
@@ -101,7 +105,9 @@ const handleSub = async (ele) => {
 
                     </Grid.Column>
                   )}
-               
+               <Grid.Column >
+                {sub?<h4> Sub Category</h4>:<h4>Category</h4>}
+</Grid.Column>
                {services &&
                   services.map((service) =>
                     <Grid.Column >
