@@ -75,9 +75,9 @@ const Company = () => {
       value: e._id,
       key: e._id,
     })))
-
+    // getserviceType(val);
   }
-  const handleSubmit = async (slug, name, subCatId, subCatName) => {
+  const handleSubmit = async (slug, name, subCatId, subCatName, type) => {
     localStorage.setItem("serviceSlug", slug);
     let jsonPostData = {
       "serviceName": name
@@ -94,13 +94,14 @@ const Company = () => {
       body: JSON.stringify(jsonPostData)
     })).json();
 
-    localStorage.setItem("applicationId", result.data.raw._id);
+    localStorage.setItem("applicationId", result.data._id);
     localStorage.setItem("subCatId", subCatId);
     jsonPostData = {
-      "subCat": subCatName
+      "subCat": subCatName,
+      "cat":type
     }
 
-    url = `${process.env.REACT_APP_BASE_URL}/service/type/${result.data.raw._id}`;
+    url = `${process.env.REACT_APP_BASE_URL}/service/type/${result.data._id}`;
     await fetch(url, {
       method: 'PUT',
       headers: {
@@ -185,7 +186,7 @@ const Company = () => {
                                       <button
                                         className="same-btn"
                                         type="submit"
-                                        onClick={() => handleSubmit(service.slug, service.name, serviceType._id, serviceType.name)}
+                                        onClick={() => handleSubmit(service.slug, service.name, serviceType._id, serviceType.name, serviceType.type)}
                                       >
                                         APPLY NOW
                                       </button>
