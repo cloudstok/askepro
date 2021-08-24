@@ -36,14 +36,14 @@ const Company = () => {
         slug: services.data.raw.slug,
       };
       setService(serviceData);
-      setSubOpt(services.data.category.map((e) => ({
-        text: e,
-        value: e,
-        key: e,
-      })));
-     
-    }
-    else {
+      setSubOpt(
+        services.data.category.map((e) => ({
+          text: e,
+          value: e,
+          key: e,
+        }))
+      );
+    } else {
       const serviceData = {
         deleted: services.data.raw.deleted,
         _id: services.data.raw._id,
@@ -70,50 +70,56 @@ const Company = () => {
     setServiceType(sub);
   };
   const handleSub = async (ele) => {
-    setOptions(service.serviceDetail.filter(x => x.type.toString() === ele.toString()).map((e) => ({
-      text: e.name,
-      value: e._id,
-      key: e._id,
-    })))
+    setOptions(
+      service.serviceDetail
+        .filter((x) => x.type.toString() === ele.toString())
+        .map((e) => ({
+          text: e.name,
+          value: e._id,
+          key: e._id,
+        }))
+    );
     // getserviceType(val);
-  }
+  };
   const handleSubmit = async (slug, name, subCatId, subCatName, type) => {
     localStorage.setItem("serviceSlug", slug);
     let jsonPostData = {
-      "serviceName": name
-    }
-    let userId = localStorage.getItem('id')
-    let url = `${process.env.REACT_APP_BASE_URL}/service/${userId}`
-    const result = await (await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'x-access-token': localStorage.getItem("token")
-      },
-      body: JSON.stringify(jsonPostData)
-    })).json();
+      serviceName: name,
+    };
+    let userId = localStorage.getItem("id");
+    let url = `${process.env.REACT_APP_BASE_URL}/service/${userId}`;
+    const result = await (
+      await fetch(url, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify(jsonPostData),
+      })
+    ).json();
 
     localStorage.setItem("applicationId", result.data._id);
     localStorage.setItem("subCatId", subCatId);
     jsonPostData = {
-      "subCat": subCatName,
-      "cat":type
-    }
+      subCat: subCatName,
+      cat: type,
+    };
 
     url = `${process.env.REACT_APP_BASE_URL}/service/type/${result.data._id}`;
     await fetch(url, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'x-access-token': localStorage.getItem("token")
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify(jsonPostData)
-    })
+      body: JSON.stringify(jsonPostData),
+    });
 
     history.push(`/fill`);
-  }
+  };
 
   if (!service) return <div></div>;
   return (
@@ -123,8 +129,9 @@ const Company = () => {
         <div
           class="company"
           style={{
-            background: `url(${process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
-              })`,
+            background: `url(${
+              process.env.PUBLIC_URL + "/Assets/images/contact-bg.png"
+            })`,
             backgroundSize: "cover",
           }}
         >
@@ -143,26 +150,27 @@ const Company = () => {
           <div className="overview">
             <Grid stackable column={2}>
               <Grid.Column>
-                <div className="Service_overview">
-                  {/*    <h3>Overview</h3>
-                  <p>{service.overview}</p> */}
-
-                  {subOpt ? <Dropdown
-                    className="golu"
-                    placeholder="Choose Category"
-                    options={subOpt}
-                    icon="angle down"
-
-                    onChange={(e, i) => {
-                      const val = i.value;
-                      handleSub(val);
-                    }}></Dropdown> : <></>}
-
-
+                <div className="service_dropdown">
+                  {subOpt ? (
+                    <Dropdown
+                      className="golu"
+                      placeholder="Choose Category"
+                      options={subOpt}
+                      icon="angle down"
+                      onChange={(e, i) => {
+                        const val = i.value;
+                        handleSub(val);
+                      }}
+                    ></Dropdown>
+                  ) : (
+                    <></>
+                  )}
 
                   <Dropdown
                     className="golu"
-                    placeholder={subOpt ? "Select Sub Category" : "Select Category"}
+                    placeholder={
+                      subOpt ? "Select Sub Category" : "Select Category"
+                    }
                     options={options}
                     icon="angle down"
                     onChange={(e, i) => {
@@ -186,7 +194,15 @@ const Company = () => {
                                       <button
                                         className="same-btn"
                                         type="submit"
-                                        onClick={() => handleSubmit(service.slug, service.name, serviceType._id, serviceType.name, serviceType.type)}
+                                        onClick={() =>
+                                          handleSubmit(
+                                            service.slug,
+                                            service.name,
+                                            serviceType._id,
+                                            serviceType.name,
+                                            serviceType.type
+                                          )
+                                        }
                                       >
                                         APPLY NOW
                                       </button>
@@ -211,7 +227,11 @@ const Company = () => {
                                       {serviceType.validity} Days
                                     </Table.Cell>
                                     <Table.Cell>{serviceType.entry}</Table.Cell> */}
-                                      <Table.Cell><span className="total-right">{serviceType.price} AED</span></Table.Cell>
+                                      <Table.Cell>
+                                        <span className="total-right">
+                                          {serviceType.price} AED
+                                        </span>
+                                      </Table.Cell>
                                     </Table.Row>
                                   </Table>
                                 </div>
