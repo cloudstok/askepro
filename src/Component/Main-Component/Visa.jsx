@@ -26,7 +26,7 @@ const Visa = () => {
     serviceData=serviceData.reverse(); 
     setServices(serviceData);
   };
-
+console.log(services);
   return (
     <>
       <div className='visa_container'>

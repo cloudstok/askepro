@@ -69,7 +69,7 @@ const UploadDocuments = () => {
     const formData = new FormData();
     formData.append("file", event.target.files[0]);
     formData.append("name", fileName);
-    console.log(...formData);
+    
     const result = await (
       await fetch(url, {
         method: "PUT",

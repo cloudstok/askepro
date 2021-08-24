@@ -10,7 +10,8 @@ import {
   Table,
   Accordion,
   Input,
-  TextArea
+  TextArea,
+  Label
 } from "semantic-ui-react";
 
 import Updated from "../../Component/popup/updated";
@@ -46,6 +47,8 @@ const Service_modal = (props) => {
     const service = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/services/${props.id}`, { method: "GET" })).json();
     setServiceDetail(service.data.serviceDetail)
     setService(service);
+    setcatArr(service.data.category.map(x=>({ key: x, text: x, value: x })))
+
   }
 
   const [processT, setProcessT] = React.useState(null);
@@ -55,7 +58,9 @@ const Service_modal = (props) => {
   const [price, setPrice] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
   const [type, setType] = React.useState(null);
-
+  const [catArr, setcatArr] = React.useState([]);
+  const [cat, setCat] = React.useState(null);
+  const[appType, setAppType]= React.useState(null);
   const uploadWithFormData = async (event, id) => {
     // dispatch({ type: "close" });
     const url = `${process.env.REACT_APP_BASE_URL}/admin/services/${id}`
@@ -64,7 +69,7 @@ const Service_modal = (props) => {
     formData.append("upload", file ? file : services.data.images);
     formData.append("name", name ? name : services.data.name);
     formData.append("description", description ? description : services.data.description);
-    formData.append("overview", overview ? overview : services.data.overview);
+    formData.append("category", JSON.stringify(catArr.map(x => x.value)));
     formData.append("serviceDetail", JSON.stringify(serviceDetail));
     // formData.append("serviceHowToApply", serviceHowToApply);
 
@@ -89,6 +94,26 @@ const Service_modal = (props) => {
     open: false,
     size: undefined,
   });
+  const handleAdd = async () => {
+ 
+    setcatArr([
+      ...catArr,
+      { key: cat, text: cat, value: cat }
+    ]);
+    setCat("");
+  };
+  const handleRemove = async (ele) => {
+    // console.log({ key: ele, text: ele, value: ele })
+    let arr = catArr
+    const findObj=(obj)=>obj.value===ele;
+    
+    const index = arr.findIndex(findObj);
+    console.log(index);
+    if (index > -1) {
+      arr.splice(index, 1);
+      setcatArr([...arr]);
+    }
+  };
   const handleDelete = async (event, id) => {
     let details = serviceDetail;
     let deletedDetails = details.find(ele => ele._id === id);
@@ -111,8 +136,8 @@ const Service_modal = (props) => {
         price: price ? price : EditedDetails.price,
         // processT: processT ? processT : EditedDetails.processT,
         // stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
-        // validity: validity ? validity : EditedDetails.validity,
-        // entry: entry ? entry : EditedDetails.entry,
+        validity: validity ? validity : EditedDetails.validity,
+        type: appType ? appType : EditedDetails.type,
         reqDocs: reqDocs ? reqDocs.split(",") : EditedDetails.reqDocs
       }
     }
@@ -137,8 +162,8 @@ const Service_modal = (props) => {
       price: price,
       // processT: processT,
       // stayPeriod: stayPeriod,
-      // validity: validity,
-      // entry: entry,
+      validity: validity,
+      type: appType,
       reqDocs: reqDocs.split(",")
     }]);
     setMsg("Application Type has been added")
@@ -148,7 +173,7 @@ const Service_modal = (props) => {
   if (!services) {
     return (<></>)
   }
-  console.log(services);
+  console.log(catArr);
   return (
     <>
 
@@ -191,15 +216,41 @@ const Service_modal = (props) => {
                 placeholder='Write your text here'
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <Form.Field
+              {/* <Form.Field
                 control={TextArea}
                 defaultValue={services.data.overview}
                 label='Overview'
                 placeholder='Write your text here'
                 onChange={(event) => setOverview(event.target.value)}
-              />
+              /> */}
 
+<div>
+                <Form.Group>
+                  <Form.Input
+                    onChange={(e) => { setCat(e.target.value) }}
+                    label='Add a category'
+                    control={Input}
+                    value={cat}
+                  >
 
+                  </Form.Input>
+                  <Button icon='plus' onClick={(e) => { handleAdd() }} />
+
+                </Form.Group>
+
+              </div>
+              <div>
+                <h4>Category:</h4>
+                {catArr.map((d) => (
+                  <div className="testimonial">
+                    <Label >
+
+                      {d.text}
+                      <Icon name='delete' onClick={() => handleRemove(d.text)} />
+                    </Label>
+                  </div>
+                ))}
+              </div>
               <h4>Types of Application :</h4>
 
               {
@@ -248,6 +299,21 @@ const Service_modal = (props) => {
                               onChange={(event) => setPrice(event.target.value)}
                             />
                           </Form.Group>
+                          <Form.Input
+                      fluid
+                      defaultValue={d.validity}
+                      type="number"
+                      label="Validity(Days)"
+                      placeholder="Enter validity"
+                      onChange={(event) => setValidity(event.target.value)}
+                    />
+                    <Form.Select
+                      label='Type'
+                      options={catArr}
+                      placeholder='Type'
+                      defaultValue={d.type}
+                      onChange={(event,{value}) => setAppType(value)}
+                    />
                           {/* <Form.Group widths="equal">
                             <Form.Input
                               fluid
@@ -347,6 +413,20 @@ const Service_modal = (props) => {
                       onChange={(event) => setPrice(event.target.value)}
                     />
                   </Form.Group>
+                  <Form.Input
+                      fluid
+                      value={validity}
+                      type="number"
+                      label="Validity(Days)"
+                      placeholder="Enter validity"
+                      onChange={(event) => setValidity(event.target.value)}
+                    />
+                    <Form.Select
+                      label='Type'
+                      options={catArr}
+                      placeholder='Type'
+                      onChange={(event,{value}) => setAppType(value)}
+                    />
                   {/* <Form.Group widths="equal">
                     <Form.Input
                       fluid

@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Icon, Modal, Form, Input, TextArea } from "semantic-ui-react";
+import React, { useRef } from "react";
+import { Button, Icon, Modal, Form, Input, TextArea, Label } from "semantic-ui-react";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
-import AdminAccordion from "./Accordion/AdminAccordion";
+// import AdminAccordion from "./Accordion/AdminAccordion";
 import Updated from "../../Component/popup/updated";
 function exampleService(state, action) {
   switch (action.type) {
@@ -33,14 +33,17 @@ const Service_modal = (props) => {
   const [serviceHowToApply, setHta] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
   const [file, setFile] = React.useState(null);
+  const [catArr, setcatArr] = React.useState([]);
+  const [cat, setCat] = React.useState(null);
+  const[appType, setAppType]= React.useState(null);
   const [state, dispatch] = React.useReducer(exampleService, {
     open: false,
     size: undefined,
   });
   const { open, size } = state;
-
+  const inputRef = useRef();
   const uploadWithFormData = async (event) => {
-    if (!name || !overview || !description || !file) {
+    if (!name || !description || !file) {
       setMsg("Please Fill out all the details");
       setOpenErr(true);
       return;
@@ -53,7 +56,7 @@ const Service_modal = (props) => {
     formData.append("upload", file);
     formData.append("name", name);
     formData.append("description", description);
-    formData.append("overview", overview);
+    formData.append("category", JSON.stringify(catArr.map(x => x.value)));
     formData.append("serviceDetail", JSON.stringify(serviceDetail));
     // formData.append("processT", processT);
     // formData.append("stayPeriod", stayPeriod);
@@ -80,16 +83,25 @@ const Service_modal = (props) => {
       setOpenErr(true);
     }
   };
-  const handleAdd = async (e) => {
-    e.preventDefault();
-    setComp([
-      ...comp,
-      <Form.Input
-        id="var"
-        label="Enter Var"
-        onChange={(e) => setSubject(subject + "~" + e.target.value)}
-      ></Form.Input>,
+  const handleAdd = async () => {
+ 
+    setcatArr([
+      ...catArr,
+      { key: cat, text: cat, value: cat }
     ]);
+    setCat("");
+  };
+  const handleRemove = async (ele) => {
+    // console.log({ key: ele, text: ele, value: ele })
+    let arr = catArr
+    const findObj=(obj)=>obj.value===ele;
+    
+    const index = arr.findIndex(findObj);
+    console.log(index);
+    if (index > -1) {
+      arr.splice(index, 1);
+      setcatArr([...arr]);
+    }
   };
   const handleSave = async (e) => {
     if (!type || !price || !reqDocs) {
@@ -110,8 +122,8 @@ const Service_modal = (props) => {
         price: price,
         // processT: processT,
         // stayPeriod: stayPeriod,
-        // validity: validity,
-        // entry: entry,
+        validity: validity,
+        type: appType,
         reqDocs: reqDocs.split(","),
       },
     ]);
@@ -126,11 +138,11 @@ const Service_modal = (props) => {
     setPrice("");
     setStayPeriod("");
     setValidity("");
-    setEntry("");
+    setAppType("");
     setDocs("");
     setProcessT("");
   };
-  console.log(serviceDetail);
+  console.log(catArr);
   return (
     <>
       <button
@@ -146,6 +158,7 @@ const Service_modal = (props) => {
         open={open}
         onClose={() => {
           setServiceDetail([]);
+          setcatArr([]);
           dispatch({ type: "close" });
         }}
       >
@@ -184,13 +197,40 @@ const Service_modal = (props) => {
                 placeholder="Write your text here"
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <Form.Field
+              <div>
+                <Form.Group>
+                  <Form.Input
+                    onChange={(e) => { setCat(e.target.value) }}
+                    label='Add a category'
+                    control={Input}
+                    value={cat}
+                  >
+
+                  </Form.Input>
+                  <Button icon='plus' onClick={(e) => { handleAdd() }} />
+
+                </Form.Group>
+
+              </div>
+              <div>
+                <h4>Category:</h4>
+                {catArr.map((d) => (
+                  <div className="testimonial">
+                    <Label >
+
+                      {d.text}
+                      <Icon name='delete' onClick={() => handleRemove(d.text)} />
+                    </Label>
+                  </div>
+                ))}
+              </div>
+              {/* <Form.Field
                 control={TextArea}
                 value={overview}
                 label="Overview"
                 placeholder="Write your text here"
                 onChange={(event) => setOverview(event.target.value)}
-              />
+              /> */}
 
               {/*         <div className="application_types">
                 <div>
@@ -261,7 +301,8 @@ const Service_modal = (props) => {
                       label="Stay Period(Days)"
                       placeholder="Enter duration"
                       onChange={(event) => setStayPeriod(event.target.value)}
-                    />
+                    />*/}
+              
                     <Form.Input
                       fluid
                       value={validity}
@@ -270,7 +311,14 @@ const Service_modal = (props) => {
                       placeholder="Enter validity"
                       onChange={(event) => setValidity(event.target.value)}
                     />
-                    <Form.Input fluid label="Entry"
+                    <Form.Select
+                      label='Type'
+                      options={catArr}
+                      placeholder='Type'
+                      onChange={(event,{value}) => setAppType(value)}
+                    />
+                
+                  {/* <Form.Input fluid label="Entry"
                       placeholder="Enter Entry(single/Multi)"
                       value={entry}
                       onChange={(event) => setEntry(event.target.value)} />
