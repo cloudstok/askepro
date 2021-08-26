@@ -245,7 +245,7 @@ if(service.data.category.length>0){
 
               </div>
               <div>
-                <h4>Category:</h4>
+                <h4>Catego  ry:</h4>
                 {catArr.map((d) => (
                   <div className="testimonial">
                     <Label >

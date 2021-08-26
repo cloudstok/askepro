@@ -317,7 +317,9 @@ header {
   align-items: center;
   box-shadow: 4px 0 10px 0 rgba(180, 180, 180, 0.1);
   margin: 20px 0;
+  position: sticky;
 
+ 
   .item {
     cursor: pointer;
     img {

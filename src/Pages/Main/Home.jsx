@@ -71,11 +71,17 @@ const Home = () => {
             <div >
               <h1>Our business is to make your business<br/> easier in the UAE. </h1>
              {/*  <p>LEADING IMMIGRATION CONSULTANTS IN DUBAI</p> */}
-              <Link to="apply">
+             {/*  <Link to="apply">
                 <button type="button" className="same-btn">
                   APPLY NOW
                 </button>
-              </Link>
+              </Link> */}
+               <button
+                        className="same-btn"
+                        onClick={() => history.push("/contact")}
+                      >
+                        KNOW MORE
+                      </button>
             </div>
             <div>
                       <div className="one"></div>
