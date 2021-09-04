@@ -11,16 +11,16 @@ const Stepper = () => {
     const [result, setResult] = React.useState(null);
     if (localStorage.getItem("mode") === 'Online') {
 
-        arr = ["/apply", "/type", "/fill", "/upload", "/payment"];
-        titleArr = ["Choose Service", "Choose Type", "Fill Details", "Upload Documents", "Payment"];
+        arr = ["/fill", "/upload", "/payment"];
+        titleArr = ["Fill Details", "Upload Documents", "Payment"];
     }
     else if (localStorage.getItem("mode") === 'Offline') {
-        arr = ["/apply", "/type", "/fill", "/book", "/payment"];
-        titleArr = ["Choose Service", "Choose Type", "Fill Details", "Book an appointment", "Payment"];
+        arr = ["/fill", "/book", "/payment"];
+        titleArr = ["Fill Details", "Book an appointment", "Payment"];
     }
     else {
-        arr = ["/apply", "/type", "/fill", "/mode", "/", "/payment"];
-        titleArr = ["Choose Service", "Choose Type", "Fill Details", "Choose a Mode", "Upload Documents/Book an appointment", "Choose Mode"];
+        arr = ["/fill", "/mode", "/", "/payment"];
+        titleArr = ["Fill Details", "Choose a Mode", "Upload Documents/Book an appointment", "Choose Mode"];
     }
     React.useEffect(() => {
         let final = [];

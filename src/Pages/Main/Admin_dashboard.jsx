@@ -36,7 +36,7 @@ const Admin_dashboard = () => {
     ).json();
     user = user.data;
 
-    if (!user.isAdmin) {
+    if (!user?.isAdmin) {
       history.push('/')
     }
     let result = await (

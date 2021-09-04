@@ -46,7 +46,7 @@ const ToggleNav = () => {
     ).json();
     user = user.data;
  
-    if (user && user.isAdmin) {
+    if (user && user?.isAdmin) {
       setisAdmin(true);
     }
 

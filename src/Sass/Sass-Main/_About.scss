@@ -846,7 +846,7 @@
 .odd_child_content {
   display: flex;
   align-items: center;
-  // margin-left: 10%;
+  margin-left: -1;
 
   &::before {
     content: "";
@@ -860,7 +860,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: -38%;
+  left: -45%;
   &::after {
     content: "";
     border: 2px solid black;

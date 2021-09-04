@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {getData} from '../../../services/api';
 import {Link} from 'react-router-dom';
 import { Accordion, Grid, Icon, Container } from "semantic-ui-react";
+import { HashLink } from "react-router-hash-link";
 export default class AccordionExampleFluid extends Component {
   state = { activeIndex: 0 };
 
@@ -72,9 +73,9 @@ export default class AccordionExampleFluid extends Component {
           </Accordion>
 
           <div className="question">
-          <Link to="/apply"><button className="same-btn">
+          <HashLink to="/service#section1"><button className="same-btn">
               APPLY NOW
-            </button></Link>
+            </button></HashLink>
        
           </div>
         </Container>

@@ -194,7 +194,7 @@ React.useEffect(() => {
             <Button size='big' onClick={() => {handleSubmit("Failed")}}>NO</Button>
           </div>
           </div>
-          <Updated open={open} wrong={open} msg={msg} onClose={()=>{setOpen(false);  history.push("/apply");}}/>
+          <Updated open={open} wrong={open} msg={msg} onClose={()=>{setOpen(false);  history.push("/fill");}}/>
         </Container>
       </div>
     </main>

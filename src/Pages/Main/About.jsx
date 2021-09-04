@@ -4,8 +4,8 @@ import Footer from "../../Component/Main-Component/Footer";
 import Crumb from "../../Component/Main-Component/Crumb";
 import Notification from "../../Component/Main-Component/Notification";
 import "../../Sass/Sass-Main/_About.scss";
-import { MyJourney } from "../../Component/Main-Component/MyJourney";
 import AOS from "aos";
+import { MyJourney } from "../../Component/Main-Component/MyJourney";
 
 const About = () => {
   AOS.init({
@@ -93,7 +93,11 @@ const About = () => {
         
         </div>
       </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
       <div className="team">
         <Container>
           <div className="about_container">
@@ -111,19 +115,18 @@ const About = () => {
                      
                       <div className="team_text">
                       <div className="team-name">
-                        <h5>Ahmed Bin Sulayem</h5>
+                        <h5>Hamad Mohammed Bakhit Suhail Alrashdi</h5>
                         <h6>
-                          Executive Chairman and Chief Executive Officer,
-                          askEPro
+                        CEO & President, ASK E PRO
                         </h6>
                       </div>
                       <div className="team-content">
                         <p>
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry’s standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type.
+                        We are pleased to welcome you to our networks website.
+The history of ASKEPRO began in 2005. Since then, ASKEPRO has been engaging in various services based on its widely stemming reach from its local and global networks, strong sourcing base, and excellent technical capacities.
+ASKEPRO is always with its customers in their lives as a trustworthy partner that provides a much better help to their life changing moments.
+We at ASKEPRO will try our best to make the lives of our customers more comfortable and prosperous.
+
                         </p>
                       </div>
                       </div>
@@ -156,19 +159,22 @@ const About = () => {
                      
                       <div className="team_text">
                       <div className="team-name">
-                        <h5>Ahmed Bin Sulayem</h5>
+                        <h5>Shefeek Ismail</h5>
                         <h6>
-                          Executive Chairman and Chief Executive Officer,
-                          askEPro
+                        Managing Director,
+ASK E PRO
+
                         </h6>
                       </div>
                       <div className="team-content">
                         <p>
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry’s standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type.
+                        Welcome to ASKEPRO,
+It’s very happy to see you pleasured on our aids on your much important moments of life till the date.
+We extremely made the days to have our services related to your Documentation and Data oriented works which changes your way of life.
+We will undertake changes
+And innovations for a greater customer experience by which we accurately identify the needs of customers to provide them with unexpected benefits and values, exceeding their expectations, to create a truly positive customer experience.
+All ASK E PRO  employees will continue to dedicate themselves to maximizing customer values through growth and development. We ask for your steadfast support and interest.
+
                         </p>
                       </div>
                       </div>
@@ -225,6 +231,38 @@ const About = () => {
         </Container>
       </div>
        <MyJourney />
+       <br/>
+       <br/>
+       <br/>
+
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+
+       <br/>
+       <br/>
+       <br/>
+       <br/>
       {/* <div className="our_journey">
         <h1 className="headingOne">Our Journey</h1>
         <p>Follow our history from humble beginnings to a world-class trade center.</p>

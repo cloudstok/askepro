@@ -2,6 +2,8 @@ import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect, Component } from "react";
 import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
+import { HashLink } from 'react-router-hash-link';
+
 import '../../Sass/nav.scss';
 import Accepted from "../popup/accepted";
 import ToggleNav from "../toggle_nav";
@@ -112,7 +114,7 @@ useEffect(() => {
               :
               <div className="action-group">
                 <Link to="/login"><button className="same-btn" style={{ marginRight: '30px' }}>LOGIN</button></Link>
-                <Link to="/apply"><button className='same-btn'>APPLY NOW</button></Link>
+                <HashLink to="/service#section1"><button className='same-btn'>APPLY NOW</button></HashLink>
               </div>
               
           }

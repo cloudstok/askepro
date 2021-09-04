@@ -6,7 +6,8 @@ import Apply from "../../Component/Main-Component/Apply";
 import Footer from "../../Component/Main-Component/Footer";
 import Notification from "../../Component/Main-Component/Notification";
 import "../../Sass/Sass-Main/_home.scss";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import Dubai from "../../video/video.mp4";
 import AOS from "aos";
 import Slider from "react-slick";
@@ -76,12 +77,15 @@ const Home = () => {
                   APPLY NOW
                 </button>
               </Link> */}
+              <Link to="/service#section1">
                <button
+              
                         className="same-btn"
-                        onClick={() => history.push("/contact")}
+                        // onClick={() => history.push("/service#section1")}
                       >
                         KNOW MORE
                       </button>
+                      </Link>
             </div>
             <div>
                       <div className="one"></div>

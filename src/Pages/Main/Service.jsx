@@ -44,7 +44,7 @@ const Service = () => {
           </h2>
         </div>
       </div>
-      <div className="service-formation">
+      <div className="service-formation" id={'section1'}>
         <Container>
           <h1 className="headingOne">List Of Our Services</h1>
 

@@ -110,11 +110,11 @@ const Service_modal = (props) => {
       return;
     }
 
-    if (serviceDetail.find((o) => o.name === type)) {
-      setMsg("Please Use a Different name");
-      setOpenErr(true);
-      return;
-    }
+    // if (serviceDetail.find((o) => o.name === type)) {
+    //   setMsg("Please Use a Different name");
+    //   setOpenErr(true);
+    //   return;
+    // }
     setServiceDetail([
       ...serviceDetail,
       {
@@ -138,7 +138,7 @@ const Service_modal = (props) => {
     setPrice("");
     setStayPeriod("");
     setValidity("");
-    setAppType("");
+    // setAppType("");
     setDocs("");
     setProcessT("");
   };

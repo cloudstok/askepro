@@ -5,6 +5,7 @@ import Header from "../../Component/Main-Component/Header";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Crumb from "../../Component/Main-Component/Crumb";
 import "../../Sass/Sass-Main/_About.scss";
+import { HashLink } from "react-router-hash-link";
 
 const Company = () => {
   const history = useHistory();
@@ -82,6 +83,10 @@ const Company = () => {
     // getserviceType(val);
   };
   const handleSubmit = async (slug, name, subCatId, subCatName, type) => {
+
+    if(!localStorage.getItem("token"))(
+      history.push("/login")
+    )
     localStorage.setItem("serviceSlug", slug);
     let jsonPostData = {
       serviceName: name,
@@ -189,7 +194,7 @@ const Company = () => {
                                 <div className="tourist-border">
                                   <div className="hours">
                                     <h3>{serviceType.name}</h3>
-                                    <Link to="/apply">
+                                
                                       {" "}
                                       <button
                                         className="same-btn"
@@ -206,7 +211,7 @@ const Company = () => {
                                       >
                                         APPLY NOW
                                       </button>
-                                    </Link>
+                                 
                                   </div>
                                   <Table fixed>
                                     <Table.Row>
