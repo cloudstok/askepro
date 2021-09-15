@@ -40,30 +40,25 @@ function Mode() {
     }, []);
 
     const slug = localStorage.getItem("serviceSlug");
-    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
+    // const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
+
+    const subCatId= localStorage.getItem("applicationId");
+    const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/subCat/${subCatId}`;
 
     const getServices = async () => {
-        let application = await (
-            await fetch(
-                `${process.env.REACT_APP_BASE_URL}/service/${requestId}`,
-                {
-                    method: "GET"
-                })).json();
-        const services = await (await fetch(service_url, { method: "GET" })).json();
+        const service = await (await fetch(service_url, { method: "GET" })).json();
+        console.log(service);
         const serviceData = {
-            deleted: services.data.deleted,
-            _id: services.data._id,
-            name: services.data.name,
-            scode: services.data.scode,
-            overview: services.data.overview,
-            serviceDetail: services.data.serviceDetail,
-            description: services.data.description,
-            slug: services.data.slug
+            name: service.data.name,
+          reqDocs: service.data.reqDocs,
+          overview: service.data.overview,
+          processT: service.data.processT,
+          stayPeriod: service.data.stayPeriod,
+          validity: service.data.validity,
+          entry: service.data.entry,
+          price: service.data.price
         };
-        setName(serviceData.name)
-        let sub = serviceData.serviceDetail.find(e => e.name=== application.serviceDetail);
-        setService(sub);
-        // localStorage.setItem("subCatId", sub._id);
+        setService(serviceData);
 
     };
 

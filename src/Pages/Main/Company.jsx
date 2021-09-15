@@ -87,6 +87,7 @@ const Company = () => {
     if(!localStorage.getItem("token"))(
       history.push("/login")
     )
+    localStorage.removeItem("mode");
     localStorage.setItem("serviceSlug", slug);
     let jsonPostData = {
       serviceName: name,

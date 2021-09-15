@@ -25,6 +25,7 @@ const Visa = () => {
     }));
     serviceData=serviceData.reverse(); 
     setServices(serviceData);
+    console.log(serviceData)
   };
 console.log(services);
   return (
@@ -36,7 +37,7 @@ console.log(services);
               <Grid.Column>
                 <div
                   className="service-card"
-                  onClick={() => history.push(`/service/${service.slug}`)} data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                  onClick={() =>{service.name===("COMPANY STAMP") || service.name===("PRO SERVICES") || service.name===("DUBAI ECONOMIC SERVICES") || service.name===("COMPANY FORMATION")?history.push(`/contact`) :history.push(`/service/${service.slug}`)}} data-aos="fade-up" data-aos-anchor-placement="top-bottom"
                 >
                   {/* <img src={process.env.PUBLIC_URL + "/Assets/images/building.png"}/> */}
                   <img src={"data:image/png;base64," + service.image}/>

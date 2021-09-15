@@ -11,6 +11,7 @@ import {
   Label,
   CardDescription,
   Radio,
+  Dropdown
 } from "semantic-ui-react";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import ButtonBar from "../../Component/ButtonBar/buttonbar";
@@ -40,7 +41,7 @@ function FillPage() {
   const [country, setCountry] = React.useState(null);
   const [pincode, setPincode] = React.useState(null);
   const [msg, setmsg] = React.useState(null);
-  
+  const [medCenter, setCenter]=React.useState(null);
   React.useEffect(() => {
     getUser();
   }, []);
@@ -65,7 +66,20 @@ function FillPage() {
   const handleAliasChange = (event, { value }) => {
     setAlias(value);
   };
-
+  const center=["Al Karama Medical Fitness Center", 
+  "Bur Dubai Medical Fitness Center", 
+  "Al-Muhaisnah Medical Fitness Center", 
+  "Al Quoz Mall Medical Fitness  Center",
+   "Al Yalayis Medical Fitness Center",
+  "Al Nahda Occupational Health Screening & Medical Fitness Center",
+"Al Garhoud Medical Fitness Center"];
+  const subOpt=center.map((e) => ({
+    text: e,
+    value: e,
+    key: e,
+  }))
+  console.log(subOpt)
+  const slug = localStorage.getItem("serviceSlug");
   const requestId = localStorage.getItem("applicationId");
   const url = `${process.env.REACT_APP_BASE_URL}/service/fill/${requestId}`;
   const handleSubmitForm = async (event) => {
@@ -91,6 +105,7 @@ function FillPage() {
     const jsonPostData = {
       name: name ? name : user.name,
       dob: dob,
+      center:medCenter,
       // type: type,
       email: email? email : user.email,
       mobile: mobile? email : user.phone,
@@ -219,6 +234,22 @@ function FillPage() {
                         className="radio-item"
                       />
                     </Grid.Column>
+                   {slug==="medical-services"?<Grid.Column width={16}>
+                      <Form.Field>
+                        <label>Medical Center*</label>
+                        <Dropdown
+                      className="golu"
+                      placeholder="Choose Category"
+                      options={subOpt}
+                      icon="angle down"
+                      onChange={(e, i) => {
+                        const val = i.value;
+                        setCenter(val);
+                      }}
+                    ></Dropdown>
+                      </Form.Field>
+                    </Grid.Column>
+                  :<></>}
                     <Grid.Column>
                       <Form.Field>
                         <label>Email*</label>

@@ -64,7 +64,7 @@ const UploadDocuments = () => {
     if (!fileName) {
       throw ("Select a file first");
     }
-    console.log(file, fileName);
+    console.log( event.target.files[0], fileName);
 
     const formData = new FormData();
     formData.append("file", event.target.files[0]);
@@ -84,7 +84,7 @@ const UploadDocuments = () => {
     }
   };
   const handleSubmitForm = (event) => {
-    if (docsArray.length === services.reqDocs.length) history.push("/book");
+    if (docsArray.length === services.reqDocs.length) history.push("/payment");
   };
   console.log(services);
   return (
@@ -136,7 +136,7 @@ const UploadDocuments = () => {
                       </Form.Field>
                     </Grid.Column>
                     <Grid.Column width={3}>
-                      {/*    <Button className='btn-upload' onClick={uploadWithFormData}>UPLOAD</Button> */}
+                         {/* <Button className='btn-upload' onClick={uploadWithFormData}>UPLOAD</Button> */}
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
