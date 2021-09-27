@@ -19,11 +19,11 @@ export const MyJourney = () => {
           <div className="odd_child" >
             <Year number='2015' />
             <div className="odd_child_content" data-aos="fade-right">
-              <img src={"/Assets/images/login-bg.png"} />
+              <img src={"/Assets/images/inaguration.jpg"} />
               <div className="flex_content">
-                <h1>LAID THE FOUNDATION
+                <h2>LAID THE FOUNDATION
 
-                </h1>
+                </h2>
                 <p>FOR OUR NEW JOURNEY</p>
               </div>
             </div>
@@ -33,21 +33,21 @@ export const MyJourney = () => {
             <Year number='2016' />
             <div className="even_child_content" data-aos="fade-left" >
               <div  >
-                <h1>NEW CEO JOINED TO OUR TEAM</h1>
+                <h2>NEW CEO JOINED TO OUR TEAM</h2>
                 <p>Hamad Mohammed 
                   Bakhit Suhail Alrashdi 
                   Become our company CEO</p>
               </div>
-              <img src={"/Assets/images/login-bg.png"} />
+              <img src={"/Assets/images/hamad2.jpg"} />
             </div>
           </div>
 
           <div className="odd_child" >
             <Year number='2017' />
             <div className="odd_child_content" data-aos="fade-right">
-              <img src={"/Assets/images/login-bg.png"} />
+              <img src={"/Assets/images/100.png"} />
               <div className="flex_content">
-                <h1>REACHED OUR FIRST MILE STONE</h1>
+                <h2>REACHED OUR FIRST MILE STONE</h2>
                 <p>Join 100 Companies with Us in This Journey</p>
               </div>
             </div>
@@ -57,11 +57,11 @@ export const MyJourney = () => {
             <Year number='2018' />
             <div className="even_child_content" data-aos="fade-left">
               <div className="flex_content">
-                <h1>JOURNEY CONTINUES </h1>
+                <h2>JOURNEY CONTINUES </h2>
                 <p>Opened a new branch
                   Collectively to our parent company</p>
               </div>
-              <img src={"/Assets/images/login-bg.png"} />
+              <img src={"/Assets/images/tabrez.jpg"} />
             </div>
           </div>
 
@@ -70,7 +70,7 @@ export const MyJourney = () => {
             <div className="odd_child_content" data-aos="fade-right">
               <img src={"/Assets/images/login-bg.png"} />
               <div className="flex_content">
-                <h1>ESTABLISHED A NEW DIRECTORY BOARD </h1>
+                <h2>ESTABLISHED A NEW DIRECTORY BOARD </h2>
                 <p>Join 100 Companies with Us in This Journey</p>
               </div>
             </div>
@@ -80,7 +80,7 @@ export const MyJourney = () => {
             <Year number='2020' />
             <div className="even_child_content" data-aos="fade-left">
               <div className="flex_content">
-                <h1>Here We Go… </h1>
+                <h2>Here We Go… </h2>
                 <p> Curtain raised for our 2nd branch
           To enhance services  
 </p>

@@ -221,6 +221,7 @@
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+ 
   }
   .contact-details-1 img {
     width: 48px;
@@ -811,9 +812,14 @@
 /* my journey */
 
 .my_journey {
+  overflow-x: hidden;
   
   h1 {
     text-align: center;
+
+  }
+  h2{
+    font-size: 1.5rem;
   }
   .content_list_item {
     width: 7.75em;
@@ -823,19 +829,21 @@
     display: grid;
     margin: 50px 0px;
     place-items: center;
-    color: white;
+    color: white !important;
+  
     // display: inline;
 
     &::after {
       content: "";
       border: 2px solid black;
-      width: 2px;
+    
       height: 80%;
       position: absolute;
       // top: 87%;
-      left: 3.4%;
+      left: auto;
+      right: auto;
       top: 10%;
-      z-index: -1;
+      z-index: -5;
     }
   }
 }
@@ -851,21 +859,27 @@
   &::before {
     content: "";
     border: 2px solid black;
-    width: 50%;
+    width: 40%;
     height: 2px;
   }
+ 
 }
 
 .even_child_content {
   display: flex;
   align-items: center;
   position: relative;
-  left: -45%;
+  left: -32vw;
+  z-index: -1;
   &::after {
     content: "";
     border: 2px solid black;
-    width: 50%;
+    width: 40%;
     height: 2px;
+  }
+  img{
+    object-fit: cover !important;
+    margin-left: 10px;
   }
 }
 
@@ -885,11 +899,33 @@ padding-top: 5%;
     transform: translateX(47.5%);
 
     img {
+      object-fit: cover !important;
       border-radius: 50% !important;
-      width: 160px;
+      width: 160px !important;
       height: 160px;
+      background: #000 !important;
     }
   }
+  
+  @media only screen and (max-width: 1400px) {
+    .even_child_content {
+      left: -45vw;
+      &::after {
+        min-width: 20%;
+      }
+  }
+  .odd_child_content {
+  
+    &::before {
+
+      width: 10%;
+      height: 2px;
+    }
+  }
+  
+
+
+}
 }
 
 // .odd_year::after {

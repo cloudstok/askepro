@@ -22,14 +22,14 @@ const Notification = () => {
             </p>
           </div>
           <div className="pop_btn">
-            <div className="cancel-tab">
-            <button style={{border:'none', background:'white'}}onClick={() => setShowText(!showText)} > <Icon name='close' size='large'/>
-               </button>
-            </div>
+          
             <button className="same-btn" 
             style={{padding:'0'}}><a href="https://u.ae/en/information-and-services/justice-safety-and-the-law/handling-the-covid-19-outbreak/travelling-amid-covid-19/travelling-to-the-uae" target="_blank" rel="regulations">
               KNOW MORE </a>
-            </button>
+            </button>  <div className="cancel-tab">
+            <button style={{border:'none', background:'white'}}onClick={() => setShowText(!showText)} > <Icon name='close' size='large'/>
+               </button>
+            </div>
           </div>  
           
         </div>

@@ -56,7 +56,7 @@ const Service = () => {
       <Visa />
       <Accordion />
       <Footer />
-      <Notification />
+    
     </>
   );
 };

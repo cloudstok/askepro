@@ -86,7 +86,7 @@ const Contact = () => {
       <center><h1 className="headingOne">Contact us</h1></center>
 
         <div class="address">
-          <Grid doubling columns={3}>
+          <Grid doubling stackable columns={3}>
             <Grid.Row>
             <Grid.Column>
               <div class="contact-details-1" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
