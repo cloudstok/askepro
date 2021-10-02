@@ -42,6 +42,7 @@ import View_all_client from './Component/Main-Component/View_all_client';
 import View_all_application from './Component/Main-Component/View_all_application';
 import Type from './Pages/StepPages/Type';
 import Mode from './Pages/StepPages/ChooseMode';
+import ViewDocuments from './Component/Main-Component/ViewDocuments';
   {/* import Username from './Component/Main-Component/Username'; */}
 
 function App() {
@@ -89,6 +90,8 @@ function App() {
                 <Route exact path='/client/:clientId'><View_all_client/></Route>
                 <Route exact path='/application/:applicationId'><View_all_application/></Route>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/test" component={ViewDocuments} />
+
 
                 {/* <Route exact path="/user" component={Username} /> */}
           </Switch>
