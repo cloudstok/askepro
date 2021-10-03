@@ -215,13 +215,11 @@
     width: 100%;
     height: 130px;
     border: solid 1px #e6e6e6;
-
     margin-bottom: 20px;
     padding: 30px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
- 
   }
   .contact-details-1 img {
     width: 48px;
@@ -233,6 +231,7 @@
     display: inline-flex;
     width: 100%;
     height: 89px;
+    cursor: pointer;
     border: solid 1px #e6e6e6;
     margin-bottom: 20px;
     padding: 30px;
@@ -315,7 +314,7 @@
     font-size: 14px;
     line-height: 1.36 !important;
   }
-  .year{
+  .year {
     display: block;
   }
 }
@@ -329,13 +328,10 @@
     font-family: Open Sans;
     text-align: left;
   }
-  .golu{
+  .golu {
     margin-right: 2rem !important;
     width: 30rem;
     max-width: 100%;
-
-    
-    
   }
   .testimonial {
     display: flex;
@@ -359,11 +355,12 @@
     & .menu {
       width: 400px;
     }
-    .item, .text{
+    .item,
+    .text {
       font-size: 16px !important;
       font-weight: 600;
     }
-    &:hover{
+    &:hover {
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
     }
   }
@@ -813,12 +810,11 @@
 
 .my_journey {
   overflow-x: hidden;
-  
+
   h1 {
     text-align: center;
-
   }
-  h2{
+  h2 {
     font-size: 1.5rem;
   }
   .content_list_item {
@@ -830,13 +826,13 @@
     margin: 50px 0px;
     place-items: center;
     color: white !important;
-  
+
     // display: inline;
 
     &::after {
       content: "";
       border: 2px solid black;
-    
+
       height: 80%;
       position: absolute;
       // top: 87%;
@@ -862,7 +858,6 @@
     width: 40%;
     height: 2px;
   }
- 
 }
 
 .even_child_content {
@@ -877,7 +872,7 @@
     width: 40%;
     height: 2px;
   }
-  img{
+  img {
     object-fit: cover !important;
     margin-left: 10px;
   }
@@ -891,7 +886,7 @@
 .my_journey {
   width: 100%;
   height: 142vh !important;
-padding-top: 5%;
+  padding-top: 5%;
   background-color: #fff;
   .journey_tree {
     position: relative;
@@ -906,26 +901,21 @@ padding-top: 5%;
       background: #000 !important;
     }
   }
-  
+
   @media only screen and (max-width: 1400px) {
     .even_child_content {
       left: -45vw;
       &::after {
         min-width: 20%;
       }
-  }
-  .odd_child_content {
-  
-    &::before {
-
-      width: 10%;
-      height: 2px;
+    }
+    .odd_child_content {
+      &::before {
+        width: 10%;
+        height: 2px;
+      }
     }
   }
-  
-
-
-}
 }
 
 // .odd_year::after {

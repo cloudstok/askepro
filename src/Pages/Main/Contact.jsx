@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Form,  Breadcrumb } from "semantic-ui-react";
+import { Grid, Container, Form, Breadcrumb } from "semantic-ui-react";
 import Notification from "../../Component/Main-Component/Notification";
 import Footer from "../../Component/Main-Component/Footer";
 import "../../Sass/Sass-Main/_About.scss";
@@ -8,18 +8,18 @@ import AOS from "aos";
 import Updated from "../../Component/popup/updated";
 
 const Contact = () => {
-    const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
-    AOS.init({
-      offset: 100,
-      duration: 600,  
-      easing: 'ease-in-sine',
-      delay: 100, 
-    });
+  const url = `${process.env.REACT_APP_BASE_URL}/contact/create`;
+  AOS.init({
+    offset: 100,
+    duration: 600,
+    easing: "ease-in-sine",
+    delay: 100,
+  });
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
   const [query, setQuery] = React.useState(null);
-  const [open,setOpen] = React.useState(false);
-  const [msg,setMsg] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [msg, setMsg] = React.useState(false);
   const createContact = async (event) => {
     try {
       event.preventDefault();
@@ -42,40 +42,35 @@ const Contact = () => {
       const data = await result.json();
 
       if (data && result.status == 200) {
-        setMsg(data.msg)
-        setOpen(true)
+        setMsg(data.msg);
+        setOpen(true);
       }
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   return (
     <>
-    <div className="crumb">
-      {/* <Crumb
+      <div className="crumb">
+        {/* <Crumb
         section={[
           { key: "home", content: "Home", link: true },
           { key: "apply", content: "Contact", active: true },
         ]}
       /> */}
-            <Breadcrumb>
-                <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
-                <Breadcrumb.Divider icon="right chevron" />
-                <Breadcrumb.Section active>
-                  Contact
-                </Breadcrumb.Section>
-              </Breadcrumb>
-              </div>
-      <div
-        class="contact"
-     
-      >
-          <img src={process.env.PUBLIC_URL + "/Assets/images/LETS.jpg"} />
-          <div className="contact_content">
-        <h1>Let's have a talk </h1>
+        <Breadcrumb>
+          <Breadcrumb.Section href="/">Home</Breadcrumb.Section>
+          <Breadcrumb.Divider icon="right chevron" />
+          <Breadcrumb.Section active>Contact</Breadcrumb.Section>
+        </Breadcrumb>
+      </div>
+      <div class="contact">
+        <img src={process.env.PUBLIC_URL + "/Assets/images/LETS.jpg"} />
+        <div className="contact_content">
+          <h1>Let's have a talk </h1>
 
-       {/*  <h2>
+          {/*  <h2>
           Experience success with UAE and take your business to new heights with
           Askepro.
           <br />
@@ -83,13 +78,19 @@ const Contact = () => {
         </h2> */}
         </div>
       </div>
-      <center><h1 className="headingOne">Contact us</h1></center>
+      <center>
+        <h1 className="headingOne">Contact us</h1>
+      </center>
 
-        <div class="address">
-          <Grid doubling stackable columns={3}>
-            <Grid.Row>
+      <div class="address">
+        <Grid doubling stackable columns={3}>
+          <Grid.Row>
             <Grid.Column>
-              <div class="contact-details-1" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+              <div
+                class="contact-details-1"
+                data-aos="fade-right"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <img src={process.env.PUBLIC_URL + "/Assets/images/pin.png"} />
                 <p>
                   Kalari Documents Clearing Services
@@ -97,13 +98,23 @@ const Contact = () => {
                   Dragon Mart 1,Shop No DHOFF16 Dubai, United Arab Emirates
                 </p>
               </div>
-              <div class="contact-details" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+              <div
+                class="contact-details"
+                data-aos="fade-right"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <img
                   src={process.env.PUBLIC_URL + "/Assets/images/phone.png"}
                 />
-                <p>+97180073232</p>
+                <a href="https://wa.me/971565472003">
+                  <p style={{ textDecoration: "underline" }}>+97180073232</p>
+                </a>
               </div>
-              <div class="contact-details" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+              <div
+                class="contact-details"
+                data-aos="fade-right"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <img src={process.env.PUBLIC_URL + "/Assets/images/mail.png"} />
                 <p>care@askepro.ae</p>
               </div>
@@ -114,60 +125,66 @@ const Contact = () => {
               </div>
             </Grid.Column>
             <Grid.Column>
-              <div className="information" onSubmit={createContact} data-aos="fade-left" data-aos-anchor-placement="top-bottom">
-            <Form name="query">
-              <Form.Group widths="equal">
-                <Form.Field>
-                  <label>Name</label>
-                  <input
-                    onChange={(event) => setName(event.target.value)}
-                    placeholder="Enter your name"
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label>Email</label>
-                  <input
-                    onChange={(event) => setEmail(event.target.value)}
-                    placeholder=" Enter your email address"
-                  />
-                </Form.Field>
-              </Form.Group>
-              <Form.Field>
-                <label>Query</label>
-                <Form.TextArea
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Describe Your Query"
-                />
+              <div
+                className="information"
+                onSubmit={createContact}
+                data-aos="fade-left"
+                data-aos-anchor-placement="top-bottom"
+              >
+                <Form name="query">
+                  <Form.Group widths="equal">
+                    <Form.Field>
+                      <label>Name</label>
+                      <input
+                        onChange={(event) => setName(event.target.value)}
+                        placeholder="Enter your name"
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <label>Email</label>
+                      <input
+                        onChange={(event) => setEmail(event.target.value)}
+                        placeholder=" Enter your email address"
+                      />
+                    </Form.Field>
+                  </Form.Group>
+                  <Form.Field>
+                    <label>Query</label>
+                    <Form.TextArea
+                      onChange={(event) => setQuery(event.target.value)}
+                      placeholder="Describe Your Query"
+                    />
 
-                <div className="reach-Submit">
-                  <p>
-                    By clicking on 'Submit' you will agree to T&C of AskePro
-                  </p>
-                  <button className="same-btn" type="submit">
-                    SUBMIT
-                  </button>
-                </div>
-              </Form.Field>
-            </Form>
-          </div>
+                    <div className="reach-Submit">
+                      <p>
+                        By clicking on 'Submit' you will agree to T&C of AskePro
+                      </p>
+                      <button className="same-btn" type="submit">
+                        SUBMIT
+                      </button>
+                    </div>
+                  </Form.Field>
+                </Form>
+              </div>
             </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </div>
-   
-       
+          </Grid.Row>
+        </Grid>
+      </div>
+
       <footer className="footer">
         <Container fluid>
           <Grid stackable columns={2}>
             <Grid.Column width={9}>
               <div className="footer-part-1">
                 <a href="#">
-                <img
-                  className="footer_image"
-                  src={
-                    process.env.PUBLIC_URL + "/Assets/images/Epro Logo_Web.png"
-                  }
-                /></a>
+                  <img
+                    className="footer_image"
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/Assets/images/Epro Logo_Web.png"
+                    }
+                  />
+                </a>
 
                 <img
                   className="footer_image1"
@@ -197,9 +214,9 @@ const Contact = () => {
             </Grid.Column>
           </Grid>
         </Container>
-        <Updated open={open} msg={msg} onClose={()=>setOpen(false)}/>
+        <Updated open={open} msg={msg} onClose={() => setOpen(false)} />
       </footer>
-      
+
       <Notification />
     </>
   );
