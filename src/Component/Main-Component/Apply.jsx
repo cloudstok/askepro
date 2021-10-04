@@ -7,13 +7,40 @@ const Apply = () => {
     dots: true,
     infinite: true,
     autoplay: true,
+    pauseOnHover: false,
     speed: 600,
     autoplaySpeed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
   };
+  const offer = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    infinite: true,
+    speed: 600,
+    pauseOnHover: false,
+    autoplaySpeed: 4000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <>
+      <div className="service_heading">
+        <h1 className="headingOne">Our Offers</h1>
+      </div>
+      <Slider {...offer}>
+        <div className="offer_banner">
+          <img src={process.env.PUBLIC_URL + "/Assets/images/offer1.png"} />
+        </div>
+        <div className="offer_banner">
+          <img src={process.env.PUBLIC_URL + "/Assets/images/offer2.jpg"} />
+        </div>
+        <div className="offer_banner">
+          <img src={process.env.PUBLIC_URL + "/Assets/images/offer3.jpg"} />
+        </div>
+      </Slider>
+
       <section className="step">
         <div className="apply">
           <h1 className="headingOne">How to apply</h1>
@@ -103,16 +130,21 @@ const Apply = () => {
         <div className="slider_image_section">
           <img src={process.env.PUBLIC_URL + "/Assets/images/brands.jpg"} />
         </div>
-        <div className="slider_content" >
-          <h2>We Are Closely Working With All <br/>Government Departments</h2>
+        <div className="slider_content">
+          <h2>
+            We Are Closely Working With All <br />
+            Government Departments
+          </h2>
           <Container>
             <Slider {...settings}>
               <div className="slider_glide">
-                <img  id="xl_glide"
+                <img
+                  id="xl_glide"
                   src={
                     process.env.PUBLIC_URL +
                     "/Assets/images/Dubai-Health-Authority-Jobs.png"
-                  } width="135px"
+                  }
+                  width="135px"
                 />
               </div>
               <div className="slider_glide">
@@ -125,7 +157,8 @@ const Apply = () => {
               </div>
               <div className="slider_glide">
                 <img
-                  src={process.env.PUBLIC_URL + "/Assets/images/images.png"} width='125px'
+                  src={process.env.PUBLIC_URL + "/Assets/images/images.png"}
+                  width="125px"
                 />
               </div>
               <div className="slider_glide">
@@ -168,7 +201,8 @@ const Apply = () => {
               <div className="slider_glide">
                 <img
                   src={process.env.PUBLIC_URL + "/Assets/images/pngegg.png"}
-                width='100px' />
+                  width="100px"
+                />
               </div>
               <div className="slider_glide" id="glide_box">
                 <img
