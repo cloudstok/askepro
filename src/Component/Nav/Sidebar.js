@@ -34,6 +34,9 @@ return (
       <Menu.Item as='a'  className={value==='faq' ? active : ""}>
       <Link to='/admin/faq'><img src={process.env.PUBLIC_URL + '/Assets/images/faq.png'}/></Link>
       </Menu.Item>
+      <Menu.Item as='a'  className={value==='offer' ? active : ""}>
+      <Link to='/admin/offer'><img src={process.env.PUBLIC_URL + '/Assets/images/discount.png'}/></Link>
+      </Menu.Item>
       <Menu.Item as='a'  className={value==='query' ? active : ""}>
       <Link to='/admin/query'><img src={process.env.PUBLIC_URL + '/Assets/images/mail.svg'}/></Link>
       </Menu.Item>

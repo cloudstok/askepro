@@ -30,6 +30,7 @@ const Service_modal = (props) => {
   const [comp, setComp] = React.useState([]);
   const [serviceDetail, setServiceDetail] = React.useState([]);
   const [price, setPrice] = React.useState(null);
+  const [discount, setDiscount] = React.useState(null);
   const [serviceHowToApply, setHta] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
   const [file, setFile] = React.useState(null);
@@ -120,6 +121,7 @@ const Service_modal = (props) => {
       {
         name: type,
         price: price,
+        discountPrice: discount,
         // processT: processT,
         // stayPeriod: stayPeriod,
         // validity: validity,
@@ -141,6 +143,7 @@ const Service_modal = (props) => {
     // setAppType("");
     setDocs("");
     setProcessT("");
+    setDiscount("");
   };
   console.log(catArr);
   return (
@@ -286,6 +289,13 @@ const Service_modal = (props) => {
                       label="Enter total fees"
                       placeholder="Enter total fees"
                       onChange={(event) => setPrice(event.target.value)}
+                    />
+                      <Form.Input
+                      fluid
+                      value={discount}
+                      label="Enter Discount"
+                      placeholder="Enter Discount"
+                      onChange={(event) => setDiscount(event.target.value)}
                     />
                   </Form.Group>
                   {/* <Form.Group widths="equal">

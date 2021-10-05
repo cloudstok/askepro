@@ -18,6 +18,7 @@ import ManageService from './Pages/Manage/ManageService';
 import ManageAppointments from './Pages/Manage/ManageAppointment';
 import ManageFaq from './Pages/Manage/ManageFaq';
 import ManageQuery from './Pages/Manage/ManageQuery';
+import ManageOffer from './Pages/Manage/ManageOffer';
 
 import Home from './Pages/Main/Home';
 import ToggleNav from './Component/toggle_nav';
@@ -78,6 +79,7 @@ function App() {
                 <Route exact path='/payment' component={Payment}/>
                 <Route exact path='/Success' component={Success}/>
                 <Route exact path='/faq' component={FAQ_modal} />
+                <Route exact path="/docs" component={ViewDocuments} />
                 <Route exact path='/history'><History title='History'/></Route>
                 <Route exact path='/admin/clients'><ManageClients title='Manage Clients'/></Route>
                 <Route exact path='/admin/payments'><ManagePayments title='Manage Payments'/></Route>
@@ -86,11 +88,12 @@ function App() {
                 <Route exact path='/admin/query'><ManageQuery title='Manage Query'/></Route>
                 <Route exact path='/admin/faq'><ManageFaq title='Manage Faq'/></Route>
                 <Route exact path='/admin/service'><ManageService title='Manage Service'/></Route>
+                <Route exact path='/admin/offer'><ManageOffer title='Manage Offers'/></Route>
                 <Route exact path='/add' component={Service_modal}/>
                 <Route exact path='/client/:clientId'><View_all_client/></Route>
                 <Route exact path='/application/:applicationId'><View_all_application/></Route>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/test" component={ViewDocuments} />
+                
 
 
                 {/* <Route exact path="/user" component={Username} /> */}

@@ -234,9 +234,13 @@ const Company = () => {
                                     </Table.Cell>
                                     <Table.Cell>{serviceType.entry}</Table.Cell> */}
                                       <Table.Cell>
-                                        <span className="total-right">
-                                          {serviceType.price} AED
+                                        <span className="total-right"  style={{ textDecoration : serviceType?.discountPrice>0 ? 'line-through' : 'none' }}>
+
+                                         {serviceType.price} AED
                                         </span>
+                                        <span className="total-right">
+                                        {serviceType?.discountPrice>0?serviceType.price-serviceType?.discountPrice:serviceType.price} AED
+                                      </span>
                                       </Table.Cell>
                                     </Table.Row>
                                   </Table>

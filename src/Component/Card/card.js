@@ -47,7 +47,8 @@ const DataCard = () => {
           stayPeriod: service.data.stayPeriod,
           validity: service.data.validity,
           entry: service.data.entry,
-          price: service.data.price
+          price: service.data.price,
+          discountPrice:service.data.discountPrice
         };
         setService(serviceData);
 
@@ -83,7 +84,7 @@ const DataCard = () => {
                 </table> 
                 <Divider />*/}
      <div className='total'>
-                    <label className='fees'>Fees</label> <label>{services.price} AED</label>
+                    <label className='fees'>Fees</label> <label>{services?.discountPrice>0?services.price-services?.discountPrice:services.price} AED</label>
                 </div>
                             </div>:<></>}
 

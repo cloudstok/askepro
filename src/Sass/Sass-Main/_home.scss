@@ -838,3 +838,18 @@ body {
     color: #000 !important;
   }
 }
+
+
+.img-container {
+  left:0 !important;
+  right:0 !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  position: absolute ;
+  width: 40%;
+
+  outline: 1px solid black;
+  background: white;
+}

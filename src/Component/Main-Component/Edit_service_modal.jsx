@@ -58,6 +58,7 @@ if(service.data.category.length>0){
   const [showCat, setShowCat] = React.useState(false);
   const [entry, setEntry] = React.useState(null);
   const [price, setPrice] = React.useState(null);
+  const [discount, setDiscount] = React.useState(null);
   const [reqDocs, setDocs] = React.useState(null);
   const [type, setType] = React.useState(null);
   const [catArr, setcatArr] = React.useState([]);
@@ -84,7 +85,6 @@ if(service.data.category.length>0){
       setMsg("Service Updated Successfully")
       setOpen(true);
       getservice();
-      window.location.reload(false);
     } else {
       setMsg("There has been an error")
       setOpenErr(true);
@@ -130,12 +130,12 @@ if(service.data.category.length>0){
   const handleSave = async (event, id) => {
     let details = serviceDetail;
     let EditedDetails = details.find(ele => ele._id === id);
-    console.log(EditedDetails);
     const index = details.indexOf(EditedDetails);
     if (index > -1) {
       details[index] = {
         name: type ? type : EditedDetails.name,
         price: price ? price : EditedDetails.price,
+        discountPrice:discount? discount : EditedDetails.discount,
         // processT: processT ? processT : EditedDetails.processT,
         // stayPeriod: stayPeriod ? stayPeriod : EditedDetails.stayPeriod,
         // validity: validity ? validity : EditedDetails.validity,
@@ -162,6 +162,7 @@ if(service.data.category.length>0){
     setServiceDetail([...serviceDetail, {
       name: type,
       price: price,
+      discountPrice:discount,
       // processT: processT,
       // stayPeriod: stayPeriod,
       // validity: validity,
@@ -303,6 +304,14 @@ if(service.data.category.length>0){
                               placeholder="Enter total fees"
                               onChange={(event) => setPrice(event.target.value)}
                             />
+
+<Form.Input
+                              fluid
+                              defaultValue={d.discountPrice || 0}
+                              label="Enter Discount"
+                              placeholder="Enter Discount"
+                              onChange={(event) => setDiscount(event.target.value)}
+                            />
                           </Form.Group>
                           {/* <Form.Input
                       fluid
@@ -417,6 +426,13 @@ if(service.data.category.length>0){
                       placeholder="Enter total fees"
                       onChange={(event) => setPrice(event.target.value)}
                     />
+                    <Form.Input
+                              fluid
+                              defaultValue={discount}
+                              label="Enter Discount"
+                              placeholder="Enter Discount"
+                              onChange={(event) => setDiscount(event.target.value)}
+                            />
                   </Form.Group>
                   {/* <Form.Input
                       fluid

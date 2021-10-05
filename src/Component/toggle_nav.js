@@ -97,6 +97,7 @@ const ToggleNav = () => {
                     <Dropdown.Menu className='dropdown-menu'>
                       <Link to={'/account'}><li className='item-name' style={{ color: "#000" }}><Icon name='user outline' />My Account</li></Link>
                       <Link to={'/history'}><li className='item-name' style={{ color: "#000" }}><Icon name='history' />History</li></Link>
+                      <Link to={'/docs'}><li className='item-name' style={{ color: "#000" }}><Icon name='file outline' />My Documnets</li></Link>
                       <li className='item-name' onClick={handleClick}><Icon name='history'></Icon>Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
