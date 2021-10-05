@@ -3,6 +3,19 @@ import { Grid, Segment, Container, Icon, Button } from "semantic-ui-react";
 import Slider from "react-slick";
 
 const Apply = () => {
+  const [offers, setOffer] = React.useState([]);
+  React.useEffect(() => {
+    getoffers();
+  }, []);
+
+
+  const getoffers = async () => {
+    const offer = await (
+      await fetch(`${process.env.REACT_APP_BASE_URL}/admin/offer`, { method: "GET" })
+    ).json();
+
+    setOffer(offer.data);
+  };
   const settings = {
     dots: true,
     infinite: true,
@@ -30,15 +43,9 @@ const Apply = () => {
         <h1 className="headingOne">Our Offers</h1>
       </div>
       <Slider {...offer}>
-        <div className="offer_banner">
-          <img src={process.env.PUBLIC_URL + "/Assets/images/offer1.png"} />
-        </div>
-        <div className="offer_banner">
-          <img src={process.env.PUBLIC_URL + "/Assets/images/offer2.jpg"} />
-        </div>
-        <div className="offer_banner">
-          <img src={process.env.PUBLIC_URL + "/Assets/images/offer3.jpg"} />
-        </div>
+        {offers.map(ele=><div className="offer_banner" >
+  <img src={"data:image/png;base64," +ele.data} />
+    </div>)}
       </Slider>
 
       <section className="step">

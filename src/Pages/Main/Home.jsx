@@ -18,7 +18,7 @@ const Home = () => {
   const [offers, setOffer] = React.useState([]);
   React.useEffect(() => {
     getUser();
-    getoffers();
+    // getoffers();
   }, []);
 
 
@@ -35,16 +35,6 @@ const Home = () => {
     autoplay:true,
     speed: 500,
     autoplaySpeed: 7000,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
-  const ImageSliderSettings = {
-    dots: true,
-    infinite: true,
-    autoplay:true,
-    speed: 500,
-    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1
   };
@@ -206,13 +196,7 @@ const Home = () => {
           </div>
           <div className="wrapper_home">
             <Visa />
-<div>
-<Slider {...ImageSliderSettings}  >
-  {offers.map(ele=><div >
-  <img src={"data:image/png;base64," +ele.data} width="300" height="200" />
-    </div>)}
-  </Slider>
-</div>
+
             <Apply />
             <Footer />
             <Notification />

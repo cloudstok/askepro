@@ -50,8 +50,8 @@ const Offer_image_modal = ( props) => {
         <Modal.Content>
           
 
-         { props.img&&< >
-          <img src={"data:image/png;base64," +props.img} width="300" height="200" /></>}
+         { props.img&&<div className="offer_banner" >
+          <img src={"data:image/png;base64," +props.img} width="300" height="200" /></div>}
         </Modal.Content>
         <Modal.Description>
           <div className="accept_bottom">

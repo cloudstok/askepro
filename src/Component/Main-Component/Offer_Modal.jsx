@@ -104,8 +104,8 @@ console.log(img)
             </Table.Row>
           </div>
 
-         { img&&< >
-          <img src={img} width="300" height="200" /></>}
+         { img&&<div className="offer_banner" >
+          <img src={img} width="300" height="200" /></div>}
         </Modal.Content>
         <Modal.Description>
           <div className="accept_bottom">
