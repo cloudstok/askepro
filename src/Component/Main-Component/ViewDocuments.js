@@ -4,10 +4,10 @@ import Updated from "../popup/updated";
 import './document.scss';
 export default function ViewDocuments() {
 
-  const[name, setName]= React.useState(null);
-  const[category, setCategory]= React.useState(null);
-  const[validTo, setValidTo]= React.useState(null);
-  const[validFrom, setValidFrom]= React.useState(null);
+  const[name, setName]= React.useState("");
+  const[category, setCategory]= React.useState("Passport");
+  const[validTo, setValidTo]= React.useState("");
+  const[validFrom, setValidFrom]= React.useState("");
   const[file, setFile]= React.useState(null);
   const[docs, setDocs]= React.useState([]);
   const [openPop, setOpen] = React.useState(false);
@@ -29,6 +29,13 @@ export default function ViewDocuments() {
     documents = documents.data;
     setDocs(documents || []);
   }
+  const resetFields=()=>{
+    setCategory("Passport");
+    setName("");
+    setValidFrom("");
+    setValidTo("");
+    setFile(null);
+  }
   const uploadWithFormData = async (event) => {
 
     const url = `${process.env.REACT_APP_BASE_URL}/document/upload`;
@@ -39,12 +46,6 @@ export default function ViewDocuments() {
     formData.append("validTo", validTo);
     formData.append("validFrom", validFrom);
     formData.append("type", category);
-    // formData.append("processT", processT);
-    // formData.append("stayPeriod", stayPeriod);
-    // formData.append("validity", validity);
-    // formData.append("entry", entry);
-    // formData.append("price",price );
-    // formData.append("reqDocs", reqDocs);
 console.log(formData)
     const result = await (
       await fetch(url, {
@@ -59,9 +60,11 @@ console.log(formData)
     if (result.status === 1) {
       setMsg("Document Added Successfully");
       setOpen(true);
+      resetFields();
       getMyDocs();
     } else {
       setMsg("There has been an error");
+      resetFields();
       setOpenErr(true);
     }
   };
@@ -115,10 +118,11 @@ console.log(formData)
               placeholder="Your name"
               type="text"
               control="input"
+              value={name}
               onChange={(event) => setName(event.target.value)}
             />
 
-            <Form.Field label="Select Category" control="select"  onChange={(event) => setCategory(event.target.value)}>
+            <Form.Field label="Select Category" control="select" value={category} onChange={(event) => setCategory(event.target.value)}>
               <option value="Passport">Passport</option>
               <option value="Visa">Visa</option>
               <option value="Photograph">Photograph</option>
@@ -128,16 +132,18 @@ console.log(formData)
               label="Valid From"
               control="input"
               type="date"
+              value={validFrom}
               onChange={(event) => setValidFrom(event.target.value)}
             ></Form.Field>
             <Form.Field
               label="valid To"
               control="input"
               type="date"
+              value={validTo}
               onChange={(event) => setValidTo(event.target.value)}
             ></Form.Field>
              <Form.Field>
-                  <label>Image(JPEG/PNG)</label>
+                  <label>Document</label>
                   <Input
                     type="file"
                     name="file"
@@ -146,7 +152,7 @@ console.log(formData)
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label for="file-btn">Click to select file </label>
+                    <label for="file-btn">{!file?"Click to select file":"File Uploaded"} </label>
                   </p>
                 </Form.Field>
           </Form.Group>
