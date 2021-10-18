@@ -183,9 +183,10 @@ console.log(formData)
               <Table.Cell>{ele.validFrom}</Table.Cell>
               <Table.Cell>{ele.validTo}</Table.Cell>
               <Table.Cell>
-                  <span>
+                  <span style={{margin:'0 2rem 0 0rem'}}>
                   <Icon name="eye" onClick={()=>generateLink(ele.key)}/> 
                   </span>
+
                   <span>
                   <Icon name="delete" onClick={()=>deleteDoc(ele._id)}/>
                   </span>
