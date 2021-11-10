@@ -85,7 +85,8 @@ const Service_modal = (props) => {
     }
   };
   const handleAdd = async () => {
- 
+ if(cat?.replace(/\s/g, '')?.length<1 )
+ return;
     setcatArr([
       ...catArr,
       { key: cat, text: cat, value: cat }
@@ -218,15 +219,16 @@ const Service_modal = (props) => {
                 </Form.Group>
 
               </div>
-              <div>
+              <div className="category">
                 <h4>Category:</h4>
                 {catArr.map((d) => (
                   <div className="testimonial">
-                    <Label >
+                    <Label>
 
                       {d.text}
                       <Icon name='delete' onClick={() => handleRemove(d.text)} />
                     </Label>
+                   
                   </div>
                 ))}
               </div></>:<></>}
@@ -285,6 +287,7 @@ const Service_modal = (props) => {
                     />
                     <Form.Input
                       fluid
+                      type = "number"
                       value={price}
                       label="Enter total fees"
                       placeholder="Enter total fees"
@@ -292,6 +295,7 @@ const Service_modal = (props) => {
                     />
                       <Form.Input
                       fluid
+                      type = "number"
                       value={discount}
                       label="Enter Discount"
                       placeholder="Enter Discount"

@@ -108,7 +108,7 @@ const handleSubmit = async (state) => {
 
   if (state === "Failed") {
     setOpen(true)
-    setMsg("There has been issue with your payment, please craete a new Application")
+    setMsg("There has been issue with your payment, please create a new Application")
 
 
 
@@ -195,7 +195,7 @@ return (
                 />
               </Grid.Column>
               <Grid.Column>
-                <label className="payment-header">Priortiy</label>
+                <label className="payment-header">Priority</label>
                 <Select placeholder='Priority' options={countryOptions} onChange={(e, { value }) => setFees(value)} />
               </Grid.Column>
 

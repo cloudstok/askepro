@@ -22,14 +22,15 @@ import "./manage.scss";
 import { useHistory } from "react-router";
 import Offer_modal from "../../Component/Main-Component/Offer_Modal";
 import Offer_image_modal from "../../Component/Main-Component/Offer_image";
+import Updated from "../../Component/popup/updated";
 
 const ManageOffer = ({ title }) => {
   const history = useHistory();
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
   history.push("/login");
-  const [offers, setOffer] = React.useState(null);
-  const [offerTitle, setTitle] = React.useState(null);
-  const [description, setDescription] = React.useState(null);
+  const [offers, setOffer] = React.useState(null);  
+  const [pop, setPop]= React.useState(false);
+  const [msg, setMsg]= React.useState();
 
   React.useEffect(() => {
     getoffers();
@@ -79,8 +80,9 @@ const ManageOffer = ({ title }) => {
     ).json();
 
     if (result.status === 1) {
-      alert(result.msg);
-      window.location.reload(false);
+      setMsg(result.msg);
+      setPop(true);
+      getoffers();
     }
   };
   if (!offers) {
@@ -178,6 +180,8 @@ const ManageOffer = ({ title }) => {
           </div>
         </div>
       </div>
+      
+      <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
   );
 };

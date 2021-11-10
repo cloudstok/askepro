@@ -7,12 +7,14 @@ import './manage.scss';
 import Service_modal from '../../Component/Main-Component/Add_service_modal';
 import Edit_Modal from '../../Component/Main-Component/Edit_service_modal';
 import { useHistory } from 'react-router';
+import Updated from "../../Component/popup/updated";
 const ManageService = ({ title }) => {
 
   const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
-
+const [pop, setPop]= React.useState(false);
+const [msg, setMsg]= React.useState();
   const [service, setservice] = React.useState(null);
   React.useEffect(() => {
     getservice();
@@ -46,8 +48,9 @@ const ManageService = ({ title }) => {
     ).json();
 
     if (result.status === 1) {
-      alert(result.msg);
-      window.location.reload(false);
+      setMsg(result.msg);
+      setPop(true);
+      getservice();
     }
   };
   const pageClick = async (p) => {
@@ -136,8 +139,12 @@ const ManageService = ({ title }) => {
             />
           </div>
         </div>
+        upda
       </div>
+      <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
+
+    
   )
 
 

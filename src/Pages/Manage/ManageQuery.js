@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Icon, Dropdown, Breadcrumb, Pagination, Table, Label, Sidebar, Button } from 'semantic-ui-react';
+import { Container, Icon, Dropdown, Breadcrumb, Pagination, Table, Label, Sidebar, Button, StepGroup } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 import { useHistory } from 'react-router';
+import Updated from '../../Component/popup/updated';
 
 const ManageQuery = ({ title }) => {
   const history = useHistory();
@@ -12,6 +13,8 @@ const ManageQuery = ({ title }) => {
     history.push("/login");
   const [query, setquery] = React.useState(null);
   const [status, setStatus] = React.useState("Open");
+  const [pop, setPop]= React.useState(false);
+const [msg, setMsg]= React.useState();
   React.useEffect(() => {
     getquery();
   }, []);
@@ -60,8 +63,9 @@ const ManageQuery = ({ title }) => {
       }
     })).json();
     if (query.status === 1) {
-      alert(query.msg);
-      window.location.reload(false);
+      setMsg(query.msg);
+      setPop(true);
+      getquery();
     }
   }
 
@@ -129,6 +133,8 @@ const ManageQuery = ({ title }) => {
           </div>
         </div>
       </div>
+      
+      <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
   )
 }
