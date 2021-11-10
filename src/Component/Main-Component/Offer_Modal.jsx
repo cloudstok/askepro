@@ -97,7 +97,7 @@ console.log(img)
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label for="file-btn">Click to select file </label>
+                    <label style={{cursor:'pointer',border:'dotted 1px black'}} for="file-btn">Click to select file </label>
                   </p>
                 </Form.Field>
               </Table.Cell>

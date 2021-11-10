@@ -36,6 +36,13 @@ $simple-border: solid 1px #000000 !important;
         @content;
     }
 }
+@mixin  sideImages {
+  width: 26px !important;
+  margin: 20px;
+  font-size: 22px !important;
+  color: #d5d5d5;
+  filter: opacity(45%);
+}
 
 
 // Book Appointment Calender

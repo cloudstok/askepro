@@ -189,7 +189,7 @@ const Service_modal = (props) => {
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label for="file-btn">Click to select file </label>
+                    <label style={{cursor:'pointer'}} for="file-btn">Click to select file </label>
                   </p>
                 </Form.Field>
                 <Form.Field>

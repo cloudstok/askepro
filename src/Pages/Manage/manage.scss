@@ -157,7 +157,7 @@
         }
         .next, .prev{
             color: #000 !important;
-            
+            cursor: pointer;
            &:after{
                content:'';
                position:absolute;

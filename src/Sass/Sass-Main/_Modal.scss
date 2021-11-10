@@ -204,5 +204,12 @@
     font-size: 14px !important;
     font-weight: bold;
     line-height: 1.21;
+    cursor: pointer;
+
+  }
+  .ui.form input, textarea{
+    cursor: pointer;
+
+    
   }
 }
