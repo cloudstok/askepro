@@ -39,7 +39,9 @@ const ManagePayments = ({ title }) => {
     setpayment(payment);
   };
   const pageClick = async (p) => {
-    const payment = await (
+    if(Number.isNaN(p) || p===0 || p < 0|| p===payment.totalPages+1 || p>payment.totalPages+1 || payment.totalPages===1 )
+    return;
+    const pay = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/admin/payment?page=${p}`, {
         method: "GET",
         headers: {
@@ -48,7 +50,7 @@ const ManagePayments = ({ title }) => {
       })
     ).json();
 
-    setpayment(payment);
+    setpayment(pay);
   };
   if (!payment) {
     return <></>;
@@ -114,8 +116,8 @@ const ManagePayments = ({ title }) => {
               defaultActivePage={payment.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className="next">PREV</label> }}
-              nextItem={{ content: <label className="prev">NEXT</label> }}
+              prevItem={{ content: <label className='next' onClick={() => pageClick(payment.currentPage-1)}>PREV</label> }}
+              nextItem={{ content: <label className='prev' onClick={() => pageClick(payment.currentPage+1)}>NEXT</label> }}
               totalPages={payment.totalPages}
               onClick={(e) => pageClick(parseInt(e.target.innerText))}
             />

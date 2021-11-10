@@ -11,7 +11,6 @@ import {
   Input
 } from "semantic-ui-react";
 
-
 function exampleVerify(state, action) {
   switch (action.type) {
     case "close":
@@ -23,7 +22,7 @@ function exampleVerify(state, action) {
   }
 }
 
-const Offer_modal = () => {
+const Offer_modal = (props) => {
   const [name, setName] = React.useState(null);
   const [file, setFile] = React.useState(null);
   const[img, setImg]=React.useState(null);
@@ -43,10 +42,9 @@ const Offer_modal = () => {
         body: formData,
       })
     ).json();
-
     if (result.status === 1) {
-      alert("Offer Updated");
-      window.location.reload(false);
+   setImg(null);
+      props.refresh();
     }
   };
 
@@ -61,8 +59,7 @@ const Offer_modal = () => {
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
 });
-console.log(img)
-  return (
+return (
     <>
 
       <button className="same-btn" /* onClick={submitoffer} */ onClick={() => dispatch({ type: "open", size: "small" })}>
@@ -93,11 +90,11 @@ console.log(img)
                     type="file"
                     name="file"
                     id="file-btn"
-                    onChange={async (event) => {setFile(event.target.files[0]); setImg(await toBase64(event.target.files[0]))}}
+                    onChange={async (event) => {setFile(event.target.files[0]);  toBase64(event.target.files[0]).then(res=>setImg(res))}}
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label style={{cursor:'pointer',border:'dotted 1px black'}} for="file-btn">Click to select file </label>
+                    <label style={{cursor:'pointer',border:'dotted 1px black'}} for="file-btn">{!file?"Click to select file":"File Uploaded"} </label>
                   </p>
                 </Form.Field>
               </Table.Cell>

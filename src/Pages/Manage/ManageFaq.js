@@ -58,12 +58,15 @@ const ManageFaq = ({ title }) => {
   };
 
   const pageClick = async (p) => {
-    const faq = await (
+    if(Number.isNaN(p) || p===0 || p < 0|| p===faqs.totalPages+1 || p>faqs.totalPages+1 || faqs.totalPages===1 )
+    return;
+    
+    const f = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/admin/faq?page=${p}`, {
         method: "GET",
       })
     ).json();
-    setfaq(faq);
+    setfaq(f);
   };
 
   
@@ -158,7 +161,7 @@ const ManageFaq = ({ title }) => {
                 content: (
                   <label
                     className="next"
-                    onClick={() => pageClick(--faqs.currentPage)}
+                    onClick={() => pageClick(faqs.currentPage-1)}
                   >
                     PREV
                   </label>
@@ -168,7 +171,7 @@ const ManageFaq = ({ title }) => {
                 content: (
                   <label
                     className="prev"
-                    onClick={() => pageClick(++faqs.currentPage)}
+                    onClick={() => pageClick(faqs.currentPage+1)}
                   >
                     NEXT
                   </label>

@@ -74,10 +74,9 @@ const Service_modal = (props) => {
     ).json();
 
     if (result.status === 1) {
-      setMsg("Service Added Successfully");
-      setOpen(true);
       setServiceDetail([]);
-      window.location.reload(false);
+      props.refresh();
+     
     } else {
       setMsg("There has been an error");
       setServiceDetail([]);
@@ -190,7 +189,7 @@ const Service_modal = (props) => {
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label style={{cursor:'pointer'}} for="file-btn">Click to select file </label>
+                    <label style={{cursor:'pointer'}} for="file-btn">{!file?"Click to select file":"File Uploaded"}</label>
                   </p>
                 </Form.Field>
                 <Form.Field>
@@ -269,7 +268,7 @@ const Service_modal = (props) => {
                       }}
                     >
                       <Icon name="save outline" />
-                      <label> Save</label>
+                      <label style={{cursor: "pointer"}} > Save</label>
                     </Button>
                   </Form.Field>
                 </div>

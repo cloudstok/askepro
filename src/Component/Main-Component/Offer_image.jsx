@@ -38,7 +38,7 @@ const Offer_image_modal = ( props) => {
 
   return (
     <>
- <Icon name="eye"onClick={() => dispatch({ type: "open", size: "small" })}/>
+ <Icon  style={{ marginLeft: "30px" ,cursor: "pointer"}} name="eye"onClick={() => dispatch({ type: "open", size: "small" })}/>
       <Modal
         size={size}
         open={open}

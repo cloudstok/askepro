@@ -53,10 +53,19 @@ const [msg, setMsg]= React.useState();
       getservice();
     }
   };
-  const pageClick = async (p) => {
-    const service = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/services?page=${p}`, { method: "GET" })).json();
 
-    setservice(service);
+  const refresh=(msg)=>{
+    setMsg(msg);
+    setPop(true);
+    getservice();
+
+  }
+  const pageClick = async (p) => {
+    if(Number.isNaN(p) || p===0 || p < 0|| p===service.totalPages+1 || p>service.totalPages+1 || service.totalPages===1 )
+    return;
+    const services = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/services?page=${p}`, { method: "GET" })).json();
+
+    setservice(services);
   };
 
   if (!service) { return (<div></div>) }
@@ -80,7 +89,7 @@ const [msg, setMsg]= React.useState();
                 <h2>{title}</h2>
               </Grid.Column>
               <Grid.Column floated='right' width={1}>
-                <Service_modal />
+                <Service_modal refresh={()=>refresh("New Service Added")}/>
               </Grid.Column>
 
             </Grid>
@@ -110,6 +119,7 @@ const [msg, setMsg]= React.useState();
                   <Table.Cell>{ele.serviceDetail.validity} Days </Table.Cell> */}
                   <Table.Cell>
                     <Edit_Modal id ={(ele._id )}
+                    refresh={()=>refresh("Service Updated")}
                     />
                     <img
                       src={
@@ -132,14 +142,13 @@ const [msg, setMsg]= React.useState();
               defaultActivePage={service.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className='next' onClick={() => pageClick(--service.currentPage)}>PREV</label> }}
-              nextItem={{ content: <label className='prev' onClick={() => pageClick(++service.currentPage)}>NEXT</label> }}
+              prevItem={{ content: <label className='next' onClick={() => pageClick(service.currentPage-1)}>PREV</label> }}
+              nextItem={{ content: <label className='prev' onClick={() => pageClick(service.currentPage+1)}>NEXT</label> }}
               totalPages={service.totalPages}
               onClick={e => pageClick(parseInt(e.target.innerText))}
             />
           </div>
         </div>
-        upda
       </div>
       <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>

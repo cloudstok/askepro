@@ -85,6 +85,11 @@ const ManageOffer = ({ title }) => {
       getoffers();
     }
   };
+  const refresh=()=>{
+    setMsg("Offer Added");
+      setPop(true);
+      getoffers();
+  }
   if (!offers) {
     return <div />;
   }
@@ -107,7 +112,7 @@ const ManageOffer = ({ title }) => {
           <h2>{title}</h2>
           </Grid.Column>
           <Grid.Column floated='right' width={1}>
-         <Offer_modal/>
+         <Offer_modal refresh={refresh}/>
           </Grid.Column>
        
           </Grid>
@@ -137,8 +142,7 @@ const ManageOffer = ({ title }) => {
                           src={
                             process.env.PUBLIC_URL + "/Assets/images/trash.png"
                           }
-                          style={{ marginLeft: "30px" }}
-                          className="btn-upload"
+                          style={{ marginLeft: "30px" ,cursor: "pointer"}}
                           onClick={() => deleteoffer(ele._id)}
                         />
                       </Table.Cell>
@@ -158,7 +162,7 @@ const ManageOffer = ({ title }) => {
                 content: (
                   <label
                     className="next"
-                    onClick={() => pageClick(--offers.currentPage)}
+                    onClick={() => pageClick(offers.currentPage-1)}
                   >
                     PREV
                   </label>
@@ -168,7 +172,7 @@ const ManageOffer = ({ title }) => {
                 content: (
                   <label
                     className="prev"
-                    onClick={() => pageClick(++offers.currentPage)}
+                    onClick={() => pageClick(offers.currentPage+1)}
                   >
                     NEXT
                   </label>

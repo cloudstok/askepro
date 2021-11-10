@@ -82,9 +82,8 @@ if(service.data.category.length>0){
     })).json();
 
     if (result.status === 1) {
-      setMsg("Service Updated Successfully")
-      setOpen(true);
-      getservice();
+      dispatch({ type: "close" });
+      props.refresh();
     } else {
       setMsg("There has been an error")
       setOpenErr(true);
@@ -209,7 +208,7 @@ if(service.data.category.length>0){
                   <label>Image(JPEG/PNG)</label>
                   <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
                   <p className='file'>
-                    <label style={{cursor:'pointer'}}  for='file-btn'>Click to select file  </label>
+                    <label style={{cursor:'pointer'}}  for='file-btn'>{!file?"Click to select file":"File Uploaded"}  </label>
                   </p>
                 </Form.Field>
                 <Form.Field>
@@ -246,8 +245,8 @@ if(service.data.category.length>0){
                 </Form.Group>
 
               </div>
-              <div>
-                <h4>Catego  ry:</h4>
+              <div className="category">
+                <h4>Catego ry:</h4>
                 {catArr.map((d) => (
                   <div className="testimonial">
                     <Label >
@@ -374,11 +373,11 @@ if(service.data.category.length>0){
                         <div>
                           <Button onClick={(e) => setEdit(null)} className="cancel_btn">
                             <Icon name="cross" />
-                            <label > Cancel</label>
+                            <label style={{cursor: "pointer"}}> Cancel</label>
                           </Button>
                           <Button onClick={(e) => handleSave(e, d._id)}>
                             <Icon name="save outline" />
-                            <label> Save</label>
+                            <label style={{cursor: "pointer"}}> Save</label>
                           </Button>
 
                         </div>
@@ -399,15 +398,15 @@ if(service.data.category.length>0){
                   <Form.Field>
                     <Button onClick={(e) => { setAdd(true); }}>
                       <Icon name="plus" />
-                      <label> Add</label>
+                      <label style={{cursor: "pointer"}}> Add</label>
                     </Button>
                     <Button onClick={(e) => { handleNew(); }}>
                       <Icon name="save outline" />
-                      <label> Save</label>
+                      <label style={{cursor: "pointer"}}> Save</label>
                     </Button>
                     <Button onClick={(e) => { setAdd(false); }}>
                       <Icon name="close" />
-                      <label> Cancel</label>
+                      <label style={{cursor: "pointer"}}> Cancel</label>
                     </Button>
                   </Form.Field>
                 </div>

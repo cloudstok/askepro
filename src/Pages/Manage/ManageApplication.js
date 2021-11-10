@@ -38,11 +38,13 @@ const ManageApplication = ({title}) =>{
     }
     
     const pageClick = async (p) => {
-      const application = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/application?page=${p}`, { method: "GET"})).json();
-     
-      setApplication(application);
+      if(Number.isNaN(p) || p===0 || p < 0|| p===application.totalPages+1 || p>application.totalPages+1 || application.totalPages===1 )
+      return;
+      const app = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/application?page=${p}`, { method: "GET"})).json();
+      setApplication(app);
+
     };
-    
+    console.log(application)
     if(!application)
     {return (<div></div>)}
         return (
@@ -95,8 +97,8 @@ const ManageApplication = ({title}) =>{
     defaultActivePage={application.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next' onClick={() => pageClick(--application.currentPage)}>PREV</label>}}
-    nextItem={{ content: <label className='prev' onClick={() => pageClick(++application.currentPage)}>NEXT</label>}}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(parseInt(application.currentPage)-1)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(parseInt(application.currentPage)+1)}>NEXT</label>}}
     totalPages={application.totalPages}
     onClick={e => pageClick(parseInt(e.target.innerText))}
   />

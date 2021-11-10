@@ -44,13 +44,15 @@ const Manageclient = ({ title }) => {
   }
 
   const pageClick = async (p) => {
-    const client = await (
+   
+    if(Number.isNaN(p) || p===0 || p < 0|| p===client.totalPages+1 || p>client.totalPages+1 || client.totalPages===1 )
+    return;
+    const c = await (
       await fetch(`${process.env.REACT_APP_BASE_URL}/admin/client?page=${p}`, {
         method: "GET",
       })
     ).json();
-
-    setClient(client);
+    setClient(c);
   };
 
   return (
@@ -113,7 +115,7 @@ const Manageclient = ({ title }) => {
                 content: (
                   <label
                     className="next"
-                    onClick={() => pageClick(--client.currentPage)}
+                    onClick={() => pageClick(client.currentPage-1)}
                   >
                     PREV
                   </label>
@@ -123,7 +125,7 @@ const Manageclient = ({ title }) => {
                 content: (
                   <label
                     className="prev"
-                    onClick={() => pageClick(++client.currentPage)}
+                    onClick={() => pageClick(client.currentPage+1)}
                   >
                     NEXT
                   </label>

@@ -38,8 +38,10 @@ const ManageAppointments = ({title}) =>{
     }
     
     const pageClick = async (p) => {
-      const appointment = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/appointment?page=${p}`, { method: "GET"})).json();
-      setAppointment(appointment);
+      if(Number.isNaN(p) || p===0 || p < 0|| p===appointment.totalPages+1 || p>appointment.totalPages+1 || appointment.totalPages===1 )
+      return;
+      const app= await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/appointment?page=${p}`, { method: "GET"})).json();
+      setAppointment(app);
     };
     
     if(!appointment)
@@ -96,8 +98,8 @@ const ManageAppointments = ({title}) =>{
     defaultActivePage={appointment.currentPage}
     firstItem={null}
     lastItem={null}
-    prevItem={{ content: <label className='next' onClick={() => pageClick(--appointment.currentPage)}>PREV</label>}}
-    nextItem={{ content: <label className='prev' onClick={() => pageClick(++appointment.currentPage)}>NEXT</label>}}
+    prevItem={{ content: <label className='next' onClick={() => pageClick(appointment.currentPage-1)}>PREV</label>}}
+    nextItem={{ content: <label className='prev' onClick={() => pageClick(appointment.currentPage+1)}>NEXT</label>}}
     totalPages={appointment.totalPages}
     onClick={e => pageClick(parseInt(e.target.innerText))}
   />

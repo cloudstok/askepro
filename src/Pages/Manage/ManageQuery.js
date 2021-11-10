@@ -46,13 +46,16 @@ const [msg, setMsg]= React.useState();
   }
 
   const pageClick = async (p) => {
-    const query = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}&status=${status}`, {
+
+    if(Number.isNaN(p) || p===0 || p < 0|| p===query.totalPages+1 || p>query.totalPages+1 || query.totalPages===1 )
+    return;
+    const q = await (await fetch(`${process.env.REACT_APP_BASE_URL}/admin/query?page=${p}&status=${status}`, {
       method: "GET", headers: {
         'x-access-token': localStorage.getItem('token'),
       }
     })).json();
 
-    setquery(query);
+    setquery(q);
   };
 
   const statusChange = async (id) => {
@@ -125,8 +128,8 @@ const [msg, setMsg]= React.useState();
               defaultActivePage={query.currentPage}
               firstItem={null}
               lastItem={null}
-              prevItem={{ content: <label className='next' onClick={() => pageClick(--query.currentPage)}>PREV</label> }}
-              nextItem={{ content: <label className='prev' onClick={() => pageClick(++query.currentPage)}>NEXT</label> }}
+              prevItem={{ content: <label className='next' onClick={() => pageClick(query.currentPage-1)}>PREV</label> }}
+              nextItem={{ content: <label className='prev' onClick={() => pageClick(query.currentPage+1)}>NEXT</label> }}
               totalPages={query.totalPages}
               onClick={e => pageClick(parseInt(e.target.innerText))}
             />
