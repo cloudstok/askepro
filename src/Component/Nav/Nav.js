@@ -86,7 +86,7 @@ useEffect(() => {
                   <Dropdown text={name}>
                     <Dropdown.Menu className='dropdown-menu'>
                     <Link to={'/admin'}><li className='item-name' style={{ color: "#000" }}><Icon name='dashboard' />Dashboard</li></Link>
-                      <li className='item-name' onClick={handleClick}><Icon name='logout' size="large" />Logout</li>
+                      <li className='item-name'  onClick={()=>setPop(true)}><Icon name='logout' size="large" />Logout</li>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>

@@ -45,7 +45,7 @@ const About = () => {
 
           <Container text>
             <div data-aos="fade-right">
-              <h2>WHY WE ARE DIFFRENT ?</h2>
+              <h2>WHY WE ARE DIFFERENT ?</h2>
 
               <p>
                 Our core values are trust, integrity and confidentiality. We

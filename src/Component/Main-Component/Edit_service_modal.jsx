@@ -97,7 +97,8 @@ if(service.data.category.length>0){
     size: undefined,
   });
   const handleAdd = async () => {
- 
+    if(cat?.replace(/\s/g, '')?.length<1 )
+    return;
     setcatArr([
       ...catArr,
       { key: cat, text: cat, value: cat }
@@ -191,7 +192,7 @@ if(service.data.category.length>0){
       >
 
         <Modal.Header>
-          <div className="accept_heading">Add New Service</div>
+          <div className="accept_heading">Edit Service</div>
         </Modal.Header>
         <Modal.Content>
           <div className="services_form">
@@ -299,6 +300,7 @@ if(service.data.category.length>0){
                             />
                             <Form.Input
                               fluid
+                              type = "number"
                               defaultValue={d.price}
                               label="Enter total fees"
                               placeholder="Enter total fees"
@@ -307,6 +309,7 @@ if(service.data.category.length>0){
 
 <Form.Input
                               fluid
+                              type = "number"
                               defaultValue={d.discountPrice || 0}
                               label="Enter Discount"
                               placeholder="Enter Discount"
@@ -421,6 +424,7 @@ if(service.data.category.length>0){
                     />
                     <Form.Input
                       fluid
+                      type = "number"
                       value={price}
                       label="Enter total fees"
                       placeholder="Enter total fees"
@@ -428,6 +432,7 @@ if(service.data.category.length>0){
                     />
                     <Form.Input
                               fluid
+                              type = "number"
                               defaultValue={discount}
                               label="Enter Discount"
                               placeholder="Enter Discount"

@@ -20,14 +20,16 @@ import FAQ_modal from "../../Component/Main-Component/FAQ_modal";
 import FAQ_modal_edit from "../../Component/Main-Component/FAQ_modal_Edit"
 import FAQ_Modal_Edit from "../../Component/Main-Component/FAQ_modal_Edit";
 import { useHistory } from "react-router";
+import Updated from "../../Component/popup/updated";
 
 const ManageFaq = ({ title }) => {
   const history = useHistory();
   if (!localStorage.getItem("token") && !localStorage.getItem("id"))
   history.push("/login");
   const [faqs, setfaq] = React.useState(null);
-  const [faqTitle, setTitle] = React.useState(null);
-  const [description, setDescription] = React.useState(null);
+  const [pop, setPop]= React.useState(false);
+  const [msg, setMsg]= React.useState();
+
 
   React.useEffect(() => {
     getfaqs();
@@ -77,8 +79,9 @@ const ManageFaq = ({ title }) => {
     ).json();
 
     if (result.status === 1) {
-      alert(result.msg);
-      window.location.reload(false);
+      setMsg(result.msg);
+      setPop(true);
+      getfaqs();
     }
   };
   if (!faqs) {
@@ -177,6 +180,8 @@ const ManageFaq = ({ title }) => {
           </div>
         </div>
       </div>
+      
+      <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
   );
 };
