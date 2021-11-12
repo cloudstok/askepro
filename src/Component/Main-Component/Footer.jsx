@@ -61,13 +61,15 @@ const Footer = () => {
                   <input
                     onChange={(event) => setName(event.target.value)}
                     placeholder="Enter your name"
+                    required
                   />
                 </Form.Field>
                 <Form.Field>
                   <label>Email</label>
-                  <input
+                  <input type="email"
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder=" Enter your email address"
+                    required
                   />
                 </Form.Field>
               </Form.Group>

@@ -351,6 +351,9 @@ margin-bottom: 10px !important;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     margin: 41px 0;
+    .text{
+      color: #1b1b1b !important;
+    }
     & .icon {
       box-shadow: none !important;
       float: right !important;
@@ -815,7 +818,7 @@ margin-bottom: 10px !important;
 /* my journey */
 
 .my_journey {
-  overflow-x: hidden;
+
 
   h1 {
     text-align: center;

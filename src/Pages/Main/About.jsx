@@ -239,23 +239,7 @@ const About = () => {
       <br />
       <br />
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <br />
       {/* <div className="our_journey">
         <h1 className="headingOne">Our Journey</h1>
         <p>Follow our history from humble beginnings to a world-class trade center.</p>

@@ -3,6 +3,7 @@ import {
   Container,
   Header,
   Grid,
+  Label,
   Divider,
   Form,
   Button,
@@ -33,6 +34,7 @@ const UploadDocuments = () => {
   const service_url = `${process.env.REACT_APP_BASE_URL}/serviceCategory/${slug}`;
   const requestId = localStorage.getItem("applicationId");
   const url = `${process.env.REACT_APP_BASE_URL}/service/upload/${requestId}`;
+ const [message, setmessage] = React.useState(null)
   React.useEffect(() => {
     getServices();
   }, []);
@@ -84,7 +86,10 @@ const UploadDocuments = () => {
     }
   };
   const handleSubmitForm = (event) => {
-    if (docsArray.length === services.reqDocs.length) history.push("/payment");
+    if (docsArray.length === services.reqDocs.length) history.push("/payment")||setmessage(false);
+    else {
+      setmessage("Please fill all the details");
+    }
   };
   console.log(services);
   return (
@@ -111,6 +116,7 @@ const UploadDocuments = () => {
                         <Select
                           placeholder="Chose a document"
                           onChange={(e, { value }) => setfilename(value)}
+                          required
                           options={services.reqDocs.map((ele, index) => ({
                             key: index,
                             value: ele,
@@ -129,7 +135,7 @@ const UploadDocuments = () => {
                           onChange={(e) => uploadWithFormData(e)}
                         />
                         <div className="file">
-                          <label onClick={() => fileref.current.click()} for="file-btn">
+                          <label style={{cursor:'pointer'}} onClick={() => fileref.current.click()} for="file-btn">
                             Upload file from your computer
                           </label>
                         </div>
@@ -163,6 +169,12 @@ const UploadDocuments = () => {
                   </List>
                 </div>
               </div>
+              
+              {message && (
+                 <Label as="a" className="Rejected">
+                 {message}
+               </Label>
+              )}
               <div className="upload_save" style={{ textAlign: "center" }}>
                 <button
                   className="same-btn"

@@ -81,7 +81,7 @@ const Login2 = () => {
           <Form.Field>
             <label>Mobile Number</label>
             <input
-              type="text"
+              type="number"
               id="phone"
               name="phone"
               value={formik.values.phone}

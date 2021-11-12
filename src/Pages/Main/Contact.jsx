@@ -138,13 +138,15 @@ const Contact = () => {
                       <input
                         onChange={(event) => setName(event.target.value)}
                         placeholder="Enter your name"
+                        required
                       />
                     </Form.Field>
                     <Form.Field>
                       <label>Email</label>
-                      <input
+                      <input type="email"
                         onChange={(event) => setEmail(event.target.value)}
-                        placeholder=" Enter your email address"
+                        placeholder=" Enter your email Id"
+                        required
                       />
                     </Form.Field>
                   </Form.Group>
@@ -153,6 +155,7 @@ const Contact = () => {
                     <Form.TextArea
                       onChange={(event) => setQuery(event.target.value)}
                       placeholder="Describe Your Query"
+                      required
                     />
 
                     <div className="reach-Submit">
