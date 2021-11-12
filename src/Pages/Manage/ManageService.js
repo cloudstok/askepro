@@ -8,12 +8,15 @@ import Service_modal from '../../Component/Main-Component/Add_service_modal';
 import Edit_Modal from '../../Component/Main-Component/Edit_service_modal';
 import { useHistory } from 'react-router';
 import Updated from "../../Component/popup/updated";
+import Deleted from "../../Component/popup/Delete";
+
 const ManageService = ({ title }) => {
 
   const history = useHistory();
     if (!localStorage.getItem("token") && !localStorage.getItem("id"))
     history.push("/login");
 const [pop, setPop]= React.useState(false);
+const [delPopup, SetDelPopup]= React.useState(false);
 const [msg, setMsg]= React.useState();
   const [service, setservice] = React.useState(null);
   React.useEffect(() => {
@@ -69,6 +72,7 @@ const [msg, setMsg]= React.useState();
   };
 
   if (!service) { return (<div></div>) }
+  const msg2="Are you sure want to logout"
   return (
 
     <main className='manage-main'>
@@ -127,7 +131,7 @@ const [msg, setMsg]= React.useState();
                       }
                       style={{ marginLeft: "30px" }}
                       className="btn-upload"
-                      onClick={() => deleteService(ele._id)}
+                      onClick={() => SetDelPopup(true)}/* deleteService(ele._id)} */
                     />
                   </Table.Cell>
                 </Table.Row>)}
@@ -150,6 +154,7 @@ const [msg, setMsg]= React.useState();
           </div>
         </div>
       </div>
+      <Deleted open={delPopup} msg2={msg} onClose={()=>SetDelPopup(false)}Delete={()=>alert('asdsa')} />
       <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
 
