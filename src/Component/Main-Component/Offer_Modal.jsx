@@ -59,6 +59,7 @@ const Offer_modal = (props) => {
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
 });
+console.log(file)
 return (
     <>
 
@@ -85,7 +86,6 @@ return (
              
               <Table.Cell>
               <Form.Field>
-                  <label>Image(JPEG/PNG)</label>
                   <Input
                     type="file"
                     name="file"
@@ -93,9 +93,13 @@ return (
                     onChange={async (event) => {setFile(event.target.files[0]);  toBase64(event.target.files[0]).then(res=>setImg(res))}}
                     style={{ display: "none" }}
                   />
-                  <p className="file">
-                    <label style={{cursor:'pointer',border:'dotted 1px black'}} for="file-btn">{!file?"Click to select file":"File Uploaded"} </label>
+                  <div className="offerimg">
+                  <p>
+                
+                    <label style={{cursor:'pointer',border:'dotted 1px black'}} for="file-btn">  Image(JPEG/PNG)  {!file?"Click to select image":file?.name + " Uploaded"} </label>
                   </p>
+                  </div>
+                  
                 </Form.Field>
               </Table.Cell>
             </Table.Row>
@@ -103,6 +107,9 @@ return (
 
          { img&&<div className="offer_banner" >
           <img src={img} width="300" height="200" /></div>}
+          <br/>
+                  <br/>
+                  <br/>
         </Modal.Content>
         <Modal.Description>
           <div className="accept_bottom">

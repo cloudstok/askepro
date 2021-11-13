@@ -197,7 +197,15 @@
 .ui.modal > .content {
   padding: 0 !important;
 }
-
+.offerimg {
+  padding: 10px;
+  p {
+  @include form_para;
+  color: #9d9494;
+  margin-top: 1%;
+  width: 34vw;
+  margin-left: 30%;}
+}
 .services_form {
   padding: 20px 41px 40px 41px;
   .field> label{

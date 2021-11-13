@@ -64,7 +64,8 @@ const UploadDocuments = () => {
   const uploadWithFormData = async (event) => {
     event.preventDefault();
     if (!fileName) {
-      throw ("Select a file first");
+       setMsg("Select a file first");
+       return;
     }
     console.log( event.target.files[0], fileName);
 
@@ -88,7 +89,7 @@ const UploadDocuments = () => {
   const handleSubmitForm = (event) => {
     if (docsArray.length === services.reqDocs.length) history.push("/payment")||setmessage(false);
     else {
-      setmessage("Please fill all the details");
+      setmessage("Please upload all the documents");
     }
   };
   console.log(services);
@@ -117,7 +118,7 @@ const UploadDocuments = () => {
                           placeholder="Chose a document"
                           onChange={(e, { value }) => setfilename(value)}
                           required
-                          options={services.reqDocs.map((ele, index) => ({
+                          options={services.reqDocs.filter(e=>!docsArray.includes(e)).map((ele, index) => ({
                             key: index,
                             value: ele,
                             text: ele,
@@ -152,7 +153,10 @@ const UploadDocuments = () => {
                     {services.reqDocs.map((ele) => (
                       <List.Item>
                         <List.Icon name="square" />
-                        <List.Content>{ele}</List.Content>
+                       { !docsArray.includes(ele)?
+                       <List.Content>{ele}
+                       </List.Content>:<List.Content><mark className="mark">{ele}
+                       </mark></List.Content>}
                       </List.Item>
                     ))}
                   </List>

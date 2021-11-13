@@ -126,7 +126,7 @@ const Company = () => {
 
     history.push(`/fill`);
   };
-
+console.log(serviceType)
   if (!service) return <div></div>;
   return (
     <>
@@ -238,9 +238,9 @@ const Company = () => {
 
                                          {serviceType.price} AED
                                         </span>
-                                        <span className="total-right">
-                                        {serviceType?.discountPrice>0?serviceType.price-serviceType?.discountPrice:serviceType.price} AED
-                                      </span>
+                                        {" "}{serviceType?.discountPrice>0?<span className="total-right">
+                                       {serviceType.price-serviceType?.discountPrice} AED
+                                      </span>:<></>}
                                       </Table.Cell>
                                     </Table.Row>
                                   </Table>

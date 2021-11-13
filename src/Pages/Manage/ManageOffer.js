@@ -23,6 +23,7 @@ import { useHistory } from "react-router";
 import Offer_modal from "../../Component/Main-Component/Offer_Modal";
 import Offer_image_modal from "../../Component/Main-Component/Offer_image";
 import Updated from "../../Component/popup/updated";
+import Accepted from "../../Component/popup/accepted";
 
 const ManageOffer = ({ title }) => {
   const history = useHistory();
@@ -31,7 +32,9 @@ const ManageOffer = ({ title }) => {
   const [offers, setOffer] = React.useState(null);  
   const [pop, setPop]= React.useState(false);
   const [msg, setMsg]= React.useState();
-
+  const [delPopup, SetDelPopup] = React.useState(false);
+  const [delId, setDelId] = React.useState(null);
+ 
   React.useEffect(() => {
     getoffers();
   }, []);
@@ -143,7 +146,10 @@ const ManageOffer = ({ title }) => {
                             process.env.PUBLIC_URL + "/Assets/images/trash.png"
                           }
                           style={{ marginLeft: "30px" ,cursor: "pointer"}}
-                          onClick={() => deleteoffer(ele._id)}
+                          onClick={() => {
+                            SetDelPopup(true);
+                            setDelId(ele._id);
+                          }}
                         />
                       </Table.Cell>
                     </Table.Row>
@@ -184,7 +190,13 @@ const ManageOffer = ({ title }) => {
           </div>
         </div>
       </div>
-      
+      <Accepted
+        open={delPopup}
+        check={true}
+        msg={"Are you sure that you want to delete the offer?"}
+        onClose={() => SetDelPopup(false)}
+        onSubmit={() => {deleteoffer(delId); SetDelPopup(false);} }
+      />
       <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
   );

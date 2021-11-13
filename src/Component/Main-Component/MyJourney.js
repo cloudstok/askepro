@@ -48,7 +48,7 @@ export const MyJourney = () => {
               <img src={"/Assets/images/100.png"} />
               <div className="flex_content">
                 <h2>REACHED OUR FIRST MILE STONE</h2>
-                <p>Join 100 Companies with Us in This Journey</p>
+                <p>Joined 100 Companies with Us in This Journey</p>
               </div>
             </div>
           </div>

@@ -152,7 +152,7 @@ console.log(formData)
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label for="file-btn">{!file?"Click to select file":"File Uploaded"} </label>
+                    <label for="file-btn">{!file?"Click to select file":file?.name + " Uploaded"} </label>
                   </p>
                 </Form.Field>
           </Form.Group>

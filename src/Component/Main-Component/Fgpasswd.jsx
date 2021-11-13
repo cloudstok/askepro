@@ -1,12 +1,14 @@
 import React from 'react';
 import { Form } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
+import Updated from '../popup/updated';
 const Login3 = () => {
   const history = useHistory();
   const url = `${process.env.REACT_APP_BASE_URL}/check`;
 
   const [val, setValue] = React.useState(null);
-
+  const [pop, setPop] = React.useState(false);
+  const [msg, setMsg] = React.useState(false);
 
   const checkUser = async (event) => {
     try {
@@ -48,7 +50,8 @@ const Login3 = () => {
           localStorage.setItem('email', data.email);
         history.push('/reset')
       } else {
-        alert(data.msg);
+        setPop(true); 
+        setMsg("User with the specific email/phone does not exist");
       }
 
     } catch (error) {
@@ -79,7 +82,7 @@ const Login3 = () => {
         </Form>
       </div>
 
-
+      <Updated wrong={true} open={pop} msg={msg} onClose={() => setPop(false)} />
 
     </>
   );

@@ -21,6 +21,7 @@ import FAQ_modal_edit from "../../Component/Main-Component/FAQ_modal_Edit"
 import FAQ_Modal_Edit from "../../Component/Main-Component/FAQ_modal_Edit";
 import { useHistory } from "react-router";
 import Updated from "../../Component/popup/updated";
+import Accepted from "../../Component/popup/accepted";
 
 const ManageFaq = ({ title }) => {
   const history = useHistory();
@@ -29,7 +30,9 @@ const ManageFaq = ({ title }) => {
   const [faqs, setfaq] = React.useState(null);
   const [pop, setPop]= React.useState(false);
   const [msg, setMsg]= React.useState();
-
+  const [delPopup, SetDelPopup] = React.useState(false);
+  const [delId, setDelId] = React.useState(null);
+  
 
   React.useEffect(() => {
     getfaqs();
@@ -142,7 +145,10 @@ const ManageFaq = ({ title }) => {
                           }
                           style={{ marginLeft: "30px" }}
                           className="btn-upload"
-                          onClick={() => deleteFaq(ele._id)}
+                          onClick={() => {
+                            SetDelPopup(true);
+                            setDelId(ele._id);
+                          }}
                         />
                       </Table.Cell>
                     </Table.Row>
@@ -183,7 +189,13 @@ const ManageFaq = ({ title }) => {
           </div>
         </div>
       </div>
-      
+      <Accepted
+        open={delPopup}
+        check={true}
+        msg={"Are you sure that you want to delete the faq?"}
+        onClose={() => SetDelPopup(false)}
+        onSubmit={() => {deleteFaq(delId); SetDelPopup(false);} }
+      />
       <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
     </main>
   );

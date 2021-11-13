@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Checkbox, Label, Form, Message } from "semantic-ui-react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from "react-router-dom";
-
+import { tsConstructSignatureDeclaration } from "@babel/types";
+const recaptchaRef = React.createRef();
 const Login1 = () => {
   const history = useHistory();
 
@@ -15,7 +16,9 @@ const Login1 = () => {
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
-
+    if(recaptchaRef?.current?.getValue().length===0){
+      setMsg("Please Select- I am not a robot")
+    }
     if (gvalue === true) {
       const jsonPostData = {
         email: email,
@@ -76,7 +79,6 @@ const Login1 = () => {
       setGvalue(true);
     }
   };
-
   return (
     <>
       <div
@@ -114,6 +116,7 @@ const Login1 = () => {
 
           <Form.Field className="check">
             <ReCAPTCHA
+             ref={recaptchaRef}
               sitekey={process.env.REACT_APP_GOOGLE_SITE_KEY}
               onChange={gCaptchaChange}
             />

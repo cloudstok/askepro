@@ -3,15 +3,15 @@ import React, { useState, useEffect, Component } from "react";
 import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 import { Button, Menu, Icon, Header, Dropdown } from "semantic-ui-react";
 import { HashLink } from 'react-router-hash-link';
-
+import PropTypes from "prop-types";
 import '../../Sass/nav.scss';
 import Accepted from "../popup/accepted";
 import ToggleNav from "../toggle_nav";
 let newLocation;
 export function Nav() {
-  const location = useLocation();
+const location= useLocation()
   const [isAdmin, setisAdmin] = React.useState(false);
-  newLocation = location.pathname.split('/');
+ newLocation= location.pathname.split("/")
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,9 +61,10 @@ useEffect(() => {
     setPop(false);
     localStorage.clear();
     history.push("/login");
+    window.location.reload();
 
   }
-  const msg="Are you sure want to logout"
+  const msg="Are you sure you want to logout?"
   return (
     <>
       <header>
@@ -96,7 +97,7 @@ useEffect(() => {
           <div className='nav-brand'>
             <a href="/"> <img src={process.env.PUBLIC_URL + "/Assets/Logo/brand.png"} alt='logo' /></a>
           </div>
-          <MenuBar />
+          <MenuBar location={newLocation[1]} oldLocation={newLocation[0]} />
            { isLoggedIn ?
               <div className="btn-group">
                 {/* <Icon name='bell outline' /> */}
@@ -127,9 +128,12 @@ useEffect(() => {
 }
 
 
-export default class MenuBar extends Component {
+export class MenuBar extends Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+  }
   state = { activeItem: newLocation[1], homeIndex: newLocation[0] }
-
+  
   handleItemClick = (e, { name }) => {
     if (name === 'services')
       this.setState({ activeItem: 'service' })
@@ -139,8 +143,9 @@ export default class MenuBar extends Component {
       this.setState({ activeItem: name })
   }
   render() {
+    const { location } = this.props
     const { activeItem, homeIndex } = this.state
-
+    
     return (
       <div className="nav_buttons">
         <Menu pointing secondary>
@@ -149,23 +154,24 @@ export default class MenuBar extends Component {
           >
             <Menu.Item
               name='home'
-              active={homeIndex === "" && (activeItem === undefined || !activeItem)}
+              active={homeIndex? homeIndex=== "" :location===""}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/service" style={{margin:"0 25px"}}><Menu.Item
             name='services'
-            active={activeItem === 'service'}
+            active={homeIndex? homeIndex=== "service" :location==="service"}
             onClick={this.handleItemClick}
           /></Link>
           <Link to="/about" style={{margin:"0 25px"}}><Menu.Item
             name='about'
-            active={activeItem === 'about'}
+            active={homeIndex? homeIndex=== "about" :location==="about"}
             onClick={this.handleItemClick}
           />
           </Link>
           <Link to="/contact" style={{margin:"0 25px"}}><Menu.Item
             name='contact'
-            active={activeItem === 'contact'} 
+            active={homeIndex? homeIndex=== "contact" :location==="contact"}
+              
             onClick={this.handleItemClick}
           /></Link>
         </Menu>
@@ -173,3 +179,4 @@ export default class MenuBar extends Component {
     )
   }
 }
+export default withRouter(MenuBar)

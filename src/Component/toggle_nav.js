@@ -53,7 +53,6 @@ const ToggleNav = () => {
   }
   const handleClick = () => {
     localStorage.clear();
-    alert("You have been logged out");
     history.push("/");
     window.location.reload(false);
   }

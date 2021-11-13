@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { Button, Grid, Checkbox, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
+import Updated from '../popup/updated';
 
 const Reset = () => {
     const url = `${process.env.REACT_APP_BASE_URL}/forget/password`;
@@ -10,7 +11,10 @@ const Reset = () => {
     const [rePassword, setConfirmPassword] = React.useState(null);
     const [password, setPassword] = React.useState(null);
     const [otp, setOtp] = React.useState(null);
-
+    const [pop, setPop] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [msg, setMsg] = React.useState(false);
+  
 
     const forgetPassword = async (event) => {
         try {
@@ -40,12 +44,14 @@ const Reset = () => {
             })).json();
            
             if (res.status == 1) {
-                alert(res.msg);
+                setMsg(res.msg);
+                setOpen(true);
                 localStorage.removeItem("email");
                 localStorage.removeItem("phone");
                 history.push('/login');
             }else{
-                alert(res.msg);
+                setMsg(res.msg);
+                setPop(true);
             }
            
         } catch (error) {
@@ -102,7 +108,8 @@ const Reset = () => {
                     <button className="form-btn" type="submit">Submit</button>
                 </Form>
             </div>
-
+            <Updated wrong={true} open={pop} msg={msg} onClose={() => setPop(false)} />
+            <Updated wrong={false} open={open} msg={msg} onClose={() => setOpen(false)} />
         </>
     );
 }

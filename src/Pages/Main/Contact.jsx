@@ -42,7 +42,7 @@ const Contact = () => {
       const data = await result.json();
 
       if (data && result.status == 200) {
-        setMsg(data.msg);
+        setMsg("Your complaint is submitted successfully");
         setOpen(true);
       }
     } catch (error) {

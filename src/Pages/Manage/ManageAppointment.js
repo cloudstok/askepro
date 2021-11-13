@@ -83,7 +83,7 @@ const ManageAppointments = ({title}) =>{
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
         <Table.Cell>{ele.appt_date} {ele.appt_month} {ele.appt_year}</Table.Cell>
         <Table.Cell className='action'>
-        <Accept id={ele._id} />    
+        <Accept id={ele._id} name={ele.users.name} />    
         <Reject id={ele._id} />
         </Table.Cell>
       </Table.Row>)}

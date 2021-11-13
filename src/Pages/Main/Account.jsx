@@ -28,7 +28,8 @@ const Account = () => {
   const [application, setApplication] = React.useState(null);
   const [file, setFile] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-
+  const [pop, setPop] = React.useState(false);
+  const [msg, setMsg] = React.useState(false);
   React.useEffect(() => {
     getUser();
   }, []);
@@ -93,12 +94,14 @@ console.log(application);
       })
     ).json();
 
-    if (result.status === 1) getUser();
+    if (result.status === 1)
+    {setMsg("Profile Photo Updated Successfully");
+    setPop(true);
+    getUser();}
   };
   if (!user || !appointment || !application) {
     return <div></div>;
   }
-  console.log(open)
   return (
     <>
 
@@ -159,7 +162,9 @@ console.log(application);
                                   state={user.address && user.address.state}
                                   pincode={user.address && user.address.pincode}
                                   country={user.address && user.address.country}
-                                  doRefresh={()=>setOpen(true)}
+                                  doRefresh={()=>{setPop(true); 
+                                    setMsg("Profile Updated");
+                                  getUser()}}
                             
                                 />
                               </Dropdown.Item>
@@ -359,7 +364,7 @@ console.log(application);
             </Grid.Column>
           </Grid>
         </Container>
-          
+        <Updated open={pop} msg={msg} onClose={() => setPop(false)} />
       </div>
     </>
   );
