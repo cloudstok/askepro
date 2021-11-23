@@ -82,27 +82,9 @@ const Reset = () => {
                     <Form.Field>
                         <label>OTP</label>
                         
-                        <input onChange={(event) => setOtp(event.target.value)}/>
+                        <input placeholder="Type the OTP here" onChange={(event) => setOtp(event.target.value)}/>
                     </Form.Field>
-                    {/*
-          <Form.Field>
-            <label>Enter OTP</label>
-          <div className="otp">
-          
-            <input style={{width:'70px'}}/>
-            <input style={{width:'70px'}}/>
-            <input style={{width:'70px'}}/>
-            <input style={{width:'70px'}}/>
-            <input style={{width:'70px'}}/>
-          
-          </div>
-          
-          </Form.Field>
-        
-          <span class="fgt1">
-             <a href="#">Resend in 01:45</a>
-          </span>
-          */}
+             
                     <h4>(OTP will be sent on your registered email ID)</h4>    
 
                     <button className="form-btn" type="submit">Submit</button>

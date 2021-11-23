@@ -205,7 +205,7 @@ function FillPage() {
                         <label>Date of Birth</label>
                         <Input
                           type="date"
-                          min="1900-01-01" max="2014-12-31"
+                          min="1945-01-01" max="2014-12-31"
                           onChange={(event) => setDob(event.target.value)}
                           name="dob"
                           //icon={{ name: 'calendar outline', link: true }}

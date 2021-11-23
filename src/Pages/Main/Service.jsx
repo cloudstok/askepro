@@ -49,7 +49,7 @@ const Service = () => {
           <h1 className="headingOne">List Of Our Services</h1>
 
           <p>
-          We provide all types services ranging from your tourist visa needs to forming a company in UAE. Consider us at every level to serve you the best.
+          We provide all types of services ranging from your tourist visa needs to forming a company in UAE. Consider us at every level to serve you the best.
           </p>
         </Container>
       </div>

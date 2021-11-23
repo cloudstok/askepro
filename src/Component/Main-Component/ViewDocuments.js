@@ -25,7 +25,7 @@ export default function ViewDocuments() {
         },
       })
     ).json();
-    console.log(documents)
+    
     documents = documents.data;
     setDocs(documents || []);
   }
@@ -107,6 +107,7 @@ console.log(formData)
       getMyDocs();
     }
   };
+  
   return (
   
     <div className="viewDownload">
@@ -132,14 +133,17 @@ console.log(formData)
               label="Valid From"
               control="input"
               type="date"
+              min="1945-01-01"
               value={validFrom}
               onChange={(event) => setValidFrom(event.target.value)}
             ></Form.Field>
             <Form.Field
               label="valid To"
               control="input"
+              id="dt"
               type="date"
               value={validTo}
+              min="1945-01-01"
               onChange={(event) => setValidTo(event.target.value)}
             ></Form.Field>
              <Form.Field>
@@ -152,7 +156,7 @@ console.log(formData)
                     style={{ display: "none" }}
                   />
                   <p className="file">
-                    <label for="file-btn">{!file?"Click to select file":file?.name + " Uploaded"} </label>
+                    <label for="file-btn" style={{cursor:'pointer'}}>{!file?"Click to select file":file?.name + " Uploaded"} </label>
                   </p>
                 </Form.Field>
           </Form.Group>
@@ -183,11 +187,11 @@ console.log(formData)
               <Table.Cell>{ele.validFrom}</Table.Cell>
               <Table.Cell>{ele.validTo}</Table.Cell>
               <Table.Cell>
-                  <span style={{margin:'0 2rem 0 0rem'}}>
+                  <span style={{margin:'0 2rem 0 0rem',cursor:'pointer'}}>
                   <Icon name="eye" onClick={()=>generateLink(ele.key)}/> 
                   </span>
 
-                  <span>
+                  <span style={{cursor:'pointer'}}>
                   <Icon name="delete" onClick={()=>deleteDoc(ele._id)}/>
                   </span>
               </Table.Cell>

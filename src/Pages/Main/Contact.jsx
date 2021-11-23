@@ -116,7 +116,7 @@ const Contact = () => {
                 data-aos-anchor-placement="top-bottom"
               >
                 <img src={process.env.PUBLIC_URL + "/Assets/images/mail.png"} />
-                <p>care@askepro.ae</p>
+                <p><a style={{color:'black'}} href="mailto:care@askepro.ae">care@askepro.ae</a></p>
               </div>
             </Grid.Column>
             <Grid.Column>
@@ -203,7 +203,7 @@ const Contact = () => {
 
             <Grid.Column width={7}>
               <div className="footer-part-2">
-                <p>copyright © 2020 AskePro</p>
+                <p>copyright © 2021 AskePro</p>
                 <div className="bottom-button">
                   {/*<a href="#" style={{ borderLeft: "none" }}>
                     Site Map
