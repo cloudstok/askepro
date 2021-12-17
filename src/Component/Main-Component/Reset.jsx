@@ -15,11 +15,35 @@ const Reset = () => {
     const [open, setOpen] = React.useState(false);
     const [msg, setMsg] = React.useState(false);
   
-
+    const clearInput=()=>{
+        setPassword("")
+        setConfirmPassword("")
+        setOtp("")
+    }
     const forgetPassword = async (event) => {
+        
         try {
             event.preventDefault();
             let jsonPostData;
+            
+            if([null, '', ""].includes(password)){
+                setMsg("Please enter password");
+                setPop(true);
+                clearInput();
+                return;
+            }
+            if([null, '', ""].includes(rePassword)){
+                setMsg("Please enter Re-Enter password");
+                setPop(true);
+                clearInput();
+                return;
+            }
+            if([null, '', ""].includes(otp)){
+                setMsg("Please enter otp");
+                setPop(true);
+                clearInput();
+                return;
+            }
             if (Object.keys(localStorage).includes('email'))
                 jsonPostData = {
                     'email': localStorage.getItem('email'),
@@ -50,8 +74,9 @@ const Reset = () => {
                 localStorage.removeItem("phone");
                 history.push('/login');
             }else{
-                setMsg(res.msg);
+                setMsg("Password does not match. Please type the new password");
                 setPop(true);
+                clearInput();
             }
            
         } catch (error) {
@@ -73,16 +98,16 @@ const Reset = () => {
                     <h3>Reset Your Password</h3>
                     <Form.Field>
                         <label>Password</label>
-                        <input onChange={(event) => setPassword(event.target.value)} placeholder="Enter your new Password" />
+                        <input value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your new Password" />
                     </Form.Field>
                     <Form.Field>
                         <label>Re-Enter Password</label>
-                        <input onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
+                        <input value ={rePassword} onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm your password" />
                     </Form.Field>
                     <Form.Field>
                         <label>OTP</label>
                         
-                        <input placeholder="Type the OTP here" onChange={(event) => setOtp(event.target.value)}/>
+                        <input value ={otp} placeholder="Type the OTP here" onChange={(event) => setOtp(event.target.value)}/>
                     </Form.Field>
              
                     <h4>(OTP will be sent on your registered email ID)</h4>    
