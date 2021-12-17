@@ -107,7 +107,20 @@ console.log(formData)
       getMyDocs();
     }
   };
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+  var yyyy = today.getFullYear();
   
+  if (dd < 10) {
+      dd = '0' + dd
+  }
+  
+  if (mm < 10) {
+      mm = '0' + mm
+  }
+  
+  today = yyyy + '-' + mm + '-' + dd;
   return (
   
     <div className="viewDownload">
@@ -133,7 +146,8 @@ console.log(formData)
               label="Valid From"
               control="input"
               type="date"
-              min="1945-01-01"
+              min="1915-01-01"
+              max={today}
               value={validFrom}
               onChange={(event) => setValidFrom(event.target.value)}
             ></Form.Field>
@@ -143,7 +157,8 @@ console.log(formData)
               id="dt"
               type="date"
               value={validTo}
-              min="1945-01-01"
+              max={today}
+              min="1915-01-01"
               onChange={(event) => setValidTo(event.target.value)}
             ></Form.Field>
              <Form.Field>
