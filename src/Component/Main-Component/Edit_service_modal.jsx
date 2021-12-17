@@ -208,7 +208,7 @@ if(service.data.category.length>0){
                   <label>Image(JPEG/PNG)</label>
                   <Input type='file' name='file' id="file-btn" onChange={(event) => setFile(event.target.files[0])} style={{ display: "none" }} />
                   <p className='file'>
-                    <label style={{cursor:'pointer'}}  for='file-btn'>{!file?"Click to select file":"File Uploaded"}  </label>
+                    <label style={{cursor:'pointer'}}  for='file-btn'>{!file?"Click to select file":file?.name + " Uploaded"}</label>
                   </p>
                 </Form.Field>
                 <Form.Field>
