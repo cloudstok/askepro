@@ -78,7 +78,7 @@ const Service_modal = (props) => {
       props.refresh();
      
     } else {
-      setMsg("There has been an error");
+      setMsg("Please use different Service Name");
       setServiceDetail([]);
       setOpenErr(true);
     }
@@ -91,7 +91,7 @@ const Service_modal = (props) => {
       { key: cat, text: cat, value: cat }
     ]);
     setCat("");
-  };
+  };  
   const handleRemove = async (ele) => {
     // console.log({ key: ele, text: ele, value: ele })
     let arr = catArr
