@@ -9,6 +9,7 @@ import {
   Form,
   Table,
 } from "semantic-ui-react";
+import Updated from "../popup/updated";
 
 
 function exampleVerify(state, action) {
@@ -25,7 +26,12 @@ function exampleVerify(state, action) {
 const FAQ_modal = () => {
   const [faqTitle, setTitle] = React.useState(null);
   const [description, setDescription] = React.useState(null);
+  const [pop, setPop] = React.useState(false);
   const submitFaq = async () => {
+    if(faqTitle===null||description){
+      setPop(true)
+      return;
+    }
     dispatch({ type: "close" });
     const url = `${process.env.REACT_APP_BASE_URL}/admin/faq`;
     let jsonData = {
@@ -113,6 +119,7 @@ const FAQ_modal = () => {
           </div>
         </Modal.Description>
       </Modal>
+      <Updated wrong={true} open={pop} msg="Please enter Question and Answer" onClose={() => setPop(false)} />
     </>
   );
 };
