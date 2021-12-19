@@ -31,10 +31,6 @@ const Offer_modal = (props) => {
   const [msg, setMsg] = React.useState(false);
   const [openPopErr, setOpenErr] = React.useState(false);
   const submitOffer= async () => {
-    if(name===null&&file===null){
-      setPop(true)
-      return;
-    }
     dispatch({ type: "close" });
     const url = `${process.env.REACT_APP_BASE_URL}/admin/offer`;
    
@@ -50,14 +46,16 @@ const Offer_modal = (props) => {
         body: formData,
       })
     ).json();
+    if(name===null||file===null){
+      setPop(true);
+      return;
+    }
     if (result.status === 1) {
    setImg(null);
       props.refresh();
     }
-    else{
-      setOpenErr(true)
-      return;
-    }
+   
+  
  
   };
 
