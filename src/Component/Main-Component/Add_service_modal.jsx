@@ -76,7 +76,12 @@ const Service_modal = (props) => {
     if (result.status === 1) {
       setServiceDetail([]);
       props.refresh();
-     
+      setName(null);
+      setDescription(null);
+      setFile(null);
+      setShowCat(false);
+      handleRemove();
+      
     } else {
       setMsg("Please use different Service Name");
       setServiceDetail([]);
