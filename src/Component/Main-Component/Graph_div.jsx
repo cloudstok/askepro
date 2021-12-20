@@ -31,7 +31,7 @@ const Graph_div = (graph) => {
 
   const getServices = async () => {
     const services = await (await fetch(service_url, { method: "GET" })).json();
-    const serviceData = services.data.map((e) => ({
+    const serviceData = services?.data?.map((e) => ({
       name: e.name,
     }));
 
