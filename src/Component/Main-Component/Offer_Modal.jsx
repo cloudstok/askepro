@@ -10,6 +10,7 @@ import {
   Table,
   Input
 } from "semantic-ui-react";
+import Updated from "../popup/updated";
 
 function exampleVerify(state, action) {
   switch (action.type) {
@@ -26,6 +27,9 @@ const Offer_modal = (props) => {
   const [name, setName] = React.useState(null);
   const [file, setFile] = React.useState(null);
   const[img, setImg]=React.useState(null);
+  const [pop, setPop] = React.useState(false);
+  const [msg, setMsg] = React.useState(false);
+  const [openPopErr, setOpenErr] = React.useState(false);
   const submitOffer= async () => {
     dispatch({ type: "close" });
     const url = `${process.env.REACT_APP_BASE_URL}/admin/offer`;
@@ -42,10 +46,17 @@ const Offer_modal = (props) => {
         body: formData,
       })
     ).json();
+    if(name===null||file===null){
+      setPop(true);
+      return;
+    }
     if (result.status === 1) {
    setImg(null);
       props.refresh();
     }
+   
+  
+ 
   };
 
   const [state, dispatch] = React.useReducer(exampleVerify, {
@@ -132,6 +143,14 @@ return (
           </div>
         </Modal.Description>
       </Modal>
+      
+      <Updated wrong={true} open={pop} msg="Please enter Offer Name and select Offer Image" onClose={() => setPop(false)} />
+      <Updated
+        open={openPopErr}
+        wrong={openPopErr}
+        msg="Please use different Offer Name"
+        onClose={() => setOpenErr(false)}
+      />
     </>
   );
 };

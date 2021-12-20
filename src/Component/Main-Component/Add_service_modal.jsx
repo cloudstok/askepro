@@ -76,9 +76,14 @@ const Service_modal = (props) => {
     if (result.status === 1) {
       setServiceDetail([]);
       props.refresh();
-     
+      setName(null);
+      setDescription(null);
+      setFile(null);
+      setShowCat(false);
+      handleRemove();
+      
     } else {
-      setMsg("There has been an error");
+      setMsg("Please use different Service Name");
       setServiceDetail([]);
       setOpenErr(true);
     }
@@ -91,7 +96,7 @@ const Service_modal = (props) => {
       { key: cat, text: cat, value: cat }
     ]);
     setCat("");
-  };
+  };  
   const handleRemove = async (ele) => {
     // console.log({ key: ele, text: ele, value: ele })
     let arr = catArr

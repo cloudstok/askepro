@@ -37,6 +37,30 @@ export default function ViewDocuments() {
     setFile(null);
   }
   const uploadWithFormData = async (event) => {
+    if(name===''){
+      setMsg("Please enter Name")
+      setOpenErr(true);
+      resetFields();
+      return;
+    }
+    if(validFrom===''){
+      setMsg("Please select valid From Date")
+      setOpenErr(true);
+      resetFields();
+      return;
+    }
+    if(validTo===''){
+      setMsg("Please enter valid To Date")
+      setOpenErr(true);
+      resetFields();
+      return;
+    }
+    if(file===null){
+      setMsg("Please upload file")
+      setOpenErr(true);
+      resetFields();
+      return;
+    }
 
     const url = `${process.env.REACT_APP_BASE_URL}/document/upload`;
     event.preventDefault();
@@ -56,7 +80,7 @@ console.log(formData)
         },
       })
     ).json();
-
+    
     if (result.status === 1) {
       setMsg("Document Added Successfully");
       setOpen(true);

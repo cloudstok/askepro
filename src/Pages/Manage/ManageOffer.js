@@ -86,6 +86,7 @@ const ManageOffer = ({ title }) => {
       setMsg(result.msg);
       setPop(true);
       getoffers();
+
     }
   };
   const refresh=()=>{
