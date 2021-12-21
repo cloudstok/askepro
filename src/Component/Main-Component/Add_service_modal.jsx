@@ -89,6 +89,8 @@ const Service_modal = (props) => {
     }
   };
   const handleAdd = async () => {
+    if(cat===null)
+    return;
  if(cat?.replace(/\s/g, '')?.length<1 )
  return;
     setcatArr([
