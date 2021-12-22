@@ -27,8 +27,9 @@ const FAQ_modal = () => {
   const [faqTitle, setTitle] = React.useState(null);
   const [description, setDescription] = React.useState(null);
   const [pop, setPop] = React.useState(false);
+  const [correct, setCorrect] = React.useState(false);
   const submitFaq = async () => {
-    if(faqTitle===null||description){
+    if(faqTitle===null||description===null){
       setPop(true)
       return;
     }
@@ -53,6 +54,7 @@ const FAQ_modal = () => {
 
     if (result.status === 1) {
       window.location.reload(false);
+      setCorrect(open);
     }
   };
 
@@ -83,7 +85,7 @@ const FAQ_modal = () => {
                 <p>Question</p>
               </Table.Cell>
               <Table.Cell>
-                <input placeholder="Enter question here" onChange={(event) => setTitle(event.target.value)} />
+                <input placeholder="Enter question here" value={faqTitle} onChange={(event) => setTitle(event.target.value)} />
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -92,7 +94,7 @@ const FAQ_modal = () => {
               </Table.Cell>
               <Table.Cell>
                 <Form.Field>
-                  <input placeholder="Enter answer here" onChange={(event) => setDescription(event.target.value)} />
+                  <input placeholder="Enter answer here" value={description} onChange={(event) => setDescription(event.target.value)} />
                 </Form.Field>
               </Table.Cell>
             </Table.Row>
@@ -120,6 +122,7 @@ const FAQ_modal = () => {
         </Modal.Description>
       </Modal>
       <Updated wrong={true} open={pop} msg="Please enter Question and Answer" onClose={() => setPop(false)} />
+      <Updated wrong={false} button={true} open={correct} msg="Question and Answer saved" onClose={() => setCorrect(false)} />
     </>
   );
 };

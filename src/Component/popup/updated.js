@@ -49,7 +49,7 @@ const Updated = (props) => {
           {props.msg}
           </p>
 
-          <div className="accept_bottom">
+          {props.button?<></>:<div className="accept_bottom">
             <button
               color="black"
               className="same-btn"
@@ -57,7 +57,8 @@ const Updated = (props) => {
             >
               CLOSE
             </button>
-          </div>
+
+          </div>}
         </Modal.Description>
       </Modal>
     </>

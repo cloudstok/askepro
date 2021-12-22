@@ -76,16 +76,22 @@ const Service_modal = (props) => {
     if (result.status === 1) {
       setServiceDetail([]);
       props.refresh();
-      setName(null);
+      window.location.reload(false);
+      /* setName(null);
       setDescription(null);
       setFile(null);
       setShowCat(false);
-      handleRemove();
-      
+      handleRemove(); 
+      setCat(null);
+      setType(null);
+      setPrice(null);
+      setDiscount(null);
+      setDocs(null); */
     } else {
       setMsg("Please use different Service Name");
       setServiceDetail([]);
       setOpenErr(true);
+      window.location.reload(false);
     }
   };
   const handleAdd = async () => {
