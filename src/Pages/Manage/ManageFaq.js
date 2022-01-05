@@ -11,6 +11,8 @@ import {
   Button,
   Input,
   TextArea,
+  Loader,
+  Dimmer,
 } from "semantic-ui-react";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import StatusChip from "../../Component/StatusChip/StatusChip";
@@ -91,7 +93,9 @@ const ManageFaq = ({ title }) => {
     }
   };
   if (!faqs) {
-    return <div />;
+    return <> <Dimmer active>
+    <Loader size='large'>Loading</Loader>
+  </Dimmer></>;
   }
 
   return (

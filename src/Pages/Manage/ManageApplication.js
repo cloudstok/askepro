@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Breadcrumb, Pagination, Table } from 'semantic-ui-react';
+import { Container, Loader, Dimmer, Breadcrumb, Pagination, Table } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -46,7 +46,9 @@ const ManageApplication = ({title}) =>{
     };
     console.log(application)
     if(!application)
-    {return (<div></div>)}
+    {return (<div> <Dimmer active>
+      <Loader size='large'>Loading</Loader>
+    </Dimmer></div>)}
         return (
           
           <main className='manage-main'>

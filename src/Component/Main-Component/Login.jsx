@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Label, Form, Message } from "semantic-ui-react";
+import { Button, Checkbox, Label, Input, Form, Message, Search } from "semantic-ui-react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from "react-router-dom";
 import { tsConstructSignatureDeclaration } from "@babel/types";
@@ -110,6 +110,7 @@ const Login1 = () => {
               name="password"
               placeholder="Enter password"
               required={true}
+              icon={Search}
             />
           
           </Form.Field>

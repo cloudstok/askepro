@@ -8,6 +8,8 @@ import {
   Sidebar,
   Grid,
   Form,
+  Dimmer,
+  Loader,
   Button,
   Input,
   TextArea,
@@ -95,7 +97,9 @@ const ManageOffer = ({ title }) => {
       getoffers();
   }
   if (!offers) {
-    return <div />;
+    return <div> <Dimmer active>
+    <Loader size='large'>Loading</Loader>
+  </Dimmer></div>;
   }
 
   return (

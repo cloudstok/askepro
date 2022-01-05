@@ -8,7 +8,7 @@ import "../../Sass/Sass-Main/_Request_file.scss";
 import SideBar from "../../Component/Nav/Sidebar";
 import Reject from "../../Component/Main-Component/Reject";
 import Accept from "../../Component/Main-Component/Accept";
-import { Container, Grid, Icon } from "semantic-ui-react";
+import { Container, Grid, Icon, Dimmer, Loader } from "semantic-ui-react";
 import Graph_div from '../../Component/Main-Component/Graph_div';
 import "../../Sass/Sass-Main/_Appointment_card.scss";
 import "../../Sass/Sass-Main/_Admin_dashboard.scss";
@@ -48,7 +48,9 @@ const Admin_dashboard = () => {
     setData(result);
   };
   if (!data) {
-    return <div />;
+    return <div> <Dimmer active>
+    <Loader size='large'>Loading</Loader>
+  </Dimmer></div>;
   }
 console.log(data);
   return (

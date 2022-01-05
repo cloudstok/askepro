@@ -90,7 +90,7 @@ const Login2 = () => {
             />
             {formik.touched.phone && formik.errors.phone ? (
               <div className="error">
-                <p>Please enter phone number</p>
+                <p>Please enter valid phone number</p>
               </div>
             ) : null}
           </Form.Field>
@@ -106,7 +106,7 @@ const Login2 = () => {
             />
             {formik.touched.email && formik.errors.email ? (
               <div className="error">
-                <p>Please enter Email</p>
+                <p>Please enter valid Email</p>
               </div>
             ) : null}
           </Form.Field>

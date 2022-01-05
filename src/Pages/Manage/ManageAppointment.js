@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Breadcrumb, Pagination, Table } from 'semantic-ui-react';
+import { Container, Breadcrumb,Dimmer,Loader, Pagination, Table } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar';
@@ -45,7 +45,9 @@ const ManageAppointments = ({title}) =>{
     };
     
     if(!appointment)
-    {return (<div></div>)}
+    {return (<div> <Dimmer active>
+      <Loader size='large'>Loading</Loader>
+    </Dimmer></div>)}
 
         return (
           

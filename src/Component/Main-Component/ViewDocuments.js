@@ -40,25 +40,31 @@ export default function ViewDocuments() {
     if(name===''){
       setMsg("Please enter Name")
       setOpenErr(true);
-      resetFields();
+      
+      return;
+    }
+    if(validTo<validFrom){
+      
+      setMsg("Valid To Value should not be less than"+" "+validFrom.split("-").reverse().join("-"))
+      setOpenErr(true);
       return;
     }
     if(validFrom===''){
-      setMsg("Please select valid From Date")
+      setMsg("Please select Valid From Date")
       setOpenErr(true);
-      resetFields();
+      
       return;
     }
     if(validTo===''){
-      setMsg("Please enter valid To Date")
+      setMsg("Please enter Valid To Date")
       setOpenErr(true);
-      resetFields();
+      
       return;
     }
     if(file===null){
       setMsg("Please upload file")
       setOpenErr(true);
-      resetFields();
+      //resetFields();
       return;
     }
 
@@ -145,6 +151,7 @@ console.log(formData)
   }
   
   today = yyyy + '-' + mm + '-' + dd;
+ 
   return (
   
     <div className="viewDownload">
@@ -181,8 +188,9 @@ console.log(formData)
               id="dt"
               type="date"
               value={validTo}
+              min={validFrom}
               max={today}
-              min="1915-01-01"
+              
               onChange={(event) => setValidTo(event.target.value)}
             ></Form.Field>
              <Form.Field>

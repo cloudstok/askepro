@@ -5,6 +5,8 @@ import {
   Table,
   Grid,
   Breadcrumb,
+  Dimmer,
+  Loader,
 } from "semantic-ui-react";
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import StatusChip from "../../Component/StatusChip/StatusChip";
@@ -93,7 +95,9 @@ const ManageService = ({ title }) => {
   };
 
   if (!service) {
-    return <div></div>;
+    return <div> <Dimmer active>
+    <Loader size='large'>Loading</Loader>
+  </Dimmer></div>;
   }
   const msg2 = "Are you sure you want to logout?";
   return (

@@ -307,7 +307,24 @@ header {
 }
 
 //Sidebar
-
+.tool_name{
+z-index: 10;
+height: 5rem;
+width: 5rem;
+padding: 0 10px;
+opacity: 0;
+position: absolute;
+right: 0rem;
+overflow: hidden;
+  &:hover{
+    opacity: 1;
+    color: #000 !important;
+    font-size: 0.75rem;
+    text-align: center;
+    
+    
+  }
+}
 .sidebar {
   background-color: #fff !important;
   height: auto;
@@ -317,8 +334,11 @@ header {
   align-items: center;
   box-shadow: 4px 0 10px 0 rgba(180, 180, 180, 0.1);
   margin: 20px 0;
-  position: sticky;
+  position: relative;
+  &:hover{
+/* width: 9rem; */
 
+  }
  
   .item {
     cursor: pointer;

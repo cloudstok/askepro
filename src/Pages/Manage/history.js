@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Pagination, Table, Label, Button, Breadcrumb } from 'semantic-ui-react';
+import { Container, Icon,Dimmer,Loader, Pagination, Table, Label, Button, Breadcrumb } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import './manage.scss';
@@ -24,7 +24,10 @@ const History = ({ title, key }) => {
 
           })).json();
 
-      setApplication(application || []);
+      setApplication(application || <div>   <Dimmer active>
+        <Loader size='large'>Loading</Loader>
+      </Dimmer>
+</div>);
     }
   }
   const handleClick = async (status, id, slug) => {
@@ -57,7 +60,9 @@ const History = ({ title, key }) => {
     setApplication(application || []);
   };
   if (!application) {
-    return (<div></div>);
+    return (<div> <Dimmer active>
+      <Loader size='large'>Loading</Loader>
+    </Dimmer></div>);
   }
   console.log(application);
   function dateFormat(d) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, Dropdown, Breadcrumb, Pagination, Table, Label, Sidebar, Button, StepGroup } from 'semantic-ui-react';
+import { Container, Icon, Dropdown, Breadcrumb, Pagination, Table, Label, Sidebar, Button, StepGroup, Loader, Dimmer } from 'semantic-ui-react';
 import BreadCrumbs from '../../Component/Breadcrumb/breadcrumb';
 import StatusChip from '../../Component/StatusChip/StatusChip';
 import SideBar from '../../Component/Nav/Sidebar'
@@ -73,7 +73,9 @@ const [msg, setMsg]= React.useState();
   }
 
   if (!query) {
-    return (<div />)
+    return (<div> <Dimmer active>
+      <Loader size='large'>Loading</Loader>
+    </Dimmer></div>)
   }
   return (
     <main className='manage-main'>
