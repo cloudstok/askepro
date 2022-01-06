@@ -121,7 +121,9 @@ const FAQ_modal = () => {
           </div>
         </Modal.Description>
       </Modal>
-      <Updated wrong={true} open={pop} msg="Please enter Question and Answer" onClose={() => setPop(false)} />
+      {!faqTitle && description ? <Updated wrong={true} open={pop} msg="Please enter Question" onClose={() => setPop(false)} />:<></>}
+      {faqTitle && !description ? <Updated wrong={true} open={pop} msg="Please enter Answer" onClose={() => setPop(false)} />:<></>}
+      {!faqTitle && !description ?<Updated wrong={true} open={pop} msg="Please enter Question and Answer" onClose={() => setPop(false)} />:<></>}
       <Updated wrong={false} button={true} open={correct} msg="Question and Answer saved" onClose={() => setCorrect(false)} />
     </>
   );

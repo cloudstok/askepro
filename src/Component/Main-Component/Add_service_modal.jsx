@@ -91,7 +91,7 @@ const Service_modal = (props) => {
       setMsg("Please use different Service Name");
       setServiceDetail([]);
       setOpenErr(true);
-      window.location.reload(false);
+      // window.location.reload(false);
     }
   };
   const handleAdd = async () => {
