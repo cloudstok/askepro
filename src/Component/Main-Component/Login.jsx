@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Label, Input, Form, Message, Search } from "semantic-ui-react";
+import { Button, Checkbox, Icon, Label, Input, Form, Message, Search } from "semantic-ui-react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from "react-router-dom";
 import { tsConstructSignatureDeclaration } from "@babel/types";
@@ -13,7 +13,11 @@ const Login1 = () => {
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [msg, setMsg] = React.useState(null);
+  const [showPassword, setshowPassword] = React.useState(false)
 
+  const tooglePassword = () => {
+    setshowPassword(!showPassword);
+  }
   const handleSubmitForm = async (event) => {
     event.preventDefault();
     if(recaptchaRef?.current?.getValue().length===0){
@@ -104,15 +108,15 @@ const Login1 = () => {
           </Form.Field>
           <Form.Field>
             <label> Password</label>
-            <input
-              type="password"
+            <Input
+              type={showPassword?"text":"password"}
               onChange={(event) => {setPassword(event.target.value); setMsg(null)}}
               name="password"
               placeholder="Enter password"
               required={true}
-              icon={Search}
+              icon={<Icon name='eye' onClick={tooglePassword} link/>}
             />
-          
+            
           </Form.Field>
 
           <Form.Field className="check">
