@@ -17,6 +17,7 @@ import Edit_Modal from "../../Component/Main-Component/Edit_service_modal";
 import { useHistory } from "react-router";
 import Updated from "../../Component/popup/updated";
 import Accepted from "../../Component/popup/accepted";
+import moment from "moment";
 
 const ManageService = ({ title }) => {
   const history = useHistory();
@@ -139,7 +140,7 @@ const ManageService = ({ title }) => {
                   service.data.map((ele) => (
                     <Table.Row>
                       <Table.Cell>
-                        {new Date(ele.createdAt).toLocaleString()}
+                        {moment(ele.createdAt).format('ll')}
                       </Table.Cell>
                       <Table.Cell>{ele.scode}</Table.Cell>
                       <Table.Cell>{ele.name}</Table.Cell>

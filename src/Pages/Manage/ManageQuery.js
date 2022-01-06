@@ -6,6 +6,7 @@ import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 import { useHistory } from 'react-router';
 import Updated from '../../Component/popup/updated';
+import moment from 'moment';
 
 const ManageQuery = ({ title }) => {
   const history = useHistory();
@@ -111,7 +112,7 @@ const [msg, setMsg]= React.useState();
               </Table.Header>
               <Table.Body>
                 {query.data && query.data.map((ele) => <Table.Row>
-                  <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
+                  <Table.Cell>{moment(ele.createdAt).format('ll')}</Table.Cell>
                   <Table.Cell>{ele.name}</Table.Cell>
                   <Table.Cell>{ele.email}</Table.Cell>
                   <Table.Cell>{ele.query}</Table.Cell>

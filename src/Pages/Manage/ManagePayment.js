@@ -5,6 +5,7 @@ import StatusChip from "../../Component/StatusChip/StatusChip";
 import SideBar from "../../Component/Nav/Sidebar";
 import "./manage.scss";
 import { useHistory } from "react-router";
+import moment from "moment";
 
 const ManagePayments = ({ title }) => {
   const history = useHistory();
@@ -88,7 +89,8 @@ const ManagePayments = ({ title }) => {
                   payment.data.map((ele) => (
                     <Table.Row>
                       <Table.Cell>
-                        {new Date(ele.transaction.createdAt).toLocaleString()}
+                        
+                        {moment(ele.createdAt).format('ll')}
                       </Table.Cell>
                       <Table.Cell>{ele.transaction._id}</Table.Cell>
                       <Table.Cell>{ele.serviceCategory._id}</Table.Cell>

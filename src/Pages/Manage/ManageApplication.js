@@ -6,6 +6,7 @@ import SideBar from '../../Component/Nav/Sidebar'
 import './manage.scss';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const ManageApplication = ({title}) =>{
   const history = useHistory();
@@ -79,7 +80,7 @@ const ManageApplication = ({title}) =>{
     </Table.Header>
     <Table.Body>
     {application.data&&application.data.map((ele) => <Table.Row>
-        <Table.Cell>{new Date(ele.createdAt).toLocaleString()}</Table.Cell>
+        <Table.Cell>{moment(ele.createdAt).format('ll')}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.name}</Table.Cell>
         <Table.Cell>{ele.serviceCategory.scode}</Table.Cell>
         <Table.Cell>{ele.transaction&&ele.transaction._id}</Table.Cell>

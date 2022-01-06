@@ -14,6 +14,7 @@ import {
   Loader,
   Dimmer,
 } from "semantic-ui-react";
+
 import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import StatusChip from "../../Component/StatusChip/StatusChip";
 import SideBar from "../../Component/Nav/Sidebar";
@@ -24,6 +25,7 @@ import FAQ_Modal_Edit from "../../Component/Main-Component/FAQ_modal_Edit";
 import { useHistory } from "react-router";
 import Updated from "../../Component/popup/updated";
 import Accepted from "../../Component/popup/accepted";
+import moment from "moment";
 
 const ManageFaq = ({ title }) => {
   const history = useHistory();
@@ -136,7 +138,8 @@ const ManageFaq = ({ title }) => {
                   faqs.data.map((ele) => (
                     <Table.Row>
                       <Table.Cell>
-                        {new Date(ele.createdAt).toLocaleString()}
+                        {moment(ele.createdAt).format('ll')}
+                        
                       </Table.Cell>                 
                       <Table.Cell>{ele.title}</Table.Cell>
                       <Table.Cell>{ele.description}</Table.Cell>

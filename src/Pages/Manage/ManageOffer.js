@@ -18,6 +18,7 @@ import BreadCrumbs from "../../Component/Breadcrumb/breadcrumb";
 import StatusChip from "../../Component/StatusChip/StatusChip";
 import SideBar from "../../Component/Nav/Sidebar";
 import "./manage.scss";
+import moment from "moment";
 
 // import Offer_modal_edit from "../../Component/Main-Component/offer_modal_Edit"
 // import Offer_Modal_Edit from "../../Component/Main-Component/offer_modal_Edit";
@@ -26,6 +27,7 @@ import Offer_modal from "../../Component/Main-Component/Offer_Modal";
 import Offer_image_modal from "../../Component/Main-Component/Offer_image";
 import Updated from "../../Component/popup/updated";
 import Accepted from "../../Component/popup/accepted";
+
 
 const ManageOffer = ({ title }) => {
   const history = useHistory();
@@ -139,7 +141,9 @@ const ManageOffer = ({ title }) => {
                   offers.data.map((ele) => (
                     <Table.Row>
                       <Table.Cell>
-                        {new Date(ele.createdAt).toLocaleString()}
+                        
+                        {moment(ele.createdAt).format('ll')}
+
                       </Table.Cell>                 
                       <Table.Cell>{ele.name}</Table.Cell>
                       {/* <Table.Cell>{ele.data}</Table.Cell> */}
